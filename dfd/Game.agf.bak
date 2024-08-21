@@ -2383,7 +2383,7 @@
             <MovementSpeed>3</MovementSpeed>
             <MovementSpeedX>0</MovementSpeedX>
             <MovementSpeedY>0</MovementSpeedY>
-            <NormalView>4</NormalView>
+            <NormalView>2</NormalView>
             <Properties />
             <RealName>Hero</RealName>
             <ScriptName>cHero</ScriptName>
@@ -2494,6 +2494,48 @@
               <Event Index="7" />
             </Interactions>
           </Character>
+          <Character>
+            <AdjustSpeedWithScaling>False</AdjustSpeedWithScaling>
+            <AdjustVolumeWithScaling>False</AdjustVolumeWithScaling>
+            <AnimationDelay>4</AnimationDelay>
+            <BlinkingView>0</BlinkingView>
+            <Clickable>True</Clickable>
+            <DiagonalLoops>True</DiagonalLoops>
+            <ID>4</ID>
+            <IdleAnimationDelay>4</IdleAnimationDelay>
+            <IdleDelay>20</IdleDelay>
+            <IdleView>4</IdleView>
+            <MovementLinkedToAnimation>True</MovementLinkedToAnimation>
+            <MovementSpeed>3</MovementSpeed>
+            <MovementSpeedX>0</MovementSpeedX>
+            <MovementSpeedY>0</MovementSpeedY>
+            <NormalView>4</NormalView>
+            <Properties />
+            <RealName>Sarra</RealName>
+            <ScriptName>cSarra</ScriptName>
+            <Solid>True</Solid>
+            <SpeechAnimationDelay>5</SpeechAnimationDelay>
+            <SpeechColor>12</SpeechColor>
+            <SpeechView>0</SpeechView>
+            <StartX>170</StartX>
+            <StartY>160</StartY>
+            <StartingRoom>305</StartingRoom>
+            <ThinkingView>0</ThinkingView>
+            <TurnBeforeWalking>True</TurnBeforeWalking>
+            <UniformMovementSpeed>True</UniformMovementSpeed>
+            <UseRoomAreaLighting>True</UseRoomAreaLighting>
+            <UseRoomAreaScaling>True</UseRoomAreaScaling>
+            <Interactions>
+              <Event Index="0" />
+              <Event Index="1" />
+              <Event Index="2">cSarra_Talk</Event>
+              <Event Index="3" />
+              <Event Index="4" />
+              <Event Index="5" />
+              <Event Index="6" />
+              <Event Index="7" />
+            </Interactions>
+          </Character>
         </Characters>
       </CharacterFolder>
     </Characters>
@@ -2547,6 +2589,101 @@ stop]]></Script>
                     <Say>False</Say>
                     <Show>True</Show>
                     <Text>Goodbye</Text>
+                  </DialogOption>
+                </DialogOptions>
+              </Dialog>
+            </Dialogs>
+          </DialogFolder>
+          <DialogFolder Name="Sarra">
+            <SubFolders />
+            <Dialogs>
+              <Dialog>
+                <ID>1</ID>
+                <Name>dSarra_0</Name>
+                <ShowTextParser>False</ShowTextParser>
+                <Script><![CDATA[// Dialog script file
+@S  // Dialog startup entry point
+cSarra: &1 Greetings, Prince of Shapeir.  How may I serve you? 
+return
+
+@1
+goto-dialog dSarra_1
+@2
+goto-dialog dSarra_1
+@3
+goto-dialog dSarra_1
+@4
+goto-dialog dSarra_1]]></Script>
+                <DialogOptions>
+                  <DialogOption>
+                    <ID>1</ID>
+                    <Say>False</Say>
+                    <Show>True</Show>
+                    <Text xml:space="preserve">Talk to Sarra</Text>
+                  </DialogOption>
+                  <DialogOption>
+                    <ID>2</ID>
+                    <Say>False</Say>
+                    <Show>True</Show>
+                    <Text xml:space="preserve">Buy something from Sarra</Text>
+                  </DialogOption>
+                  <DialogOption>
+                    <ID>3</ID>
+                    <Say>False</Say>
+                    <Show>True</Show>
+                    <Text xml:space="preserve">Sell something to Sarra</Text>
+                  </DialogOption>
+                  <DialogOption>
+                    <ID>4</ID>
+                    <Say>False</Say>
+                    <Show>True</Show>
+                    <Text xml:space="preserve">Never mind</Text>
+                  </DialogOption>
+                </DialogOptions>
+              </Dialog>
+              <Dialog>
+                <ID>2</ID>
+                <Name>dSarra_1</Name>
+                <ShowTextParser>False</ShowTextParser>
+                <Script><![CDATA[// Dialog script file
+@S  // Dialog startup entry point
+return
+@1
+Sarra: &2 Welcome and good day.  How may I please you?
+return
+@2
+Sarra: &3 I am pleased, as always, to speak with you.
+return
+@3
+Sarra: &4 There is a rumor that the last king of Silmaria was murdered.  It is a very sad thing, for he was a good ruler.
+return
+@4
+Sarra: &5 May your journey be ever to your liking.
+stop]]></Script>
+                <DialogOptions>
+                  <DialogOption>
+                    <ID>1</ID>
+                    <Say>False</Say>
+                    <Show>True</Show>
+                    <Text xml:space="preserve">Greet Sarra</Text>
+                  </DialogOption>
+                  <DialogOption>
+                    <ID>2</ID>
+                    <Say>False</Say>
+                    <Show>True</Show>
+                    <Text xml:space="preserve">Ask about Sarra</Text>
+                  </DialogOption>
+                  <DialogOption>
+                    <ID>3</ID>
+                    <Say>False</Say>
+                    <Show>True</Show>
+                    <Text xml:space="preserve">Ask about Rumors</Text>
+                  </DialogOption>
+                  <DialogOption>
+                    <ID>4</ID>
+                    <Say>False</Say>
+                    <Show>True</Show>
+                    <Text xml:space="preserve">Say Goodbye</Text>
                   </DialogOption>
                 </DialogOptions>
               </Dialog>
@@ -7518,6 +7655,30 @@ stop]]></Script>
       <ScriptFolder Name="Main">
         <SubFolders />
         <ScriptAndHeaders>
+          <ScriptAndHeader>
+            <ScriptAndHeader_Header>
+              <Script>
+                <FileName>Sarra.ash</FileName>
+                <Name />
+                <Description />
+                <Author />
+                <Version />
+                <Key>1096775351</Key>
+                <IsHeader>True</IsHeader>
+              </Script>
+            </ScriptAndHeader_Header>
+            <ScriptAndHeader_Script>
+              <Script>
+                <FileName>Sarra.asc</FileName>
+                <Name />
+                <Description />
+                <Author />
+                <Version />
+                <Key>1096775351</Key>
+                <IsHeader>False</IsHeader>
+              </Script>
+            </ScriptAndHeader_Script>
+          </ScriptAndHeader>
           <ScriptAndHeader>
             <ScriptAndHeader_Header>
               <Script>
