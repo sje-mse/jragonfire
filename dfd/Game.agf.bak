@@ -2689,6 +2689,7 @@ goto-dialog dSarra_1]]></Script>
                 <ShowTextParser>False</ShowTextParser>
                 <Script><![CDATA[// Dialog script file
 @S  // Dialog startup entry point
+cSarra: &1 Greetings, Prince of Shapeir.  How may I serve you?
 return
 @1
 Sarra: &2 Welcome and good day. How may I please you?
