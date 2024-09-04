@@ -2536,6 +2536,48 @@
               <Event Index="7" />
             </Interactions>
           </Character>
+          <Character>
+            <AdjustSpeedWithScaling>False</AdjustSpeedWithScaling>
+            <AdjustVolumeWithScaling>False</AdjustVolumeWithScaling>
+            <AnimationDelay>4</AnimationDelay>
+            <BlinkingView>0</BlinkingView>
+            <Clickable>True</Clickable>
+            <DiagonalLoops>True</DiagonalLoops>
+            <ID>5</ID>
+            <IdleAnimationDelay>4</IdleAnimationDelay>
+            <IdleDelay>20</IdleDelay>
+            <IdleView>4</IdleView>
+            <MovementLinkedToAnimation>True</MovementLinkedToAnimation>
+            <MovementSpeed>3</MovementSpeed>
+            <MovementSpeedX>0</MovementSpeedX>
+            <MovementSpeedY>0</MovementSpeedY>
+            <NormalView>4</NormalView>
+            <Properties />
+            <RealName>Wolfie</RealName>
+            <ScriptName>cWolfie</ScriptName>
+            <Solid>True</Solid>
+            <SpeechAnimationDelay>5</SpeechAnimationDelay>
+            <SpeechColor>12</SpeechColor>
+            <SpeechView>0</SpeechView>
+            <StartX>140</StartX>
+            <StartY>144</StartY>
+            <StartingRoom>310</StartingRoom>
+            <ThinkingView>0</ThinkingView>
+            <TurnBeforeWalking>True</TurnBeforeWalking>
+            <UniformMovementSpeed>True</UniformMovementSpeed>
+            <UseRoomAreaLighting>True</UseRoomAreaLighting>
+            <UseRoomAreaScaling>True</UseRoomAreaScaling>
+            <Interactions>
+              <Event Index="0">cWolf_Look</Event>
+              <Event Index="1" />
+              <Event Index="2">cWolfie_Talk</Event>
+              <Event Index="3" />
+              <Event Index="4" />
+              <Event Index="5" />
+              <Event Index="6" />
+              <Event Index="7" />
+            </Interactions>
+          </Character>
         </Characters>
       </CharacterFolder>
     </Characters>
@@ -2649,13 +2691,33 @@ goto-dialog dSarra_1]]></Script>
 @S  // Dialog startup entry point
 return
 @1
-Sarra: &2 Welcome and good day.  How may I please you?
+Sarra: &2 Welcome and good day. How may I please you?
 return
 @2
 Sarra: &3 I am pleased, as always, to speak with you.
+
+Sarra: &7 It is a beautiful day this time of year, and I am well content, thank you.
+
+Sarra: &12 Business has been slow, for few think of romance this time of year.
+
+Sarra: &11 My day has been brightened by your presence. You are always so kind and polite.
+
+Sarra: &10 It is more damp and cool today than I am used to, but as long as the clouds do not bring rain, I am content.
+
+Sarra: &9 I have sold some jewelry today to someone who wanted to please a woman. Perhaps he will one day marry her.
 return
 @3
-Sarra: &4 There is a rumor that the last king of Silmaria was murdered.  It is a very sad thing, for he was a good ruler.
+Sarra: &4 There is a rumor that the last king of Silmaria was murdered. It is a very sad thing, for he was a good ruler.
+
+Sarra: &8 The gentle Healer, Julanar, is with child. This is a wonderful thing, because both she and her husband are sweet people.
+
+Sarra: &13 Many people have left Silmaria because they feared the invaders. I hope that they might be able to return soon.
+
+Sarra: &14 People in this city are talking about the crime in the streets. There seem to be more pickpockets and thieves than ever before. Such is ever the way when a city has no ruler.
+
+Sarra: &15 I have heard from my sister in Shapeir that the Sultan Harun al-Rashid, may he live forever, has been blessed by his new wife with a son.
+
+Sarra: &6 My cousin, Shema, sends word to tell you that she and Shameen are well and happy, and hopes that you are the same.
 return
 @4
 Sarra: &5 May your journey be ever to your liking.
@@ -2684,6 +2746,76 @@ stop]]></Script>
                     <Say>False</Say>
                     <Show>True</Show>
                     <Text xml:space="preserve">Say Goodbye</Text>
+                  </DialogOption>
+                </DialogOptions>
+              </Dialog>
+            </Dialogs>
+          </DialogFolder>
+          <DialogFolder Name="Wolfie">
+            <SubFolders />
+            <Dialogs>
+              <Dialog>
+                <ID>3</ID>
+                <Name>dWolfie_1</Name>
+                <ShowTextParser>False</ShowTextParser>
+                <Script><![CDATA[// Dialog script file
+@S  // Dialog startup entry point
+cWolfie: &24 Namaste, and may you be having a pleasant day.
+return
+@1
+cWolfie: &2 Welcome very much. It is always a better day when I see you.
+return
+@2
+cWolfie: &12 Business has been rather slow today. I am thinking that not many people have been breaking their amphorae. I make very strong amphorae, which is good for those that buy them, but bad for me that sells them.
+
+cWolfie: &11 I am good and happy, for someone said today that I have made a very fine map.  Now if only that person had bought my map instead of stealing it, I would be more pleased.
+
+cWolfie: &10 Things are very sunny today, and I wish I could curl up and take a nap in the sunshine. This is not very good for business, however.
+
+cWolfie: &9 I am thinking that I am getting fleas. Most annoying fleas. I shall be needing to take a long bath in the sea tonight.
+
+cWolfie: &8 My mouth waters at the thought of a good curry right now. I think that I must be getting hungry.
+return
+@3
+cWolfie: &7 Let me be thinking... It has been said that the one who had the old King killed wished to take over all of Silmaria. This is a very bad person. I do not think he would make a good king.
+
+cWolfie: &5 It is said that the one who lives in the Famous Adventurer's School was once a famous adventurer. Now he seems just like a tired old man.
+
+cWolfie: &4 The two who run the Apothecary are very happy.  They always act as if they had been fated to be together. This is a good thing.
+
+cWolfie: &25 There is talk that you are most attractive to women.  There is one fine woman who works at the casino who thinks you would be a very good catch. Perhaps you should throw yourself at her some day.
+
+cWolfie: &3 There are many people who have left Silmaria with all the bad things that have happened here. Just because we have murders in the street, a war with the Tritons, an invasion, and eventual destruction of the whole island, does not mean things are all bad.  Pickpocketing is at an all time low here, after all.
+
+return
+@4
+cWolfie: &26 Be very careful. I would not like to read any bad news about you on the notice board. Good day.
+stop
+]]></Script>
+                <DialogOptions>
+                  <DialogOption>
+                    <ID>1</ID>
+                    <Say>False</Say>
+                    <Show>True</Show>
+                    <Text xml:space="preserve">Greet Wolfie</Text>
+                  </DialogOption>
+                  <DialogOption>
+                    <ID>2</ID>
+                    <Say>False</Say>
+                    <Show>True</Show>
+                    <Text xml:space="preserve">Ask about Wolfie</Text>
+                  </DialogOption>
+                  <DialogOption>
+                    <ID>3</ID>
+                    <Say>False</Say>
+                    <Show>True</Show>
+                    <Text xml:space="preserve">Ask about Rumors</Text>
+                  </DialogOption>
+                  <DialogOption>
+                    <ID>4</ID>
+                    <Say>False</Say>
+                    <Show>True</Show>
+                    <Text>Goodbye</Text>
                   </DialogOption>
                 </DialogOptions>
               </Dialog>
@@ -3128,13 +3260,7 @@ stop]]></Script>
       <PaletteEntry Index="255" Type="Background" Red="0" Green="0" Blue="0" />
     </Palette>
     <GlobalVariables>
-      <Variables>
-        <GlobalVariable>
-          <DefaultValue>0</DefaultValue>
-          <Name>mainQuestState</Name>
-          <Type>int</Type>
-        </GlobalVariable>
-      </Variables>
+      <Variables />
     </GlobalVariables>
     <Sprites>
       <SpriteFolder Name="Main">
@@ -7655,6 +7781,54 @@ stop]]></Script>
       <ScriptFolder Name="Main">
         <SubFolders />
         <ScriptAndHeaders>
+          <ScriptAndHeader>
+            <ScriptAndHeader_Header>
+              <Script>
+                <FileName>Wolfie.ash</FileName>
+                <Name />
+                <Description />
+                <Author />
+                <Version />
+                <Key>559753013</Key>
+                <IsHeader>True</IsHeader>
+              </Script>
+            </ScriptAndHeader_Header>
+            <ScriptAndHeader_Script>
+              <Script>
+                <FileName>Wolfie.asc</FileName>
+                <Name />
+                <Description />
+                <Author />
+                <Version />
+                <Key>559753013</Key>
+                <IsHeader>False</IsHeader>
+              </Script>
+            </ScriptAndHeader_Script>
+          </ScriptAndHeader>
+          <ScriptAndHeader>
+            <ScriptAndHeader_Header>
+              <Script>
+                <FileName>QuestFlags.ash</FileName>
+                <Name />
+                <Description />
+                <Author />
+                <Version />
+                <Key>839317096</Key>
+                <IsHeader>True</IsHeader>
+              </Script>
+            </ScriptAndHeader_Header>
+            <ScriptAndHeader_Script>
+              <Script>
+                <FileName>QuestFlags.asc</FileName>
+                <Name />
+                <Description />
+                <Author />
+                <Version />
+                <Key>839317096</Key>
+                <IsHeader>False</IsHeader>
+              </Script>
+            </ScriptAndHeader_Script>
+          </ScriptAndHeader>
           <ScriptAndHeader>
             <ScriptAndHeader_Header>
               <Script>
