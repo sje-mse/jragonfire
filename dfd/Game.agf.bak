@@ -50,7 +50,7 @@
       <InventoryCursors>True</InventoryCursors>
       <InventoryHotspotMarkerCrosshairColor>5</InventoryHotspotMarkerCrosshairColor>
       <InventoryHotspotMarkerDotColor>6</InventoryHotspotMarkerDotColor>
-      <InventoryHotspotMarkerSprite>2059</InventoryHotspotMarkerSprite>
+      <InventoryHotspotMarkerSprite>132</InventoryHotspotMarkerSprite>
       <InventoryHotspotMarkerStyle>Sprite</InventoryHotspotMarkerStyle>
       <LeftToRightPrecedence>True</LeftToRightPrecedence>
       <LetterboxMode>False</LetterboxMode>
@@ -88,7 +88,7 @@
       <UseOldKeyboardHandling>False</UseOldKeyboardHandling>
       <Version>1.0.0.0</Version>
       <WalkInLookMode>False</WalkInLookMode>
-      <WhenInterfaceDisabled>GreyOut</WhenInterfaceDisabled>
+      <WhenInterfaceDisabled>TurnOff</WhenInterfaceDisabled>
     </Settings>
     <RuntimeSetup>
       <AAScaledSprites>False</AAScaledSprites>
@@ -1884,7 +1884,7 @@
               <ID>7</ID>
               <Name>gTextBorder</Name>
               <Padding>3</Padding>
-              <TextColor>0</TextColor>
+              <TextColor>7</TextColor>
             </TextWindowGUI>
             <Controls>
               <GUITextWindowEdge>
@@ -2480,19 +2480,19 @@
             <ID>4</ID>
             <IdleAnimationDelay>4</IdleAnimationDelay>
             <IdleDelay>20</IdleDelay>
-            <IdleView>4</IdleView>
+            <IdleView>6</IdleView>
             <MovementLinkedToAnimation>True</MovementLinkedToAnimation>
             <MovementSpeed>3</MovementSpeed>
             <MovementSpeedX>0</MovementSpeedX>
             <MovementSpeedY>0</MovementSpeedY>
-            <NormalView>4</NormalView>
+            <NormalView>6</NormalView>
             <Properties />
             <RealName>Sarra</RealName>
             <ScriptName>cSarra</ScriptName>
             <Solid>True</Solid>
             <SpeechAnimationDelay>5</SpeechAnimationDelay>
             <SpeechColor>12</SpeechColor>
-            <SpeechView>0</SpeechView>
+            <SpeechView>6</SpeechView>
             <StartX>170</StartX>
             <StartY>160</StartY>
             <StartingRoom>305</StartingRoom>
@@ -2502,7 +2502,7 @@
             <UseRoomAreaLighting>True</UseRoomAreaLighting>
             <UseRoomAreaScaling>True</UseRoomAreaScaling>
             <Interactions>
-              <Event Index="0" />
+              <Event Index="0">cSarra_Look</Event>
               <Event Index="1" />
               <Event Index="2">cSarra_Talk</Event>
               <Event Index="3" />
@@ -2522,12 +2522,12 @@
             <ID>5</ID>
             <IdleAnimationDelay>4</IdleAnimationDelay>
             <IdleDelay>20</IdleDelay>
-            <IdleView>4</IdleView>
+            <IdleView>6</IdleView>
             <MovementLinkedToAnimation>True</MovementLinkedToAnimation>
             <MovementSpeed>3</MovementSpeed>
             <MovementSpeedX>0</MovementSpeedX>
             <MovementSpeedY>0</MovementSpeedY>
-            <NormalView>4</NormalView>
+            <NormalView>6</NormalView>
             <Properties />
             <RealName>Wolfie</RealName>
             <ScriptName>cWolfie</ScriptName>
@@ -6814,6 +6814,96 @@ stop
               <ImportAlphaChannel>True</ImportAlphaChannel>
             </Source>
           </Sprite>
+          <Sprite Slot="133" Width="28" Height="48" ColorDepth="8" Resolution="Real" AlphaChannel="False">
+            <Source>
+              <FileName>D:\DragonFireDemastered\sprites\flamingo\flamingo1.bmp</FileName>
+              <OffsetX>0</OffsetX>
+              <OffsetY>0</OffsetY>
+              <ImportHeight>48</ImportHeight>
+              <ImportWidth>28</ImportWidth>
+              <ImportAsTile>False</ImportAsTile>
+              <Frame>0</Frame>
+              <RemapToGamePalette>True</RemapToGamePalette>
+              <RemapToRoomPalette>False</RemapToRoomPalette>
+              <ImportMethod>TopLeft</ImportMethod>
+              <ImportAlphaChannel>True</ImportAlphaChannel>
+            </Source>
+          </Sprite>
+          <Sprite Slot="134" Width="28" Height="48" ColorDepth="8" Resolution="Real" AlphaChannel="False">
+            <Source>
+              <FileName>D:\DragonFireDemastered\sprites\flamingo\flamingo2.bmp</FileName>
+              <OffsetX>0</OffsetX>
+              <OffsetY>0</OffsetY>
+              <ImportHeight>48</ImportHeight>
+              <ImportWidth>28</ImportWidth>
+              <ImportAsTile>False</ImportAsTile>
+              <Frame>0</Frame>
+              <RemapToGamePalette>True</RemapToGamePalette>
+              <RemapToRoomPalette>False</RemapToRoomPalette>
+              <ImportMethod>TopLeft</ImportMethod>
+              <ImportAlphaChannel>True</ImportAlphaChannel>
+            </Source>
+          </Sprite>
+          <Sprite Slot="135" Width="28" Height="48" ColorDepth="8" Resolution="Real" AlphaChannel="False">
+            <Source>
+              <FileName>D:\DragonFireDemastered\sprites\flamingo\flamingo3.bmp</FileName>
+              <OffsetX>0</OffsetX>
+              <OffsetY>0</OffsetY>
+              <ImportHeight>48</ImportHeight>
+              <ImportWidth>28</ImportWidth>
+              <ImportAsTile>False</ImportAsTile>
+              <Frame>0</Frame>
+              <RemapToGamePalette>True</RemapToGamePalette>
+              <RemapToRoomPalette>False</RemapToRoomPalette>
+              <ImportMethod>TopLeft</ImportMethod>
+              <ImportAlphaChannel>True</ImportAlphaChannel>
+            </Source>
+          </Sprite>
+          <Sprite Slot="136" Width="28" Height="48" ColorDepth="8" Resolution="Real" AlphaChannel="False">
+            <Source>
+              <FileName>D:\DragonFireDemastered\sprites\flamingo\left1.bmp</FileName>
+              <OffsetX>0</OffsetX>
+              <OffsetY>0</OffsetY>
+              <ImportHeight>48</ImportHeight>
+              <ImportWidth>28</ImportWidth>
+              <ImportAsTile>False</ImportAsTile>
+              <Frame>0</Frame>
+              <RemapToGamePalette>True</RemapToGamePalette>
+              <RemapToRoomPalette>False</RemapToRoomPalette>
+              <ImportMethod>TopLeft</ImportMethod>
+              <ImportAlphaChannel>True</ImportAlphaChannel>
+            </Source>
+          </Sprite>
+          <Sprite Slot="137" Width="28" Height="48" ColorDepth="8" Resolution="Real" AlphaChannel="False">
+            <Source>
+              <FileName>D:\DragonFireDemastered\sprites\flamingo\left2.bmp</FileName>
+              <OffsetX>0</OffsetX>
+              <OffsetY>0</OffsetY>
+              <ImportHeight>48</ImportHeight>
+              <ImportWidth>28</ImportWidth>
+              <ImportAsTile>False</ImportAsTile>
+              <Frame>0</Frame>
+              <RemapToGamePalette>True</RemapToGamePalette>
+              <RemapToRoomPalette>False</RemapToRoomPalette>
+              <ImportMethod>TopLeft</ImportMethod>
+              <ImportAlphaChannel>True</ImportAlphaChannel>
+            </Source>
+          </Sprite>
+          <Sprite Slot="138" Width="28" Height="48" ColorDepth="8" Resolution="Real" AlphaChannel="False">
+            <Source>
+              <FileName>D:\DragonFireDemastered\sprites\flamingo\left3.bmp</FileName>
+              <OffsetX>0</OffsetX>
+              <OffsetY>0</OffsetY>
+              <ImportHeight>48</ImportHeight>
+              <ImportWidth>28</ImportWidth>
+              <ImportAsTile>False</ImportAsTile>
+              <Frame>0</Frame>
+              <RemapToGamePalette>True</RemapToGamePalette>
+              <RemapToRoomPalette>False</RemapToRoomPalette>
+              <ImportMethod>TopLeft</ImportMethod>
+              <ImportAlphaChannel>True</ImportAlphaChannel>
+            </Source>
+          </Sprite>
         </Sprites>
       </SpriteFolder>
     </Sprites>
@@ -7961,6 +8051,120 @@ stop
                 <ID>0</ID>
                 <RunNextLoop>False</RunNextLoop>
                 <Frames />
+              </Loop>
+            </Loops>
+          </View>
+          <View>
+            <ID>6</ID>
+            <Name>flamingo</Name>
+            <Loops>
+              <Loop>
+                <ID>0</ID>
+                <RunNextLoop>False</RunNextLoop>
+                <Frames>
+                  <ViewFrame>
+                    <Delay>0</Delay>
+                    <Flipped>False</Flipped>
+                    <ID>0</ID>
+                    <Image>133</Image>
+                    <Sound>0</Sound>
+                  </ViewFrame>
+                  <ViewFrame>
+                    <Delay>0</Delay>
+                    <Flipped>False</Flipped>
+                    <ID>1</ID>
+                    <Image>134</Image>
+                    <Sound>0</Sound>
+                  </ViewFrame>
+                  <ViewFrame>
+                    <Delay>0</Delay>
+                    <Flipped>False</Flipped>
+                    <ID>2</ID>
+                    <Image>135</Image>
+                    <Sound>0</Sound>
+                  </ViewFrame>
+                </Frames>
+              </Loop>
+              <Loop>
+                <ID>1</ID>
+                <RunNextLoop>False</RunNextLoop>
+                <Frames>
+                  <ViewFrame>
+                    <Delay>0</Delay>
+                    <Flipped>False</Flipped>
+                    <ID>0</ID>
+                    <Image>136</Image>
+                    <Sound>0</Sound>
+                  </ViewFrame>
+                  <ViewFrame>
+                    <Delay>0</Delay>
+                    <Flipped>False</Flipped>
+                    <ID>1</ID>
+                    <Image>137</Image>
+                    <Sound>0</Sound>
+                  </ViewFrame>
+                  <ViewFrame>
+                    <Delay>0</Delay>
+                    <Flipped>False</Flipped>
+                    <ID>2</ID>
+                    <Image>138</Image>
+                    <Sound>0</Sound>
+                  </ViewFrame>
+                </Frames>
+              </Loop>
+              <Loop>
+                <ID>2</ID>
+                <RunNextLoop>False</RunNextLoop>
+                <Frames>
+                  <ViewFrame>
+                    <Delay>0</Delay>
+                    <Flipped>False</Flipped>
+                    <ID>0</ID>
+                    <Image>133</Image>
+                    <Sound>0</Sound>
+                  </ViewFrame>
+                  <ViewFrame>
+                    <Delay>0</Delay>
+                    <Flipped>False</Flipped>
+                    <ID>1</ID>
+                    <Image>134</Image>
+                    <Sound>0</Sound>
+                  </ViewFrame>
+                  <ViewFrame>
+                    <Delay>0</Delay>
+                    <Flipped>False</Flipped>
+                    <ID>2</ID>
+                    <Image>135</Image>
+                    <Sound>0</Sound>
+                  </ViewFrame>
+                </Frames>
+              </Loop>
+              <Loop>
+                <ID>3</ID>
+                <RunNextLoop>False</RunNextLoop>
+                <Frames>
+                  <ViewFrame>
+                    <Delay>0</Delay>
+                    <Flipped>False</Flipped>
+                    <ID>0</ID>
+                    <Image>136</Image>
+                    <Sound>0</Sound>
+                  </ViewFrame>
+                  <ViewFrame>
+                    <Delay>0</Delay>
+                    <Flipped>False</Flipped>
+                    <ID>1</ID>
+                    <Image>137</Image>
+                    <Sound>0</Sound>
+                  </ViewFrame>
+                  <ViewFrame>
+                    <Delay>0</Delay>
+                    <Flipped>False</Flipped>
+                    <ID>2</ID>
+                    <Image>138</Image>
+                    <Sound>0</Sound>
+                  </ViewFrame>
+                </Frames>
               </Loop>
             </Loops>
           </View>
