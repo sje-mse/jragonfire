@@ -774,9 +774,9 @@
           </GUIMain>
           <GUIMain>
             <NormalGUI>
-              <BackgroundColor>32089</BackgroundColor>
+              <BackgroundColor>0</BackgroundColor>
               <BackgroundImage>0</BackgroundImage>
-              <BorderColor>32089</BorderColor>
+              <BorderColor>0</BorderColor>
               <Clickable>True</Clickable>
               <Height>29</Height>
               <ID>1</ID>
@@ -798,22 +798,22 @@
                 <ClipImage>False</ClipImage>
                 <Enabled>True</Enabled>
                 <Font>0</Font>
-                <Height>27</Height>
+                <Height>29</Height>
                 <ID>0</ID>
-                <Image>2100</Image>
-                <Left>1</Left>
+                <Image>121</Image>
+                <Left>0</Left>
                 <Locked>False</Locked>
-                <MouseoverImage>2101</MouseoverImage>
+                <MouseoverImage>121</MouseoverImage>
                 <Name>btnIconWalk</Name>
                 <NewModeNumber>0</NewModeNumber>
-                <OnClick />
-                <PushedImage>2102</PushedImage>
+                <OnClick>btnIconWalk_OnClick</OnClick>
+                <PushedImage>121</PushedImage>
                 <Text />
                 <TextAlignment>TopCenter</TextAlignment>
                 <TextColor>16</TextColor>
-                <Top>1</Top>
+                <Top>0</Top>
                 <Visible>True</Visible>
-                <Width>32</Width>
+                <Width>36</Width>
                 <ZOrder>0</ZOrder>
               </GUIButton>
               <GUIButton>
@@ -822,22 +822,22 @@
                 <ClipImage>False</ClipImage>
                 <Enabled>True</Enabled>
                 <Font>0</Font>
-                <Height>27</Height>
+                <Height>29</Height>
                 <ID>1</ID>
-                <Image>2104</Image>
-                <Left>33</Left>
+                <Image>122</Image>
+                <Left>36</Left>
                 <Locked>False</Locked>
-                <MouseoverImage>2105</MouseoverImage>
+                <MouseoverImage>122</MouseoverImage>
                 <Name>btnIconExamine</Name>
                 <NewModeNumber>1</NewModeNumber>
-                <OnClick />
-                <PushedImage>2106</PushedImage>
+                <OnClick>btnIconExamine_OnClick</OnClick>
+                <PushedImage>122</PushedImage>
                 <Text />
                 <TextAlignment>TopCenter</TextAlignment>
                 <TextColor>16</TextColor>
-                <Top>1</Top>
+                <Top>0</Top>
                 <Visible>True</Visible>
-                <Width>32</Width>
+                <Width>36</Width>
                 <ZOrder>1</ZOrder>
               </GUIButton>
               <GUIButton>
@@ -846,22 +846,22 @@
                 <ClipImage>False</ClipImage>
                 <Enabled>True</Enabled>
                 <Font>0</Font>
-                <Height>27</Height>
+                <Height>29</Height>
                 <ID>2</ID>
-                <Image>2108</Image>
-                <Left>65</Left>
+                <Image>120</Image>
+                <Left>72</Left>
                 <Locked>False</Locked>
-                <MouseoverImage>2109</MouseoverImage>
+                <MouseoverImage>120</MouseoverImage>
                 <Name>btnIconInteract</Name>
                 <NewModeNumber>2</NewModeNumber>
                 <OnClick />
-                <PushedImage>2110</PushedImage>
+                <PushedImage>120</PushedImage>
                 <Text />
                 <TextAlignment>TopCenter</TextAlignment>
                 <TextColor>16</TextColor>
-                <Top>1</Top>
+                <Top>0</Top>
                 <Visible>True</Visible>
-                <Width>32</Width>
+                <Width>36</Width>
                 <ZOrder>2</ZOrder>
               </GUIButton>
               <GUIButton>
@@ -870,22 +870,22 @@
                 <ClipImage>False</ClipImage>
                 <Enabled>True</Enabled>
                 <Font>0</Font>
-                <Height>27</Height>
+                <Height>29</Height>
                 <ID>3</ID>
-                <Image>2112</Image>
-                <Left>97</Left>
+                <Image>123</Image>
+                <Left>108</Left>
                 <Locked>False</Locked>
-                <MouseoverImage>2113</MouseoverImage>
+                <MouseoverImage>123</MouseoverImage>
                 <Name>btnIconTalk</Name>
                 <NewModeNumber>3</NewModeNumber>
                 <OnClick />
-                <PushedImage>2114</PushedImage>
+                <PushedImage>123</PushedImage>
                 <Text />
                 <TextAlignment>TopCenter</TextAlignment>
                 <TextColor>16</TextColor>
-                <Top>1</Top>
+                <Top>0</Top>
                 <Visible>True</Visible>
-                <Width>32</Width>
+                <Width>36</Width>
                 <ZOrder>3</ZOrder>
               </GUIButton>
               <GUIButton>
@@ -894,22 +894,22 @@
                 <ClipImage>False</ClipImage>
                 <Enabled>True</Enabled>
                 <Font>0</Font>
-                <Height>27</Height>
+                <Height>29</Height>
                 <ID>4</ID>
-                <Image>2120</Image>
-                <Left>129</Left>
+                <Image>124</Image>
+                <Left>248</Left>
                 <Locked>False</Locked>
-                <MouseoverImage>2121</MouseoverImage>
+                <MouseoverImage>124</MouseoverImage>
                 <Name>btnIconInv</Name>
                 <NewModeNumber>0</NewModeNumber>
                 <OnClick>btnIconInv_Click</OnClick>
-                <PushedImage>2122</PushedImage>
+                <PushedImage>124</PushedImage>
                 <Text />
                 <TextAlignment>TopCenter</TextAlignment>
                 <TextColor>16</TextColor>
-                <Top>1</Top>
+                <Top>0</Top>
                 <Visible>True</Visible>
-                <Width>32</Width>
+                <Width>36</Width>
                 <ZOrder>4</ZOrder>
               </GUIButton>
               <GUIButton>
@@ -918,22 +918,22 @@
                 <ClipImage>False</ClipImage>
                 <Enabled>True</Enabled>
                 <Font>0</Font>
-                <Height>27</Height>
+                <Height>29</Height>
                 <ID>5</ID>
-                <Image>2124</Image>
-                <Left>161</Left>
+                <Image>125</Image>
+                <Left>284</Left>
                 <Locked>False</Locked>
-                <MouseoverImage>2124</MouseoverImage>
-                <Name>btnIconCurInv</Name>
+                <MouseoverImage>125</MouseoverImage>
+                <Name>btnIconAbout</Name>
                 <NewModeNumber>0</NewModeNumber>
-                <OnClick>btnIconCurInv_Click</OnClick>
-                <PushedImage>2126</PushedImage>
-                <Text>(INVSHR)</Text>
+                <OnClick>btnIconAbout_Click</OnClick>
+                <PushedImage>125</PushedImage>
+                <Text />
                 <TextAlignment>TopCenter</TextAlignment>
                 <TextColor>16</TextColor>
-                <Top>1</Top>
+                <Top>0</Top>
                 <Visible>True</Visible>
-                <Width>32</Width>
+                <Width>36</Width>
                 <ZOrder>5</ZOrder>
               </GUIButton>
               <GUIButton>
@@ -942,22 +942,22 @@
                 <ClipImage>False</ClipImage>
                 <Enabled>True</Enabled>
                 <Font>0</Font>
-                <Height>27</Height>
+                <Height>29</Height>
                 <ID>6</ID>
-                <Image>2128</Image>
-                <Left>193</Left>
+                <Image>126</Image>
+                <Left>144</Left>
                 <Locked>False</Locked>
-                <MouseoverImage>2129</MouseoverImage>
-                <Name>btnIconSave</Name>
+                <MouseoverImage>126</MouseoverImage>
+                <Name>btnSpecial</Name>
                 <NewModeNumber>0</NewModeNumber>
-                <OnClick>btnIconSave_Click</OnClick>
-                <PushedImage>2130</PushedImage>
+                <OnClick />
+                <PushedImage>126</PushedImage>
                 <Text />
                 <TextAlignment>TopCenter</TextAlignment>
-                <TextColor>16</TextColor>
-                <Top>1</Top>
+                <TextColor>0</TextColor>
+                <Top>0</Top>
                 <Visible>True</Visible>
-                <Width>32</Width>
+                <Width>36</Width>
                 <ZOrder>6</ZOrder>
               </GUIButton>
               <GUIButton>
@@ -966,22 +966,22 @@
                 <ClipImage>False</ClipImage>
                 <Enabled>True</Enabled>
                 <Font>0</Font>
-                <Height>27</Height>
+                <Height>29</Height>
                 <ID>7</ID>
-                <Image>2132</Image>
-                <Left>225</Left>
+                <Image>127</Image>
+                <Left>180</Left>
                 <Locked>False</Locked>
-                <MouseoverImage>2133</MouseoverImage>
-                <Name>btnIconLoad</Name>
+                <MouseoverImage>0</MouseoverImage>
+                <Name>btnMagic</Name>
                 <NewModeNumber>0</NewModeNumber>
-                <OnClick>btnIconLoad_Click</OnClick>
-                <PushedImage>2134</PushedImage>
+                <OnClick />
+                <PushedImage>0</PushedImage>
                 <Text />
                 <TextAlignment>TopCenter</TextAlignment>
-                <TextColor>16</TextColor>
-                <Top>1</Top>
+                <TextColor>0</TextColor>
+                <Top>0</Top>
                 <Visible>True</Visible>
-                <Width>32</Width>
+                <Width>36</Width>
                 <ZOrder>7</ZOrder>
               </GUIButton>
               <GUIButton>
@@ -990,47 +990,23 @@
                 <ClipImage>False</ClipImage>
                 <Enabled>True</Enabled>
                 <Font>0</Font>
-                <Height>27</Height>
+                <Height>29</Height>
                 <ID>8</ID>
-                <Image>2140</Image>
-                <Left>289</Left>
+                <Image>129</Image>
+                <Left>216</Left>
                 <Locked>False</Locked>
-                <MouseoverImage>2141</MouseoverImage>
-                <Name>btnIconExit</Name>
+                <MouseoverImage>129</MouseoverImage>
+                <Name>btnItem</Name>
                 <NewModeNumber>0</NewModeNumber>
-                <OnClick>btnIconExit_Click</OnClick>
-                <PushedImage>2142</PushedImage>
+                <OnClick />
+                <PushedImage>129</PushedImage>
                 <Text />
                 <TextAlignment>TopCenter</TextAlignment>
-                <TextColor>16</TextColor>
-                <Top>1</Top>
+                <TextColor>0</TextColor>
+                <Top>0</Top>
                 <Visible>True</Visible>
                 <Width>32</Width>
                 <ZOrder>8</ZOrder>
-              </GUIButton>
-              <GUIButton>
-                <ClickAction>RunScript</ClickAction>
-                <Clickable>True</Clickable>
-                <ClipImage>False</ClipImage>
-                <Enabled>True</Enabled>
-                <Font>0</Font>
-                <Height>27</Height>
-                <ID>9</ID>
-                <Image>2136</Image>
-                <Left>257</Left>
-                <Locked>False</Locked>
-                <MouseoverImage>2137</MouseoverImage>
-                <Name>btnIconAbout</Name>
-                <NewModeNumber>0</NewModeNumber>
-                <OnClick>btnIconAbout_Click</OnClick>
-                <PushedImage>2138</PushedImage>
-                <Text />
-                <TextAlignment>TopCenter</TextAlignment>
-                <TextColor>16</TextColor>
-                <Top>1</Top>
-                <Visible>True</Visible>
-                <Width>32</Width>
-                <ZOrder>9</ZOrder>
               </GUIButton>
             </Controls>
           </GUIMain>
@@ -1903,12 +1879,12 @@
           </GUIMain>
           <GUIMain>
             <TextWindowGUI>
-              <BackgroundColor>19248</BackgroundColor>
+              <BackgroundColor>88</BackgroundColor>
               <BackgroundImage>0</BackgroundImage>
               <ID>7</ID>
               <Name>gTextBorder</Name>
               <Padding>3</Padding>
-              <TextColor>65523</TextColor>
+              <TextColor>0</TextColor>
             </TextWindowGUI>
             <Controls>
               <GUITextWindowEdge>
@@ -2798,7 +2774,7 @@ stop
         <HotspotX>0</HotspotX>
         <HotspotY>0</HotspotY>
         <ID>0</ID>
-        <Image>2054</Image>
+        <Image>118</Image>
         <Name xml:space="preserve">Walk to</Name>
         <StandardMode>True</StandardMode>
         <View>0</View>
@@ -2811,7 +2787,7 @@ stop
         <HotspotX>0</HotspotX>
         <HotspotY>0</HotspotY>
         <ID>1</ID>
-        <Image>2056</Image>
+        <Image>119</Image>
         <Name xml:space="preserve">Look at</Name>
         <StandardMode>True</StandardMode>
         <View>0</View>
@@ -2824,7 +2800,7 @@ stop
         <HotspotX>0</HotspotX>
         <HotspotY>0</HotspotY>
         <ID>2</ID>
-        <Image>74</Image>
+        <Image>117</Image>
         <Name>Interact</Name>
         <StandardMode>True</StandardMode>
         <View>0</View>
@@ -2834,10 +2810,10 @@ stop
         <AnimateOnlyOnHotspots>False</AnimateOnlyOnHotspots>
         <AnimateOnlyWhenMoving>False</AnimateOnlyWhenMoving>
         <AnimationDelay>5</AnimationDelay>
-        <HotspotX>9</HotspotX>
-        <HotspotY>3</HotspotY>
+        <HotspotX>0</HotspotX>
+        <HotspotY>0</HotspotY>
         <ID>3</ID>
-        <Image>75</Image>
+        <Image>130</Image>
         <Name xml:space="preserve">Talk to</Name>
         <StandardMode>True</StandardMode>
         <View>0</View>
@@ -2873,10 +2849,10 @@ stop
         <AnimateOnlyOnHotspots>False</AnimateOnlyOnHotspots>
         <AnimateOnlyWhenMoving>False</AnimateOnlyWhenMoving>
         <AnimationDelay>5</AnimationDelay>
-        <HotspotX>1</HotspotX>
-        <HotspotY>1</HotspotY>
+        <HotspotX>0</HotspotX>
+        <HotspotY>0</HotspotY>
         <ID>6</ID>
-        <Image>2061</Image>
+        <Image>132</Image>
         <Name>Pointer</Name>
         <StandardMode>False</StandardMode>
         <View>0</View>
@@ -2886,10 +2862,10 @@ stop
         <AnimateOnlyOnHotspots>False</AnimateOnlyOnHotspots>
         <AnimateOnlyWhenMoving>False</AnimateOnlyWhenMoving>
         <AnimationDelay>5</AnimationDelay>
-        <HotspotX>6</HotspotX>
-        <HotspotY>10</HotspotY>
+        <HotspotX>0</HotspotX>
+        <HotspotY>0</HotspotY>
         <ID>7</ID>
-        <Image>2055</Image>
+        <Image>131</Image>
         <Name>Wait</Name>
         <StandardMode>False</StandardMode>
         <View>0</View>
@@ -3249,7 +3225,7 @@ stop
                       <ImportWidth>30</ImportWidth>
                       <ImportAsTile>False</ImportAsTile>
                       <Frame>0</Frame>
-                      <RemapToGamePalette>False</RemapToGamePalette>
+                      <RemapToGamePalette>True</RemapToGamePalette>
                       <RemapToRoomPalette>False</RemapToRoomPalette>
                       <ImportMethod>LeaveAsIs</ImportMethod>
                       <ImportAlphaChannel>True</ImportAlphaChannel>
@@ -4254,7 +4230,7 @@ stop
                       <ImportWidth>27</ImportWidth>
                       <ImportAsTile>False</ImportAsTile>
                       <Frame>0</Frame>
-                      <RemapToGamePalette>False</RemapToGamePalette>
+                      <RemapToGamePalette>True</RemapToGamePalette>
                       <RemapToRoomPalette>False</RemapToRoomPalette>
                       <ImportMethod>LeaveAsIs</ImportMethod>
                       <ImportAlphaChannel>True</ImportAlphaChannel>
@@ -4936,6 +4912,251 @@ stop
                   <RemapToGamePalette>False</RemapToGamePalette>
                   <RemapToRoomPalette>False</RemapToRoomPalette>
                   <ImportMethod>LeaveAsIs</ImportMethod>
+                  <ImportAlphaChannel>True</ImportAlphaChannel>
+                </Source>
+              </Sprite>
+            </Sprites>
+          </SpriteFolder>
+          <SpriteFolder Name="GUI">
+            <SubFolders />
+            <Sprites>
+              <Sprite Slot="120" Width="36" Height="29" ColorDepth="8" Resolution="Real" AlphaChannel="False">
+                <Source>
+                  <FileName>D:\DragonFireDemastered\scratch\GUIBar1.bmp</FileName>
+                  <OffsetX>0</OffsetX>
+                  <OffsetY>0</OffsetY>
+                  <ImportHeight>29</ImportHeight>
+                  <ImportWidth>36</ImportWidth>
+                  <ImportAsTile>False</ImportAsTile>
+                  <Frame>0</Frame>
+                  <RemapToGamePalette>True</RemapToGamePalette>
+                  <RemapToRoomPalette>False</RemapToRoomPalette>
+                  <ImportMethod>NoTransparency</ImportMethod>
+                  <ImportAlphaChannel>True</ImportAlphaChannel>
+                </Source>
+              </Sprite>
+              <Sprite Slot="121" Width="36" Height="29" ColorDepth="8" Resolution="Real" AlphaChannel="False">
+                <Source>
+                  <FileName>D:\DragonFireDemastered\scratch\GUIBar2.bmp</FileName>
+                  <OffsetX>0</OffsetX>
+                  <OffsetY>0</OffsetY>
+                  <ImportHeight>29</ImportHeight>
+                  <ImportWidth>36</ImportWidth>
+                  <ImportAsTile>False</ImportAsTile>
+                  <Frame>0</Frame>
+                  <RemapToGamePalette>True</RemapToGamePalette>
+                  <RemapToRoomPalette>False</RemapToRoomPalette>
+                  <ImportMethod>NoTransparency</ImportMethod>
+                  <ImportAlphaChannel>True</ImportAlphaChannel>
+                </Source>
+              </Sprite>
+              <Sprite Slot="122" Width="36" Height="29" ColorDepth="8" Resolution="Real" AlphaChannel="False">
+                <Source>
+                  <FileName>D:\DragonFireDemastered\scratch\GUIBar3.bmp</FileName>
+                  <OffsetX>0</OffsetX>
+                  <OffsetY>0</OffsetY>
+                  <ImportHeight>29</ImportHeight>
+                  <ImportWidth>36</ImportWidth>
+                  <ImportAsTile>False</ImportAsTile>
+                  <Frame>0</Frame>
+                  <RemapToGamePalette>True</RemapToGamePalette>
+                  <RemapToRoomPalette>False</RemapToRoomPalette>
+                  <ImportMethod>NoTransparency</ImportMethod>
+                  <ImportAlphaChannel>True</ImportAlphaChannel>
+                </Source>
+              </Sprite>
+              <Sprite Slot="123" Width="36" Height="29" ColorDepth="8" Resolution="Real" AlphaChannel="False">
+                <Source>
+                  <FileName>D:\DragonFireDemastered\scratch\GUIBar5.bmp</FileName>
+                  <OffsetX>0</OffsetX>
+                  <OffsetY>0</OffsetY>
+                  <ImportHeight>29</ImportHeight>
+                  <ImportWidth>36</ImportWidth>
+                  <ImportAsTile>False</ImportAsTile>
+                  <Frame>0</Frame>
+                  <RemapToGamePalette>True</RemapToGamePalette>
+                  <RemapToRoomPalette>False</RemapToRoomPalette>
+                  <ImportMethod>NoTransparency</ImportMethod>
+                  <ImportAlphaChannel>True</ImportAlphaChannel>
+                </Source>
+              </Sprite>
+              <Sprite Slot="124" Width="36" Height="29" ColorDepth="8" Resolution="Real" AlphaChannel="False">
+                <Source>
+                  <FileName>D:\DragonFireDemastered\scratch\GUIBar6.bmp</FileName>
+                  <OffsetX>0</OffsetX>
+                  <OffsetY>0</OffsetY>
+                  <ImportHeight>29</ImportHeight>
+                  <ImportWidth>36</ImportWidth>
+                  <ImportAsTile>False</ImportAsTile>
+                  <Frame>0</Frame>
+                  <RemapToGamePalette>True</RemapToGamePalette>
+                  <RemapToRoomPalette>False</RemapToRoomPalette>
+                  <ImportMethod>NoTransparency</ImportMethod>
+                  <ImportAlphaChannel>True</ImportAlphaChannel>
+                </Source>
+              </Sprite>
+              <Sprite Slot="125" Width="36" Height="29" ColorDepth="8" Resolution="Real" AlphaChannel="False">
+                <Source>
+                  <FileName>D:\DragonFireDemastered\scratch\GUIBar7.bmp</FileName>
+                  <OffsetX>0</OffsetX>
+                  <OffsetY>0</OffsetY>
+                  <ImportHeight>29</ImportHeight>
+                  <ImportWidth>36</ImportWidth>
+                  <ImportAsTile>False</ImportAsTile>
+                  <Frame>0</Frame>
+                  <RemapToGamePalette>True</RemapToGamePalette>
+                  <RemapToRoomPalette>False</RemapToRoomPalette>
+                  <ImportMethod>NoTransparency</ImportMethod>
+                  <ImportAlphaChannel>True</ImportAlphaChannel>
+                </Source>
+              </Sprite>
+              <Sprite Slot="126" Width="36" Height="29" ColorDepth="8" Resolution="Real" AlphaChannel="False">
+                <Source>
+                  <FileName>D:\DragonFireDemastered\scratch\GUIBar8.bmp</FileName>
+                  <OffsetX>0</OffsetX>
+                  <OffsetY>0</OffsetY>
+                  <ImportHeight>29</ImportHeight>
+                  <ImportWidth>36</ImportWidth>
+                  <ImportAsTile>False</ImportAsTile>
+                  <Frame>0</Frame>
+                  <RemapToGamePalette>True</RemapToGamePalette>
+                  <RemapToRoomPalette>False</RemapToRoomPalette>
+                  <ImportMethod>NoTransparency</ImportMethod>
+                  <ImportAlphaChannel>True</ImportAlphaChannel>
+                </Source>
+              </Sprite>
+              <Sprite Slot="127" Width="36" Height="29" ColorDepth="8" Resolution="Real" AlphaChannel="False">
+                <Source>
+                  <FileName>D:\DragonFireDemastered\scratch\GUIBar9.bmp</FileName>
+                  <OffsetX>0</OffsetX>
+                  <OffsetY>0</OffsetY>
+                  <ImportHeight>29</ImportHeight>
+                  <ImportWidth>36</ImportWidth>
+                  <ImportAsTile>False</ImportAsTile>
+                  <Frame>0</Frame>
+                  <RemapToGamePalette>True</RemapToGamePalette>
+                  <RemapToRoomPalette>False</RemapToRoomPalette>
+                  <ImportMethod>NoTransparency</ImportMethod>
+                  <ImportAlphaChannel>True</ImportAlphaChannel>
+                </Source>
+              </Sprite>
+              <Sprite Slot="128" Width="36" Height="29" ColorDepth="8" Resolution="Real" AlphaChannel="False">
+                <Source>
+                  <FileName>D:\DragonFireDemastered\scratch\hand2.bmp</FileName>
+                  <OffsetX>0</OffsetX>
+                  <OffsetY>0</OffsetY>
+                  <ImportHeight>29</ImportHeight>
+                  <ImportWidth>36</ImportWidth>
+                  <ImportAsTile>False</ImportAsTile>
+                  <Frame>0</Frame>
+                  <RemapToGamePalette>True</RemapToGamePalette>
+                  <RemapToRoomPalette>False</RemapToRoomPalette>
+                  <ImportMethod>NoTransparency</ImportMethod>
+                  <ImportAlphaChannel>True</ImportAlphaChannel>
+                </Source>
+              </Sprite>
+              <Sprite Slot="129" Width="32" Height="29" ColorDepth="8" Resolution="Real" AlphaChannel="False">
+                <Source>
+                  <FileName>D:\DragonFireDemastered\scratch\GUIBarItem.bmp</FileName>
+                  <OffsetX>0</OffsetX>
+                  <OffsetY>0</OffsetY>
+                  <ImportHeight>29</ImportHeight>
+                  <ImportWidth>32</ImportWidth>
+                  <ImportAsTile>False</ImportAsTile>
+                  <Frame>0</Frame>
+                  <RemapToGamePalette>True</RemapToGamePalette>
+                  <RemapToRoomPalette>False</RemapToRoomPalette>
+                  <ImportMethod>NoTransparency</ImportMethod>
+                  <ImportAlphaChannel>True</ImportAlphaChannel>
+                </Source>
+              </Sprite>
+              <Sprite Slot="117" Width="32" Height="29" ColorDepth="8" Resolution="Real" AlphaChannel="False">
+                <Source>
+                  <FileName>D:\DragonFireDemastered\scratch\Cursors1.bmp</FileName>
+                  <OffsetX>0</OffsetX>
+                  <OffsetY>0</OffsetY>
+                  <ImportHeight>29</ImportHeight>
+                  <ImportWidth>32</ImportWidth>
+                  <ImportAsTile>False</ImportAsTile>
+                  <Frame>0</Frame>
+                  <RemapToGamePalette>True</RemapToGamePalette>
+                  <RemapToRoomPalette>False</RemapToRoomPalette>
+                  <ImportMethod>BottomLeft</ImportMethod>
+                  <ImportAlphaChannel>True</ImportAlphaChannel>
+                </Source>
+              </Sprite>
+              <Sprite Slot="118" Width="32" Height="29" ColorDepth="8" Resolution="Real" AlphaChannel="False">
+                <Source>
+                  <FileName>D:\DragonFireDemastered\scratch\Cursors2.bmp</FileName>
+                  <OffsetX>0</OffsetX>
+                  <OffsetY>0</OffsetY>
+                  <ImportHeight>29</ImportHeight>
+                  <ImportWidth>32</ImportWidth>
+                  <ImportAsTile>False</ImportAsTile>
+                  <Frame>0</Frame>
+                  <RemapToGamePalette>True</RemapToGamePalette>
+                  <RemapToRoomPalette>False</RemapToRoomPalette>
+                  <ImportMethod>BottomLeft</ImportMethod>
+                  <ImportAlphaChannel>True</ImportAlphaChannel>
+                </Source>
+              </Sprite>
+              <Sprite Slot="119" Width="32" Height="29" ColorDepth="8" Resolution="Real" AlphaChannel="False">
+                <Source>
+                  <FileName>D:\DragonFireDemastered\scratch\Cursors3.bmp</FileName>
+                  <OffsetX>0</OffsetX>
+                  <OffsetY>0</OffsetY>
+                  <ImportHeight>29</ImportHeight>
+                  <ImportWidth>32</ImportWidth>
+                  <ImportAsTile>False</ImportAsTile>
+                  <Frame>0</Frame>
+                  <RemapToGamePalette>True</RemapToGamePalette>
+                  <RemapToRoomPalette>False</RemapToRoomPalette>
+                  <ImportMethod>BottomLeft</ImportMethod>
+                  <ImportAlphaChannel>True</ImportAlphaChannel>
+                </Source>
+              </Sprite>
+              <Sprite Slot="130" Width="32" Height="29" ColorDepth="8" Resolution="Real" AlphaChannel="False">
+                <Source>
+                  <FileName>D:\DragonFireDemastered\scratch\Cursors4.bmp</FileName>
+                  <OffsetX>0</OffsetX>
+                  <OffsetY>0</OffsetY>
+                  <ImportHeight>29</ImportHeight>
+                  <ImportWidth>32</ImportWidth>
+                  <ImportAsTile>False</ImportAsTile>
+                  <Frame>0</Frame>
+                  <RemapToGamePalette>True</RemapToGamePalette>
+                  <RemapToRoomPalette>False</RemapToRoomPalette>
+                  <ImportMethod>BottomLeft</ImportMethod>
+                  <ImportAlphaChannel>True</ImportAlphaChannel>
+                </Source>
+              </Sprite>
+              <Sprite Slot="131" Width="32" Height="29" ColorDepth="8" Resolution="Real" AlphaChannel="False">
+                <Source>
+                  <FileName>D:\DragonFireDemastered\scratch\Cursors5.bmp</FileName>
+                  <OffsetX>0</OffsetX>
+                  <OffsetY>0</OffsetY>
+                  <ImportHeight>29</ImportHeight>
+                  <ImportWidth>32</ImportWidth>
+                  <ImportAsTile>False</ImportAsTile>
+                  <Frame>0</Frame>
+                  <RemapToGamePalette>True</RemapToGamePalette>
+                  <RemapToRoomPalette>False</RemapToRoomPalette>
+                  <ImportMethod>BottomLeft</ImportMethod>
+                  <ImportAlphaChannel>True</ImportAlphaChannel>
+                </Source>
+              </Sprite>
+              <Sprite Slot="132" Width="32" Height="29" ColorDepth="8" Resolution="Real" AlphaChannel="False">
+                <Source>
+                  <FileName>D:\DragonFireDemastered\scratch\Cursors6.bmp</FileName>
+                  <OffsetX>0</OffsetX>
+                  <OffsetY>0</OffsetY>
+                  <ImportHeight>29</ImportHeight>
+                  <ImportWidth>32</ImportWidth>
+                  <ImportAsTile>False</ImportAsTile>
+                  <Frame>0</Frame>
+                  <RemapToGamePalette>True</RemapToGamePalette>
+                  <RemapToRoomPalette>False</RemapToRoomPalette>
+                  <ImportMethod>BottomLeft</ImportMethod>
                   <ImportAlphaChannel>True</ImportAlphaChannel>
                 </Source>
               </Sprite>
