@@ -28,7 +28,7 @@
       <DeveloperURL />
       <DialogOptionsBackwards>False</DialogOptionsBackwards>
       <DialogOptionsBullet>0</DialogOptionsBullet>
-      <DialogOptionsGUI>0</DialogOptionsGUI>
+      <DialogOptionsGUI>7</DialogOptionsGUI>
       <DialogOptionsGap>0</DialogOptionsGap>
       <DialogScriptNarrateFunction IsNull="True" />
       <DialogScriptSayFunction IsNull="True" />
@@ -1929,7 +1929,7 @@
               <ID>7</ID>
               <Name>gTextBorder</Name>
               <Padding>3</Padding>
-              <TextColor>7</TextColor>
+              <TextColor>87</TextColor>
             </TextWindowGUI>
             <Controls>
               <GUITextWindowEdge>
@@ -2384,7 +2384,7 @@
             <ScriptName>cHero</ScriptName>
             <Solid>True</Solid>
             <SpeechAnimationDelay>5</SpeechAnimationDelay>
-            <SpeechColor>12</SpeechColor>
+            <SpeechColor>102</SpeechColor>
             <SpeechView>0</SpeechView>
             <StartX>100</StartX>
             <StartY>180</StartY>
@@ -2426,7 +2426,7 @@
             <ScriptName>cGuard1</ScriptName>
             <Solid>True</Solid>
             <SpeechAnimationDelay>5</SpeechAnimationDelay>
-            <SpeechColor>12</SpeechColor>
+            <SpeechColor>102</SpeechColor>
             <SpeechView>5</SpeechView>
             <StartX>235</StartX>
             <StartY>135</StartY>
@@ -2468,7 +2468,7 @@
             <ScriptName>cGuard2</ScriptName>
             <Solid>True</Solid>
             <SpeechAnimationDelay>5</SpeechAnimationDelay>
-            <SpeechColor>12</SpeechColor>
+            <SpeechColor>102</SpeechColor>
             <SpeechView>5</SpeechView>
             <StartX>270</StartX>
             <StartY>134</StartY>
@@ -2510,7 +2510,7 @@
             <ScriptName>cSarra</ScriptName>
             <Solid>True</Solid>
             <SpeechAnimationDelay>5</SpeechAnimationDelay>
-            <SpeechColor>12</SpeechColor>
+            <SpeechColor>102</SpeechColor>
             <SpeechView>6</SpeechView>
             <StartX>170</StartX>
             <StartY>160</StartY>
@@ -2552,7 +2552,7 @@
             <ScriptName>cWolfie</ScriptName>
             <Solid>True</Solid>
             <SpeechAnimationDelay>5</SpeechAnimationDelay>
-            <SpeechColor>12</SpeechColor>
+            <SpeechColor>102</SpeechColor>
             <SpeechView>0</SpeechView>
             <StartX>140</StartX>
             <StartY>144</StartY>
@@ -2941,7 +2941,7 @@ stop
         <LineSpacing>0</LineSpacing>
         <Name>Speech</Name>
         <OutlineFont>2</OutlineFont>
-        <OutlineStyle>UseOutlineFont</OutlineStyle>
+        <OutlineStyle>Automatic</OutlineStyle>
         <PointSize>0</PointSize>
         <SizeMultiplier>1</SizeMultiplier>
         <SourceFilename />
@@ -2964,22 +2964,22 @@ stop
       </Font>
     </Fonts>
     <Palette>
-      <PaletteEntry Index="0" Type="Gamewide" Red="0" Green="0" Blue="0" />
-      <PaletteEntry Index="1" Type="Gamewide" Red="59" Green="59" Blue="59" />
-      <PaletteEntry Index="2" Type="Gamewide" Red="71" Green="71" Blue="71" />
-      <PaletteEntry Index="3" Type="Gamewide" Red="107" Green="107" Blue="107" />
-      <PaletteEntry Index="4" Type="Gamewide" Red="143" Green="143" Blue="143" />
-      <PaletteEntry Index="5" Type="Gamewide" Red="179" Green="179" Blue="179" />
-      <PaletteEntry Index="6" Type="Gamewide" Red="219" Green="219" Blue="219" />
-      <PaletteEntry Index="7" Type="Gamewide" Red="255" Green="255" Blue="255" />
-      <PaletteEntry Index="8" Type="Gamewide" Red="107" Green="0" Blue="0" />
-      <PaletteEntry Index="9" Type="Gamewide" Red="151" Green="0" Blue="0" />
-      <PaletteEntry Index="10" Type="Gamewide" Red="199" Green="0" Blue="0" />
-      <PaletteEntry Index="11" Type="Gamewide" Red="247" Green="0" Blue="0" />
-      <PaletteEntry Index="12" Type="Gamewide" Red="239" Green="91" Blue="91" />
-      <PaletteEntry Index="13" Type="Gamewide" Red="239" Green="131" Blue="131" />
-      <PaletteEntry Index="14" Type="Gamewide" Red="255" Green="158" Blue="158" />
-      <PaletteEntry Index="15" Type="Gamewide" Red="255" Green="193" Blue="193" />
+      <PaletteEntry Index="0" Type="Gamewide" Red="255" Green="0" Blue="255" />
+      <PaletteEntry Index="1" Type="Gamewide" Red="107" Green="0" Blue="0" />
+      <PaletteEntry Index="2" Type="Gamewide" Red="151" Green="0" Blue="0" />
+      <PaletteEntry Index="3" Type="Gamewide" Red="199" Green="0" Blue="0" />
+      <PaletteEntry Index="4" Type="Gamewide" Red="247" Green="0" Blue="0" />
+      <PaletteEntry Index="5" Type="Gamewide" Red="239" Green="91" Blue="91" />
+      <PaletteEntry Index="6" Type="Gamewide" Red="239" Green="131" Blue="131" />
+      <PaletteEntry Index="7" Type="Gamewide" Red="255" Green="158" Blue="158" />
+      <PaletteEntry Index="8" Type="Gamewide" Red="0" Green="0" Blue="0" />
+      <PaletteEntry Index="9" Type="Gamewide" Red="59" Green="59" Blue="59" />
+      <PaletteEntry Index="10" Type="Gamewide" Red="71" Green="71" Blue="71" />
+      <PaletteEntry Index="11" Type="Gamewide" Red="107" Green="107" Blue="107" />
+      <PaletteEntry Index="12" Type="Gamewide" Red="143" Green="143" Blue="143" />
+      <PaletteEntry Index="13" Type="Gamewide" Red="179" Green="179" Blue="179" />
+      <PaletteEntry Index="14" Type="Gamewide" Red="219" Green="219" Blue="219" />
+      <PaletteEntry Index="15" Type="Gamewide" Red="255" Green="255" Blue="255" />
       <PaletteEntry Index="16" Type="Gamewide" Red="71" Green="27" Blue="23" />
       <PaletteEntry Index="17" Type="Gamewide" Red="87" Green="39" Blue="31" />
       <PaletteEntry Index="18" Type="Gamewide" Red="107" Green="59" Blue="43" />
@@ -3093,13 +3093,13 @@ stop
       <PaletteEntry Index="126" Type="Gamewide" Red="151" Green="151" Blue="167" />
       <PaletteEntry Index="127" Type="Gamewide" Red="179" Green="179" Blue="191" />
       <PaletteEntry Index="128" Type="Background" Red="0" Green="0" Blue="0" />
-      <PaletteEntry Index="129" Type="Background" Red="0" Green="0" Blue="0" />
-      <PaletteEntry Index="130" Type="Background" Red="0" Green="0" Blue="0" />
-      <PaletteEntry Index="131" Type="Background" Red="0" Green="0" Blue="0" />
-      <PaletteEntry Index="132" Type="Background" Red="0" Green="0" Blue="0" />
-      <PaletteEntry Index="133" Type="Background" Red="0" Green="0" Blue="0" />
-      <PaletteEntry Index="134" Type="Background" Red="0" Green="0" Blue="0" />
-      <PaletteEntry Index="135" Type="Background" Red="0" Green="0" Blue="0" />
+      <PaletteEntry Index="129" Type="Background" Red="59" Green="59" Blue="59" />
+      <PaletteEntry Index="130" Type="Background" Red="71" Green="71" Blue="71" />
+      <PaletteEntry Index="131" Type="Background" Red="107" Green="107" Blue="107" />
+      <PaletteEntry Index="132" Type="Background" Red="143" Green="143" Blue="143" />
+      <PaletteEntry Index="133" Type="Background" Red="179" Green="179" Blue="179" />
+      <PaletteEntry Index="134" Type="Background" Red="219" Green="219" Blue="219" />
+      <PaletteEntry Index="135" Type="Background" Red="255" Green="255" Blue="255" />
       <PaletteEntry Index="136" Type="Background" Red="0" Green="0" Blue="0" />
       <PaletteEntry Index="137" Type="Background" Red="0" Green="0" Blue="0" />
       <PaletteEntry Index="138" Type="Background" Red="0" Green="0" Blue="0" />
@@ -4699,7 +4699,7 @@ stop
         <Sprites>
           <Sprite Slot="0" Width="28" Height="48" ColorDepth="8" Resolution="Real" AlphaChannel="False">
             <Source>
-              <FileName>D:\DragonFireDemastered\sprites\flamingo\flamingo1.bmp</FileName>
+              <FileName>D:\DragonFireDemastered\sprites\flamingo\right1.bmp</FileName>
               <OffsetX>0</OffsetX>
               <OffsetY>0</OffsetY>
               <ImportHeight>48</ImportHeight>
@@ -4708,7 +4708,7 @@ stop
               <Frame>0</Frame>
               <RemapToGamePalette>False</RemapToGamePalette>
               <RemapToRoomPalette>False</RemapToRoomPalette>
-              <ImportMethod>BottomRight</ImportMethod>
+              <ImportMethod>PaletteIndex0</ImportMethod>
               <ImportAlphaChannel>False</ImportAlphaChannel>
             </Source>
           </Sprite>
@@ -6349,47 +6349,47 @@ stop
           </Sprite>
           <Sprite Slot="133" Width="28" Height="48" ColorDepth="8" Resolution="Real" AlphaChannel="False">
             <Source>
-              <FileName>D:\DragonFireDemastered\sprites\flamingo\flamingo1.bmp</FileName>
+              <FileName>D:\DragonFireDemastered\sprites\flamingo\right1.bmp</FileName>
               <OffsetX>0</OffsetX>
               <OffsetY>0</OffsetY>
               <ImportHeight>48</ImportHeight>
               <ImportWidth>28</ImportWidth>
               <ImportAsTile>False</ImportAsTile>
               <Frame>0</Frame>
-              <RemapToGamePalette>True</RemapToGamePalette>
+              <RemapToGamePalette>False</RemapToGamePalette>
               <RemapToRoomPalette>False</RemapToRoomPalette>
-              <ImportMethod>TopLeft</ImportMethod>
-              <ImportAlphaChannel>True</ImportAlphaChannel>
+              <ImportMethod>PaletteIndex0</ImportMethod>
+              <ImportAlphaChannel>False</ImportAlphaChannel>
             </Source>
           </Sprite>
           <Sprite Slot="134" Width="28" Height="48" ColorDepth="8" Resolution="Real" AlphaChannel="False">
             <Source>
-              <FileName>D:\DragonFireDemastered\sprites\flamingo\flamingo2.bmp</FileName>
+              <FileName>D:\DragonFireDemastered\sprites\flamingo\right2.bmp</FileName>
               <OffsetX>0</OffsetX>
               <OffsetY>0</OffsetY>
               <ImportHeight>48</ImportHeight>
               <ImportWidth>28</ImportWidth>
               <ImportAsTile>False</ImportAsTile>
               <Frame>0</Frame>
-              <RemapToGamePalette>True</RemapToGamePalette>
+              <RemapToGamePalette>False</RemapToGamePalette>
               <RemapToRoomPalette>False</RemapToRoomPalette>
               <ImportMethod>TopLeft</ImportMethod>
-              <ImportAlphaChannel>True</ImportAlphaChannel>
+              <ImportAlphaChannel>False</ImportAlphaChannel>
             </Source>
           </Sprite>
           <Sprite Slot="135" Width="28" Height="48" ColorDepth="8" Resolution="Real" AlphaChannel="False">
             <Source>
-              <FileName>D:\DragonFireDemastered\sprites\flamingo\flamingo3.bmp</FileName>
+              <FileName>D:\DragonFireDemastered\sprites\flamingo\right3.bmp</FileName>
               <OffsetX>0</OffsetX>
               <OffsetY>0</OffsetY>
               <ImportHeight>48</ImportHeight>
               <ImportWidth>28</ImportWidth>
               <ImportAsTile>False</ImportAsTile>
               <Frame>0</Frame>
-              <RemapToGamePalette>True</RemapToGamePalette>
+              <RemapToGamePalette>False</RemapToGamePalette>
               <RemapToRoomPalette>False</RemapToRoomPalette>
-              <ImportMethod>TopLeft</ImportMethod>
-              <ImportAlphaChannel>True</ImportAlphaChannel>
+              <ImportMethod>PaletteIndex0</ImportMethod>
+              <ImportAlphaChannel>False</ImportAlphaChannel>
             </Source>
           </Sprite>
           <Sprite Slot="136" Width="28" Height="48" ColorDepth="8" Resolution="Real" AlphaChannel="False">

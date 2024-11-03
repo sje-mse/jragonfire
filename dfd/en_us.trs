@@ -1,0 +1,206 @@
+// AGS TRANSLATION SOURCE FILE
+// Format is alternating lines with original game text and replacement
+// text. If you don't want to translate a line, just leave the following
+// line blank. Lines starting with '//' are comments - DO NOT translate
+// them. Special characters such as [ and %%s symbolise things within the
+// game, so should be left in an appropriate place in the message.
+// 
+// ** Translation settings are below
+// ** Leave them as "DEFAULT" to use the game settings
+// The normal font to use - DEFAULT or font number
+//#NormalFont=DEFAULT
+// The speech font to use - DEFAULT or font number
+//#SpeechFont=DEFAULT
+// Text direction - DEFAULT, LEFT or RIGHT
+//#TextDirection=DEFAULT
+// Text encoding hint - ASCII or UTF-8
+//#Encoding=UTF-8
+//  
+// ** REMEMBER, WRITE YOUR TRANSLATION IN THE EMPTY LINES, DO
+// ** NOT CHANGE THE EXISTING TEXT.
+Dragon Fire: Demastered
+
+Ask about Guard
+
+Ask about Hall of Kings
+
+Ask about Silmaria
+
+Goodbye
+
+&2 We are not here to answer questions.
+
+&3 This is the Hall of Kings. No one enters without permission.
+
+&4 We are not tour guides.  Ask a merchant in the Town Square.
+
+Talk to Sarra
+
+Buy something from Sarra
+
+Sell something to Sarra
+
+Never mind
+
+&1 Greetings, Prince of Shapeir.  How may I serve you?
+
+Greet Sarra
+
+Ask about Sarra
+
+Ask about Rumors
+
+Say Goodbye
+
+&2 Welcome and good day. How may I please you?
+
+&5 May your journey be ever to your liking.
+
+Greet Wolfie
+
+Ask about Wolfie
+
+&24 Namaste, and may you be having a pleasant day.
+
+&2 Welcome very much. It is always a better day when I see you.
+
+&26 Be very careful. I would not like to read any bad news about you on the notice board. Good day.
+
+Wolfie is a Canine, sort of a cross between a human and a German Shepherd. He has big brown eyes.
+
+&12 Business has been rather slow today. I am thinking that not many people have been breaking their amphorae. I make very strong amphorae, which is good for those that buy them, but bad for me that sells them.
+
+&11 I am good and happy, for someone said today that I have made a very fine map.  Now if only that person had bought my map instead of stealing it, I would be more pleased.
+
+&10 Things are very sunny today, and I wish I could curl up and take a nap in the sunshine. This is not very good for business, however.
+
+&9 I am thinking that I am getting fleas. Most annoying fleas. I shall be needing to take a long bath in the sea tonight.
+
+&8 My mouth waters at the thought of a good curry right now. I think that I must be getting hungry.
+
+&7 Let me be thinking... It has been said that the one who had the old King killed wished to take over all of Silmaria. This is a very bad person. I do not think he would make a good king.
+
+&5 It is said that the one who lives in the Famous Adventurer's School was once a famous adventurer. Now he seems just like a tired old man.
+
+&4 The two who run the Apothecary are very happy.  They always act as if they had been fated to be together. This is a good thing.
+
+&25 There is talk that you are most attractive to women.  There is one fine woman who works at the casino who thinks you would be a very good catch. Perhaps you should throw yourself at her some day.
+
+&3 There are many people who have left Silmaria with all the bad things that have happened here. Just because we have murders in the street, a war with the Tritons, an invasion, and eventual destruction of the whole island, does not mean things are all bad.  Pickpocketing is at an all time low here, after all.
+
+This attractive Katta lady has the beautifully expressive eyes and the sweet smile so common to her people.
+
+&4 There is a rumor that the last king of Silmaria was murdered. It is a very sad thing, for he was a good ruler.
+
+&8 The gentle Healer, Julanar, is with child. This is a wonderful thing, because both she and her husband are sweet people.
+
+&13 Many people have left Silmaria because they feared the invaders. I hope that they might be able to return soon.
+
+&14 People in this city are talking about the crime in the streets. There seem to be more pickpockets and thieves than ever before. Such is ever the way when a city has no ruler.
+
+&15 I have heard from my sister in Shapeir that the Sultan Harun al-Rashid, may he live forever, has been blessed by his new wife with a son.
+
+&6 My cousin, Shema, sends word to tell you that she and Shameen are well and happy, and hopes that you are the same.
+
+&3 I am pleased, as always, to speak with you.
+
+&7 It is a beautiful day this time of year, and I am well content, thank you.
+
+&12 Business has been slow, for few think of romance this time of year.
+
+&11 My day has been brightened by your presence. You are always so kind and polite.
+
+&10 It is more damp and cool today than I am used to, but as long as the clouds do not bring rain, I am content.
+
+&9 I have sold some jewelry today to someone who wanted to please a woman. Perhaps he will one day marry her.
+
+This guard ignores any attempt at conversation.
+
+This guard's face shows irritation.  It's not a pleasant expression.
+
+&1 You may enter the Hall of Kings now.
+
+The guard is watching you with a pugnacious look.  He definitely has a bad attitude.
+
+Voice and Text
+
+screenshot.pcx
+
+Damn, I'm looking good!
+
+You rub your hands up and down your clothes.
+
+Talking to yourself is a sign of madness!
+
+%s[AGS %s
+
+Voice only
+
+Text only
+
+No more free save slots!
+
+@GAMENAME@
+
+Score: @SCORE@
+
+@OVERHOTSPOT@
+
+New Button
+
+Close
+
+Resume
+
+Save
+
+About
+
+Quit
+
+Default
+
+Load
+
+Audio Volume
+
+Voice Volume
+
+Gamma
+
+Speed
+
+Restart
+
+Are you sure you want to restart?
+
+Yes
+
+No
+
+Please choose the name to save this game as:
+
+Cancel
+
+Delete
+
+Please choose the game that you want to restore:
+
+Restore
+
+Play
+
+Are you sure you want to quit?
+
+Roger
+
+Hero
+
+Stepanos
+
+New character
+
+Sarra
+
+Wolfie
+
