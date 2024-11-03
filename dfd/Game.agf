@@ -692,6 +692,10 @@
             <Description xml:space="preserve">Wolfie's Amphora Emporium</Description>
             <Number>10</Number>
           </UnloadedRoom>
+          <UnloadedRoom>
+            <Description xml:space="preserve">Waterfall Thieves</Description>
+            <Number>11</Number>
+          </UnloadedRoom>
         </UnloadedRooms>
       </UnloadedRoomFolder>
     </Rooms>
@@ -2553,7 +2557,7 @@
             <Solid>True</Solid>
             <SpeechAnimationDelay>5</SpeechAnimationDelay>
             <SpeechColor>102</SpeechColor>
-            <SpeechView>0</SpeechView>
+            <SpeechView>6</SpeechView>
             <StartX>140</StartX>
             <StartY>144</StartY>
             <StartingRoom>10</StartingRoom>
