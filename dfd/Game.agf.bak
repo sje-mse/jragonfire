@@ -2515,7 +2515,7 @@
             <Solid>True</Solid>
             <SpeechAnimationDelay>5</SpeechAnimationDelay>
             <SpeechColor>102</SpeechColor>
-            <SpeechView>6</SpeechView>
+            <SpeechView>7</SpeechView>
             <StartX>170</StartX>
             <StartY>160</StartY>
             <StartingRoom>5</StartingRoom>
@@ -2557,7 +2557,7 @@
             <Solid>True</Solid>
             <SpeechAnimationDelay>5</SpeechAnimationDelay>
             <SpeechColor>102</SpeechColor>
-            <SpeechView>6</SpeechView>
+            <SpeechView>7</SpeechView>
             <StartX>140</StartX>
             <StartY>144</StartY>
             <StartingRoom>10</StartingRoom>
@@ -2570,6 +2570,48 @@
               <Event Index="0">cWolf_Look</Event>
               <Event Index="1" />
               <Event Index="2">cWolfie_Talk</Event>
+              <Event Index="3" />
+              <Event Index="4" />
+              <Event Index="5" />
+              <Event Index="6" />
+              <Event Index="7" />
+            </Interactions>
+          </Character>
+          <Character>
+            <AdjustSpeedWithScaling>False</AdjustSpeedWithScaling>
+            <AdjustVolumeWithScaling>False</AdjustVolumeWithScaling>
+            <AnimationDelay>4</AnimationDelay>
+            <BlinkingView>0</BlinkingView>
+            <Clickable>True</Clickable>
+            <DiagonalLoops>True</DiagonalLoops>
+            <ID>6</ID>
+            <IdleAnimationDelay>4</IdleAnimationDelay>
+            <IdleDelay>20</IdleDelay>
+            <IdleView>6</IdleView>
+            <MovementLinkedToAnimation>True</MovementLinkedToAnimation>
+            <MovementSpeed>3</MovementSpeed>
+            <MovementSpeedX>0</MovementSpeedX>
+            <MovementSpeedY>0</MovementSpeedY>
+            <NormalView>6</NormalView>
+            <Properties />
+            <RealName>Marrak</RealName>
+            <ScriptName>cMarrak</ScriptName>
+            <Solid>True</Solid>
+            <SpeechAnimationDelay>5</SpeechAnimationDelay>
+            <SpeechColor>102</SpeechColor>
+            <SpeechView>7</SpeechView>
+            <StartX>230</StartX>
+            <StartY>164</StartY>
+            <StartingRoom>7</StartingRoom>
+            <ThinkingView>0</ThinkingView>
+            <TurnBeforeWalking>True</TurnBeforeWalking>
+            <UniformMovementSpeed>True</UniformMovementSpeed>
+            <UseRoomAreaLighting>True</UseRoomAreaLighting>
+            <UseRoomAreaScaling>True</UseRoomAreaScaling>
+            <Interactions>
+              <Event Index="0">cMarrak_Look</Event>
+              <Event Index="1" />
+              <Event Index="2">cMarrak_Talk</Event>
               <Event Index="3" />
               <Event Index="4" />
               <Event Index="5" />
@@ -2776,6 +2818,59 @@ stop
                     <Say>False</Say>
                     <Show>True</Show>
                     <Text xml:space="preserve">Ask about Rumors</Text>
+                  </DialogOption>
+                  <DialogOption>
+                    <ID>4</ID>
+                    <Say>False</Say>
+                    <Show>True</Show>
+                    <Text>Goodbye</Text>
+                  </DialogOption>
+                </DialogOptions>
+              </Dialog>
+            </Dialogs>
+          </DialogFolder>
+          <DialogFolder Name="Marrak">
+            <SubFolders />
+            <Dialogs>
+              <Dialog>
+                <ID>4</ID>
+                <Name>dMarrak_1</Name>
+                <ShowTextParser>False</ShowTextParser>
+                <Script><![CDATA[// Dialog script file
+@S  // Dialog startup entry point
+cMarrak: &1 Welcome.  May I entice you with some tasty treat?
+return
+@1
+cMarrak: &2 What can I sell to you today?"
+return
+@2
+    askAboutMarrak();
+return
+@3
+    rumorMarrak();
+return
+@4
+cMarrak: &3 May your day be filled with pleasures and surprises, O Prince.
+stop
+]]></Script>
+                <DialogOptions>
+                  <DialogOption>
+                    <ID>1</ID>
+                    <Say>False</Say>
+                    <Show>True</Show>
+                    <Text xml:space="preserve">Greek Marrak</Text>
+                  </DialogOption>
+                  <DialogOption>
+                    <ID>2</ID>
+                    <Say>False</Say>
+                    <Show>True</Show>
+                    <Text xml:space="preserve">Ask About Marrak</Text>
+                  </DialogOption>
+                  <DialogOption>
+                    <ID>3</ID>
+                    <Say>False</Say>
+                    <Show>True</Show>
+                    <Text xml:space="preserve">Ask About Rumors</Text>
                   </DialogOption>
                   <DialogOption>
                     <ID>4</ID>
@@ -6441,6 +6536,21 @@ stop
               <ImportAlphaChannel>True</ImportAlphaChannel>
             </Source>
           </Sprite>
+          <Sprite Slot="151" Width="32" Height="32" ColorDepth="8" Resolution="Real" AlphaChannel="False">
+            <Source>
+              <FileName>D:\DragonFireDemastered\sprites\flamingo\head2.bmp</FileName>
+              <OffsetX>0</OffsetX>
+              <OffsetY>0</OffsetY>
+              <ImportHeight>32</ImportHeight>
+              <ImportWidth>32</ImportWidth>
+              <ImportAsTile>False</ImportAsTile>
+              <Frame>0</Frame>
+              <RemapToGamePalette>False</RemapToGamePalette>
+              <RemapToRoomPalette>False</RemapToRoomPalette>
+              <ImportMethod>NoTransparency</ImportMethod>
+              <ImportAlphaChannel>False</ImportAlphaChannel>
+            </Source>
+          </Sprite>
         </Sprites>
       </SpriteFolder>
     </Sprites>
@@ -7705,6 +7815,25 @@ stop
               </Loop>
             </Loops>
           </View>
+          <View>
+            <ID>7</ID>
+            <Name>flamingo_speech</Name>
+            <Loops>
+              <Loop>
+                <ID>0</ID>
+                <RunNextLoop>False</RunNextLoop>
+                <Frames>
+                  <ViewFrame>
+                    <Delay>0</Delay>
+                    <Flipped>False</Flipped>
+                    <ID>0</ID>
+                    <Image>151</Image>
+                    <Sound>0</Sound>
+                  </ViewFrame>
+                </Frames>
+              </Loop>
+            </Loops>
+          </View>
         </Views>
       </ViewFolder>
     </Views>
@@ -7713,6 +7842,30 @@ stop
       <ScriptFolder Name="Main">
         <SubFolders />
         <ScriptAndHeaders>
+          <ScriptAndHeader>
+            <ScriptAndHeader_Header>
+              <Script>
+                <FileName>Marrak.ash</FileName>
+                <Name />
+                <Description />
+                <Author />
+                <Version />
+                <Key>875469728</Key>
+                <IsHeader>True</IsHeader>
+              </Script>
+            </ScriptAndHeader_Header>
+            <ScriptAndHeader_Script>
+              <Script>
+                <FileName>Marrak.asc</FileName>
+                <Name />
+                <Description />
+                <Author />
+                <Version />
+                <Key>875469728</Key>
+                <IsHeader>False</IsHeader>
+              </Script>
+            </ScriptAndHeader_Script>
+          </ScriptAndHeader>
           <ScriptAndHeader>
             <ScriptAndHeader_Header>
               <Script>
