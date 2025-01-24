@@ -2858,7 +2858,7 @@ stop
                     <ID>1</ID>
                     <Say>False</Say>
                     <Show>True</Show>
-                    <Text xml:space="preserve">Greek Marrak</Text>
+                    <Text xml:space="preserve">Greet Marrak</Text>
                   </DialogOption>
                   <DialogOption>
                     <ID>2</ID>
