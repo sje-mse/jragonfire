@@ -1,7 +1,6 @@
-# dragon-fire-demake
-A VGA Demake of Quest for Glory V: Dragon Fire
+# jragonfire
 
-The goal of this project is to demaster the 1999 adventure game Quest for Glory V: Dragon Fire into a VGA style, similar to that of Quest for Glory III and IV.
+A non-profit fan-based project to organize the data of QFG5: Dragonfire as an exercise in the study of game design.
 
 The current phase of the project is to arrange the game data (extracted, demastered, or otherwise adapted) into such a form as:
 - To be able to be automatically imported into a game engine (probably AGS) using python scripts.
@@ -27,18 +26,20 @@ This will include:
 
 ### `lines.json`
 
-
 Each line of dialog will be stored as an array entry of the following schema:
 
-`
+```
 {
     "key": "welcome_prince_of_shapier",
     "en_us": "Welcome, Prince of Shapier. How may I serve you?"
 }
-`
+```
+
 If an audio for this line of dialog exists, it must have the same name as the `key` field, plus the `wav` extension.
 For example, the audio file corresponding to this line of dialog should be found in:
+
 ```
 characters/sarra/audio/welcome_prince_of_shapier.wav
 ```
+
 Git not was intended to store audio files, so these will be stored elsewhere.
