@@ -58,5 +58,30 @@
 	{
 		"key": "i_have_sold_some_jewelry",
 		"en_us": "I have sold some jewelry today to someone who wanted to please a woman. Perhaps he will one day marry her."
-	}
+	},
+	{
+		"key": "may_it_please_you",
+		"en_us": "May it please you, and anyone with whom you share it."
+	},
+	{
+		"key": "greetings_wanderer_from_afar",
+		"en_us": "Greetings, Wanderer from afar. Welcome to the sea sands and shores of Silmaria."
+	},
+	{
+		"key": "i_am_sarra_a_katta",
+		"en_us": "I am Sarra, a Katta merchant of jewelry and gifts. How may I aid you on your journey?"
+	},
+	{
+		"key": "welcome_he_who_will_be_king",
+		"en_us": "Welcome, He Who Will Be King. I have no doubt that you shall be whatsoever you desire to become."
+	},
+	{
+		"key": "welcome_my_friend",
+		"en_us": "Welcome, my friend. Thank you yet again for the return of my basket."
+	},
+	{
+		"key": "jewelry_is_pleasing_to_the_eye",
+		"en_us": "Jewelry is pleasing to the eye and heart. Jewels but reflect the beauty of the wearer."
+	},
+
 ]
