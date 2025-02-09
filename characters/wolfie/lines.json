@@ -40,15 +40,363 @@
 		"en_us": "It is said that the one who lives in the Famous Adventurer's School was once a famous adventurer. Now he seems just like a tired old man."
 	},
 	{
-		"key": "the_two_who_run_the_apothecary",
+		"key": "the_two_who_run",
 		"en_us": "The two who run the Apothecary are very happy. They always act as if they had been fated to be together. This is a good thing."
 	},
 	{
-		"key": "there_is_talk_that_you_are_most_attractive",
+		"key": "there_is_talk_that_you",
 		"en_us": "There is talk that you are most attractive to women. There is one fine woman who works at the casino who thinks you would be a very good catch. Perhaps you should throw yourself at her some day."
 	},
 	{
-		"key": "there_are_many_people_who_have_left",
+		"key": "there_are_many_people",
 		"en_us": "There are many people who have left Silmaria with all the bad things that have happened here. Just because we have murders in the street, a war with the Tritons, an invasion, and eventual destruction of the whole island, does not mean things are all bad. Pickpocketing is at an all time low here, after all."
+	},
+	{
+		"key": "forgive_me_but_you_failed",
+		"en_us": "Forgive me, but you failed to pay for that which you have taken. I fear I must call the guards to stop you. I'm most sorry about this, you know."
+	},
+	{
+		"key": "my_paintings_are_of_things",
+		"en_us": "My paintings are of things that I am most fond. It is difficult to paint at times because my tail is wagging so."
+	},
+	{
+		"key": "a_map_can_be",
+		"en_us": "A map can be a very useful thing, if you are not knowing where you are."
+	},
+	{
+		"key": "amphorae_are_a_grecian_urn",
+		"en_us": "Amphorae are a Grecian Urn for holding liquids. I am making them because many people here are using them."
+	},
+	{
+		"key": "this_is_very_good",
+		"en_us": "This is very good to be speaking to you. Is there any way I can be helping you more?"
+	},
+	{
+		"key": "pleased_will_i_be",
+		"en_us": "Pleased will I be to sell you an amphora to hold water, or maybe a map to make your way around Marete and Silmaria."
+	},
+	{
+		"key": "thank_you_thank_you_thank_you",
+		"en_us": "Thank you, thank you, thank you. I am most grateful."
+	},
+	{
+		"key": "greetings_greetings_greetings",
+		"en_us": "Greetings, greetings, greetings. It is always a pleasure to meet someone new. Welcome to Silmaria. I am Wolfie, an artist and artisan of Grecian urns and amphorae."
+	},
+	{
+		"key": "namaste_my_friend",
+		"en_us": "Namaste, my friend. It is exceedingly happy you have made me, for I have had a chance to do a thing I love very much. This is a good thing."
+	},
+	{
+		"key": "it_is_a_good_day",
+		"en_us": "It is a good day, is it not? A fine day for flying, if one could fly."
+	},
+	{
+		"key": "oh_i_am_so_excited",
+		"en_us": "Oh, I am so excited. I have heard you have made a thing that flies like the picture I painted, and that you have taken it far away. I only wish that I could see it."
+	},
+	{
+		"key": "it_was_such_a_thrill",
+		"en_us": "It was such a thrill to see your flying machine in the air! I ran from my stand all over town to keep it in sight. I have told everyone that it was you who made such a wonderous thing. This is all very good."
+	},
+	{
+		"key": "oh_that_is_very_pleasant",
+		"en_us": "Oh, that is very pleasant news, indeed. It will be good to have you as King here. I do not know many kings that have bought things from my stand, after all."
+	},
+	{
+		"key": "i_have_heard_that_the_fishing",
+		"en_us": "I have heard that the fishing villages were taken over by the paid soldiers from another land. There is a village called Naxos to the southwest of town where this is truly so. You cannot get there now though, for there are some invaders who try to kill you if you attempt this."
+	},
+	{
+		"key": "i_have_heard_that_the_second",
+		"en_us": "I have heard that the second man killed by the assassin was most powerful among those of the dishonest guild. This would explain why he was a wealthy man."
+	},
+	{
+		"key": "you_are_building_a_machine",
+		"en_us": "You are building a machine that flies? This is very thrilling. I will be looking in the air to be seeing it. Thank you for letting me hear about this. My tail will not stop wagging for days."
+	},
+	{
+		"key": "very_good_i_am_feeling",
+		"en_us": "Very good I am feeling. I hope that you are feeling very good as well."
+	},
+	{
+		"key": "it_is_most_interesting",
+		"en_us": "It is most interesting that the black bird is so desirable. I wonder if there is something hidden inside of it. If so, it would have to be broken to learn such a thing."
+	},
+	{
+		"key": "if_you_are_having_any_other",
+		"en_us": "If you are having any other statues for me to be making, let me know. Have very good travels, my friend."
+	},
+	{
+		"key": "my_pleasure_as_always",
+		"en_us": "My pleasure, as always. Your black bird was good to make."
+	},
+	{
+		"key": "i_am_always_pleased",
+		"en_us": "I am always pleased to be working on art. It is good fun to make your statue, thank you very much."
+	},
+	{
+		"key": "oh_yes_i_am_forgetting",
+		"en_us": "Oh, yes, I am forgetting... Here is the statue that you have brought me. It looks like a nice piece of artwork, but not all that valuable, I would think."
+	},
+	{
+		"key": "things_that_i_have_heard",
+		"en_us": "Things that I have heard is that this statue is highly prized by those people of the dishonest profession. You should be watching out, for they may be trying to take this from you."
+	},
+	{
+		"key": "it_is_a_great_pity",
+		"en_us": "It is a great pity that your flying machine is destroyed. My tail and ears droop at the thought of such a loss. Still, it is a good thing that the flying machine could fly."
+	},
+	{
+		"key": "i_hope_that_you_will_have",
+		"en_us": "I hope that you will have as much fun on your next quest as on this one. Greetings go with you."
+	},
+	{
+		"key": "you_must_have_had",
+		"en_us": "You must have had a very fine time in your flying machine, I am thinking."
+	},
+	{
+		"key": "i_have_been_hearing",
+		"en_us": "I have been hearing many rumors of some very nasty prophecy which is supposed to be coming true. It is something about a big lizard that ate Atlantis and is going to be eating all of us. I am hoping that this story is not true."
+	},
+	{
+		"key": "i_would_very_much_like",
+		"en_us": "I would very much like to fly someday. I would be like a bird and fly away south for the winter, except that my homeland is to the east, and I would be flying there."
+	},
+	{
+		"key": "holy_cow",
+		"en_us": "Holy cow, I did not know that Destiny was so hard to find. I always thought that the future comes to you, whether you look for it or not."
+	},
+	{
+		"key": "good_luck_in_your_quest",
+		"en_us": "Good luck in your quest for destiny. I have learned that one can build the future from what one does today. Namaste."
+	},
+	{
+		"key": "the_notice_board_said",
+		"en_us": "The notice board said that you would be off to find your destiny. I hope it is not lost too badly."
+	},
+	{
+		"key": "i_have_seen_a_man_to_fly",
+		"en_us": "I have seen a man to fly once without wings or other magic. It is something that I painted in the picture to show that this was true and that I did not make up such a thing. For some reason, people still did not believe what I saw."
+	},
+	{
+		"key": "ah_i_am_glad",
+		"en_us": "Ah, I am glad to be seeing you again. I have made your statue of the raven for you."
+	},
+	{
+		"key": "hello_to_you",
+		"en_us": "Hello to you. Good it is to be helping you in any way. I am called Wolfie, for that is my name."
+	},
+	{
+		"key": "this_is_all_very_interesting",
+		"en_us": "This is all very interesting, is it not?"
+	},
+	{
+		"key": "welcome_welcome_elsa",
+		"en_us": "Welcome, welcome, Elsa of Spielburg. I am Wolfie, a much unrecognized fine artist. It is nice to be seeing you."
+	},
+	{
+		"key": "the_woman_warrior",
+		"en_us": "The woman warrior, Elsa, was also heard to show her displeasure to Minos. It seems that he wished to take Elsa directly to this island of Delos, and Elsa wished to find her way there herself. She said that she does not take his orders and he said 'yet' and she was most angry."
+	},
+	{
+		"key": "there_was_talk_that_after",
+		"en_us": "There was talk that after your last meeting in the Hall of Kings, several arguments were heard. Dr. Mobius, the scientist, was most displeased about the Rite of Destiny, and he said to his person Gort that they will have to try something to even the odds in the next contest."
+	},
+	{
+		"key": "greetings_i_hope",
+		"en_us": "Greetings. I hope that you are well today. You may call me Wolfie, if you wish to call me."
+	},
+	{
+		"key": "i_am_getting_much_better",
+		"en_us": "I am getting much better. I used to take a lope outside the city gates every morning, but things were getting so much dangerous that I could not. Now that you have driven off the bad soldiers, I can run off all the rice I eat again."
+	},
+	{
+		"key": "wagging_my_tail",
+		"en_us": "Wagging my tail I am, to see you."
+	},
+	{
+		"key": "i_am_sorry_but_this_is_not_very_much",
+		"en_us": "I am sorry, but this is not very much money that you are offering me. If you do not think this is worth more, then do not try to buy it."
+	},
+	{
+		"key": "it_was_good_to_be",
+		"en_us": "It was good to be seeing you. I am perhaps going to the Inn more. Perhaps I shall see you there some time."
+	},
+	{
+		"key": "i_am_most_happy",
+		"en_us": "I am most happy that you are noticing my work. It is an artist's pleasure to hear about his art."
+	},
+	{
+		"key": "painting_the_land_inn",
+		"en_us": "Painting the Land Inn was a very good thing, I am thinking. Now it is more like Gnome Ann -- funny to look at. I used many bright colors to make things like Ann should want. Many people should be coming to see how it is looking, or so it is hoped."
+	},
+	{
+		"key": "gnome_ann_is_saying",
+		"en_us": "Gnome Ann is saying that her business is getting so much better because you are here. It is always good to be having a customer who is paid for in advance, and cannot run off taking all the towels."
+	},
+	{
+		"key": "happy_most_am_i",
+		"en_us": "Happy most am I, for an artist is glad to be making art. The Gnome Ann is a very fun person, and she is happy indeed. She is always laughing as I am talking."
+	},
+	{
+		"key": "oh_my_goodness",
+		"en_us": "Oh, my goodness. You are certainly a hero. This is very good, because it is that Silmaria could use your help, I am thinking."
+	},
+	{
+		"key": "as_they_would_say",
+		"en_us": "As they would say in the lands I have come from, namaste. This means 'greetings to you,' and I am hoping much to see you again."
+	},
+	{
+		"key": "it_is_most_genuinely",
+		"en_us": "It is most genuinely a pleasure to be seeing you. My tail wags very fast."
+	},
+	{
+		"key": "i_am_making_these",
+"I am making these amphorae and pots to sell for the people. I am also making nice maps for people to get lost with. Most of all, I am painting fine pictures that never sell. Tails do make very good paintbrushes, if you are lucky enough to have one."
+	},
+	{
+		"key": "punjabi",
+		"en_us": "Punjabi is lying to the east of here by many, many miles. It is in the land of Inja. Some day, I hope to sell enough to be making my way back to there. At times I am most homesick."
+	},
+	{
+		"key": "my_people_are_cunning",
+		"en_us": "My people are cunning and clever, I am thinking. There is not a one of us who does not make very much money by working all the time. In this way, we do not find the time to spend the money we make."
+	},
+	{
+		"key": "i_have_heard_that_these_thieves",
+		"en_us": "I have heard that these thieves are off searching for an ebony raven. This is most curious, for I have seen such a bird flying over the city. You would think that they would look up there for it, first."
+	},
+	{
+		"key": "this_was_once",
+		"en_us": "This was once a very fine place for thieves. There was not a day gone by when I did not admire how a thief had taken something before my eyes without me seeing him. Ah, most of them are gone away right now."
+	},
+	{
+		"key": "the_king_of_silmaria",
+		"en_us": "The King of Silmaria was killed by an assassin, or so it is said. There is another person that the assassin has murdered, if the rumor is to be true. It is a wonder if we are not all killed by him."
+	},
+	{
+		"key": "the_sea_people",
+		"en_us": "The sea people have been attacking many of the ships that sail to and from our harbor. The lives of many fish have been spared, for the fishermen have left this island. It is just as well, for they lost their homes to the soldiers."
+	},
+	{
+		"key": "it_is_said_that_the_countryside",
+		"en_us": "It is said that the countryside is overrun by the invaders from the north. Soon they will be knocking at our gates and asking to take over the kingdom, I am thinking."
+	},
+	{
+		"key": "all_in_all",
+		"en_us": "All in all, you will find Silmaria to be most exciting."
+	},
+	{
+		"key": "oh_my_it_does_not_seem",
+		"en_us": "Oh my. It does not seem to be that you and I are speaking the same words. It is difficult to bargain with someone who will not understand."
+	},
+	{
+		"key": "i_think_you_will_be_very_happy",
+		"en_us": "I think you will be very happy in Silmaria. It is a very good place to be, even if the city is soon to be overrun with foreign soldiers and destroyed economically by war with the sea people. Oh, you must be very careful of the monsters, thieves, and the assassins here, too."
+	},
+	{
+		"key": "i_have_even_made_a_visit",
+		"en_us": "I have even made a visit to the Guild of the Adventurers in the west part of town, even though I am not an adventurer. The Guildmaster there is most impressive. If he came where I came from, he would be sacred."
+	},
+	{
+		"key": "i_am_not_much_up",
+		"en_us": "I am not much up at Nob Hill, except daily to read the notices and to keep informed of many things that go on in this city. It is how I know the assassin has been killing people on the streets of Silmaria."
+	},
+	{
+		"key": "at_the_docks",
+		"en_us": "At the Docks, you can rent a boat and take a pleasant sea voyage. It is most fun, as long as you do not drown or get attacked by the sea people."
+	},
+	{
+		"key": "silmaria_is_a_very_fine_city",
+		"en_us": "Silmaria is a very fine city, yes indeed. This is the best place to buy many things in this town square. You can meet many people here as well. Some of them will be so kind as to not pick your pocket as they walk by."
+	},
+	{
+		"key": "an_amphora_is_a_grecian_urn",
+		"en_us": "An Amphora is a Grecian urn. It is used to carry liquids of all varieties."
+	},
+	{
+		"key": "this_is_not_good",
+		"en_us": "This is not good. I do not think that we can bargain."
+	},
+	{
+		"key": "i_am_skilled",
+		"en_us": "I am skilled at making art with clay or paint. If you have need of something made or painted, then I will be most happy to be doing it for you."
+	},
+	{
+		"key": "you_wish_to_know_more",
+		"en_us": "You wish to know more about me? I am only an artist trying to make a living by selling what crafts that I can. I came from the lands of Punjabi, where my people, the Canines, live."
+	},
+	{
+		"key": "are_we_speaking_union",
+		"en_us": "Are we speaking union or non-union?"
+	},
+	{
+		"key": "i_have_told_you_how_much",
+		"en_us": "I have told you how much I want, and I shall not take any less."
+	},
+	{
+		"key": "perhaps_maybe_you_should",
+		"en_us": "Perhaps maybe you should be taking a swim. That is a good way I have found to get rid of such itchy fleas."
+	},
+	{
+		"key": "yes_i_am_very_proud",
+		"en_us": "Yes, I am very proud of my painting. I painted it up in Albion when I was most fortunate enough to meet a man named Phineas. He had made a flying machine, and intended to sail around the world with it. I watched his machine take off, but I do not know where it went."
+	},
+	{
+		"key": "ah_a_snack",
+		"en_us": "Ah, a snack of fruit is always welcome. You are so kind, and I am most grateful."
+	},
+	{
+		"key": "that_is_a_very_good_offer",
+		"en_us": "That is a very good offer, but it is not enough for me to accept. Perhaps you will give me this much for it."
+	},
+	{
+		"key": "i_am_very_sorry_but_i_do_not_need",
+		"en_us": "I am very sorry, but I do not need such a thing."
+	},
+	{
+		"key": "thank_you_very_much_but",
+		"en_us": "Thank you very much, but I do not eat meat. I am an ethical vegetarian."
+	},
+	{
+		"key": "that_is_a_most_unusual_food",
+		"en_us": "That is a most unusual food item you are having there, but I do not think that the fish enhances it."
+	},
+	{
+		"key": "now_we_seem_to_be_getting_forward",
+		"en_us": "Now we seem to be getting forward movement here. I think that you should offer me this."
+	},
+	{
+		"key": "that_looks_very_good",
+		"en_us": "That looks very good indeed. You are most generous. I am thanking you highly for your kindness."
+	},
+	{
+		"key": "it_is_kind_of_you",
+		"en_us": "It is kind of you to offer, but that is not good for my teeth."
+	},
+	{
+		"key": "that_is_very_sweet",
+		"en_us": "That is very sweet of you, but I do not think such a mixed marriage would be very practical. "
+	},
+	{
+		"key": "very_good_very_good",
+		"en_us": "Very good, very good. This is close to being an agreement. Perhaps you will pay me this?"
+	},
+	{
+		"key": "it_is_most_unfortunate",
+		"en_us": "It is most unfortunate, but I do not think we will be making a deal here. You should be going now."
+	},
+	{
+		"key": "thank_you_very_kindly",
+		"en_us": "Thank you very kindly, but your flowers make me sneeze."
+	},
+	{
+		"key": "this_is_very_very_good",
+		"en_us": "This is very, very good. We have made an agreement which we both agree upon."
+	},
+	{
+		"key": "im_very_sorry_but",
+		"en_us": "I'm very sorry, but I do not think we have made a good deal here. That is to be speaking, it is not a good deal for me."
 	}
 ]
