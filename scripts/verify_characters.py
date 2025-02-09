@@ -9,7 +9,6 @@ def verify_lines(charpath, audiopath):
     all_keys = set()
     with open(path, 'r') as file:
         data = json.load(file)
-        print(type(data))
         if not type(data) is list:
             print("not a list!")
             return False
