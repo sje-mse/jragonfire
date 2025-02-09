@@ -2,24 +2,19 @@ import json
 import os
 import sys
 
-CHARACTER_PATH = os.path.join("..", "characters")
+LINE_PATH = os.path.join("..", "lines")
 
 def verify_lines(charpath, audiopath):
-    path = os.path.join(charpath, "lines.json")
+    path = os.path.join(charpath, "en_us.json")
     all_keys = set()
     with open(path, 'r') as file:
         data = json.load(file)
-        if not type(data) is list:
-            print("not a list!")
+        if not type(data) is dict:
+            print("not a dict!")
             return False
 
-        for entry in data:
-            if not "key" in entry:
-                print("no key in entry {}".format(entry))
-                return False
-            if not "en_us" in entry:
-                print("no en_us in entry {}".format(entry))
-            all_keys.add(entry["key"])
+        for key in data.keys():
+            all_keys.add(key)
 
     if not os.path.isdir(audiopath):
         print("{} does not exist!".format(audiopath))
@@ -42,8 +37,8 @@ def verify_lines(charpath, audiopath):
 
 
 def verify_characters(audioroot):
-    for p in os.listdir(CHARACTER_PATH):
-        charpath = os.path.join(CHARACTER_PATH, p)
+    for p in os.listdir(LINE_PATH):
+        charpath = os.path.join(LINE_PATH, p)
         audiopath = os.path.join(audioroot, p)
         if os.path.isdir(charpath) and os.path.isdir(audiopath):
             if (verify_lines(charpath, audiopath)):
