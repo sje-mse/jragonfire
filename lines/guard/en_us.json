@@ -2,5 +2,13 @@
     "we_are_not_here": "We are not here to answer questions.",
     "this_is_the_hall_of_kings": "This is the Hall of Kings. No one enters without permission.",
     "we_are_not_tour_guides": "We are not tour guides. Ask a merchant in the Town Square.",
-    "you_may_enter": "You may enter the Hall of Kings now."
+    "you_may_enter": "You may enter the Hall of Kings now.",
+	"you_must_stop_this_fighting": "You must stop this fighting. There is no fighting on the streets of Silmaria.",
+	"you_are_under_arrest_for_fighting": "You are under arrest for fighting and disobeying the order of the guard of Silmaria.",
+	"this_is_your_first": "This is your first warning. You will both be arrested if you fight on the streets again.",
+	"seegnomee_you_are": "Seegnome, you are under arrest.",
+	"the_bank_is_closed": "The bank is closed. You should go now.",
+	"you_should_not_be_out": "You should not be out now. There are sometimes thieves this time of night.",
+	"you_are_under_arrest_for_suspicion_of_murder": "You are under arrest for suspicion of murder. You will go with me to the Hall of Kings ammesos!",
+	"ohee": "Ohee, efhareesto. I cannot accept gifts while I am on duty."
 }
