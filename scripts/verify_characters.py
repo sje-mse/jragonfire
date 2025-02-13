@@ -20,6 +20,8 @@ def verify_lines(charpath, audiopath):
         print("{} does not exist!".format(audiopath))
     all_audio = set()
     for p in os.listdir(audiopath):
+        if not os.path.isfile(os.path.join(audiopath, p)):
+            continue
         name, ext = os.path.splitext(p)
         all_audio.add(name)
         if not ext == ".wav":
@@ -40,11 +42,12 @@ def verify_characters(audioroot):
     for p in os.listdir(LINE_PATH):
         charpath = os.path.join(LINE_PATH, p)
         audiopath = os.path.join(audioroot, p)
+        print("{}...".format(p))
         if os.path.isdir(charpath) and os.path.isdir(audiopath):
             if (verify_lines(charpath, audiopath)):
-                print("{} is all good".format(p))
+                print("...all good!")
             else:
-                print("{} is INVALID".format(p))
+                print("...INVALID")
 
 if __name__ == "__main__":
     if len(sys.argv) > 1:

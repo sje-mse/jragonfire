@@ -10,5 +10,18 @@
 	"the_bank_is_closed": "The bank is closed. You should go now.",
 	"you_should_not_be_out": "You should not be out now. There are sometimes thieves this time of night.",
 	"you_are_under_arrest_for_suspicion_of_murder": "You are under arrest for suspicion of murder. You will go with me to the Hall of Kings ammesos!",
-	"ohee": "Ohee, efhareesto. I cannot accept gifts while I am on duty."
+	"ohee": "Ohee, efhareesto. I cannot accept gifts while I am on duty.",
+	"we_do_not_converse": "We do not converse on duty.",
+	"our_duty_is_to_guard": "Our duty is to guard the Hall of Kings.",
+	"logos_is_expecting": "Logos is expecting you. You may enter.",
+	"we_will_bring_aid": "We will bring aid ammesos! Guards, Guards!",
+	"what_has_happened": "What has happened? Guards, to me! Trouble!",
+	"parakalo_wait": "Parakalo, wait. We will summon the others.",
+	"no_one_may_enter": "No one may enter the Hall of Kings until all the contenders have fully funded the Rite of Rulership.",
+	"oreha_you_have": "Oreh-a! You have completed the Rite of Freedom. You will soon be summoned to the Hall of Kings.",
+	"you_have_won": "You have won the Rite of Conquest. Everyone will be summoned to the Hall of Kings.",
+	"bravo": "Bravo! You have won the Rite of Valor. All will be summoned to the Hall of Kings.",
+	"we_will_notify": "We will notify Logos that you have completed the Rite of Destiny.",
+	"it_looks_like_water": "It looks like water to me. I will trust your word in this matter.",
+	"you_have_completed": "You have completed the Rite of Peace. All will be summoned shortly."
 }
