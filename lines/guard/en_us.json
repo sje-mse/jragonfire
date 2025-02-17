@@ -9,7 +9,8 @@
 	"seegnomee_you_are": "Seegnome, you are under arrest.",
 	"the_bank_is_closed": "The bank is closed. You should go now.",
 	"you_should_not_be_out": "You should not be out now. There are sometimes thieves this time of night.",
-	"you_are_under_arrest_for_suspicion_of_murder": "You are under arrest for suspicion of murder. You will go with me to the Hall of Kings ammesos!",
+	"you_are_under_arrest_for_suspicion_slow": "You are under arrest for suspicion of murder. You will go with me to the Hall of Kings ammesos!",
+	"you_are_under_arrest_for_suspicion_urgent": "You are under arrest for suspicion of murder. You will go with me to the Hall of Kings ammesos!",
 	"ohee": "Ohee, efhareesto. I cannot accept gifts while I am on duty.",
 	"we_do_not_converse": "We do not converse on duty.",
 	"our_duty_is_to_guard": "Our duty is to guard the Hall of Kings.",
@@ -23,5 +24,11 @@
 	"bravo": "Bravo! You have won the Rite of Valor. All will be summoned to the Hall of Kings.",
 	"we_will_notify": "We will notify Logos that you have completed the Rite of Destiny.",
 	"it_looks_like_water": "It looks like water to me. I will trust your word in this matter.",
-	"you_have_completed": "You have completed the Rite of Peace. All will be summoned shortly."
+	"you_have_completed": "You have completed the Rite of Peace. All will be summoned shortly.",
+	"guards_it_is_an_emergency": "Guards, it is an emergency!",
+	"we_will_see_to_ugarte": "We will see to Ugarte. You need to report to the Hall of Kings.",
+	"a_murder": "A murder? It will be handled immediately. Guards!",
+	"i_came_as_soon": "I came as soon as I could. I've dispatched the other guards to follow the assassin. We need to get this man to a healer, and to report to the Hall of Kings.",
+	"if_this_is_not": "If this is not an emergency, do not disturb us. Go away.",
+	"how_did_you_open": "How did you open this door? It used to be locked. Thief tools are illegal in the city of Silmaria. If I catch you using them again, you will be arrested. Go away."
 }
