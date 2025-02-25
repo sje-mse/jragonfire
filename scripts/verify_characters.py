@@ -38,11 +38,9 @@ def verify_lines(charpath, audiopath):
     for k in all_audio:
         if not k in all_keys:
             print("audio file {} not found in keys!".format(k))
-            return False
     for k in all_keys:
         if not k in all_audio:
             print("key {} not found in audio files!".format(k))
-            return False
     return all_audio == all_keys
 
 
