@@ -24,6 +24,7 @@ def verify_lines(charpath, audiopath):
 
     if not os.path.isdir(audiopath):
         print("{} does not exist!".format(audiopath))
+
     all_audio = set()
     for p in os.listdir(audiopath):
         if not os.path.isfile(os.path.join(audiopath, p)):
@@ -41,7 +42,7 @@ def verify_lines(charpath, audiopath):
     for k in all_keys:
         if not k in all_audio:
             print("key {} not found in audio files!".format(k))
-    return all_audio == all_keys
+    return all_audio == all_keys, len(all_keys), len(all_audio)
 
 
 def verify_characters(audioroot):
@@ -50,8 +51,9 @@ def verify_characters(audioroot):
         audiopath = os.path.join(audioroot, p)
         print("{}...".format(p))
         if os.path.isdir(charpath) and os.path.isdir(audiopath):
-            if (verify_lines(charpath, audiopath)):
-                print("...all good!")
+            valid, num_lines, num_files = verify_lines(charpath, audiopath)
+            if valid:
+                print("...OK! ({})".format(num_lines))
             else:
                 print("...INVALID")
 
