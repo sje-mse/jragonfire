@@ -44,4 +44,4 @@ For example, the audio file corresponding to this line of dialog should be found
 audio/sarra/welcome_prince_of_shapier.wav
 ```
 
-Git not was intended to store audio files, so these will be stored elsewhere.
+Git not was intended to store audio files, so these will be stored [elsewhere](https://1drv.ms/f/c/83c2e71ede7cabb9/EqVGGr-sod5PmNuVqu-7gQABAV3-F9Sae1LHLcKIVPM1kw?e=PqWkeQ).
