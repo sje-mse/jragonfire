@@ -1,0 +1,546 @@
+[
+	{
+		"name": "Hydra Teeth",
+		"description": "The teeth of the Hydra are as sharp as needles, explaining the damage of the monster's bite."
+	},
+	{
+		"name": "Healing Pills",
+		"description": "This bottle of pills is guaranteed to be 'good for what ails you.'"
+	},
+	{
+		"name": "Health Potion",
+		"description": "This potion of healing will fully restore your health. It's rather expensive, but probably worth it."
+	},
+	{
+		"name": "King's Ring",
+		"description": "This is the ring that was worn by the last king of Silmaria."
+	},
+	{
+		"name": "Peace Statue",
+		"description": "While this statue doesn't seem to be all that valuable, it is obviously an important symbol of peace."
+	},
+	{
+		"name": "Chocolate Box",
+		"description": "This candy has the odor of over-ripe fruit."
+	},
+	{
+		"name": "Bead Necklace",
+		"description": "This pretty shell necklace was made with care."
+	},
+	{
+		"name": "Amulet of Defense",
+		"description": "This amulet practically glows with magic. It could prove very useful."
+	},
+	{
+		"name": "Drachmas",
+		"description": "The gold coin seems to be the only money used in Silmaria."
+	},
+	{
+		"name": "Acme Tool Kit",
+		"description": "Your ever-ready thief kit is your 'key' item. It will lick any lock and trick any trap, if you use it properly."
+	},
+	{
+		"name": "Interesting Toolkit",
+		"description": "This small box is filled with neatly organized lockpicks and tools."
+	},
+	{
+		"name": "Jewelry",
+		"description": "This jewelry is attractive and would make a nice gift for the right person."
+	},
+	{
+		"name": "Magic Wood",
+		"description": "This wood has the magic of the pixies' dance and the dryads' song flowing through it."
+	},
+	{
+		"name": "Bow",
+		"description": "This bow is sturdy and made of yew, too."
+	},
+	{
+		"name": "Chain Mail",
+		"description": "The chain mail makes a good armor against most weapons."
+	},
+	{
+		"name": "Deed",
+		"description": "This is the deed to the property now called 'Gnome Ann's Land Inn.'"
+	},
+	{
+		"name": "Set of Magic Seeds",
+		"description": "These seeds resemble the ordinary garden variety, but they feel more lively somehow."
+	},
+	{
+		"name": "Sheet",
+		"description": "This looks like the sheet Ann put on your bed at the inn, only cleaner."
+	},
+	{
+		"name": "Hippocrene Water",
+		"description": "The water of the Hippocrene has an exciting smell to it. Reminds you a little of a sunny dawn after a winter's blizzard, when all the world glistens and sparkles with icy diamonds."
+	},
+	{
+		"name": "Magic Shield",
+		"description": "This magical shield has an unyielding surface to repel weapon blows."
+	},
+	{
+		"name": "Shield",
+		"description": "This shield will block the blows of many weapons -- if you remember to use it occasionally."
+	},
+	{
+		"name": "Dagger",
+		"description": "This dagger is a good throwing weapon. It's not as effective for close combat because you have to move within your opponent's attack range to use it."
+	},
+	{
+		"name": "Helm",
+		"description": "The helm is designed to keep the head from being split like a watermelon."
+	},
+	{
+		"name": "Leather Armor",
+		"description": "Leather armor is light-weight. It allows stealthy movement, but doesn't protect well against heavy weapon blows."
+	},
+	{
+		"name": "Magic Chain Mail",
+		"description": "This magical armor is lighter than normal chain mail, but will protect against any weapon blow."
+	},
+	{
+		"name": "Magic Leather Armor",
+		"description": "This leather is as light as silk and as soft as fine suede, but it has the magic to resist the bite of a blade."
+	},
+	{
+		"name": "Magic Helm",
+		"description": "This magical helm will protect you from those 'splitting headaches.'"
+	},
+	{
+		"name": "Magic Dagger",
+		"description": "This dagger has an edge of tempered steel and the bite of battle magic."
+	},
+	{
+		"name": "Poisoned Dagger",
+		"description": "The sickly green oil on this blade raises the hair on your neck with its foulness."
+	},
+	{
+		"name": "Slasher Dagger",
+		"description": "The Slasher Dagger is swift and deadly. It pulses in your hand like the arterial blood it longs to drink."
+	},
+	{
+		"name": "Magic Bow",
+		"description": "This magical bow bends like a willow branch, but sends arrows flying like a hurricane wind."
+	},
+	{
+		"name": "Dragon Slayer Sword",
+		"description": "This Dragon Slayer Sword looks deadly sharp and gleams with magic. The touch of its hilt is chilling as if the weapon itself yearns for battle and the taste of blood."
+	},
+	{
+		"name": "Ice Diamond Sword",
+		"description": "The Ice Diamond is light-weight and very maneuverable. It is also cold to the touch and as sharp as your breath on a winter's morning."
+	},
+	{
+		"name": "Magic Spear",
+		"description": "This spear has the soul of a serpent seeking to strike."
+	},
+	{
+		"name": "Spear",
+		"description": "This spear can be used in close combat, even underwater."
+	},
+	{
+		"name": "Throwing Spear",
+		"description": "The throwing spear weighs less than a normal spear, but it makes a deadly missile."
+	},
+	{
+		"name": "Magic Sword",
+		"description": "This sword has an edge sharpened by magic."
+	},
+	{
+		"name": "Sword",
+		"description": "This sword is of good quality, but you have seen better."
+	},
+	{
+		"name": "Wurmbane Spear",
+		"description": "The Wurmbane Spear has a sharpness that exceeds its fine beauty. Its magic is cold and deadly."
+	},
+	{
+		"name": "Paladin Sword",
+		"description": "This magical sword is a symbol of honor. It mirrors the purity of the Paladin's soul."
+	},
+	{
+		"name": "Fire Proofing Potion",
+		"description": "This oily liquid has a greasy, cold feel and smells a little like coconuts."
+	},
+	{
+		"name": "Mana Pills",
+		"description": "These pills restore depleted magical spell casting power."
+	},
+	{
+		"name": "Magic Axe",
+		"description": "This axe glows with magical power and gleams with the sharpness of its blade."
+	},
+	{
+		"name": "Trident",
+		"description": "A trident makes a pretty good weapon under water."
+	},
+	{
+		"name": "Minotaur Axe",
+		"description": "This huge axe is too unwieldy for a human to use, but it has the unmistakable feel of magic. It was specially designed for Minotaurs."
+	},
+	{
+		"name": "Poison Cure Pills",
+		"description": "While these pills aren't the cure-all they claim, they will ward off death from poison."
+	},
+	{
+		"name": "Stamina Pills",
+		"description": "These pills will pep you up when you are down."
+	},
+	{
+		"name": "Mana Potion",
+		"description": "This potion completely restores a spellcaster's magical power."
+	},
+	{
+		"name": "Vitality Potion",
+		"description": "This potion will give you a burst of energy when you've worn yourself out."
+	},
+	{
+		"name": "Lethe Water",
+		"description": "The water of the River Lethe smells a little like warm milk and cookies. It makes you want to snuggle into a comfy bed and sleep for a long while."
+	},
+	{
+		"name": "Styx Water",
+		"description": "The water of the River Styx has the coldness of utter implacability."
+	},
+	{
+		"name": "Goo",
+		"description": "This sticky stuff would make great chewing gum, if it didn't taste like tar."
+	},
+	{
+		"name": "Arrowhead",
+		"description": "The arrowhead has been broken from the shaft, but it could be used again to make another arrow."
+	},
+	{
+		"name": "Atlas Armband",
+		"description": "This Atlas Armband has a magical feel to it, and seems very light for its size."
+	},
+	{
+		"name": "Blackbird",
+		"description": "The Blackbird looks like a plain ebony statue. It is heavier than you would suspect, but it certainly doesn't seem all that valuable."
+	},
+	{
+		"name": "Blackjack",
+		"description": "This blackjack will knock someone unconscious if the blow is well-placed. However, you have to be very sneaky and accurate with your weapon skill."
+	},
+	{
+		"name": "Grapnel",
+		"description": "A grapnel is useful for climbing steep walls -- if you attach it to a rope first."
+	},
+	{
+		"name": "Jalapeno Pepper",
+		"description": "These pungent peppers are particularly spicy."
+	},
+	{
+		"name": "Pickpocket Knife",
+		"description": "This handy-dandy pickpocket knife slices, dices, and juliennes the purse right off a victim's belt, if you are stealthy." 
+	},
+	{
+		"name": "Magic Grapnel",
+		"description": "This magical grapnel seem to itch for the chance to grab onto something. Highly appropriate for a thief, isn't it?"
+	},
+	{
+		"name": "Rope",
+		"description": "This woven hemp rope has great tensile strength."
+	},
+	{
+		"name": "Rope and Grapnel",
+		"description": "The rope and grapnel make climbing sheer walls far less dangerous than it would be otherwise."
+	},
+	{
+		"name": "Stealth Oil",
+		"description": "This oil removes rust, lubricates locks, and squelches squeaks."
+	},
+	{
+		"name": "Black Lotus",
+		"description": "This dark and lovely flower has a heavy perfume that is both enticing and vaguely unpleasant."
+	},
+	{
+		"name": "Tinderbox",
+		"description": "The tinderbox contains flint, steel, and tinder for lighting fires."
+	},
+	{
+		"name": "Sigil of Ios",
+		"description": "This arcane sign is the symbol of the fishing village of Ios."
+	},
+	{
+		"name": "Sigil of Keros",
+		"description": "This inscribed design is a symbol of the fishing village of Keros."
+	},
+	{
+		"name": "Sigil of Paros",
+		"description": "This unusually inscribed sigil is the symbol of the fishing village of Paros."
+	},
+	{
+		"name": "Sigil of Tinos",
+		"description": "This is the symbol of the village of Tinos."
+	},
+	{
+		"name": "Gold Ring",
+		"description": "This gold ring looks rather plain, but it is heavy enough to be of some value."
+	},
+	{
+		"name": "Magic Statue",
+		"description": "This is the most repulsive thing you've ever held, but it's probably really valuable."
+	},
+	{
+		"name": "Good Luck Charm",
+		"description": "This piece of jewelry is supposed to improve your luck magically."
+	},
+	{
+		"name": "Ring of Truth",
+		"description": "With the Ring of Truth, you can never tell a lie, nor can you hear a lie without knowing it."
+	},
+	{
+		"name": "Brazier",
+		"description": "This brazier is about the right size to cook supper or heat a small room."
+	},
+	{
+		"name": "Pegasus Feather",
+		"description": "These feathers glow with a beauty that rivals moonlight."
+	},
+	{
+		"name": "Handbook of Swimming",
+		"description": "The 'Handbook of How to Swim' is a good way to learn how to swim. There's an entire section devoted to 'Underwater Combat.'"
+	},
+	{
+		"name": "Katta Pin",
+		"description": "This magical pin given to you by the Katta people is a sign of friendship and respect."
+	},
+	{
+		"name": "Magic Charm Bracelet",
+		"description": "This charm bracelet tingles to the touch with magical energy."
+	},
+	{
+		"name": "Stealth Charm",
+		"description": "This charm enhances your skill at skulk and silence of sneak."
+	},
+	{
+		"name": "Map",
+		"description": "This map will help you get your bearings and figure out where you are going."
+	},
+	{
+		"name": "Scroll",
+		"description": "This seems to be a piece of parchment."
+	},
+	{
+		"name": "Water Breathing Amulet",
+		"description": "This amulet allows you to breath water as naturally as air."
+	},
+	{
+		"name": "Lit Torch",
+		"description": "Your torch is burning brightly."
+	},
+	{
+		"name": "Mystic Magnet",
+		"description": "These Mystic Magnets are designed to magically draw one magnet to the other, thus teleporting the bearer."
+	},
+	{
+		"name": "Hydra Scale",
+		"description": "The scales of the Hydra are sharp and hard, with an oily feel to them."
+	},
+	{
+		"name": "Rocks",
+		"description": "These rocks are not very aerodynamic, but they make cheap and handy throwing weapons."
+	},
+	{
+		"name": "Torch",
+		"description": "A torch can be very useful in dark places."
+	},
+	{
+		"name": "Sewn Sheet",
+		"description": "Gnome Ann has done an adequate, if erratic, job of stitching up the sheet for you."
+	},
+	{
+		"name": "Key",
+		"description": "This key will unlock the door to your room at the inn."
+	},
+	{
+		"name": "Beeswax",
+		"description": "This beeswax is plyable and yielding to your warm touch."
+	},
+	{
+		"name": "Mug",
+		"description": "This mug is an ordinary ceramic drinking vessel, not in the least bit valuable."
+	},
+	{
+		"name": "Shell",
+		"description": "These pretty shells were once the homes of slimy marine gastropods."
+	},
+	{
+		"name": "Spearhead",
+		"description": "This is all that remains of a once useful spear. You might be able to recycle it."
+	},
+	{
+		"name": "Fine Axe",
+		"description": "This axe is made from steel and honed to a razor-sharp edge."
+	},
+	{
+		"name": "Augmentation Scroll",
+		"description": "This scroll has the words 'Augmentation Proclamation' written upon it in magical script."
+	},
+	{
+		"name": "Amphora with Water",
+		"description": "This water can be very refreshing when you are thirsty."
+	},
+	{
+		"name": "Shrink Spell Scroll",
+		"description": "This scroll has the word 'Shrink' inscribed with magical ink."
+	},
+	{
+		"name": "Thermonuclear Scroll",
+		"description": "This scroll is written on the hide of a long dead animal. It has the words 'Thermonuclear Blast' written upon it in magical notation."
+	},
+	{
+		"name": "Winged Lion Statue",
+		"description": "This winged lion statue looks quite valuable."
+	},
+	{
+		"name": "Imitation Blackbird",
+		"description": "This looks identical to the real Blackbird, but it feels slightly lighter."
+	},
+	{
+		"name": "Ouzo",
+		"description": "This drink has the fragrance of licorice and strong alcohol."
+	},
+	{
+		"name": "Ale",
+		"description": "This smells like a dark, rich beer."
+	},
+	{
+		"name": "Retsina",
+		"description": "This smells like fresh cut pine trees and wine."
+	},
+	{
+		"name": "Elsa's Thief Toolkit",
+		"description": "This looks like a set of complex tools."
+	},
+	{
+		"name": "Greek Coffee",
+		"description": "This Greek coffee smells very strong and looks like mud."
+	},
+	{
+		"name": "Today's Special",
+		"description": "You don't want to know."
+	},
+	{
+		"name": "Windproof Sheet",
+		"description": "This looks like a sewn sheet that has been covered with rubbery tree sap."
+	},
+	{
+		"name": "R.I.P. Scroll",
+		"description": "This scroll is labeled 'Rest in Peace Spell.'"
+	},
+	{
+		"name": "Boom Spell Scroll",
+		"description": "This scroll of parchment is labeled 'Boom.'"
+	},
+	{
+		"name": "Juggling Lights Scroll",
+		"description": "The scroll looks a little funny, but it's labeled 'Juggling Lights.'"
+	},
+	{
+		"name": "Resistance Spell Scroll",
+		"description": "This paper has the words 'Resistance Spell' written across the top."
+	},
+	{
+		"name": "Dazzle Spell Scroll",
+		"description": "This scroll has 'Erasmus's Razzle Dazzle Spell' written on it in bright letters."
+	},
+	{
+		"name": "Zap Spell Scroll",
+		"description": "The ink on this paper looks like it was made from copper. You feel your hair stand up on the nape of your neck just holding it. It reads 'Zap Spell Scroll.'"
+	},
+	{
+		"name": "Fascination Spell Scroll",
+		"description": "This is a fascinating spell. For some reason, you keep reading this scroll over and over. This is a fascinating spell. For some reason, you keep reading this scroll over and over. This is a fascinating spell..."
+	},
+	{
+		"name": "Barbed Spear",
+		"description": "This fine spear has barbs along its blade."
+	},
+	{
+		"name": "Ornate Shield",
+		"description": "This hammered metal shield is fairly heavy and well designed."
+	},
+	{
+		"name": "A.& A. Pizza",
+		"description": "This artichoke and anchovy pizza looks very appetizing -- assuming you like artichokes and anchovies."
+	},
+	{
+		"name": "Artichoke Pizza",
+		"description": "This artichoke pizza has a nice crust and plenty of cheese and sauce to make it messy but tasty. Artichokes on pizza, however, are an acquired taste."
+	},
+	{
+		"name": "Flowers",
+		"description": "These sweet-smelling flowers look like they'd make a nice gift for a friend."
+	},
+	{
+		"name": "Poison Cure Pills",
+		"description": "These New, Improved, Lotus Blossom-enhanced pills are designed to cure the strongest of poisons!"
+	},
+	{
+		"name": "Gyro",
+		"description": "Gyros are thin slices of spicy meat laid on top of pita bread and covered with cucumber dressing and red onions. It's much tastier than it sounds."
+	},
+	{
+		"name": "Hera's Ring",
+		"description": "This lovely ring is a symbol of marital love and devotion. Hera was the goddess of marriage in ancient Helena."
+	},
+	{
+		"name": "Sokolatak-ya",
+		"description": "This nice container of sokolatak-ya resembles a box of chocolates in appearance, smell, and taste."
+	},
+	{
+		"name": "P.& J. Pizza",
+		"description": "Man, this is one spicy pizza!"
+	},
+	{
+		"name": "Pepperoni Pizza",
+		"description": "This well-made pizza has a crispy crust, succulent sauce, chewy cheese, and peppery pepperoni."
+	},
+	{
+		"name": "Alabaster Amphora",
+		"description": "This amphora was carved from alabaster. It looks very old and valuable."
+	},
+	{
+		"name": "Amphora",
+		"description": "This amphora makes a good vessel for carrying liquids of any variety."
+	},
+	{
+		"name": "Anchovies",
+		"description": "These small fishes look and smell like something that would be better as bait than as sushi."
+	},
+	{
+		"name": "Arrow",
+		"description": "Arrows are always useful to the person who has a bow."
+	},
+	{
+		"name": "Amulet of Attack",
+		"description": "The Attack Amulet is an elegant piece of jewelry that feels magical to the touch."
+	},
+	{
+		"name": "Basket",
+		"description": "This simple reed basket looks old, but well-cared for."
+	},
+	{
+		"name": "Balloon Painting",
+		"description": "Wolfie has painted a lovely landscape of a floating balloon. It looks so realistic, you almost expect the balloon to float away."
+	},
+	{
+		"name": "Fruit",
+		"description": "This fruit looks ripe and tasty. Remember, fruit is a nutritious supplement and significant source of fiber in your daily diet."
+	},
+	{
+		"name": "Proof of Destiny",
+		"description": "This sign of Destiny seems to be a ceramic plate painted with a lyre, the favorite instrument of Apollo, the god of prophecy."
+	},
+	{
+		"name": "General's Shield",
+		"description": "From the lightness of this shield, you might think it too fragile to be a good defense, but there is obviously some magic involved in its making."
+	},
+	{
+		"name": "Sigil of Naxos",
+		"description": "This ceramic sigil is the symbol of the fishing village of Naxos."
+	}
+]
