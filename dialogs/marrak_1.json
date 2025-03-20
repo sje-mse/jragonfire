@@ -1,0 +1,80 @@
+{
+	"intro": {
+		"character": "marrak",
+		"line": "welcome_may_i_entice"
+	},
+	"prompts": [
+		{
+			"prompt": "greet_marrak",
+			"response": {
+				"speaker": "marrak",
+				"line": "what_can_i_sell_to_you_today"
+			}
+		},
+		{
+			"prompt": "ask_about_marrak",
+			"cycle": [
+				{
+					"speaker": "marrak",
+					"line": "i_remember_the_days"
+				},
+				{
+					"speaker": "marrak",
+					"line": "it_is_a_pleasant_day_for_basking"
+				},
+				{
+					"speaker": "marrak",
+					"line": "there_is_nothing_quite_like"
+				},
+				{
+					"speaker": "marrak",
+					"line": "the_wind_is_brisk_today"
+				},
+				{
+					"speaker": "marrak",
+					"line": "the_cold_wind"
+				},
+				{
+					"speaker": "marrak",
+					"line": "i_am_very_well_this_day"
+				}
+			]
+		},
+		{
+			"prompt": "ask_about_rumors",
+			"cycle": [
+				{
+					"speaker": "marrak",
+					"line": "they_say_that_after_the_king_died"
+				},
+				{
+					"speaker": "marrak",
+					"line": "a_few_years_back"
+				},
+				{
+					"speaker": "marrak",
+					"line": "there_is_talk_that_the_woman"
+				},
+				{
+					"speaker": "marrak",
+					"line": "many_of_the_people"
+				},
+				{
+					"speaker": "marrak",
+					"line": "one_year_ago"
+				},
+				{
+					"speaker": "marrak",
+					"line": "most_of_the_merchants"
+				}
+			]
+		},
+		{
+			"prompt": "say_goodbye",
+			"response": {
+				"speaker": "marrak",
+				"line": "may_your_day_be_filled"
+			}
+		}
+	]
+}
