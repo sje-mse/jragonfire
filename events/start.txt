@@ -1,0 +1,6 @@
+DIALOG erasmus_1
+QUESTION "where_would_you"
+IF ANSWER IS danger THEN
+	TELEPORT ROOM 1
+IF ANSWER IS silmaria THEN
+	TELEPORT ROOM 2
