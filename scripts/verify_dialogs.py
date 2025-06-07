@@ -75,8 +75,10 @@ def verify(dialog, lines):
             print("invalid key {}".format(key))
             return False
 
-    if "intro" in dialog and not verify_response(dialog["intro"], lines):
-        return False
+    if "intro" in dialog:
+        for response in dialog["intro"]:
+            if not verify_response(response, lines):
+                return False
 
     for prompt in dialog.get("prompts", []):
         if not verify_prompt(prompt, lines):
@@ -88,7 +90,6 @@ if __name__ == "__main__":
     lines = read_all_lines()
     dialogs = read_all_dialogs()
     for key, dialog in dialogs.items():
-        print("============================")
         valid = verify(dialog, lines)
         if (valid):
             print("dialog {} OK!".format(key))

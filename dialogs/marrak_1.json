@@ -1,8 +1,10 @@
 {
-	"intro": {
-		"speaker": "marrak",
-		"line": "welcome_may_i_entice"
-	},
+	"intro": [
+		{
+			"speaker": "marrak",
+			"line": "welcome_may_i_entice"
+		}
+	],
 	"prompts": [
 		{
 			"prompt": "greet_marrak",
