@@ -1,0 +1,57 @@
+{
+	"prompts": [
+		{
+			"prompt": "say_hi_to_salim",
+			"response": [
+				{
+					"speaker": "salim",
+					"line": "hi_its_so_good"
+				}
+			]
+		},
+		{
+			"prompt": "ask_about_julanar",
+			"response": [
+				{
+					"speaker": "salim",
+					"line": "i_left_tarna"
+				},
+				{
+					"speaker": "salim",
+					"line": "so_i_camped"
+				},
+				{
+					"speaker": "salim",
+					"line": "then_i_awoke"
+				}
+			]
+		},
+		{
+			"prompt": "ask_about_the_apothecary",
+			"response": [
+				{
+					"speaker": "salim",
+					"line": "were_doing"
+				}
+			]
+		},
+		{
+			"prompt": "ask_about_silmaria",
+			"response": [
+				{
+					"speaker": "salim",
+					"line": "this_is_such_a"
+				}
+			]
+		},
+		{
+			"prompt": "say_goodbye",
+			"response": [
+				{
+					"speaker": "salim",
+					"line": "come_back_soon_you"
+				}
+			]
+		}
+	]
+}

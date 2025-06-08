@@ -1,0 +1,49 @@
+{
+	"prompts": [
+		{
+			"prompt": "say_hi_to_salim",
+			"response": [
+				{
+					"speaker": "salim",
+					"line": "youre_always_welcome"
+				}
+			]
+		},
+		{
+			"prompt": "ask_about_salim",
+			"response": [
+				{
+					"speaker": "salim",
+					"line": "im_groovy"
+				}
+			]
+		},
+		{
+			"prompt": "ask_about_the_apothecary",
+			"response": [
+				{
+					"speaker": "salim",
+					"line": "were_selling_all_kinds"
+				}
+			]
+		},
+		{
+			"prompt": "ask_about_silmaria",
+			"response": [
+				{
+					"speaker": "salim",
+					"line": "silmaria_is_like"
+				}
+			]
+		},
+		{
+			"prompt": "say_goodbye",
+			"response": [
+				{
+					"speaker": "salim",
+					"line": "have_a_cosmic_time"
+				}
+			]
+		}
+	]
+}
