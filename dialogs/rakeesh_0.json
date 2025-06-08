@@ -1,0 +1,79 @@
+{
+	"prompts": [
+		{
+			"prompt": "greet_rakeesh",
+			"response": [
+			{
+				"speaker": "rakeesh",
+				"line": "it_is_a_pleasure"
+			}
+			]
+		},
+		{
+			"prompt": "ask_about_rakeesh",
+			"response": [
+			{
+				"speaker": "rakeesh",
+				"line": "i_am_well_and_fine"
+			}
+			]
+		},
+		{
+			"prompt": "ask_about_logos",
+			"response": [
+			{
+				"speaker": "rakeesh",
+				"line": "logos_and_i"
+			},
+			{
+				"speaker": "logos",
+				"line": "i_had_journeyed"
+			},
+			{
+				"speaker": "rakeesh",
+				"line": "when_he_contacted"
+			}
+			]
+		},
+		{
+			"prompt": "ask_about_rite_of_rulership",
+			"response": [
+			{
+				"speaker": "rakeesh",
+				"line": "the_rites_of_rulership"
+			}
+			]
+		},
+		{
+			"prompt": "ask_about_erana",
+			"response": [
+			{
+				"speaker": "ui",
+				"line": "you_tell_how_you_freed"
+			},
+			{
+				"speaker": "rakeesh",
+				"line": "i_sorrow"
+			}
+			]
+		},
+		{
+			"prompt": "ask_about_silmaria",
+			"response": [
+			{
+				"speaker": "rakeesh",
+				"line": "silmaria_is_a_lovely"
+			}
+			]
+		},
+		{
+			"prompt": "say_goodbye",
+			"response": [
+			{
+				"speaker": "rakeesh",
+				"line": "i_will_see_you_soon"
+			}
+			]
+		}
+	]
+}
