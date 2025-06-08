@@ -1,0 +1,260 @@
+{
+	"intro": [
+		{
+			"speaker": "marrak",
+			"line": "welcome_welcome_stranger"
+		},
+		{
+			"speaker": "marrak",
+			"line": "may_i_aid_you_in_any_way"
+		}
+	],
+	"prompts": [
+		{
+			"prompt": "greet_marrak",
+			"response": [
+				{
+					"speaker": "marrak",
+					"line": "i_am_well_and_fine_thank_you"
+				}
+			]
+		},
+		{
+			"prompt": "ask_about_silmaria",
+			"response": [
+				{
+					"speaker": "marrak",
+					"line": "this_city_can_be_confusing"
+				},
+				{
+					"speaker": "marrak",
+					"line": "there_are_two_paths"
+				}
+			],
+			"subprompts": [
+				{
+					"prompt": "ask_about_the_town_center",
+					"response": [
+						{
+							"speaker": "marrak",
+							"line": "here_is_where_you_may"
+						},
+						{
+							"speaker": "marrak",
+							"line": "you_might_also_save_your_money"
+						}
+					],
+					"subprompts": [
+						{
+							"prompt": "ask_about_the_bank",
+							"response": [
+								{
+									"speaker": "marrak",
+									"line": "the_bank_is_the_fine"
+								}
+							]
+						},
+						{
+							"prompt": "ask_about_the_magic_shop",
+							"response": [
+								{
+									"speaker": "marrak",
+									"line": "do_not_be_dismayed_by_the_wizard"
+								}
+							]
+						},
+						{
+							"prompt": "ask_about_the_apothecary",
+							"response": [
+								{
+									"speaker": "marrak",
+									"line": "the_apothecary_is_run"
+								}
+							]
+						}
+					]
+				},
+				{
+					"prompt": "ask_about_nob_hill",
+					"response": [
+						{
+							"speaker": "marrak",
+							"line": "at_nob_hill_you_will_find"
+						},
+						{
+							"speaker": "marrak",
+							"line": "many_of_the_wealthiest"
+						}
+					],
+					"subprompts": [
+						{
+							"prompt": "ask_about_the_spinning_hat",
+							"response": [
+								{
+									"speaker": "marrak",
+									"line": "i_suggest_you_go_up_to_nob_hill"
+								}
+							]
+						}
+					]
+				},
+				{
+					"prompt": "ask_about_the_docks",
+					"response": [
+						{
+							"speaker": "marrak",
+							"line": "at_his_shop_beside_the_docks"
+						}
+					],
+					"subprompts": [
+						{
+							"prompt": "ask_about_the_weaponer",
+							"response": [
+								{
+									"speaker": "marrak",
+									"line": "pholus_is_a_centaur"
+								}
+							]
+						},
+						{
+							"prompt": "ask_about_the_tavern",
+							"response": [
+								{
+									"speaker": "marrak",
+									"line": "the_dead_parrot_inn"
+								}
+							]
+						}
+					]
+				},
+				{
+					"prompt": "ask_about_the_west_gate",
+					"response": [
+						{
+							"speaker": "marrak",
+							"line": "at_the_west_end"
+						}
+					],
+					"subprompts": [
+						{
+							"prompt": "ask_about_the_gnome_inn",
+							"response": [
+								{
+									"speaker": "marrak",
+									"line": "ann_is_a_very_amusing_person"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"prompt": "ask_about_the_food_stand",
+			"response": [
+				{
+					"speaker": "marrak",
+					"line": "ah_i_have_foods_of_all_types"
+				}
+			]
+		},
+		{
+			"prompt": "ask_about_the_island",
+			"response": [
+				{
+					"speaker": "marrak",
+					"line": "the_island_of_marete"
+				}
+			]
+		},
+		{
+			"prompt": "ask_about_marrak",
+			"response": [
+				{
+					"speaker": "marrak",
+					"line": "i_am_marrak_a_katta_from"
+				}
+			],
+			"subprompts": [
+				{
+					"prompt": "ask_about_marraks_family",
+					"response": [
+						{
+							"speaker": "marrak",
+							"line": "my_mate_and_beloved_is_sarra"
+						}
+					]
+				},
+				{
+					"prompt": "ask_about_pleasures",
+					"response": [
+						{
+							"speaker": "marrak",
+							"line": "my_family_and_i_sell_joys"
+						}
+					]
+				},
+				{
+					"prompt": "ask_about_kattas",
+					"response": [
+						{
+							"speaker": "marrak",
+							"line": "we_katta_are_a_desert_people"
+						}
+					]
+				},
+				{
+					"prompt": "ask_about_rasier",
+					"response": [
+						{
+							"speaker": "marrak",
+							"line": "several_years_ago_my_people"
+						},
+						{
+							"speaker": "marrak",
+							"line": "i_have_heard_word_that_my_homeland"
+						}
+					],
+					"subprompts": [
+						{
+							"prompt": "ask_about_the_hero",
+							"response": [
+								{
+									"speaker": "marrak",
+									"line": "it_has_been_said_that_a_mighty_hero"
+								}
+							]
+						},
+						{
+							"prompt": "ask_about_the_woman",
+							"response": [
+								{
+									"speaker": "marrak",
+									"line": "the_new_ruler_of_rasier"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"prompt": "tell_about_your_adventures",
+			"response": [
+				{
+					"speaker": "marrak",
+					"line": "so_you_are_a_friend_of_my_people"
+				}
+			]
+		},
+		{
+			"prompt": "say_goodbye",
+			"response": [
+				{
+					"speaker": "marrak",
+					"line": "it_is_a_pleasure_to_meet_you"
+				}
+			]
+		}
+	]
+}

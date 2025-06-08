@@ -8,10 +8,12 @@
 	"prompts": [
 		{
 			"prompt": "greet_marrak",
-			"response": {
-				"speaker": "marrak",
-				"line": "what_can_i_sell_to_you_today"
-			}
+			"response": [
+				{
+					"speaker": "marrak",
+					"line": "what_can_i_sell_to_you_today"
+				}
+			]
 		},
 		{
 			"prompt": "ask_about_marrak",
@@ -73,10 +75,12 @@
 		},
 		{
 			"prompt": "say_goodbye",
-			"response": {
-				"speaker": "marrak",
-				"line": "may_your_day_be_filled"
-			}
+			"response": [
+				{
+					"speaker": "marrak",
+					"line": "may_your_day_be_filled"
+				}
+			]
 		}
 	]
 }

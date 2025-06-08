@@ -1,0 +1,121 @@
+{
+	"intro": [
+		{
+			"speaker": "sarra",
+			"line": "greetings_wanderer_from_afar"
+		},
+		{
+			"speaker": "sarra",
+			"line": "i_am_sarra_a_katta"
+		}
+	],
+	"prompts": [
+		{
+			"prompt": "greet_the_merchant",
+			"response": [
+				{
+					"speaker": "sarra",
+					"line": "welcome_again_and_thrice"
+				}
+			]
+		},
+		{
+			"prompt": "ask_about_kattas",
+			"response": [
+				{
+					"speaker": "sarra",
+					"line": "we_are_the_children"
+				}
+			],
+			"subprompts": [
+				{
+					"prompt": "ask_about_marrak",
+					"response": [
+						{
+							"speaker": "sarra",
+							"line": "my_lifemate_marrak"
+						}
+					]
+				},
+				{
+					"prompt": "ask_about_salla",
+					"response": [
+						{
+							"speaker": "sarra",
+							"line": "salla_is_still_but_a_kitten"
+						},
+						{
+							"speaker": "sarra",
+							"line": "however_she_is_shy"
+						}
+					]
+				}
+			]
+		},
+		{
+			"prompt": "ask_about_merchandise",
+			"response": [
+				{
+					"speaker": "sarra",
+					"line": "i_am_a_seller_of_jewelry"
+				}
+			]
+		},
+		{
+			"prompt": "ask_about_sarra",
+			"response": [
+				{
+					"speaker": "sarra",
+					"line": "i_am_most_well"
+				}
+			]
+		},
+		{
+			"prompt": "ask_about_silmaria",
+			"response": [
+				{
+					"speaker": "sarra",
+					"line": "i_am_most_well"
+				}
+			]
+		},
+		{
+			"prompt": "ask_about_rumors",
+			"response": [
+				{
+					"speaker": "sarra",
+					"line": "there_is_word_said_that_a_hero"
+				}
+			],
+			"subprompts": [
+				{
+					"prompt": "ask_about_invaders",
+					"response": [
+						{
+							"speaker": "sarra",
+							"line": "the_countryside_has_been_overwhelmed"
+						}
+					]
+				}
+			]
+		},
+		{
+			"prompt": "tell_about_your_adventures_in_shapeir",
+			"response": [
+				{
+					"speaker": "sarra",
+					"line": "so_you_are_the_prince"
+				}
+			]
+		},
+		{
+			"prompt": "say_goodbye",
+			"response": [
+				{
+					"speaker": "sarra",
+					"line": "may_you_find_in_this_land"
+				}
+			]
+		}
+	]
+}

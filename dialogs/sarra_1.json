@@ -1,0 +1,86 @@
+{
+	"intro": [
+		{
+			"speaker": "sarra",
+			"line": "greetings_prince_how_may_i_serve"
+		}
+	],
+	"prompts": [
+		{
+			"prompt": "greet_sarra",
+			"response": [
+				{
+					"speaker": "sarra",
+					"line": "welcome_again_and_thrice"
+				}
+			]
+		},
+		{
+			"prompt": "ask_about_sarra",
+			"cycle": [
+				{
+					"speaker": "sarra",
+					"line": "i_am_pleased_as_always"
+				},
+				{
+					"speaker": "sarra",
+					"line": "it_is_a_beautiful_day"
+				},
+				{
+					"speaker": "sarra",
+					"line": "business_has_been_slow"
+				},
+				{
+					"speaker": "sarra",
+					"line": "my_day_has_been_brightened"
+				},
+				{
+					"speaker": "sarra",
+					"line": "it_is_more_damp"
+				},
+				{
+					"speaker": "sarra",
+					"line": "i_have_sold_some_jewelry"
+				}
+			]
+		},
+		{
+			"prompt": "ask_about_rumors",
+			"cycle": [
+				{
+					"speaker": "sarra",
+					"line": "there_is_a_rumor"
+				},
+				{
+					"speaker": "sarra",
+					"line": "the_gentle_healer"
+				},
+				{
+					"speaker": "sarra",
+					"line": "many_people_have_left"
+				},
+				{
+					"speaker": "sarra",
+					"line": "people_in_this_city"
+				},
+				{
+					"speaker": "sarra",
+					"line": "i_have_heard_from_my_sister"
+				},
+				{
+					"speaker": "sarra",
+					"line": "my_cousin_shema"
+				}
+			]
+		},
+		{
+			"prompt": "ask_about_rumors",
+			"response": [
+				{
+					"speaker": "sarra",
+					"line": "may_your_journey"
+				}
+			]
+		}
+	]
+}
