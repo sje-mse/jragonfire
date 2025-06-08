@@ -96,7 +96,6 @@ if __name__ == "__main__":
 	for key, dialog in dialogs.items():
 		valid = verify(dialog, lines)
 		if (valid):
-			print("dialog {} OK!".format(key))
+			print("{} OK!".format(key))
 		else:
-			print("dialog {} INVALID!!!".format(key))
-		print("============================")
+			print("{} INVALID!!!".format(key))
