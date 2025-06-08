@@ -1,0 +1,75 @@
+{
+	"intro": [
+		{
+			"speaker": "shakra",
+			"line": "greetings_prince"
+		}
+	],
+	"prompts": [
+		{
+			"prompt": "greet_shakra",
+			"response": [
+				{
+					"speaker": "shakra",
+					"line": "welcome_to_silmaria"
+				}
+			]
+		},
+		{
+			"prompt": "ask_about_magic",
+			"response": [
+				{
+					"speaker": "shakra",
+					"line": "this_is_a_land"
+				}
+			]
+		},
+		{
+			"prompt": "ask_about_the_magic_shop",
+			"response": [
+				{
+					"speaker": "shakra",
+					"line": "i_sense_that_you"
+				}
+			],
+			"subprompts": [
+				{
+					"prompt": "ask_about_mystic_magnets",
+					"response": [
+						{
+							"speaker": "shakra",
+							"line": "the_mystic_magnets"
+						}
+					]
+				}
+			]
+		},
+		{
+			"prompt": "ask_about_shakra",
+			"response": [
+				{
+					"speaker": "shakra",
+					"line": "i_am_a_wizard_the"
+				}
+			]
+		},
+		{
+			"prompt": "ask_about_rakeesh",
+			"response": [
+				{
+					"speaker": "shakra",
+					"line": "it_is_good"
+				}
+			]
+		},
+		{
+			"prompt": "say_goodbye",
+			"response": [
+				{
+					"speaker": "shakra",
+					"line": "good_luck_and_i_hope"
+				}
+			]
+		}
+	]
+}
