@@ -1,0 +1,77 @@
+{
+	"intro": [
+	{
+		"speaker": "ferrari",
+		"line": "greetings_i_am_senor"
+	},
+	{
+		"speaker": "ferrari",
+		"line": "youve_made_quite"
+	},
+	{
+		"speaker": "ferrari",
+		"line": "i_am_the_owner"
+	}],
+	"prompts": [
+	{
+		"prompt": "greet_senor_ferrari",
+		"response": [{
+			"speaker": "ferrari",
+			"line": "it_is_always_a_pleasure"
+		}]
+	},
+	{
+		"prompt": "ask_about_ferrari",
+		"response": [{
+			"speaker": "ferrari",
+			"line": "i_was_forced"
+		}]
+	},
+	{
+		"prompt": "ask_about_inn",
+		"response": [
+		{
+			"speaker": "ferrari",
+			"line": "the_dead_parrot_inn_is"
+		},
+		{
+			"speaker": "ferrari",
+			"line": "if_you_are_lucky"
+		},
+		{
+			"speaker": "ferrari",
+			"line": "all_in_all"
+		}]
+	},
+	{
+		"prompt": "ask_about_silmaria",
+		"response": [
+		{
+			"speaker": "ferrari",
+			"line": "silmaria_reminds_me"
+		},
+		{
+			"speaker": "ferrari",
+			"line": "how_fortunate"
+		}]
+	},
+	{
+		"prompt": "ask_about_ugarte",
+		"response": [
+		{
+			"speaker": "ferrari",
+			"line": "ugarte_has_his_uses"
+		},
+		{
+			"speaker": "ugarte",
+			"line": "i_am_a_businessman_and"
+		}]
+	},
+	{
+		"prompt": "say_goodbye",
+		"response": [{
+			"speaker": "ferrari",
+			"line": "ha_ha_it_is_good_again"
+		}]
+	}]
+}

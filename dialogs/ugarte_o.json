@@ -1,0 +1,46 @@
+{
+	"prompts": [
+	{
+		"prompt": "greet_ugarte",
+		"response": [
+		{
+			"speaker": "ugarte",
+			"line": "it_is_good"
+
+		}]
+	},
+	{
+		"prompt": "ask_about_ugarte",
+		"response": [
+		{
+			"speaker": "ugarte",
+			"line": "i_am_doing"
+		}]
+	},
+	{
+		"prompt": "ask_about_silmaria",
+		"response": [{
+			"speaker": "ugarte",
+			"line": "silmaria_has_her"
+		}]
+	},
+	{
+		"prompt": "ask_about_rumors",
+		"response": [
+		{
+			"speaker": "ugarte",
+			"line": "you_wish_to_know"
+		},
+		{
+			"speaker": "ugarte",
+			"line": "there_is_talk_that_there"
+		}]
+	},
+	{
+		"prompt": "say_goodbye",
+		"response": [ {
+			"speaker": "ugarte",
+			"line": "farewell_my_friend"
+		}]
+	}]
+}
