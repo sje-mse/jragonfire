@@ -1,204 +1,175 @@
 {
 	"intro": [
 		{
-			"speaker": "logos",
-			"line": "greetings_prince"
+			"logos": "greetings_prince"
 		},
 		{
-			"speaker": "rakeesh",
-			"line": "greetings_my_friend_good_to_know"
+			"rakeesh": "greetings_my_friend_good_to_know"
 		},
 		{
-			"speaker": "logos",
-			"line": "i_trust_you_understand"
+			"logos": "i_trust_you_understand"
 		},
 		{
-			"speaker": "rakeesh",
-			"line": "we_believe"
+			"rakeesh": "we_believe"
 		},
 		{
-			"speaker": "logos",
-			"line": "you_must_understand"
+			"logos": "you_must_understand"
 		},
 		{
-			"speaker": "logos",
-			"line": "hero_of_the_lands"
+			"logos": "hero_of_the_lands"
 		}
 	],
 	"prompts": [
 		{
-			"prompt": "greet_logos",
+			"ego": "greet_logos",
 			"response": [
 				{
-					"speaker": "logos",
-					"line": "it_is_an_honor"
+					"logos": "it_is_an_honor"
 				}
 			]
 		},
 		{
-			"prompt": "ask_about_logos",
+			"ego": "ask_about_logos",
 			"response": [
 				{
-					"speaker": "logos",
-					"line": "i_am_the_speaker"
+					"logos": "i_am_the_speaker"
 				}
 			]
 		},
 		{
-			"prompt": "ask_about_rakeesh",
+			"ego": "ask_about_rakeesh",
 			"response": [
 				{
-					"speaker": "logos",
-					"line": "rakeesh_and_i"
+					"logos": "rakeesh_and_i"
 				}
 			]
 		},
 		{
-			"prompt": "ask_about_rite_of_rulership",
+			"ego": "ask_about_rite_of_rulership",
 			"response": [
 				{
-					"speaker": "logos",
-					"line": "the_rites_of_rulership_is_a"
+					"logos": "the_rites_of_rulership_is_a"
 				},
 				{
-					"speaker": "logos",
-					"line": "to_enter_these_rites"
+					"logos": "to_enter_these_rites"
 				},
 				{
-					"speaker": "rakeesh",
-					"line": "your_father_the_sultan"
+					"rakeesh": "your_father_the_sultan"
 				}
 			],
-			"subprompts": [
+			"prompts": [
 				{
-					"prompt": "ask_about_quests",
+					"ego": "ask_about_quests",
 					"response": [
 						{
-							"speaker": "logos",
-							"line": "during_the_rites"
+							"logos": "during_the_rites"
 						},
 						{
-							"speaker": "logos",
-							"line": "a_more_detailed"
+							"logos": "a_more_detailed"
 						}
 					]
 				},
 				{
-					"prompt": "ask_about_bank",
+					"ego": "ask_about_bank",
 					"response": [
 						{
-							"speaker": "logos",
-							"line": "the_bank_of_silmaria"
+							"logos": "the_bank_of_silmaria"
 						}
 					]
 				},
 				{
-					"prompt": "ask_about_sultan",
+					"ego": "ask_about_sultan",
 					"response": [
 						{
-							"speaker": "logos",
-							"line": "the_sultan"
+							"logos": "the_sultan"
 						}
 					]
 				}
 			]
 		},
 		{
-			"prompt": "ask_logos_about_silmaria",
+			"ego": "ask_logos_about_silmaria",
 			"response": [
 				{
-					"speaker": "logos",
-					"line": "our_kingdom"
+					"logos": "our_kingdom"
 				}
 			],
-			"subprompts": [
+			"prompts": [
 				{
-					"prompt": "ask_about_marete",
+					"ego": "ask_about_marete",
 					"response": [
 						{
-							"speaker": "logos",
-							"line": "marete_is_a_large"
+							"logos": "marete_is_a_large"
 						}
 					],
-					"subprompts": [
+					"prompts": [
 						{
-							"prompt": "ask_about_mount_draconis",
+							"ego": "ask_about_mount_draconis",
 							"response": [
 								{
-									"speaker": "logos",
-									"line": "the_entire_island"
+									"logos": "the_entire_island"
 								}
 							]
 						},
 						{
-							"prompt": "ask_about_lake_morae",
+							"ego": "ask_about_lake_morae",
 							"response": [
 								{
-									"speaker": "logos",
-									"line": "lake_morae"
+									"logos": "lake_morae"
 								}
 							]
 						},
 						{
-							"prompt": "ask_about_atlantis",
+							"ego": "ask_about_atlantis",
 							"response": [
 								{
-									"speaker": "logos",
-									"line": "atlantis_was_a_kingdom"
+									"logos": "atlantis_was_a_kingdom"
 								}
 							]
 						}
 					]
 				},
 				{
-					"prompt": "ask_about_city_of_silmaria",
+					"ego": "ask_about_city_of_silmaria",
 					"response": [
 						{
-							"speaker": "logos",
-							"line": "the_city_of_silmaria"
+							"logos": "the_city_of_silmaria"
 						},
 						{
-							"speaker": "logos",
-							"line": "unfortunately_marete"
+							"logos": "unfortunately_marete"
 						},
 						{
-							"speaker": "rakeesh",
-							"line": "when_was_your_island"
+							"rakeesh": "when_was_your_island"
 						},
 						{
-							"speaker": "logos",
-							"line": "two_days_after"
+							"logos": "two_days_after"
 						}
 					]
 				},
 				{
-					"prompt": "ask_about_islands",
+					"ego": "ask_about_islands",
 					"response": [
 						{
-							"speaker": "logos",
-							"line": "there_are_many_small"
+							"logos": "there_are_many_small"
 						},
 						{
-							"speaker": "logos",
-							"line": "travel_to_some"
+							"logos": "travel_to_some"
 						}
 					],
-					"subprompts": [
+					"prompts": [
 						{
-							"prompt": "ask_about_sea_monsters",
+							"ego": "ask_about_sea_monsters",
 							"response": [
 								{
-									"speaker": "logos",
-									"line": "the_sea_is"
+									"logos": "the_sea_is"
 								}
 							]
 						},
 						{
-							"prompt": "ask_about_tritons",
+							"ego": "ask_about_tritons",
 							"response": [
 								{
-									"speaker": "logos",
-									"line": "the_tritons_are"
+									"logos": "the_tritons_are"
 								}
 							]
 						}
@@ -207,46 +178,40 @@
 			]
 		},
 		{
-			"prompt": "ask_logos_about_assassin",
+			"ego": "ask_logos_about_assassin",
 			"response": [
 				{
-					"speaker": "logos",
-					"line": "the_assassin_used"
+					"logos": "the_assassin_used"
 				},
 				{
-					"speaker": "logos",
-					"line": "even_with_an_antidote"
+					"logos": "even_with_an_antidote"
 				},
 				{
-					"speaker": "rakeesh",
-					"line": "the_assassin_of_the_king"
+					"rakeesh": "the_assassin_of_the_king"
 				}
 			]
 		},
 		{
-			"prompt": "tell_about_yourself",
+			"ego": "tell_about_yourself",
 			"response": [
 				{
-					"speaker": "logos",
-					"line": "you_have_a_wide"
+					"logos": "you_have_a_wide"
 				}
 			]
 		},
 		{
-			"prompt": "agree_to_enter_rites_of_rulership",
+			"ego": "agree_to_enter_rites_of_rulership",
 			"response": [
 				{
-					"speaker": "logos",
-					"line": "we_will_be_pleased"
+					"logos": "we_will_be_pleased"
 				}
 			]
 		},
 		{
-			"prompt": "say_goodbye",
+			"ego": "say_goodbye",
 			"response": [
 				{
-					"speaker": "logos",
-					"line": "i_shall_see_you_again"
+					"logos": "i_shall_see_you_again"
 				}
 			]
 		}

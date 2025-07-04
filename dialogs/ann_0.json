@@ -1,85 +1,74 @@
 {
 	"intro": [
 		{
-			"speaker": "ann",
-			"line": "hello_sailor"
+			"ann": "hello_sailor"
 		}
 	],
 	"prompts": [
-	{
-		"prompt": "greet_the_gnome",
-		"response": [
 		{
-			"speaker": "ann",
-			"line": "kalifornia"
-		}
-		]
-	},
-	{
-		"prompt": "ask_about_ann",
-		"response": [
-		{
-			"speaker": "ann",
-			"line": "want_to_get_to_know_me"
+			"ego": "greet_the_gnome",
+			"response": [
+				{
+					"ann": "kalifornia"
+				}
+			]
 		},
 		{
-			"speaker": "ann",
-			"line": "i_came_all_the_way"
-		}
-		]
-	},
-	{
-		"prompt": "ask_about_the_inn",
-		"response": [
-		{
-			"speaker": "ann",
-			"line": "this_seemed_like"
+			"ego": "ask_about_ann",
+			"response": [
+				{
+					"ann": "want_to_get_to_know_me"
+				},
+				{
+					"ann": "i_came_all_the_way"
+				}
+			]
 		},
 		{
-			"speaker": "ann",
-			"line": "as_my_first"
-		}
-		]
-	},
-	{
-		"prompt": "ask_about_silmaria",
-		"response": [
-		{
-			"speaker": "ann",
-			"line": "i_dont_know_much"
-		}
-		]
-	},
-	{
-		"prompt": "introduce_yourself",
-		"response": [
-		{
-			"speaker": "ann",
-			"line": "oh_so_youre_the_guy"
+			"ego": "ask_about_the_inn",
+			"response": [
+				{
+					"ann": "this_seemed_like"
+				},
+				{
+					"ann": "as_my_first"
+				}
+			]
 		},
 		{
-			"speaker": "ann",
-			"line": "your_rooms_paid_up"
-		}
-		]
-	},
-	{
-		"prompt": "ask_about_your_room",
-		"response": [
+			"ego": "ask_about_silmaria",
+			"response": [
+				{
+					"ann": "i_dont_know_much"
+				}
+			]
+		},
 		{
-			"speaker": "ann",
-			"line": "yours_is_the_first"
-		}
-		]
-	},
-	{
-		"prompt": "say_goodbye",
-		"response": [
+			"ego": "introduce_yourself",
+			"response": [
+				{
+					"ann": "oh_so_youre_the_guy"
+				},
+				{
+					"ann": "your_rooms_paid_up"
+				}
+			]
+		},
 		{
-			"speaker": "ann",
-			"line": "ill_be_seeing_you"
+			"ego": "ask_about_your_room",
+			"response": [
+				{
+					"ann": "yours_is_the_first"
+				}
+			]
+		},
+		{
+			"ego": "say_goodbye",
+			"response": [
+				{
+					"ann": "ill_be_seeing_you"
+				}
+			]
 		}
-		]
-	}
 	]
 }

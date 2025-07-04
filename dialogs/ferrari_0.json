@@ -1,77 +1,75 @@
 {
 	"intro": [
-	{
-		"speaker": "ferrari",
-		"line": "greetings_i_am_senor"
-	},
-	{
-		"speaker": "ferrari",
-		"line": "youve_made_quite"
-	},
-	{
-		"speaker": "ferrari",
-		"line": "i_am_the_owner"
-	}],
+		{
+			"ferrari": "greetings_i_am_senor"
+		},
+		{
+			"ferrari": "youve_made_quite"
+		},
+		{
+			"ferrari": "i_am_the_owner"
+		}
+	],
 	"prompts": [
-	{
-		"prompt": "greet_senor_ferrari",
-		"response": [{
-			"speaker": "ferrari",
-			"line": "it_is_always_a_pleasure"
-		}]
-	},
-	{
-		"prompt": "ask_about_ferrari",
-		"response": [{
-			"speaker": "ferrari",
-			"line": "i_was_forced"
-		}]
-	},
-	{
-		"prompt": "ask_about_inn",
-		"response": [
 		{
-			"speaker": "ferrari",
-			"line": "the_dead_parrot_inn_is"
+			"ego": "greet_senor_ferrari",
+			"response": [
+				{
+					"ferrari": "it_is_always_a_pleasure"
+				}
+			]
 		},
 		{
-			"speaker": "ferrari",
-			"line": "if_you_are_lucky"
+			"ego": "ask_about_ferrari",
+			"response": [
+				{
+					"ferrari": "i_was_forced"
+				}
+			]
 		},
 		{
-			"speaker": "ferrari",
-			"line": "all_in_all"
-		}]
-	},
-	{
-		"prompt": "ask_about_silmaria",
-		"response": [
-		{
-			"speaker": "ferrari",
-			"line": "silmaria_reminds_me"
+			"ego": "ask_about_inn",
+			"response": [
+				{
+					"ferrari": "the_dead_parrot_inn_is"
+				},
+				{
+					"ferrari": "if_you_are_lucky"
+				},
+				{
+					"ferrari": "all_in_all"
+				}
+			]
 		},
 		{
-			"speaker": "ferrari",
-			"line": "how_fortunate"
-		}]
-	},
-	{
-		"prompt": "ask_about_ugarte",
-		"response": [
-		{
-			"speaker": "ferrari",
-			"line": "ugarte_has_his_uses"
+			"ego": "ask_about_silmaria",
+			"response": [
+				{
+					"ferrari": "silmaria_reminds_me"
+				},
+				{
+					"ferrari": "how_fortunate"
+				}
+			]
 		},
 		{
-			"speaker": "ugarte",
-			"line": "i_am_a_businessman_and"
-		}]
-	},
-	{
-		"prompt": "say_goodbye",
-		"response": [{
-			"speaker": "ferrari",
-			"line": "ha_ha_it_is_good_again"
-		}]
-	}]
+			"ego": "ask_about_ugarte",
+			"response": [
+				{
+					"ferrari": "ugarte_has_his_uses"
+				},
+				{
+					"ugarte": "i_am_a_businessman_and"
+				}
+			]
+		},
+		{
+			"ego": "say_goodbye",
+			"response": [
+				{
+					"ferrari": "ha_ha_it_is_good_again"
+				}
+			]
+		}
+	]
 }

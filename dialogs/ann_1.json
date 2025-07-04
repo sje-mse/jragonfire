@@ -1,29 +1,33 @@
 {
-	"intro": [{
-		"speaker": "ann",
-		"line": "aloha_boy"
-	}],
+	"intro": [
+		{
+			"ann": "aloha_boy"
+		}
+	],
 	"prompts": [
 		{
-			"prompt": "ask_about_ann",
-			"response": [{
-				"speaker": "ann",
-				"line": "its_funny_honey"
-			}]
+			"ego": "ask_about_ann",
+			"response": [
+				{
+					"ann": "its_funny_honey"
+				}
+			]
 		},
 		{
-			"prompt": "ask_about_inn",
-			"response": [{
-				"speaker": "ann",
-				"line": "im_really_inn"
-			}]
+			"ego": "ask_about_inn",
+			"response": [
+				{
+					"ann": "im_really_inn"
+				}
+			]
 		},
 		{
-			"prompt": "say_goodbye",
-			"response": [{
-				"speaker": "ann",
-				"line": "take_it_easy"
-			}]
+			"ego": "say_goodbye",
+			"response": [
+				{
+					"ann": "take_it_easy"
+				}
+			]
 		}
 	]
 }

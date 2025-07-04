@@ -1,85 +1,69 @@
 {
 	"intro": [
 		{
-			"speaker": "wolfie",
-			"line": "namaste_and_may"
+			"wolfie": "namaste_and_may"
 		}
-
 	],
 	"prompts": [
 		{
-			"prompt": "greet_wolfie",
+			"ego": "greet_wolfie",
 			"response": [
 				{
-					"speaker": "wolfie",
-					"line": "welcome_very_much"
+					"wolfie": "welcome_very_much"
 				}
 			]
 		},
 		{
-			"prompt": "ask_about_wolfie",
+			"ego": "ask_about_wolfie",
 			"cycle": [
 				{
-					"speaker": "wolfie",
-					"line": "business_has_been_rather_slow"
+					"wolfie": "business_has_been_rather_slow"
 				},
 				{
-					"speaker": "wolfie",
-					"line": "i_am_good_and_happy"
+					"wolfie": "i_am_good_and_happy"
 				},
 				{
-					"speaker": "wolfie",
-					"line": "things_are_very_sunny"
+					"wolfie": "things_are_very_sunny"
 				},
 				{
-					"speaker": "wolfie",
-					"line": "i_am_thinking_that_i_am_getting_fleas"
+					"wolfie": "i_am_thinking_that_i_am_getting_fleas"
 				},
 				{
-					"speaker": "wolfie",
-					"line": "my_mouth_waters"
+					"wolfie": "my_mouth_waters"
 				},
 				{
-					"speaker": "wolfie",
-					"line": "very_good_i_am_feeling"
+					"wolfie": "very_good_i_am_feeling"
 				}
 			]
 		},
 		{
-			"prompt": "ask_about_rumors",
+			"ego": "ask_about_rumors",
 			"cycle": [
 				{
-					"speaker": "wolfie",
-					"line": "let_me_be_thinking"
+					"wolfie": "let_me_be_thinking"
 				},
 				{
-					"speaker": "wolfie",
-					"line": "i_have_heard_that_the_second"
+					"wolfie": "i_have_heard_that_the_second"
 				},
 				{
-					"speaker": "wolfie",
-					"line": "it_is_said_that_the_one"
+					"wolfie": "it_is_said_that_the_one"
 				},
 				{
-					"speaker": "wolfie",
-					"line": "the_two_who_run"
+					"wolfie": "the_two_who_run"
 				},
 				{
-					"speaker": "wolfie",
-					"line": "there_is_talk_that_you"
+					"wolfie": "there_is_talk_that_you"
 				},
 				{
-					"speaker": "wolfie",
-					"line": "there_are_many_people"
+					"wolfie": "there_are_many_people"
 				}
 			]
 		},
 		{
-			"prompt": "say_goodbye",
+			"ego": "say_goodbye",
 			"response": [
 				{
-					"speaker": "wolfie",
-					"line": "be_very_careful"
+					"wolfie": "be_very_careful"
 				}
 			]
 		}

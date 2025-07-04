@@ -1,56 +1,65 @@
 {
-	"intro": [{
-		"speaker": "nawar",
-		"line": "hello_there_stranger"
-	}],
+	"intro": [
+		{
+			"nawar": "hello_there_stranger"
+		}
+	],
 	"prompts": [
-	{
-		"prompt": "greet_nawar",
-		"response": [{
-			"speaker": "nawar",
-			"line": "im_happy_to"
-		}]
-	},
-	{
-		"prompt": "ask_about_nawar",
-		"response": [{
-			"speaker": "nawar",
-			"line": "its_a_pleasure"
-		}]
-	},
-	{
-		"prompt": "ask_about_inn",
-		"response": [{
-			"speaker": "nawar",
-			"line": "the_dead_parrot_is"
-		}]
-	},
-	{
-		"prompt": "ask_about_wheel_of_fortune",
-		"response": [{
-			"speaker": "nawar",
-			"line": "this_is_the_wheel"
-		}]
-	},
-	{
-		"prompt": "ask_about_silmaria",
-		"response": [{
-			"speaker": "nawar",
-			"line": "silmaria_can_be_cold"
-		}]
-	},
-	{
-		"prompt": "tell_about_yourself",
-		"response": [{
-			"speaker": "nawar",
-			"line": "so_we_have_met"
-		}]
-	},
-	{
-		"prompt": "tell_about_yourself",
-		"response": [{
-			"speaker": "nawar",
-			"line": "come_back_soon_smile"
-		}]
-	}]
+		{
+			"ego": "greet_nawar",
+			"response": [
+				{
+					"nawar": "im_happy_to"
+				}
+			]
+		},
+		{
+			"ego": "ask_about_nawar",
+			"response": [
+				{
+					"nawar": "its_a_pleasure"
+				}
+			]
+		},
+		{
+			"ego": "ask_about_inn",
+			"response": [
+				{
+					"nawar": "the_dead_parrot_is"
+				}
+			]
+		},
+		{
+			"ego": "ask_about_wheel_of_fortune",
+			"response": [
+				{
+					"nawar": "this_is_the_wheel"
+				}
+			]
+		},
+		{
+			"ego": "ask_about_silmaria",
+			"response": [
+				{
+					"nawar": "silmaria_can_be_cold"
+				}
+			]
+		},
+		{
+			"ego": "tell_about_yourself",
+			"response": [
+				{
+					"nawar": "so_we_have_met"
+				}
+			]
+		},
+		{
+			"ego": "tell_about_yourself",
+			"response": [
+				{
+					"nawar": "come_back_soon_smile"
+				}
+			]
+		}
+	]
 }

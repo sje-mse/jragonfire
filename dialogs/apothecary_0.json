@@ -1,20 +1,16 @@
 {
 	"intro": [
 		{
-			"speaker": "salim",
-			"line": "oh_julanar_look"
+			"salim": "oh_julanar_look"
 		},
 		{
-			"speaker": "salim",
-			"line": "i_cant_tell_you"
+			"salim": "i_cant_tell_you"
 		},
 		{
-			"speaker": "julanar",
-			"line": "welcome_to_our_apothecary"
+			"julanar": "welcome_to_our_apothecary"
 		},
 		{
-			"speaker": "salim",
-			"line": "oh_thats_right_tree"
+			"salim": "oh_thats_right_tree"
 		}
 	]
 }

@@ -1,12 +1,10 @@
 {
 	"intro": [
-	{
-		"speaker": "budar",
-		"line": "i_like_a_man_who_knows_how"
-	},
-	{
-		"speaker": "nawar",
-		"line": "budar_you_like"
-	}
+		{
+			"budar": "i_like_a_man_who_knows_how"
+		},
+		{
+			"nawar": "budar_you_like"
+		}
 	]
 }

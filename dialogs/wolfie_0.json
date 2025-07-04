@@ -1,166 +1,144 @@
 {
 	"intro": [
 		{
-			"speaker": "wolfie",
-			"line": "greetings_greetings_greetings"
+			"wolfie": "greetings_greetings_greetings"
 		}
 	],
 	"prompts": [
 		{
-			"prompt": "greet_merchant",
+			"ego": "greet_merchant",
 			"response": [
 				{
-					"speaker": "wolfie",
-					"line": "it_is_most_genuinely"
+					"wolfie": "it_is_most_genuinely"
 				}
 			]
 		},
 		{
-			"prompt": "ask_about_amphorae",
+			"ego": "ask_about_amphorae",
 			"response": [
 				{
-					"speaker": "wolfie",
-					"line": "an_amphora_is_a_grecian_urn"
+					"wolfie": "an_amphora_is_a_grecian_urn"
 				}
 			]
 		},
 		{
-			"prompt": "whats_a_grecian_urn",
+			"ego": "whats_a_grecian_urn",
 			"response": [
 				{
-					"speaker": "wolfie",
-					"line": "are_we_speaking_union"
+					"wolfie": "are_we_speaking_union"
 				}
 			]
 		},
 		{
-			"prompt": "ask_about_silmaria",
+			"ego": "ask_about_silmaria",
 			"response": [
 				{
-					"speaker": "wolfie",
-					"line": "silmaria_is_a_very_fine_city"
+					"wolfie": "silmaria_is_a_very_fine_city"
 				},
 				{
-					"speaker": "wolfie",
-					"line": "at_the_docks"
+					"wolfie": "at_the_docks"
 				},
 				{
-					"speaker": "wolfie",
-					"line": "i_am_not_much_up"
+					"wolfie": "i_am_not_much_up"
 				},
 				{
-					"speaker": "wolfie",
-					"line": "i_have_even_made_a_visit"
+					"wolfie": "i_have_even_made_a_visit"
 				},
 				{
-					"speaker": "wolfie",
-					"line": "i_think_you_will_be_very_happy"
+					"wolfie": "i_think_you_will_be_very_happy"
 				},
 				{
-					"speaker": "wolfie",
-					"line": "all_in_all"
+					"wolfie": "all_in_all"
 				}
 			],
-			"subprompts": [
+			"prompts": [
 				{
-					"prompt": "ask_about_soldiers",
+					"ego": "ask_about_soldiers",
 					"response": [
 						{
-							"speaker": "wolfie",
-							"line": "it_is_said_that_the_countryside"
+							"wolfie": "it_is_said_that_the_countryside"
 						}
 					]
 				},
 				{
-					"prompt": "ask_about_war",
+					"ego": "ask_about_war",
 					"response": [
 						{
-							"speaker": "wolfie",
-							"line": "the_sea_people"
+							"wolfie": "the_sea_people"
 						}
 					]
 				},
 				{
-					"prompt": "ask_about_thieves",
+					"ego": "ask_about_thieves",
 					"response": [
 						{
-							"speaker": "wolfie",
-							"line": "this_was_once"
+							"wolfie": "this_was_once"
 						},
 						{
-							"speaker": "wolfie",
-							"line": "i_have_heard_that_these_thieves"
+							"wolfie": "i_have_heard_that_these_thieves"
 						}
 					]
 				},
 				{
-					"prompt": "ask_about_the_assassin",
+					"ego": "ask_about_the_assassin",
 					"response": [
 						{
-							"speaker": "wolfie",
-							"line": "the_king_of_silmaria"
+							"wolfie": "the_king_of_silmaria"
 						}
 					]
 				}
 			]
 		},
 		{
-			"prompt": "ask_about_wolfie",
+			"ego": "ask_about_wolfie",
 			"response": [
 				{
-					"speaker": "wolfie",
-					"line": "you_wish_to_know_more"
+					"wolfie": "you_wish_to_know_more"
 				},
 				{
-					"speaker": "wolfie",
-					"line": "i_am_skilled"
+					"wolfie": "i_am_skilled"
 				}
 			],
-			"subprompts": [
+			"prompts": [
 				{
-					"prompt": "ask_about_art",
+					"ego": "ask_about_art",
 					"response": [
 						{
-							"speaker": "wolfie",
-							"line": "i_am_making_these"
+							"wolfie": "i_am_making_these"
 						}
 					]
 				},
 				{
-					"prompt": "ask_about_canines",
+					"ego": "ask_about_canines",
 					"response": [
 						{
-							"speaker": "wolfie",
-							"line": "my_people_are_cunning"
+							"wolfie": "my_people_are_cunning"
 						}
 					]
 				},
 				{
-					"prompt": "ask_about_punjabi",
+					"ego": "ask_about_punjabi",
 					"response": [
 						{
-							"speaker": "wolfie",
-							"line": "punjabi"
+							"wolfie": "punjabi"
 						}
 					]
 				}
 			]
 		},
 		{
-			"prompt": "tell_about_yourself",
+			"ego": "tell_about_yourself",
 			"response": [
 				{
-					"speaker": "wolfie",
-					"line": "oh_my_goodness"
+					"wolfie": "oh_my_goodness"
 				}
 			]
 		},
 		{
-			"prompt": "say_goodbye",
+			"ego": "say_goodbye",
 			"response": [
 				{
-					"speaker": "wolfie",
-					"line": "as_they_would_say"
+					"wolfie": "as_they_would_say"
 				}
 			]
 		}

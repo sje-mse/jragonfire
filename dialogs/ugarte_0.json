@@ -1,46 +1,47 @@
 {
 	"prompts": [
-	{
-		"prompt": "greet_ugarte",
-		"response": [
 		{
-			"speaker": "ugarte",
-			"line": "it_is_good"
-
-		}]
-	},
-	{
-		"prompt": "ask_about_ugarte",
-		"response": [
-		{
-			"speaker": "ugarte",
-			"line": "i_am_doing"
-		}]
-	},
-	{
-		"prompt": "ask_about_silmaria",
-		"response": [{
-			"speaker": "ugarte",
-			"line": "silmaria_has_her"
-		}]
-	},
-	{
-		"prompt": "ask_about_rumors",
-		"response": [
-		{
-			"speaker": "ugarte",
-			"line": "you_wish_to_know"
+			"ego": "greet_ugarte",
+			"response": [
+				{
+					"ugarte": "it_is_good"
+				}
+			]
 		},
 		{
-			"speaker": "ugarte",
-			"line": "there_is_talk_that_there"
-		}]
-	},
-	{
-		"prompt": "say_goodbye",
-		"response": [ {
-			"speaker": "ugarte",
-			"line": "farewell_my_friend"
-		}]
-	}]
+			"ego": "ask_about_ugarte",
+			"response": [
+				{
+					"ugarte": "i_am_doing"
+				}
+			]
+		},
+		{
+			"ego": "ask_about_silmaria",
+			"response": [
+				{
+					"ugarte": "silmaria_has_her"
+				}
+			]
+		},
+		{
+			"ego": "ask_about_rumors",
+			"response": [
+				{
+					"ugarte": "you_wish_to_know"
+				},
+				{
+					"ugarte": "there_is_talk_that_there"
+				}
+			]
+		},
+		{
+			"ego": "say_goodbye",
+			"response": [
+				{
+					"ugarte": "farewell_my_friend"
+				}
+			]
+		}
+	]
 }

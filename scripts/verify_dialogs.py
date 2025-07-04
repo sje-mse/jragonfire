@@ -6,9 +6,7 @@ DIALOG_PATH = os.path.join("..", "dialogs")
 LINE_PATH = os.path.join("..", "lines")
 
 TOP_LEVEL_KEYS = set(["intro", "prompts"])
-RESPONSE_KEYS = set(["speaker", "line"])
-PROMPT_KEYS = set(["prompt", "response", "cycle", "subprompts"])
-
+PROMPT_KEYS = set(["ego", "response", "cycle", "prompts"])
 
 def read_all_lines():
 	lines = dict()
@@ -37,10 +35,12 @@ def verify_line(speaker, key, lines):
 	return True
 
 def verify_response(response, lines):
-	if set(response.keys()) != RESPONSE_KEYS:
-		print("invalid response keys: {}".format([response.keys()]))
+	# for now, all responses are a single item: { <speaker_key> : <line_key> }.
+	if len(response) != 1:
+		print("invalid number of entries in response: {}".format(response))
 		return False
-	return verify_line(response["speaker"], response["line"], lines)
+	for speaker_key, line_key in response.items():
+		return verify_line(speaker_key, line_key, lines)
 
 def verify_prompt(prompt, lines):
 	for key, value in prompt.items():
@@ -48,7 +48,7 @@ def verify_prompt(prompt, lines):
 			print("invalid prompt key {}".format(key))
 			return False
 
-		if key == "prompt":
+		if key == "ego":
 			if value in lines["ego"]:
 				pass
 				# print("ego : {} OK!".format(value))
@@ -64,7 +64,7 @@ def verify_prompt(prompt, lines):
 				if not verify_response(response, lines):
 					return False
 
-		if key == "subprompts":
+		if key == "prompts":
 			if not type(value) == list:
 				print("invalid {} value: {}", key, value)
 				return False

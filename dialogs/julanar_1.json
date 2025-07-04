@@ -1,47 +1,42 @@
 {
 	"prompts": [
 		{
-			"prompt": "greet_julanar",
+			"ego": "greet_julanar",
 			"response": [
 				{
-					"speaker": "julanar",
-					"line": "welcome_back"
+					"julanar": "welcome_back"
 				}
 			]
 		},
 		{
-			"prompt": "ask_about_julanar",
+			"ego": "ask_about_julanar",
 			"response": [
 				{
-					"speaker": "julanar",
-					"line": "i_am_well"
+					"julanar": "i_am_well"
 				}
 			]
 		},
 		{
-			"prompt": "ask_about_apothecary",
+			"ego": "ask_about_apothecary",
 			"response": [
 				{
-					"speaker": "julanar",
-					"line": "business_has_been"
+					"julanar": "business_has_been"
 				}
 			]
 		},
 		{
-			"prompt": "ask_about_erasmus",
+			"ego": "ask_about_erasmus",
 			"response": [
 				{
-					"speaker": "julanar",
-					"line": "erasmus_is"
+					"julanar": "erasmus_is"
 				}
 			]
 		},
 		{
-			"prompt": "say_goodbye",
+			"ego": "say_goodbye",
 			"response": [
 				{
-					"speaker": "julanar",
-					"line": "come_again_soon"
+					"julanar": "come_again_soon"
 				}
 			]
 		}

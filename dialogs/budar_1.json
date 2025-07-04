@@ -1,93 +1,87 @@
 {
 	"prompts": [
-	{
-		"prompt": "greet_budar",
-		"response": [
 		{
-			"speaker": "budar",
-			"line": "ooh_its_always_a_pleasure"
+			"ego": "greet_budar",
+			"response": [
+				{
+					"budar": "ooh_its_always_a_pleasure"
+				},
+				{
+					"nawar": "i_prefer_the_pleasures"
+				},
+				{
+					"budar": "nawar_may_be"
+				}
+			]
 		},
 		{
-			"speaker": "nawar",
-			"line": "i_prefer_the_pleasures"
+			"ego": "ask_about_budar",
+			"response": [
+				{
+					"budar": "nawar_and_i_come"
+				},
+				{
+					"nawar": "thats_not_the"
+				},
+				{
+					"budar": "ill_be_happy_to_serve_you_a_drink"
+				}
+			]
 		},
 		{
-			"speaker": "budar",
-			"line": "nawar_may_be"
-		}]
-	},
-	{
-		"prompt": "ask_about_budar",
-		"response": [
-		{
-			"speaker": "budar",
-			"line": "nawar_and_i_come"
+			"ego": "ask_about_inn",
+			"response": [
+				{
+					"budar": "the_dead_parrot_inn"
+				},
+				{
+					"nawar": "i_know_i_like_to"
+				},
+				{
+					"budar": "oh_you_can_gamble"
+				},
+				{
+					"nawar": "i_know_which"
+				}
+			]
 		},
 		{
-			"speaker": "nawar",
-			"line": "thats_not_the"
+			"ego": "ask_about_nawar",
+			"response": [
+				{
+					"budar": "just_call_her_melody"
+				}
+			]
 		},
 		{
-			"speaker": "budar",
-			"line": "ill_be_happy_to_serve_you_a_drink"
-		}]
-	},
-	{
-		"prompt": "ask_about_inn",
-		"response": [
-		{
-			"speaker": "budar",
-			"line": "the_dead_parrot_inn"
+			"ego": "tell_about_yourself",
+			"response": [
+				{
+					"budar": "welcome_to_silmaria_oh_hider"
+				},
+				{
+					"nawar": "id_certainly_like"
+				}
+			]
 		},
 		{
-			"speaker": "nawar",
-			"line": "i_know_i_like_to"
+			"ego": "ask_about_silmaria",
+			"response": [
+				{
+					"budar": "this_is_not_a_bad_place"
+				},
+				{
+					"nawar": "there_are_better_things"
+				}
+			]
 		},
 		{
-			"speaker": "budar",
-			"line": "oh_you_can_gamble"
-		},
-		{
-			"speaker": "nawar",
-			"line": "i_know_which"
-		}]
-	},
-	{
-		"prompt": "ask_about_nawar",
-		"response": [{
-			"speaker": "budar",
-			"line": "just_call_her_melody"
-		}]
-	},
-	{
-		"prompt": "tell_about_yourself",
-		"response": [
-		{
-			"speaker": "budar",
-			"line": "welcome_to_silmaria_oh_hider"
-		},
-		{
-			"speaker": "nawar",
-			"line": "id_certainly_like"
-		}]
-	},
-	{
-		"prompt": "ask_about_silmaria",
-		"response": [
-		{
-			"speaker": "budar",
-			"line": "this_is_not_a_bad_place"
-		},
-		{
-			"speaker": "nawar",
-			"line": "there_are_better_things"
-		}]
-	},
-	{
-		"prompt": "say_goodbye",
-		"response": [{
-			"speaker": "budar",
-			"line": "come_on_back"
-		}]
-	}]
+			"ego": "say_goodbye",
+			"response": [
+				{
+					"budar": "come_on_back"
+				}
+			]
+		}
+	]
 }

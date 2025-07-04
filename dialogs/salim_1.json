@@ -1,47 +1,42 @@
 {
 	"prompts": [
 		{
-			"prompt": "say_hi_to_salim",
+			"ego": "say_hi_to_salim",
 			"response": [
 				{
-					"speaker": "salim",
-					"line": "youre_always_welcome"
+					"salim": "youre_always_welcome"
 				}
 			]
 		},
 		{
-			"prompt": "ask_about_salim",
+			"ego": "ask_about_salim",
 			"response": [
 				{
-					"speaker": "salim",
-					"line": "im_groovy"
+					"salim": "im_groovy"
 				}
 			]
 		},
 		{
-			"prompt": "ask_about_the_apothecary",
+			"ego": "ask_about_the_apothecary",
 			"response": [
 				{
-					"speaker": "salim",
-					"line": "were_selling_all_kinds"
+					"salim": "were_selling_all_kinds"
 				}
 			]
 		},
 		{
-			"prompt": "ask_about_silmaria",
+			"ego": "ask_about_silmaria",
 			"response": [
 				{
-					"speaker": "salim",
-					"line": "silmaria_is_like"
+					"salim": "silmaria_is_like"
 				}
 			]
 		},
 		{
-			"prompt": "say_goodbye",
+			"ego": "say_goodbye",
 			"response": [
 				{
-					"speaker": "salim",
-					"line": "have_a_cosmic_time"
+					"salim": "have_a_cosmic_time"
 				}
 			]
 		}

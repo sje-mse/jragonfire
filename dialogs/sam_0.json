@@ -1,115 +1,99 @@
 {
 	"intro": [
 		{
-			"speaker": "sam",
-			"line": "greetings_and_welcome"
+			"sam": "greetings_and_welcome"
 		},
 		{
-			"speaker": "sam",
-			"line": "oh_its_you"
+			"sam": "oh_its_you"
 		}
 	],
 	"prompts": [
 		{
-			"prompt": "greet_the_banker",
+			"ego": "greet_the_banker",
 			"response": [
 				{
-					"speaker": "sam",
-					"line": "hi_there_have"
+					"sam": "hi_there_have"
 				}
 			]
 		},
 		{
-			"prompt": "ask_about_the_banker",
+			"ego": "ask_about_the_banker",
 			"response": [
 				{
-					"speaker": "sam",
-					"line": "im_sam"
+					"sam": "im_sam"
 				}
 			]
 		},
 		{
-			"prompt": "ask_about_the_bank",
+			"ego": "ask_about_the_bank",
 			"response": [
 				{
-					"speaker": "sam",
-					"line": "the_first_bank"
+					"sam": "the_first_bank"
 				}
 			],
-			"subprompts": [
+			"prompts": [
 				{
-					"prompt": "ask_about_the_rite_of_rulership",
+					"ego": "ask_about_the_rite_of_rulership",
 					"response": [
 						{
-							"speaker": "sam",
-							"line": "the_rite"
+							"sam": "the_rite"
 						},
 						{
-							"speaker": "sam",
-							"line": "usually_people_have"
+							"sam": "usually_people_have"
 						}
 					]
 				},
 				{
-					"prompt": "ask_about_savings",
+					"ego": "ask_about_savings",
 					"response": [
 						{
-							"speaker": "sam",
-							"line": "your_savings"
+							"sam": "your_savings"
 						},
 						{
-							"speaker": "sam",
-							"line": "thanks_to_your"
+							"sam": "thanks_to_your"
 						}
 					]
 				}
 			]
 		},
 		{
-			"prompt": "tell_about_your_friends",
+			"ego": "tell_about_your_friends",
 			"response": [
 				{
-					"speaker": "sam",
-					"line": "that_lion_guy"
+					"sam": "that_lion_guy"
 				}
 			]
 		},
 		{
-			"prompt": "ask_about_silmaria",
+			"ego": "ask_about_silmaria",
 			"response": [
 				{
-					"speaker": "sam",
-					"line": "silmaria_is_a_great"
+					"sam": "silmaria_is_a_great"
 				},
 				{
-					"speaker": "sam",
-					"line": "adventurers_think"
+					"sam": "adventurers_think"
 				}
 			]
 		},
 		{
-			"prompt": "tell_about_yourself",
+			"ego": "tell_about_yourself",
 			"response": [
 				{
-					"speaker": "sam",
-					"line": "i_thought_you"
+					"sam": "i_thought_you"
 				},
 				{
-					"speaker": "sam",
-					"line": "it_wasnt_long"
+					"sam": "it_wasnt_long"
 				},
 				{
-					"speaker": "sam",
-					"line": "came_to_silmaria"
+					"sam": "came_to_silmaria"
 				}
 			]
 		},
 		{
-			"prompt": "say_goodbye",
+			"ego": "say_goodbye",
 			"response": [
 				{
-					"speaker": "sam",
-					"line": "our_banking_hours"
+					"sam": "our_banking_hours"
 				}
 			]
 		}

@@ -1,8 +1,7 @@
 {
 	"intro": [
-	{
-		"speaker": "ann",
-		"line": "if_you_want_to"
-	}
+		{
+			"ann": "if_you_want_to"
+		}
 	]
 }
