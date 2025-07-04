@@ -10,27 +10,15 @@
 	"prompts": [
 		{
 			"ego": "greet_the_banker",
-			"response": [
-				{
-					"sam": "hi_there_have"
-				}
-			]
+			"sam": "hi_there_have"
 		},
 		{
 			"ego": "ask_about_the_banker",
-			"response": [
-				{
-					"sam": "im_sam"
-				}
-			]
+			"sam": "im_sam"
 		},
 		{
 			"ego": "ask_about_the_bank",
-			"response": [
-				{
-					"sam": "the_first_bank"
-				}
-			],
+			"sam": "the_first_bank",
 			"prompts": [
 				{
 					"ego": "ask_about_the_rite_of_rulership",
@@ -58,11 +46,7 @@
 		},
 		{
 			"ego": "tell_about_your_friends",
-			"response": [
-				{
-					"sam": "that_lion_guy"
-				}
-			]
+			"sam": "that_lion_guy"
 		},
 		{
 			"ego": "ask_about_silmaria",
@@ -91,11 +75,7 @@
 		},
 		{
 			"ego": "say_goodbye",
-			"response": [
-				{
-					"sam": "our_banking_hours"
-				}
-			]
+			"sam": "our_banking_hours"
 		}
 	]
 }

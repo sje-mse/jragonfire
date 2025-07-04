@@ -7,59 +7,31 @@
 	"prompts": [
 		{
 			"ego": "greet_nawar",
-			"response": [
-				{
-					"nawar": "im_happy_to"
-				}
-			]
+			"nawar": "im_happy_to"
 		},
 		{
 			"ego": "ask_about_nawar",
-			"response": [
-				{
-					"nawar": "its_a_pleasure"
-				}
-			]
+			"nawar": "its_a_pleasure"
 		},
 		{
 			"ego": "ask_about_inn",
-			"response": [
-				{
-					"nawar": "the_dead_parrot_is"
-				}
-			]
+			"nawar": "the_dead_parrot_is"
 		},
 		{
 			"ego": "ask_about_wheel_of_fortune",
-			"response": [
-				{
-					"nawar": "this_is_the_wheel"
-				}
-			]
+			"nawar": "this_is_the_wheel"
 		},
 		{
 			"ego": "ask_about_silmaria",
-			"response": [
-				{
-					"nawar": "silmaria_can_be_cold"
-				}
-			]
+			"nawar": "silmaria_can_be_cold"
 		},
 		{
 			"ego": "tell_about_yourself",
-			"response": [
-				{
-					"nawar": "so_we_have_met"
-				}
-			]
+			"nawar": "so_we_have_met"
 		},
 		{
 			"ego": "tell_about_yourself",
-			"response": [
-				{
-					"nawar": "come_back_soon_smile"
-				}
-			]
+			"nawar": "come_back_soon_smile"
 		}
 	]
 }

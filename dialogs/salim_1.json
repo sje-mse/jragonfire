@@ -2,43 +2,23 @@
 	"prompts": [
 		{
 			"ego": "say_hi_to_salim",
-			"response": [
-				{
-					"salim": "youre_always_welcome"
-				}
-			]
+			"salim": "youre_always_welcome"
 		},
 		{
 			"ego": "ask_about_salim",
-			"response": [
-				{
-					"salim": "im_groovy"
-				}
-			]
+			"salim": "im_groovy"
 		},
 		{
 			"ego": "ask_about_the_apothecary",
-			"response": [
-				{
-					"salim": "were_selling_all_kinds"
-				}
-			]
+			"salim": "were_selling_all_kinds"
 		},
 		{
 			"ego": "ask_about_silmaria",
-			"response": [
-				{
-					"salim": "silmaria_is_like"
-				}
-			]
+			"salim": "silmaria_is_like"
 		},
 		{
 			"ego": "say_goodbye",
-			"response": [
-				{
-					"salim": "have_a_cosmic_time"
-				}
-			]
+			"salim": "have_a_cosmic_time"
 		}
 	]
 }

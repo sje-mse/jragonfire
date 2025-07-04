@@ -22,27 +22,15 @@
 	"prompts": [
 		{
 			"ego": "greet_logos",
-			"response": [
-				{
-					"logos": "it_is_an_honor"
-				}
-			]
+			"logos": "it_is_an_honor"
 		},
 		{
 			"ego": "ask_about_logos",
-			"response": [
-				{
-					"logos": "i_am_the_speaker"
-				}
-			]
+			"logos": "i_am_the_speaker"
 		},
 		{
 			"ego": "ask_about_rakeesh",
-			"response": [
-				{
-					"logos": "rakeesh_and_i"
-				}
-			]
+			"logos": "rakeesh_and_i"
 		},
 		{
 			"ego": "ask_about_rite_of_rulership",
@@ -71,61 +59,33 @@
 				},
 				{
 					"ego": "ask_about_bank",
-					"response": [
-						{
-							"logos": "the_bank_of_silmaria"
-						}
-					]
+					"logos": "the_bank_of_silmaria"
 				},
 				{
 					"ego": "ask_about_sultan",
-					"response": [
-						{
-							"logos": "the_sultan"
-						}
-					]
+					"logos": "the_sultan"
 				}
 			]
 		},
 		{
 			"ego": "ask_logos_about_silmaria",
-			"response": [
-				{
-					"logos": "our_kingdom"
-				}
-			],
+			"logos": "our_kingdom",
 			"prompts": [
 				{
 					"ego": "ask_about_marete",
-					"response": [
-						{
-							"logos": "marete_is_a_large"
-						}
-					],
+					"logos": "marete_is_a_large",
 					"prompts": [
 						{
 							"ego": "ask_about_mount_draconis",
-							"response": [
-								{
-									"logos": "the_entire_island"
-								}
-							]
+							"logos": "the_entire_island"
 						},
 						{
 							"ego": "ask_about_lake_morae",
-							"response": [
-								{
-									"logos": "lake_morae"
-								}
-							]
+							"logos": "lake_morae"
 						},
 						{
 							"ego": "ask_about_atlantis",
-							"response": [
-								{
-									"logos": "atlantis_was_a_kingdom"
-								}
-							]
+							"logos": "atlantis_was_a_kingdom"
 						}
 					]
 				},
@@ -159,19 +119,11 @@
 					"prompts": [
 						{
 							"ego": "ask_about_sea_monsters",
-							"response": [
-								{
-									"logos": "the_sea_is"
-								}
-							]
+							"logos": "the_sea_is"
 						},
 						{
 							"ego": "ask_about_tritons",
-							"response": [
-								{
-									"logos": "the_tritons_are"
-								}
-							]
+							"logos": "the_tritons_are"
 						}
 					]
 				}
@@ -193,27 +145,15 @@
 		},
 		{
 			"ego": "tell_about_yourself",
-			"response": [
-				{
-					"logos": "you_have_a_wide"
-				}
-			]
+			"logos": "you_have_a_wide"
 		},
 		{
 			"ego": "agree_to_enter_rites_of_rulership",
-			"response": [
-				{
-					"logos": "we_will_be_pleased"
-				}
-			]
+			"logos": "we_will_be_pleased"
 		},
 		{
 			"ego": "say_goodbye",
-			"response": [
-				{
-					"logos": "i_shall_see_you_again"
-				}
-			]
+			"logos": "i_shall_see_you_again"
 		}
 	]
 }

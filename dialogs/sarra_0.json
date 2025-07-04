@@ -10,27 +10,15 @@
 	"prompts": [
 		{
 			"ego": "greet_the_merchant",
-			"response": [
-				{
-					"sarra": "welcome_again_and_thrice"
-				}
-			]
+			"sarra": "welcome_again_and_thrice"
 		},
 		{
 			"ego": "ask_about_kattas",
-			"response": [
-				{
-					"sarra": "we_are_the_children"
-				}
-			],
+			"sarra": "we_are_the_children",
 			"prompts": [
 				{
 					"ego": "ask_about_marrak",
-					"response": [
-						{
-							"sarra": "my_lifemate_marrak"
-						}
-					]
+					"sarra": "my_lifemate_marrak"
 				},
 				{
 					"ego": "ask_about_salla",
@@ -47,61 +35,33 @@
 		},
 		{
 			"ego": "ask_about_merchandise",
-			"response": [
-				{
-					"sarra": "i_am_a_seller_of_jewelry"
-				}
-			]
+			"sarra": "i_am_a_seller_of_jewelry"
 		},
 		{
 			"ego": "ask_about_sarra",
-			"response": [
-				{
-					"sarra": "i_am_most_well"
-				}
-			]
+			"sarra": "i_am_most_well"
 		},
 		{
 			"ego": "ask_about_silmaria",
-			"response": [
-				{
-					"sarra": "i_am_most_well"
-				}
-			]
+			"sarra": "i_am_most_well"
 		},
 		{
 			"ego": "ask_about_rumors",
-			"response": [
-				{
-					"sarra": "there_is_word_said_that_a_hero"
-				}
-			],
+			"sarra": "there_is_word_said_that_a_hero",
 			"prompts": [
 				{
 					"ego": "ask_about_invaders",
-					"response": [
-						{
-							"sarra": "the_countryside_has_been_overwhelmed"
-						}
-					]
+					"sarra": "the_countryside_has_been_overwhelmed"
 				}
 			]
 		},
 		{
 			"ego": "tell_about_your_adventures_in_shapeir",
-			"response": [
-				{
-					"sarra": "so_you_are_the_prince"
-				}
-			]
+			"sarra": "so_you_are_the_prince"
 		},
 		{
 			"ego": "say_goodbye",
-			"response": [
-				{
-					"sarra": "may_you_find_in_this_land"
-				}
-			]
+			"sarra": "may_you_find_in_this_land"
 		}
 	]
 }

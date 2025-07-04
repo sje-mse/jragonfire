@@ -2,35 +2,19 @@
 	"prompts": [
 		{
 			"ego": "greet_julanar",
-			"response": [
-				{
-					"julanar": "it_is_a_great_pleasure"
-				}
-			]
+			"julanar": "it_is_a_great_pleasure"
 		},
 		{
 			"ego": "ask_about_julanar",
-			"response": [
-				{
-					"julanar": "it_is_good_to_be"
-				}
-			]
+			"julanar": "it_is_good_to_be"
 		},
 		{
 			"ego": "ask_about_salim",
-			"response": [
-				{
-					"julanar": "salim_is_a_man"
-				}
-			]
+			"julanar": "salim_is_a_man"
 		},
 		{
 			"ego": "ask_about_the_apothecary",
-			"response": [
-				{
-					"julanar": "with_salims_knowledge"
-				}
-			]
+			"julanar": "with_salims_knowledge"
 		},
 		{
 			"ego": "ask_about_silmaria",
@@ -45,11 +29,7 @@
 		},
 		{
 			"ego": "say_goodbye",
-			"response": [
-				{
-					"julanar": "if_you_are_ever"
-				}
-			]
+			"julanar": "if_you_are_ever"
 		}
 	]
 }

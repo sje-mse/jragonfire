@@ -2,11 +2,7 @@
 	"prompts": [
 		{
 			"ego": "say_hi_to_salim",
-			"response": [
-				{
-					"salim": "hi_its_so_good"
-				}
-			]
+			"salim": "hi_its_so_good"
 		},
 		{
 			"ego": "ask_about_julanar",
@@ -24,27 +20,15 @@
 		},
 		{
 			"ego": "ask_about_the_apothecary",
-			"response": [
-				{
-					"salim": "were_doing"
-				}
-			]
+			"salim": "were_doing"
 		},
 		{
 			"ego": "ask_about_silmaria",
-			"response": [
-				{
-					"salim": "this_is_such_a"
-				}
-			]
+			"salim": "this_is_such_a"
 		},
 		{
 			"ego": "say_goodbye",
-			"response": [
-				{
-					"salim": "come_back_soon_you"
-				}
-			]
+			"salim": "come_back_soon_you"
 		}
 	]
 }

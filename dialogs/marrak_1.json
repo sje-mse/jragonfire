@@ -7,11 +7,7 @@
 	"prompts": [
 		{
 			"ego": "greet_marrak",
-			"response": [
-				{
-					"marrak": "what_can_i_sell_to_you_today"
-				}
-			]
+			"marrak": "what_can_i_sell_to_you_today"
 		},
 		{
 			"ego": "ask_about_marrak",
@@ -61,11 +57,7 @@
 		},
 		{
 			"ego": "say_goodbye",
-			"response": [
-				{
-					"marrak": "may_your_day_be_filled"
-				}
-			]
+			"marrak": "may_your_day_be_filled"
 		}
 	]
 }

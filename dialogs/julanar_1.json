@@ -2,43 +2,23 @@
 	"prompts": [
 		{
 			"ego": "greet_julanar",
-			"response": [
-				{
-					"julanar": "welcome_back"
-				}
-			]
+			"julanar": "welcome_back"
 		},
 		{
 			"ego": "ask_about_julanar",
-			"response": [
-				{
-					"julanar": "i_am_well"
-				}
-			]
+			"julanar": "i_am_well"
 		},
 		{
 			"ego": "ask_about_apothecary",
-			"response": [
-				{
-					"julanar": "business_has_been"
-				}
-			]
+			"julanar": "business_has_been"
 		},
 		{
 			"ego": "ask_about_erasmus",
-			"response": [
-				{
-					"julanar": "erasmus_is"
-				}
-			]
+			"julanar": "erasmus_is"
 		},
 		{
 			"ego": "say_goodbye",
-			"response": [
-				{
-					"julanar": "come_again_soon"
-				}
-			]
+			"julanar": "come_again_soon"
 		}
 	]
 }

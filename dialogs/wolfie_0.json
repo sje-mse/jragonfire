@@ -7,27 +7,15 @@
 	"prompts": [
 		{
 			"ego": "greet_merchant",
-			"response": [
-				{
-					"wolfie": "it_is_most_genuinely"
-				}
-			]
+			"wolfie": "it_is_most_genuinely"
 		},
 		{
 			"ego": "ask_about_amphorae",
-			"response": [
-				{
-					"wolfie": "an_amphora_is_a_grecian_urn"
-				}
-			]
+			"wolfie": "an_amphora_is_a_grecian_urn"
 		},
 		{
 			"ego": "whats_a_grecian_urn",
-			"response": [
-				{
-					"wolfie": "are_we_speaking_union"
-				}
-			]
+			"wolfie": "are_we_speaking_union"
 		},
 		{
 			"ego": "ask_about_silmaria",
@@ -54,19 +42,11 @@
 			"prompts": [
 				{
 					"ego": "ask_about_soldiers",
-					"response": [
-						{
-							"wolfie": "it_is_said_that_the_countryside"
-						}
-					]
+					"wolfie": "it_is_said_that_the_countryside"
 				},
 				{
 					"ego": "ask_about_war",
-					"response": [
-						{
-							"wolfie": "the_sea_people"
-						}
-					]
+					"wolfie": "the_sea_people"
 				},
 				{
 					"ego": "ask_about_thieves",
@@ -81,11 +61,7 @@
 				},
 				{
 					"ego": "ask_about_the_assassin",
-					"response": [
-						{
-							"wolfie": "the_king_of_silmaria"
-						}
-					]
+					"wolfie": "the_king_of_silmaria"
 				}
 			]
 		},
@@ -102,45 +78,25 @@
 			"prompts": [
 				{
 					"ego": "ask_about_art",
-					"response": [
-						{
-							"wolfie": "i_am_making_these"
-						}
-					]
+					"wolfie": "i_am_making_these"
 				},
 				{
 					"ego": "ask_about_canines",
-					"response": [
-						{
-							"wolfie": "my_people_are_cunning"
-						}
-					]
+					"wolfie": "my_people_are_cunning"
 				},
 				{
 					"ego": "ask_about_punjabi",
-					"response": [
-						{
-							"wolfie": "punjabi"
-						}
-					]
+					"wolfie": "punjabi"
 				}
 			]
 		},
 		{
 			"ego": "tell_about_yourself",
-			"response": [
-				{
-					"wolfie": "oh_my_goodness"
-				}
-			]
+			"wolfie": "oh_my_goodness"
 		},
 		{
 			"ego": "say_goodbye",
-			"response": [
-				{
-					"wolfie": "as_they_would_say"
-				}
-			]
+			"wolfie": "as_they_would_say"
 		}
 	]
 }

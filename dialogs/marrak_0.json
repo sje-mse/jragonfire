@@ -10,11 +10,7 @@
 	"prompts": [
 		{
 			"ego": "greet_marrak",
-			"response": [
-				{
-					"marrak": "i_am_well_and_fine_thank_you"
-				}
-			]
+			"marrak": "i_am_well_and_fine_thank_you"
 		},
 		{
 			"ego": "ask_about_silmaria",
@@ -40,27 +36,15 @@
 					"prompts": [
 						{
 							"ego": "ask_about_the_bank",
-							"response": [
-								{
-									"marrak": "the_bank_is_the_fine"
-								}
-							]
+							"marrak": "the_bank_is_the_fine"
 						},
 						{
 							"ego": "ask_about_the_magic_shop",
-							"response": [
-								{
-									"marrak": "do_not_be_dismayed_by_the_wizard"
-								}
-							]
+							"marrak": "do_not_be_dismayed_by_the_wizard"
 						},
 						{
 							"ego": "ask_about_the_apothecary",
-							"response": [
-								{
-									"marrak": "the_apothecary_is_run"
-								}
-							]
+							"marrak": "the_apothecary_is_run"
 						}
 					]
 				},
@@ -77,55 +61,31 @@
 					"prompts": [
 						{
 							"ego": "ask_about_the_spinning_hat",
-							"response": [
-								{
-									"marrak": "i_suggest_you_go_up_to_nob_hill"
-								}
-							]
+							"marrak": "i_suggest_you_go_up_to_nob_hill"
 						}
 					]
 				},
 				{
 					"ego": "ask_about_the_docks",
-					"response": [
-						{
-							"marrak": "at_his_shop_beside_the_docks"
-						}
-					],
+					"marrak": "at_his_shop_beside_the_docks",
 					"prompts": [
 						{
 							"ego": "ask_about_the_weaponer",
-							"response": [
-								{
-									"marrak": "pholus_is_a_centaur"
-								}
-							]
+							"marrak": "pholus_is_a_centaur"
 						},
 						{
 							"ego": "ask_about_the_tavern",
-							"response": [
-								{
-									"marrak": "the_dead_parrot_inn"
-								}
-							]
+							"marrak": "the_dead_parrot_inn"
 						}
 					]
 				},
 				{
 					"ego": "ask_about_the_west_gate",
-					"response": [
-						{
-							"marrak": "at_the_west_end"
-						}
-					],
+					"marrak": "at_the_west_end",
 					"prompts": [
 						{
 							"ego": "ask_about_the_gnome_inn",
-							"response": [
-								{
-									"marrak": "ann_is_a_very_amusing_person"
-								}
-							]
+							"marrak": "ann_is_a_very_amusing_person"
 						}
 					]
 				}
@@ -133,51 +93,27 @@
 		},
 		{
 			"ego": "ask_about_the_food_stand",
-			"response": [
-				{
-					"marrak": "ah_i_have_foods_of_all_types"
-				}
-			]
+			"marrak": "ah_i_have_foods_of_all_types"
 		},
 		{
 			"ego": "ask_about_the_island",
-			"response": [
-				{
-					"marrak": "the_island_of_marete"
-				}
-			]
+			"marrak": "the_island_of_marete"
 		},
 		{
 			"ego": "ask_about_marrak",
-			"response": [
-				{
-					"marrak": "i_am_marrak_a_katta_from"
-				}
-			],
+			"marrak": "i_am_marrak_a_katta_from",
 			"prompts": [
 				{
 					"ego": "ask_about_marraks_family",
-					"response": [
-						{
-							"marrak": "my_mate_and_beloved_is_sarra"
-						}
-					]
+					"marrak": "my_mate_and_beloved_is_sarra"
 				},
 				{
 					"ego": "ask_about_pleasures",
-					"response": [
-						{
-							"marrak": "my_family_and_i_sell_joys"
-						}
-					]
+					"marrak": "my_family_and_i_sell_joys"
 				},
 				{
 					"ego": "ask_about_kattas",
-					"response": [
-						{
-							"marrak": "we_katta_are_a_desert_people"
-						}
-					]
+					"marrak": "we_katta_are_a_desert_people"
 				},
 				{
 					"ego": "ask_about_rasier",
@@ -192,19 +128,11 @@
 					"prompts": [
 						{
 							"ego": "ask_about_the_hero",
-							"response": [
-								{
-									"marrak": "it_has_been_said_that_a_mighty_hero"
-								}
-							]
+							"marrak": "it_has_been_said_that_a_mighty_hero"
 						},
 						{
 							"ego": "ask_about_the_woman",
-							"response": [
-								{
-									"marrak": "the_new_ruler_of_rasier"
-								}
-							]
+							"marrak": "the_new_ruler_of_rasier"
 						}
 					]
 				}
@@ -212,19 +140,11 @@
 		},
 		{
 			"ego": "tell_about_your_adventures",
-			"response": [
-				{
-					"marrak": "so_you_are_a_friend_of_my_people"
-				}
-			]
+			"marrak": "so_you_are_a_friend_of_my_people"
 		},
 		{
 			"ego": "say_goodbye",
-			"response": [
-				{
-					"marrak": "it_is_a_pleasure_to_meet_you"
-				}
-			]
+			"marrak": "it_is_a_pleasure_to_meet_you"
 		}
 	]
 }

@@ -7,27 +7,15 @@
 	"prompts": [
 		{
 			"ego": "ask_about_ann",
-			"response": [
-				{
-					"ann": "its_funny_honey"
-				}
-			]
+			"ann": "its_funny_honey"
 		},
 		{
 			"ego": "ask_about_inn",
-			"response": [
-				{
-					"ann": "im_really_inn"
-				}
-			]
+			"ann": "im_really_inn"
 		},
 		{
 			"ego": "say_goodbye",
-			"response": [
-				{
-					"ann": "take_it_easy"
-				}
-			]
+			"ann": "take_it_easy"
 		}
 	]
 }

@@ -7,11 +7,7 @@
 	"prompts": [
 		{
 			"ego": "greet_wolfie",
-			"response": [
-				{
-					"wolfie": "welcome_very_much"
-				}
-			]
+			"wolfie": "welcome_very_much"
 		},
 		{
 			"ego": "ask_about_wolfie",
@@ -61,11 +57,7 @@
 		},
 		{
 			"ego": "say_goodbye",
-			"response": [
-				{
-					"wolfie": "be_very_careful"
-				}
-			]
+			"wolfie": "be_very_careful"
 		}
 	]
 }

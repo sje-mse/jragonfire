@@ -44,7 +44,7 @@ def verify_response(response, lines):
 
 def verify_prompt(prompt, lines):
 	for key, value in prompt.items():
-		if key not in PROMPT_KEYS:
+		if key not in PROMPT_KEYS and key not in lines:
 			print("invalid prompt key {}".format(key))
 			return False
 
@@ -56,6 +56,7 @@ def verify_prompt(prompt, lines):
 				print("invalid prompt {}".format(value))
 				return False
 
+		# verify multi-line responses
 		if key == "response" or key == "cycle":
 			if not type(value) == list:
 				print("invalid {} value: {}", key, value)
@@ -63,6 +64,11 @@ def verify_prompt(prompt, lines):
 			for response in value:
 				if not verify_response(response, lines):
 					return False
+
+		# verify single lines
+		if key in lines:
+			if not verify_line(key, value, lines):
+				return False
 
 		if key == "prompts":
 			if not type(value) == list:

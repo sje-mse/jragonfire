@@ -7,11 +7,7 @@
 	"prompts": [
 		{
 			"ego": "greet_the_gnome",
-			"response": [
-				{
-					"ann": "kalifornia"
-				}
-			]
+			"ann": "kalifornia"
 		},
 		{
 			"ego": "ask_about_ann",
@@ -37,11 +33,7 @@
 		},
 		{
 			"ego": "ask_about_silmaria",
-			"response": [
-				{
-					"ann": "i_dont_know_much"
-				}
-			]
+			"ann": "i_dont_know_much"
 		},
 		{
 			"ego": "introduce_yourself",
@@ -56,19 +48,11 @@
 		},
 		{
 			"ego": "ask_about_your_room",
-			"response": [
-				{
-					"ann": "yours_is_the_first"
-				}
-			]
+			"ann": "yours_is_the_first"
 		},
 		{
 			"ego": "say_goodbye",
-			"response": [
-				{
-					"ann": "ill_be_seeing_you"
-				}
-			]
+			"ann": "ill_be_seeing_you"
 		}
 	]
 }

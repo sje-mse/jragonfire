@@ -7,61 +7,33 @@
 	"prompts": [
 		{
 			"ego": "greet_shakra",
-			"response": [
-				{
-					"shakra": "welcome_to_silmaria"
-				}
-			]
+			"shakra": "welcome_to_silmaria"
 		},
 		{
 			"ego": "ask_about_magic",
-			"response": [
-				{
-					"shakra": "this_is_a_land"
-				}
-			]
+			"shakra": "this_is_a_land"
 		},
 		{
 			"ego": "ask_about_the_magic_shop",
-			"response": [
-				{
-					"shakra": "i_sense_that_you"
-				}
-			],
+			"shakra": "i_sense_that_you",
 			"prompts": [
 				{
 					"ego": "ask_about_mystic_magnets",
-					"response": [
-						{
-							"shakra": "the_mystic_magnets"
-						}
-					]
+					"shakra": "the_mystic_magnets"
 				}
 			]
 		},
 		{
 			"ego": "ask_about_shakra",
-			"response": [
-				{
-					"shakra": "i_am_a_wizard_the"
-				}
-			]
+			"shakra": "i_am_a_wizard_the"
 		},
 		{
 			"ego": "ask_about_rakeesh",
-			"response": [
-				{
-					"shakra": "it_is_good"
-				}
-			]
+			"shakra": "it_is_good"
 		},
 		{
 			"ego": "say_goodbye",
-			"response": [
-				{
-					"shakra": "good_luck_and_i_hope"
-				}
-			]
+			"shakra": "good_luck_and_i_hope"
 		}
 	]
 }

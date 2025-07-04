@@ -7,11 +7,7 @@
 	"prompts": [
 		{
 			"ego": "greet_sarra",
-			"response": [
-				{
-					"sarra": "welcome_again_and_thrice"
-				}
-			]
+			"sarra": "welcome_again_and_thrice"
 		},
 		{
 			"ego": "ask_about_sarra",
@@ -61,11 +57,7 @@
 		},
 		{
 			"ego": "ask_about_rumors",
-			"response": [
-				{
-					"sarra": "may_your_journey"
-				}
-			]
+			"sarra": "may_your_journey"
 		}
 	]
 }

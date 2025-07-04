@@ -47,11 +47,7 @@
 		},
 		{
 			"ego": "ask_about_nawar",
-			"response": [
-				{
-					"budar": "just_call_her_melody"
-				}
-			]
+			"budar": "just_call_her_melody"
 		},
 		{
 			"ego": "tell_about_yourself",
@@ -77,11 +73,7 @@
 		},
 		{
 			"ego": "say_goodbye",
-			"response": [
-				{
-					"budar": "come_on_back"
-				}
-			]
+			"budar": "come_on_back"
 		}
 	]
 }

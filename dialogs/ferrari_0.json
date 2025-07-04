@@ -13,19 +13,11 @@
 	"prompts": [
 		{
 			"ego": "greet_senor_ferrari",
-			"response": [
-				{
-					"ferrari": "it_is_always_a_pleasure"
-				}
-			]
+			"ferrari": "it_is_always_a_pleasure"
 		},
 		{
 			"ego": "ask_about_ferrari",
-			"response": [
-				{
-					"ferrari": "i_was_forced"
-				}
-			]
+			"ferrari": "i_was_forced"
 		},
 		{
 			"ego": "ask_about_inn",
@@ -65,11 +57,7 @@
 		},
 		{
 			"ego": "say_goodbye",
-			"response": [
-				{
-					"ferrari": "ha_ha_it_is_good_again"
-				}
-			]
+			"ferrari": "ha_ha_it_is_good_again"
 		}
 	]
 }

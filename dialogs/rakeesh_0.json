@@ -2,19 +2,11 @@
 	"prompts": [
 		{
 			"ego": "greet_rakeesh",
-			"response": [
-				{
-					"rakeesh": "it_is_a_pleasure"
-				}
-			]
+			"rakeesh": "it_is_a_pleasure"
 		},
 		{
 			"ego": "ask_about_rakeesh",
-			"response": [
-				{
-					"rakeesh": "i_am_well_and_fine"
-				}
-			]
+			"rakeesh": "i_am_well_and_fine"
 		},
 		{
 			"ego": "ask_about_logos",
@@ -32,11 +24,7 @@
 		},
 		{
 			"ego": "ask_about_rite_of_rulership",
-			"response": [
-				{
-					"rakeesh": "the_rites_of_rulership"
-				}
-			]
+			"rakeesh": "the_rites_of_rulership"
 		},
 		{
 			"ego": "ask_about_erana",
@@ -51,19 +39,11 @@
 		},
 		{
 			"ego": "ask_about_silmaria",
-			"response": [
-				{
-					"rakeesh": "silmaria_is_a_lovely"
-				}
-			]
+			"rakeesh": "silmaria_is_a_lovely"
 		},
 		{
 			"ego": "say_goodbye",
-			"response": [
-				{
-					"rakeesh": "i_will_see_you_soon"
-				}
-			]
+			"rakeesh": "i_will_see_you_soon"
 		}
 	]
 }
