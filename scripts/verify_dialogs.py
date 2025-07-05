@@ -99,9 +99,14 @@ def verify(dialog, lines):
 if __name__ == "__main__":
 	lines = read_all_lines()
 	dialogs = read_all_dialogs()
+	num_ok = 0
+	num_bad = 0
 	for key, dialog in dialogs.items():
 		valid = verify(dialog, lines)
 		if (valid):
-			print("{} OK!".format(key))
+			num_ok += 1
+			# print("{} OK!".format(key))
 		else:
+			num_bad += 1
 			print("{} INVALID!!!".format(key))
+	print("{} OK, {} INVALID".format(num_ok, num_bad))

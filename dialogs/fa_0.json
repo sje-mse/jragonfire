@@ -1,0 +1,28 @@
+{
+	"prompts": [
+	{
+		"ego": "greet_the_man",
+		"fa": "what_oh_what"
+	},
+	{
+		"ego": "ask_his_name",
+		"fa": "name_whats"
+	},
+	{
+		"ego": "ask_about_silmaria",
+		"fa": "new_in_town"
+	},
+	{
+		"ego": "ask_about_the_school",
+		"fa": "this_is_the_famous"
+	},
+	{
+		"ego": "tell_about_yourself",
+		"fa": "so_youre_a_graduate"
+	},
+	{
+		"ego": "say_goodbye",
+		"fa": "got_some_advice"
+	}
+	]
+}

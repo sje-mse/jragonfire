@@ -1,0 +1,248 @@
+{
+	"flags": {
+		"signed_log": false
+	},
+	"props": {
+		"logbook": {
+			"look": { "narrator": "you_see_the_logbook" },
+			"interact": {
+				"if": [
+					{
+						"condition": "signed_log == false",
+						"then": {
+							"prompts": [
+							{
+								"ego": "examine_the_logbook",
+								"narrator": "looking_the_logbook_over"
+							},
+							{
+								"ego": "read_the_logbook",
+								"cycle": [
+								{ "narrator": "the_latest_entry_elsa" },
+								{ "narrator": "the_previous_entry_magnum" },
+								{ "narrator": "a_fairly_recent_entry_kokeeno" },
+								{ "narrator": "the_earliest_entries" },
+								{ "narrator": "the_vicious_chicken" },
+								{ "narrator": "and_something_about_sir" },
+								{ "narrator": "there_are_no_other_interesting" }
+								]
+							},
+							{
+								"ego": "sign_the_logbook",
+								"narrator": "you_take_the_pen",
+								"actions": ["signed_log = true"]
+							}
+							]
+						}
+					},
+					{
+						"condition": "signed_log == true",
+						"then": {
+							"prompts": [
+							{
+								"ego": "examine_the_logbook",
+								"narrator": "looking_the_logbook_over"
+							},
+							{
+								"ego": "read_the_logbook",
+								"cycle": [
+								{ "narrator": "the_latest_entry_you" },
+								{ "narrator": "the_previous_entry_elsa" },
+								{ "narrator": "one_of_the_entires_magnum" },
+								{ "narrator": "one_entry_kokeeno" },
+								{ "narrator": "one_page_has" },
+								{ "narrator": "there_is_a_large_entry" },
+								{ "narrator": "a_faded_entry" },
+								{ "narrator": "there_are_no_other_notable" }
+								]
+							},
+							{
+								"ego": "sign_the_logbook",
+								"narrator": "you_have_already_signed"
+							}
+							]
+						}
+					}
+				]
+			}
+		},
+		"knight": {
+			"look": {
+				"cycle": [
+					{ "narrator": "the_knight" },
+					{ "narrator": "i_wouldnt_send_a_knight" },
+					{ "narrator": "its_a_knight_who_says" },
+					{ "narrator": "ni" }
+				]
+			}
+		},
+		"fish_plaque": {
+			"look": {
+				"cycle": [
+				{ "narrator": "the_writing_on_the_plaque_shimmers" },
+				{ "narrator": "for_a_moment_the_writing" },
+				{ "narrator": "the_writing_on_the_plaque_flashes" },
+				{ "narrator": "words_rapidly_scroll" }
+				]
+			}
+		},
+		"numb_skull": {
+			"look": {
+				"cycle": [
+				{ "narrator": "its_a_numb_skull" },
+				{ "narrator": "oops_you_have_tried" }
+				]
+			}
+		},
+		"grate": {
+			"look": { "narrator": "this_grate_blocks" },
+			"interact": {
+				"prompts": [
+				{
+					"ego": "examine_the_door",
+					"narrator": "this_metal_grate"
+				},
+				{
+					"ego": "knock_on_the_grate",
+					"narrator": "there_is_no_response_people"
+				},
+				{
+					"ego": "pound_on_the_grate",
+					"narrator": "your_pounding"
+				}
+				]
+			}
+		},
+		"door": {
+			"look": {
+				"cycle": [
+				{ "narrator": "ill_look" },
+				{ "narrator": "this_door_leads_outside" },
+				{ "narrator": "how_can_you_tell" },
+				{ "narrator": "the_knocking" },
+				{ "narrator": "speaking_of_musicians" },
+				{ "narrator": "a_metro_gnome" }
+				]
+			}
+		},
+		"treadmill": {
+			"look": { "narrator" : "is_it_a_treadmill" }
+		},
+		"tuna": {
+			"look": {
+				"cycle": [
+				{ "narrator": "its_a_dolphin_free" },
+				{ "narrator": "or_is_it_a_piano_tunie" },
+				{ "narrator": "at_least_its_not_a_two_knee" }
+				]
+			}
+		},
+		"pumba": {
+			"look": {
+				"cycle": [
+				{ "narrator": "oh_no_pumba" },
+				{ "narrator": "he_didnt_go_whole_hog" },
+				{ "narrator": "he_looks_boared" },
+				{ "narrator": "early_ham_radio" },
+				{ "narrator": "he_looks_disgruntled" },
+				{ "narrator": "hah_koo_nah" },
+				{ "narrator": "what_would_arne" }
+				]
+			}
+		},
+		"gnu_antlers" : {
+			"look": { "narrator": "its_a_tippy_gnu" }
+		},
+		"laibon_chair": {
+			"look": {
+				"cycle": [
+				{ "narrator": "the_simbani_say" },
+				{ "narrator": "sha_kha_kaa" },
+				{ "narrator": "the_last_time_you_saw_a_chair" },
+				{ "narrator": "that_same_shop" },
+				{ "narrator": "that_last_joke" },
+				{ "narrator": "actually_this_seat" }
+				]
+			}
+		},
+		"minotaur_chair" : {
+			"look": { "narrator": "this_is_the_minotaur_chair" }
+		},
+		"cod" : {
+			"look": {
+				"cycle": [
+				{ "narrator": "you_cod_swear" },
+				{ "narrator": "take_some_time_to_mullet" },
+				{ "narrator": "i_await_you_with" },
+				{ "narrator": "error_47" }
+				]
+			}
+		},
+		"swords": {
+			"look": { "narrator": "these_swords_are_so_dull" }
+		},
+		"fireplace": {
+			"look": {
+				"cycle": [
+				{ "narrator": "the_fireplace_is_hot" },
+				{ "narrator": "error_52" }
+				]
+			}
+		},
+		"mantle": {
+			"look": {
+				"cycle": [
+				{ "narrator": "its_mickeys" },
+				{ "narrator": "a_little_no_ledge" }
+				]
+			}
+		},
+		"moose": {
+			"look": {
+				"cycle": [
+				{ "narrator": "if_you_are_not_moose_taken" },
+				{ "narrator": "a_small_plaque" },
+				{ "narrator": "a_moose_once_bit" },
+				{ "narrator": "no_really" },
+				{ "narrator": "mynd_you" }
+				]
+			}
+		},
+		"zebra": {
+			"look": { "narrator": "this_zebra" }
+		},
+		"unicorn": {
+			"look": { "narrator": "legend_says_only_virgins" }
+		},
+		"beast_antlers": {
+			"look": { "narrator": "it_was_the_beast" }
+		},
+		"halibut": {
+			"look": {
+				"cycle": [
+				{ "narrator": "just_for_the_halibut" },
+				{ "narrator": "calling_all_carps" },
+				{ "narrator": "shad_up" }
+				]
+			}
+		},
+		"shark": {
+			"look": {
+				"cycle": [
+				{ "narrator": "yikes" },
+				{ "narrator": "this_plaque_looks" },
+				{ "narrator": "you_remember_your_old_town" }
+				]
+			}
+		},
+		"turtle": {
+			"look": {
+				"cycle": [
+				{ "narrator": "you_recognize_this_creature" },
+				{ "narrator": "on_the_wall_of_the_guild" }
+				]
+			}
+
+		}
+	}
+}
