@@ -1,0 +1,82 @@
+{
+	"flags": {
+		"windmill_break_engaged": true,
+		"lever_stuck": true,
+		"lever_broken": false
+	},
+	"hotspots": {
+		"gondola_gearbox": {
+			"look": { "narrator": "this_piece_of_equipment" },
+			"interact": {
+				"if": {
+					"gondola_lever_broken == true and gondola_lever_stuck == true": {
+						"prompts": [
+						{
+							"ego": "examine_the_lever",
+							"narrator": "this_lever_looks_like"
+						},
+						{
+							"ego": "pull_the_lever",
+							"narrator": "the_lever_doesnt_want"
+						},
+						{
+							"ego": "push_the_lever",
+							"narrator": "the_lever_seems"
+						},
+						{
+							"ego": "use_force_on_the_lever",
+							"narrator": "with_a_surge",
+							"action": "gondola_lever_broken = true"
+						},
+						{
+							"ego": "leave_it_alone"
+						}]
+					}
+				}
+			}
+		},
+		"windmill_gearbox": {
+			"look": { "narrator": "this_mechanical_device" },
+			"interact": {
+				"if": {
+					"windmill_break_engaged == true": {
+						"intro": [ {
+							"narrator": "you_pull_the_lever",
+							"action": "windmill_break_engaged = false"
+						}]
+					},
+					"windmill_break_engaged == false": {
+						"intro": [ {
+							"narrator": "you_push_the_lever",
+							"action": "windmill_break_engaged = true"
+						}]
+					}
+				}
+			}
+		},
+		"control_house": {
+			"look": { "narrator": "this_building_seems_to_house" }
+		},
+		"control_house_sign": {
+			"look": { "narrator": "you_see_some_sort_of_sign" },
+			"interact": {
+				"intro": [
+					{ "narrator": "welcome_to_science_island" },
+					{ "narrator": "to_activate_cable_car" }
+				]
+			}
+		},
+		"windmill": {
+			"look": { "narrator": "steady_sea_breezes" }
+		},
+		"cable_support": {
+			"look": { "narrator": "this_support" }
+		},
+		"cable_chain": {
+			"look": { "narrator": "this_metal_chain" }
+		},
+		"cable_car_device": {
+			"look": { "narrator": "this_device_seems_to_have" }
+		}
+	}
+}

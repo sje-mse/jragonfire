@@ -1,0 +1,39 @@
+{
+	"intro": [{ "toro": "good_see_hero_man_good" } ],
+	"prompts": [
+	{
+		"ego": "greet_toro",
+		"toro": "good_see_hero_man_3"
+	},
+	{
+		"ego": "ask_about_toro",
+		"toro": "like_silmaria"
+	},
+	{
+		"ego": "ask_about_the_adventurers_guild",
+		"toro": "good_place_talk"
+	},
+	{
+		"ego": "ask_about_the_guild_master",
+		"toro": "toro_come_here"
+	},
+	{
+		"ego": "ask_about_silmaria",
+		"toro": "come_here_with_elsa",
+		"prompts": [
+			{
+				"ego": "ask_about_elsa",
+				"toro": "elsa_good"
+			},
+			{
+				"ego": "ask_about_the_man",
+				"toro": "man_got_money"
+			}
+		]
+	},
+	{
+		"ego": "say_goodbye",
+		"toro": "hope_see_hero"
+	}
+	]
+}

@@ -26,13 +26,15 @@ def extract_ego():
 		lines = file.readlines()
 
 	data = dict()
+	outpath = os.path.join(LINE_PATH, "ego", "en_us.json")
+	with open(outpath, "r") as file:
+		data = json.load(file)
 
 	for l in lines:
 		key = line_to_key(l)
 		newl = l.replace("\n", "")
 		data[line_to_key(l)] = newl
 
-	outpath = os.path.join(LINE_PATH, "ego", "en_us.json")
 	with open(outpath, "w") as file:
 		json.dump(data, file, indent=4, sort_keys=True)
 
