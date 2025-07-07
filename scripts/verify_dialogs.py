@@ -5,8 +5,9 @@ import sys
 DIALOG_PATH = os.path.join("..", "dialogs")
 LINE_PATH = os.path.join("..", "lines")
 
+ACTIONS_KEY = "actions"
 TOP_LEVEL_KEYS = set(["intro", "prompts"])
-PROMPT_KEYS = set(["ego", "response", "cycle", "prompts"])
+PROMPT_KEYS = set(["ego", "response", "cycle", "prompts", "actions"])
 
 def read_all_lines():
 	lines = dict()
@@ -15,6 +16,22 @@ def read_all_lines():
 		with open(linepath, 'r') as file:
 			lines[p] = json.load(file)
 	return lines
+
+# Is the json dictionary provided a dialog line?
+# A dialog only has keys that are the names of valid speakers.
+def is_response(data, lines):
+	for key in data.keys():
+		if key == ACTIONS_KEY:
+			continue
+		if not key in lines:
+			return False
+	return True
+
+def is_dialog(data):
+	return len(TOP_LEVEL_KEYS.intersection(set(data.keys()))) > 0
+
+def is_prompt(data):
+	return len(PROMPT_KEYS.intersection(set(data.keys()))) > 0
 
 def read_all_dialogs():
 	dialogs = dict()
@@ -35,12 +52,12 @@ def verify_line(speaker, key, lines):
 	return True
 
 def verify_response(response, lines):
-	# for now, all responses are a single item: { <speaker_key> : <line_key> }.
-	if len(response) != 1:
-		print("invalid number of entries in response: {}".format(response))
-		return False
 	for speaker_key, line_key in response.items():
-		return verify_line(speaker_key, line_key, lines)
+		if speaker_key == ACTIONS_KEY:
+			print("actions detected: {}".format(line_key))
+		elif not verify_line(speaker_key, line_key, lines):
+			return False
+	return True
 
 def verify_prompt(prompt, lines):
 	for key, value in prompt.items():
@@ -70,6 +87,9 @@ def verify_prompt(prompt, lines):
 			if not verify_line(key, value, lines):
 				return False
 
+		if key == ACTIONS_KEY:
+			print("actions detected: {}".format(value))
+
 		if key == "prompts":
 			if not type(value) == list:
 				print("invalid {} value: {}", key, value)
@@ -79,7 +99,7 @@ def verify_prompt(prompt, lines):
 					return False
 	return True
 
-def verify(dialog, lines):
+def verify_dialog(dialog, lines):
 	for key in dialog.keys():
 		if key not in TOP_LEVEL_KEYS:
 			print("invalid key {}".format(key))
@@ -102,7 +122,7 @@ if __name__ == "__main__":
 	num_ok = 0
 	num_bad = 0
 	for key, dialog in dialogs.items():
-		valid = verify(dialog, lines)
+		valid = verify_dialog(dialog, lines)
 		if (valid):
 			num_ok += 1
 			# print("{} OK!".format(key))
