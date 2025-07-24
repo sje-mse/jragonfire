@@ -9,7 +9,7 @@
 			"look": { "narrator": "this_piece_of_equipment" },
 			"interact": {
 				"if": [{
-					"condition": "gondola_lever_broken == true and gondola_lever_stuck == true",
+					"condition": "gondola_lever_broken == false and gondola_lever_stuck == true",
 					"then": {
 						"prompts": [
 						{

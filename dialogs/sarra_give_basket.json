@@ -1,0 +1,17 @@
+{
+	"intro": [
+		{
+			"sarra": "my_basket_oh_thank_you"
+		},
+		{
+			"sarra": "i_cannot_thank_you_enough"
+		},
+		{
+			"narrator": "sarra_hands_you",
+			"actions": ["inventory add bead_necklace"]
+		},
+		{
+			"sarra": "i_know_it_is_not_much"
+		}
+	]
+}
