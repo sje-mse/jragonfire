@@ -1,0 +1,32 @@
+{
+	"intro": [
+		{ "gargoyle": "what_is_the_meaning" }
+	],
+	"prompts": [
+		{
+			"ego": "to_respect_great_wizards",
+			"gargoyle": "you_are_correct",
+			"actions": [ "teleport erasmus_castle_exterior" ]
+		},
+		{
+			"ego": "42",
+			"gargoyle": "you_are_correct",
+			"actions": [ "teleport erasmus_castle_exterior" ]
+		},
+		{
+			"ego": "ours_is_not",
+			"gargoyle": "you_are_correct",
+			"actions": [ "teleport erasmus_castle_exterior" ]
+		},
+		{
+			"ego": "he_that_dies",
+			"gargoyle": "wrong",
+			"actions": [ "teleport erasmus_garden" ]
+		},
+		{
+			"ego": "this_is_a_stupid",
+			"gargoyle": "wrong",
+			"actions": [ "teleport erasmus_garden" ]
+		}
+	]
+}

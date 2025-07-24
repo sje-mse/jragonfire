@@ -1,0 +1,25 @@
+{
+	"props": {
+		"floating_hat" : {
+			"look": { "narrator": "this_floating_hat" }
+		},
+		"gazebo": {
+			"look": { "narrator": "this_looks_rather_familiar" }
+		},
+		"platform": {
+			"look": { "narrator": "this_platform_appears_to_be_firm" }
+		},
+		"path": {
+			"look": { "narrator": "this_path_seems_to_lead_directly" }
+		},
+		"under_platform": {
+			"look": { "narrator": "from_where_you_are_standing" }
+		},
+		"gargoyle": {
+			"look": { "narrator": "this_cloud_looks_very_much" }
+		},
+		"gargoyle_nose": {
+			"look": { "narrator": "my_what_a_big_nose" }
+		}
+	}
+}

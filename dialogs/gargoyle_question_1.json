@@ -1,0 +1,33 @@
+{
+	"intro": [
+		{ "gargoyle": "he_that_wishes" },
+		{ "gargoyle": "what_is_your_name" }
+	],
+	"prompts": [
+		{
+			"ego": "say_name",
+			"gargoyle": "wrong",
+			"actions": [ "teleport erasmus_garden" ]
+		},
+		{
+			"ego": "say_king_arthur",
+			"gargoyle": "wrong",
+			"actions": [ "teleport erasmus_garden" ]
+		},
+		{
+			"ego": "say_putentane",
+			"gargoyle": "wrong",
+			"actions": [ "teleport erasmus_garden" ]
+		},
+		{
+			"ego": "say_sir_robin",
+			"gargoyle": "wrong",
+			"actions": [ "teleport erasmus_garden" ]
+		},
+		{
+			"ego": "say_oh_no",
+			"gargoyle": "wrong",
+			"actions": [ "teleport erasmus_garden" ]
+		}
+	]
+}
