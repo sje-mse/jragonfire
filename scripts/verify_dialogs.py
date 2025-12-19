@@ -35,10 +35,12 @@ def is_prompt(data):
 
 def read_all_dialogs():
 	dialogs = dict()
-	for p in os.listdir(DIALOG_PATH):
-		dpath = os.path.join(DIALOG_PATH, p)
-		with open(dpath, 'r') as file:
-			dialogs[p] = json.load(file)
+	for d in os.listdir(DIALOG_PATH):
+		cpath = os.path.join(DIALOG_PATH, d)
+		for p in os.listdir(cpath):
+			dpath = os.path.join(cpath, p)
+			with open(dpath, 'r') as file:
+				dialogs[p] = json.load(file)
 	return dialogs
 
 def verify_line(speaker, key, lines):

@@ -1,0 +1,263 @@
+    <Dialogs>
+      <DialogFolder Name="Main">
+        <SubFolders>
+          <DialogFolder Name="Guard1">
+            <SubFolders />
+            <Dialogs>
+              <Dialog>
+                <ID>0</ID>
+                <Name>dHallOfKingsGuard1_0</Name>
+                <ShowTextParser>False</ShowTextParser>
+                <Script><![CDATA[// Dialog script file
+@S  // Dialog startup entry point
+return
+
+@1
+cGuard1: &2 We are not here to answer questions.
+return
+@2
+cGuard1: &3 This is the Hall of Kings. No one enters without permission.
+return
+@3
+cGuard1: &4 We are not tour guides.  Ask a merchant in the Town Square.
+return
+@4
+stop
+]]></Script>
+                <DialogOptions>
+                  <DialogOption>
+                    <ID>1</ID>
+                    <Say>False</Say>
+                    <Show>True</Show>
+                    <Text xml:space="preserve">Ask about Guard</Text>
+                  </DialogOption>
+                  <DialogOption>
+                    <ID>2</ID>
+                    <Say>False</Say>
+                    <Show>True</Show>
+                    <Text xml:space="preserve">Ask about Hall of Kings</Text>
+                  </DialogOption>
+                  <DialogOption>
+                    <ID>3</ID>
+                    <Say>False</Say>
+                    <Show>True</Show>
+                    <Text xml:space="preserve">Ask about Silmaria</Text>
+                  </DialogOption>
+                  <DialogOption>
+                    <ID>4</ID>
+                    <Say>False</Say>
+                    <Show>True</Show>
+                    <Text>Goodbye</Text>
+                  </DialogOption>
+                </DialogOptions>
+              </Dialog>
+            </Dialogs>
+          </DialogFolder>
+          <DialogFolder Name="Sarra">
+            <SubFolders />
+            <Dialogs>
+              <Dialog>
+                <ID>1</ID>
+                <Name>dSarra_0</Name>
+                <ShowTextParser>False</ShowTextParser>
+                <Script><![CDATA[// Dialog script file
+@S  // Dialog startup entry point
+cSarra: &1 Greetings, Prince of Shapeir.  How may I serve you?
+return
+
+@1
+goto-dialog dSarra_1
+@2
+goto-dialog dSarra_1
+@3
+goto-dialog dSarra_1
+@4
+goto-dialog dSarra_1
+]]></Script>
+                <DialogOptions>
+                  <DialogOption>
+                    <ID>1</ID>
+                    <Say>False</Say>
+                    <Show>True</Show>
+                    <Text xml:space="preserve">Talk to Sarra</Text>
+                  </DialogOption>
+                  <DialogOption>
+                    <ID>2</ID>
+                    <Say>False</Say>
+                    <Show>True</Show>
+                    <Text xml:space="preserve">Buy something from Sarra</Text>
+                  </DialogOption>
+                  <DialogOption>
+                    <ID>3</ID>
+                    <Say>False</Say>
+                    <Show>True</Show>
+                    <Text xml:space="preserve">Sell something to Sarra</Text>
+                  </DialogOption>
+                  <DialogOption>
+                    <ID>4</ID>
+                    <Say>False</Say>
+                    <Show>True</Show>
+                    <Text xml:space="preserve">Never mind</Text>
+                  </DialogOption>
+                </DialogOptions>
+              </Dialog>
+              <Dialog>
+                <ID>2</ID>
+                <Name>dSarra_1</Name>
+                <ShowTextParser>False</ShowTextParser>
+                <Script><![CDATA[// Dialog script file
+@S  // Dialog startup entry point
+cSarra: &1 Greetings, Prince of Shapeir.  How may I serve you?
+return
+@1
+Sarra: &2 Welcome and good day. How may I please you?
+return
+@2
+    askAboutSarra();
+return
+@3
+    rumorSarra();
+return
+@4
+Sarra: &5 May your journey be ever to your liking.
+stop
+]]></Script>
+                <DialogOptions>
+                  <DialogOption>
+                    <ID>1</ID>
+                    <Say>False</Say>
+                    <Show>True</Show>
+                    <Text xml:space="preserve">Greet Sarra</Text>
+                  </DialogOption>
+                  <DialogOption>
+                    <ID>2</ID>
+                    <Say>False</Say>
+                    <Show>True</Show>
+                    <Text xml:space="preserve">Ask about Sarra</Text>
+                  </DialogOption>
+                  <DialogOption>
+                    <ID>3</ID>
+                    <Say>False</Say>
+                    <Show>True</Show>
+                    <Text xml:space="preserve">Ask about Rumors</Text>
+                  </DialogOption>
+                  <DialogOption>
+                    <ID>4</ID>
+                    <Say>False</Say>
+                    <Show>True</Show>
+                    <Text xml:space="preserve">Say Goodbye</Text>
+                  </DialogOption>
+                </DialogOptions>
+              </Dialog>
+            </Dialogs>
+          </DialogFolder>
+          <DialogFolder Name="Wolfie">
+            <SubFolders />
+            <Dialogs>
+              <Dialog>
+                <ID>3</ID>
+                <Name>dWolfie_1</Name>
+                <ShowTextParser>False</ShowTextParser>
+                <Script><![CDATA[// Dialog script file
+@S  // Dialog startup entry point
+cWolfie: &24 Namaste, and may you be having a pleasant day.
+return
+@1
+cWolfie: &2 Welcome very much. It is always a better day when I see you.
+return
+@2
+    askAboutWolfie();
+return
+@3
+    rumorWolfie();
+return
+@4
+cWolfie: &26 Be very careful. I would not like to read any bad news about you on the notice board. Good day.
+stop
+]]></Script>
+                <DialogOptions>
+                  <DialogOption>
+                    <ID>1</ID>
+                    <Say>False</Say>
+                    <Show>True</Show>
+                    <Text xml:space="preserve">Greet Wolfie</Text>
+                  </DialogOption>
+                  <DialogOption>
+                    <ID>2</ID>
+                    <Say>False</Say>
+                    <Show>True</Show>
+                    <Text xml:space="preserve">Ask about Wolfie</Text>
+                  </DialogOption>
+                  <DialogOption>
+                    <ID>3</ID>
+                    <Say>False</Say>
+                    <Show>True</Show>
+                    <Text xml:space="preserve">Ask about Rumors</Text>
+                  </DialogOption>
+                  <DialogOption>
+                    <ID>4</ID>
+                    <Say>False</Say>
+                    <Show>True</Show>
+                    <Text>Goodbye</Text>
+                  </DialogOption>
+                </DialogOptions>
+              </Dialog>
+            </Dialogs>
+          </DialogFolder>
+          <DialogFolder Name="Marrak">
+            <SubFolders />
+            <Dialogs>
+              <Dialog>
+                <ID>4</ID>
+                <Name>dMarrak_1</Name>
+                <ShowTextParser>False</ShowTextParser>
+                <Script><![CDATA[// Dialog script file
+@S  // Dialog startup entry point
+cMarrak: &1 Welcome.  May I entice you with some tasty treat?
+return
+@1
+cMarrak: &2 What can I sell to you today?"
+return
+@2
+    askAboutMarrak();
+return
+@3
+    rumorMarrak();
+return
+@4
+cMarrak: &3 May your day be filled with pleasures and surprises, O Prince.
+stop
+]]></Script>
+                <DialogOptions>
+                  <DialogOption>
+                    <ID>1</ID>
+                    <Say>False</Say>
+                    <Show>True</Show>
+                    <Text xml:space="preserve">Greet Marrak</Text>
+                  </DialogOption>
+                  <DialogOption>
+                    <ID>2</ID>
+                    <Say>False</Say>
+                    <Show>True</Show>
+                    <Text xml:space="preserve">Ask About Marrak</Text>
+                  </DialogOption>
+                  <DialogOption>
+                    <ID>3</ID>
+                    <Say>False</Say>
+                    <Show>True</Show>
+                    <Text xml:space="preserve">Ask About Rumors</Text>
+                  </DialogOption>
+                  <DialogOption>
+                    <ID>4</ID>
+                    <Say>False</Say>
+                    <Show>True</Show>
+                    <Text>Goodbye</Text>
+                  </DialogOption>
+                </DialogOptions>
+              </Dialog>
+            </Dialogs>
+          </DialogFolder>
+        </SubFolders>
+        <Dialogs />
+      </DialogFolder>
+    </Dialogs>
