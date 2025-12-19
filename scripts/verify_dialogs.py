@@ -7,7 +7,7 @@ LINE_PATH = os.path.join("..", "lines")
 
 ACTIONS_KEY = "actions"
 TOP_LEVEL_KEYS = set(["intro", "prompts"])
-PROMPT_KEYS = set(["ego", "response", "cycle", "prompts", "actions"])
+PROMPT_KEYS = set(["ego", "response", "cycle", "actions", "goto"])
 
 def read_all_lines():
 	lines = dict()
@@ -39,8 +39,11 @@ def read_all_dialogs():
 		cpath = os.path.join(DIALOG_PATH, d)
 		for p in os.listdir(cpath):
 			dpath = os.path.join(cpath, p)
+			print(dpath)
 			with open(dpath, 'r') as file:
-				dialogs[p] = json.load(file)
+				contents = json.load(file)
+				for key, value in contents.items():
+					dialogs[p + "_" + key] = value
 	return dialogs
 
 def verify_line(speaker, key, lines):
@@ -92,13 +95,6 @@ def verify_prompt(prompt, lines):
 		if key == ACTIONS_KEY:
 			print("actions detected: {}".format(value))
 
-		if key == "prompts":
-			if not type(value) == list:
-				print("invalid {} value: {}", key, value)
-				return False
-			for subprompt in value:
-				if not verify_prompt(subprompt, lines):
-					return False
 	return True
 
 def verify_dialog(dialog, lines):
@@ -127,7 +123,7 @@ if __name__ == "__main__":
 		valid = verify_dialog(dialog, lines)
 		if (valid):
 			num_ok += 1
-			# print("{} OK!".format(key))
+			print("{} OK!".format(key))
 		else:
 			num_bad += 1
 			print("{} INVALID!!!".format(key))

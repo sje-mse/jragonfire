@@ -1,7 +1,9 @@
 {
-	"intro": [
-		{
-			"ann": "hey_you_better_watch"
-		}
-	]
+	"root": {
+		"intro": [
+			{
+				"ann": "hey_you_better_watch"
+			}
+		]
+	}
 }

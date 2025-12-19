@@ -1,32 +1,42 @@
 {
-	"intro": [ { "sarra": "greetings_o_finder" }],
-	"prompts": [
-		{
-			"ego": "greet_sarra",
-			"sarra": "welcome_my_friend"
-		},
-		{
-			"ego": "ask_about_sarra",
-			"sarra": "i_am_most_fine"
-		},
-		{
-			"ego": "ask_about_sarras_basket",
-			"sarra": "it_is_so_good_to_have_my_basket"
-		},
-		{
-			"ego": "ask_about_rumors",
-			"response": [
-				{ "sarra": "it_is_said_that_there_is_an_assassin" },
-				{ "sarra": "it_is_most_fortunate" }
-			]
-		},
-		{
-			"ego": "tell_about_finding_the_basket",
-			"sarra": "you_are_a_true_hero"
-		},
-		{
-			"ego": "say_goodbye",
-			"sarra": "farewell_and_a_thousand"
-		}
-	]
+	"root": {
+		"intro": [
+			{
+				"sarra": "greetings_o_finder"
+			}
+		],
+		"prompts": [
+			{
+				"ego": "greet_sarra",
+				"sarra": "welcome_my_friend"
+			},
+			{
+				"ego": "ask_about_sarra",
+				"sarra": "i_am_most_fine"
+			},
+			{
+				"ego": "ask_about_sarras_basket",
+				"sarra": "it_is_so_good_to_have_my_basket"
+			},
+			{
+				"ego": "ask_about_rumors",
+				"response": [
+					{
+						"sarra": "it_is_said_that_there_is_an_assassin"
+					},
+					{
+						"sarra": "it_is_most_fortunate"
+					}
+				]
+			},
+			{
+				"ego": "tell_about_finding_the_basket",
+				"sarra": "you_are_a_true_hero"
+			},
+			{
+				"ego": "say_goodbye",
+				"sarra": "farewell_and_a_thousand"
+			}
+		]
+	}
 }

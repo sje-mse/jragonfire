@@ -1,7 +1,9 @@
 {
-	"intro": [
-		{
-			"ann": "if_you_want_to"
-		}
-	]
+	"root": {
+		"intro": [
+			{
+				"ann": "if_you_want_to"
+			}
+		]
+	}
 }

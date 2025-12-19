@@ -1,39 +1,44 @@
 {
-	"intro": [
-		{
-			"shakra": "greetings_prince"
-		}
-	],
-	"prompts": [
-		{
-			"ego": "greet_shakra",
-			"shakra": "welcome_to_silmaria"
-		},
-		{
-			"ego": "ask_about_magic",
-			"shakra": "this_is_a_land"
-		},
-		{
-			"ego": "ask_about_the_magic_shop",
-			"shakra": "i_sense_that_you",
-			"prompts": [
-				{
-					"ego": "ask_about_mystic_magnets",
-					"shakra": "the_mystic_magnets"
-				}
-			]
-		},
-		{
-			"ego": "ask_about_shakra",
-			"shakra": "i_am_a_wizard_the"
-		},
-		{
-			"ego": "ask_about_rakeesh",
-			"shakra": "it_is_good"
-		},
-		{
-			"ego": "say_goodbye",
-			"shakra": "good_luck_and_i_hope"
-		}
-	]
+	"root": {
+		"intro": [
+			{
+				"shakra": "greetings_prince"
+			}
+		],
+		"prompts": [
+			{
+				"ego": "greet_shakra",
+				"shakra": "welcome_to_silmaria"
+			},
+			{
+				"ego": "ask_about_magic",
+				"shakra": "this_is_a_land"
+			},
+			{
+				"ego": "ask_about_the_magic_shop",
+				"shakra": "i_sense_that_you",
+				"goto": "about_shop"
+			},
+			{
+				"ego": "ask_about_shakra",
+				"shakra": "i_am_a_wizard_the"
+			},
+			{
+				"ego": "ask_about_rakeesh",
+				"shakra": "it_is_good"
+			},
+			{
+				"ego": "say_goodbye",
+				"shakra": "good_luck_and_i_hope"
+			}
+		]
+	},
+	"about_shop":{
+		"prompts": [
+			{
+				"ego": "ask_about_mystic_magnets",
+				"shakra": "the_mystic_magnets"
+			}
+		]
+	}
 }

@@ -1,159 +1,173 @@
 {
-	"intro": [
-		{
-			"logos": "greetings_prince"
-		},
-		{
-			"rakeesh": "greetings_my_friend_good_to_know"
-		},
-		{
-			"logos": "i_trust_you_understand"
-		},
-		{
-			"rakeesh": "we_believe"
-		},
-		{
-			"logos": "you_must_understand"
-		},
-		{
-			"logos": "hero_of_the_lands"
-		}
-	],
-	"prompts": [
-		{
-			"ego": "greet_logos",
-			"logos": "it_is_an_honor"
-		},
-		{
-			"ego": "ask_about_logos",
-			"logos": "i_am_the_speaker"
-		},
-		{
-			"ego": "ask_about_rakeesh",
-			"logos": "rakeesh_and_i"
-		},
-		{
-			"ego": "ask_about_rite_of_rulership",
-			"response": [
-				{
-					"logos": "the_rites_of_rulership_is_a"
-				},
-				{
-					"logos": "to_enter_these_rites"
-				},
-				{
-					"rakeesh": "your_father_the_sultan"
-				}
-			],
-			"prompts": [
-				{
-					"ego": "ask_about_quests",
-					"response": [
-						{
-							"logos": "during_the_rites"
-						},
-						{
-							"logos": "a_more_detailed"
-						}
-					]
-				},
-				{
-					"ego": "ask_about_bank",
-					"logos": "the_bank_of_silmaria"
-				},
-				{
-					"ego": "ask_about_sultan",
-					"logos": "the_sultan"
-				}
-			]
-		},
-		{
-			"ego": "ask_logos_about_silmaria",
-			"logos": "our_kingdom",
-			"prompts": [
-				{
-					"ego": "ask_about_marete",
-					"logos": "marete_is_a_large",
-					"prompts": [
-						{
-							"ego": "ask_about_mount_draconis",
-							"logos": "the_entire_island"
-						},
-						{
-							"ego": "ask_about_lake_morae",
-							"logos": "lake_morae"
-						},
-						{
-							"ego": "ask_about_atlantis",
-							"logos": "atlantis_was_a_kingdom"
-						}
-					]
-				},
-				{
-					"ego": "ask_about_city_of_silmaria",
-					"response": [
-						{
-							"logos": "the_city_of_silmaria"
-						},
-						{
-							"logos": "unfortunately_marete"
-						},
-						{
-							"rakeesh": "when_was_your_island"
-						},
-						{
-							"logos": "two_days_after"
-						}
-					]
-				},
-				{
-					"ego": "ask_about_islands",
-					"response": [
-						{
-							"logos": "there_are_many_small"
-						},
-						{
-							"logos": "travel_to_some"
-						}
-					],
-					"prompts": [
-						{
-							"ego": "ask_about_sea_monsters",
-							"logos": "the_sea_is"
-						},
-						{
-							"ego": "ask_about_tritons",
-							"logos": "the_tritons_are"
-						}
-					]
-				}
-			]
-		},
-		{
-			"ego": "ask_logos_about_assassin",
-			"response": [
-				{
-					"logos": "the_assassin_used"
-				},
-				{
-					"logos": "even_with_an_antidote"
-				},
-				{
-					"rakeesh": "the_assassin_of_the_king"
-				}
-			]
-		},
-		{
-			"ego": "tell_about_yourself",
-			"logos": "you_have_a_wide"
-		},
-		{
-			"ego": "agree_to_enter_rites_of_rulership",
-			"logos": "we_will_be_pleased"
-		},
-		{
-			"ego": "say_goodbye",
-			"logos": "i_shall_see_you_again"
-		}
-	]
+	"root": {
+		"intro": [
+			{
+				"logos": "greetings_prince"
+			},
+			{
+				"rakeesh": "greetings_my_friend_good_to_know"
+			},
+			{
+				"logos": "i_trust_you_understand"
+			},
+			{
+				"rakeesh": "we_believe"
+			},
+			{
+				"logos": "you_must_understand"
+			},
+			{
+				"logos": "hero_of_the_lands"
+			}
+		],
+		"prompts": [
+			{
+				"ego": "greet_logos",
+				"logos": "it_is_an_honor"
+			},
+			{
+				"ego": "ask_about_logos",
+				"logos": "i_am_the_speaker"
+			},
+			{
+				"ego": "ask_about_rakeesh",
+				"logos": "rakeesh_and_i"
+			},
+			{
+				"ego": "ask_about_rite_of_rulership",
+				"response": [
+					{
+						"logos": "the_rites_of_rulership_is_a"
+					},
+					{
+						"logos": "to_enter_these_rites"
+					},
+					{
+						"rakeesh": "your_father_the_sultan"
+					}
+				],
+				"goto": "about_rite_of_rulership"
+			},
+			{
+				"ego": "ask_logos_about_silmaria",
+				"logos": "our_kingdom",
+				"goto": "about_silmaria"
+			},
+			{
+				"ego": "ask_logos_about_assassin",
+				"response": [
+					{
+						"logos": "the_assassin_used"
+					},
+					{
+						"logos": "even_with_an_antidote"
+					},
+					{
+						"rakeesh": "the_assassin_of_the_king"
+					}
+				]
+			},
+			{
+				"ego": "tell_about_yourself",
+				"logos": "you_have_a_wide"
+			},
+			{
+				"ego": "agree_to_enter_rites_of_rulership",
+				"logos": "we_will_be_pleased"
+			},
+			{
+				"ego": "say_goodbye",
+				"logos": "i_shall_see_you_again"
+			}
+		]
+	},
+	"about_silmaria": {
+		"prompts": [
+			{
+				"ego": "ask_about_marete",
+				"logos": "marete_is_a_large",
+				"goto": "about_marete"
+			},
+			{
+				"ego": "ask_about_city_of_silmaria",
+				"response": [
+					{
+						"logos": "the_city_of_silmaria"
+					},
+					{
+						"logos": "unfortunately_marete"
+					},
+					{
+						"rakeesh": "when_was_your_island"
+					},
+					{
+						"logos": "two_days_after"
+					}
+				]
+			},
+			{
+				"ego": "ask_about_islands",
+				"response": [
+					{
+						"logos": "there_are_many_small"
+					},
+					{
+						"logos": "travel_to_some"
+					}
+				],
+				"goto": "about_islands"
+			}
+		]
+	},
+	"about_islands": {
+		"prompts": [
+			{
+				"ego": "ask_about_sea_monsters",
+				"logos": "the_sea_is"
+			},
+			{
+				"ego": "ask_about_tritons",
+				"logos": "the_tritons_are"
+			}
+		]
+	},
+	"about_marete": {
+		"prompts": [
+			{
+				"ego": "ask_about_mount_draconis",
+				"logos": "the_entire_island"
+			},
+			{
+				"ego": "ask_about_lake_morae",
+				"logos": "lake_morae"
+			},
+			{
+				"ego": "ask_about_atlantis",
+				"logos": "atlantis_was_a_kingdom"
+			}
+		]
+	},
+	"about_rite_of_rulership": {
+		"prompts": [
+			{
+				"ego": "ask_about_quests",
+				"response": [
+					{
+						"logos": "during_the_rites"
+					},
+					{
+						"logos": "a_more_detailed"
+					}
+				]
+			},
+			{
+				"ego": "ask_about_bank",
+				"logos": "the_bank_of_silmaria"
+			},
+			{
+				"ego": "ask_about_sultan",
+				"logos": "the_sultan"
+			}
+		]
+	}
 }

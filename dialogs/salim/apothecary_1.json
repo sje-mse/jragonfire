@@ -1,7 +1,9 @@
 {
-	"intro": [
-		{
-			"salim": "good_to_see"
-		}
-	]
+	"root": {
+		"intro": [
+			{
+				"salim": "good_to_see"
+			}
+		]
+	}
 }

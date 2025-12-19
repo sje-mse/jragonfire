@@ -1,7 +1,9 @@
 {
-	"intro": [
-		{
-			"guard": "you_may_enter"
-		}
-	]
+	"root": {
+		"intro": [
+			{
+				"guard": "you_may_enter"
+			}
+		]
+	}
 }

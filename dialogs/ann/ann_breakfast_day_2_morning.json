@@ -1,9 +1,21 @@
 {
-	"intro": [
-	{"ann": "the_cooks_have_fixed"},
-	{"ann": "they_started_to_make"},
-	{"ann": "just_as_rover"},
-	{"ann": "so_now_we_have"},
-	{"narrator": "the_food_smells_odd"}
-	]
+	"root": {
+		"intro": [
+			{
+				"ann": "the_cooks_have_fixed"
+			},
+			{
+				"ann": "they_started_to_make"
+			},
+			{
+				"ann": "just_as_rover"
+			},
+			{
+				"ann": "so_now_we_have"
+			},
+			{
+				"narrator": "the_food_smells_odd"
+			}
+		]
+	}
 }

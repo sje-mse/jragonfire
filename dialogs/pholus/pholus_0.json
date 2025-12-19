@@ -1,37 +1,49 @@
 {
-	"intro": [ { "pholus": "you_here_to_enter" } ],
-	"prompts": [
-	{
-		"ego": "greet_merchant",
-		"pholus": "yeah_welcome"
-	},
-	{
-		"ego": "ask_about_weaponsmith",
-		"pholus": "im_pholus_weaponsmith"
-	},
-	{
-		"ego": "ask_about_merchandise",
-		"pholus": "you_want_to_see"
-	},
-	{
-		"ego": "ask_about_newcomers",
-		"response": [
-		{ "pholus": "theres_a_strong_warrior" },
-		{ "pholus": "theres_also_a_big" },
-		{ "pholus": "then_theres_a_woman" }
+	"root": {
+		"intro": [
+			{
+				"pholus": "you_here_to_enter"
+			}
+		],
+		"prompts": [
+			{
+				"ego": "greet_merchant",
+				"pholus": "yeah_welcome"
+			},
+			{
+				"ego": "ask_about_weaponsmith",
+				"pholus": "im_pholus_weaponsmith"
+			},
+			{
+				"ego": "ask_about_merchandise",
+				"pholus": "you_want_to_see"
+			},
+			{
+				"ego": "ask_about_newcomers",
+				"response": [
+					{
+						"pholus": "theres_a_strong_warrior"
+					},
+					{
+						"pholus": "theres_also_a_big"
+					},
+					{
+						"pholus": "then_theres_a_woman"
+					}
+				]
+			},
+			{
+				"ego": "ask_about_rite_of_rulership",
+				"pholus": "the_rites_of_rulership_are_not"
+			},
+			{
+				"ego": "tell_about_yourself",
+				"pholus": "youre_a_hero"
+			},
+			{
+				"ego": "say_goodbye",
+				"pholus": "you_know_where_to_look"
+			}
 		]
-	},
-	{
-		"ego": "ask_about_rite_of_rulership",
-		"pholus": "the_rites_of_rulership_are_not"
-	},
-	{
-		"ego": "tell_about_yourself",
-		"pholus": "youre_a_hero"
-	},
-	{
-		"ego": "say_goodbye",
-		"pholus": "you_know_where_to_look"
 	}
-	]
 }

@@ -1,35 +1,37 @@
 {
-	"prompts": [
-		{
-			"ego": "greet_julanar",
-			"julanar": "it_is_a_great_pleasure"
-		},
-		{
-			"ego": "ask_about_julanar",
-			"julanar": "it_is_good_to_be"
-		},
-		{
-			"ego": "ask_about_salim",
-			"julanar": "salim_is_a_man"
-		},
-		{
-			"ego": "ask_about_the_apothecary",
-			"julanar": "with_salims_knowledge"
-		},
-		{
-			"ego": "ask_about_silmaria",
-			"response": [
-				{
-					"julanar": "this_land_is"
-				},
-				{
-					"salim": "you_said_it"
-				}
-			]
-		},
-		{
-			"ego": "say_goodbye",
-			"julanar": "if_you_are_ever"
-		}
-	]
+	"root": {
+		"prompts": [
+			{
+				"ego": "greet_julanar",
+				"julanar": "it_is_a_great_pleasure"
+			},
+			{
+				"ego": "ask_about_julanar",
+				"julanar": "it_is_good_to_be"
+			},
+			{
+				"ego": "ask_about_salim",
+				"julanar": "salim_is_a_man"
+			},
+			{
+				"ego": "ask_about_the_apothecary",
+				"julanar": "with_salims_knowledge"
+			},
+			{
+				"ego": "ask_about_silmaria",
+				"response": [
+					{
+						"julanar": "this_land_is"
+					},
+					{
+						"salim": "you_said_it"
+					}
+				]
+			},
+			{
+				"ego": "say_goodbye",
+				"julanar": "if_you_are_ever"
+			}
+		]
+	}
 }

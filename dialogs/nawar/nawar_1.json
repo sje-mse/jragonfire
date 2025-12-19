@@ -1,37 +1,39 @@
 {
-	"intro": [
-		{
-			"nawar": "hello_there_stranger"
-		}
-	],
-	"prompts": [
-		{
-			"ego": "greet_nawar",
-			"nawar": "im_happy_to"
-		},
-		{
-			"ego": "ask_about_nawar",
-			"nawar": "its_a_pleasure"
-		},
-		{
-			"ego": "ask_about_inn",
-			"nawar": "the_dead_parrot_is"
-		},
-		{
-			"ego": "ask_about_wheel_of_fortune",
-			"nawar": "this_is_the_wheel"
-		},
-		{
-			"ego": "ask_about_silmaria",
-			"nawar": "silmaria_can_be_cold"
-		},
-		{
-			"ego": "tell_about_yourself",
-			"nawar": "so_we_have_met"
-		},
-		{
-			"ego": "tell_about_yourself",
-			"nawar": "come_back_soon_smile"
-		}
-	]
+	"root": {
+		"intro": [
+			{
+				"nawar": "hello_there_stranger"
+			}
+		],
+		"prompts": [
+			{
+				"ego": "greet_nawar",
+				"nawar": "im_happy_to"
+			},
+			{
+				"ego": "ask_about_nawar",
+				"nawar": "its_a_pleasure"
+			},
+			{
+				"ego": "ask_about_inn",
+				"nawar": "the_dead_parrot_is"
+			},
+			{
+				"ego": "ask_about_wheel_of_fortune",
+				"nawar": "this_is_the_wheel"
+			},
+			{
+				"ego": "ask_about_silmaria",
+				"nawar": "silmaria_can_be_cold"
+			},
+			{
+				"ego": "tell_about_yourself",
+				"nawar": "so_we_have_met"
+			},
+			{
+				"ego": "tell_about_yourself",
+				"nawar": "come_back_soon_smile"
+			}
+		]
+	}
 }

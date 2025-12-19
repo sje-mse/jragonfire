@@ -1,49 +1,68 @@
 {
-	"intro": [
-	{ "andre": "kalimehra_that_means" },
-	{ "andre": "i_am_andre" }
-	],
-	"prompts": [
-	{
-		"ego": "greet_andre",
-		"andre": "yassas_it_is_nice"
-	},
-	{
-		"ego": "ask_about_andre",
-		"andre": "i_am_out"
-	},
-	{
-		"ego": "ask_about_boat",
-		"andre": "if_you_ever_wish"
-	},
-	{
-		"ego": "ask_about_fishermen",
-		"response": [
-		{ "andre": "most_fishermen_on_marete" },
-		{ "andre": "they_have_been_driven" },
-		{ "andre": "i_am_the_sole" }
+	"root": {
+		"intro": [
+			{
+				"andre": "kalimehra_that_means"
+			},
+			{
+				"andre": "i_am_andre"
+			}
 		],
 		"prompts": [
-		{
-			"ego": "ask_about_tritons",
-			"response": [
-			{ "andre": "tritons_are_half_men" },
-			{ "andre": "lately_though" }
-			]
-		},
-		{
-			"ego": "ask_about_mercenaries",
-			"andre": "the_mercenaries_are"
-		}
+			{
+				"ego": "greet_andre",
+				"andre": "yassas_it_is_nice"
+			},
+			{
+				"ego": "ask_about_andre",
+				"andre": "i_am_out"
+			},
+			{
+				"ego": "ask_about_boat",
+				"andre": "if_you_ever_wish"
+			},
+			{
+				"ego": "ask_about_fishermen",
+				"response": [
+					{
+						"andre": "most_fishermen_on_marete"
+					},
+					{
+						"andre": "they_have_been_driven"
+					},
+					{
+						"andre": "i_am_the_sole"
+					}
+				],
+				"goto": "about_fishermen"
+			},
+			{
+				"ego": "ask_about_silmaria",
+				"andre": "silmaria_is_the_only_city"
+			},
+			{
+				"ego": "say_goodbye",
+				"andre": "it_was_good_speaking"
+			}
 		]
 	},
-	{
-		"ego": "ask_about_silmaria",
-		"andre": "silmaria_is_the_only_city"
-	},
-	{
-		"ego": "say_goodbye",
-		"andre": "it_was_good_speaking"
+	"about_fishermen": {
+		"prompts": [
+			{
+				"ego": "ask_about_tritons",
+				"response": [
+					{
+						"andre": "tritons_are_half_men"
+					},
+					{
+						"andre": "lately_though"
+					}
+				]
+			},
+			{
+				"ego": "ask_about_mercenaries",
+				"andre": "the_mercenaries_are"
+			}
+		]
 	}
-	]
 }

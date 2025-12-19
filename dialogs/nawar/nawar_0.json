@@ -1,16 +1,18 @@
 {
-	"intro": [
-		{
-			"budar": "well_nawar"
-		},
-		{
-			"nawar": "i_know_what"
-		},
-		{
-			"budar": "my_name_is_budar_if_you"
-		},
-		{
-			"nawar": "if_you_like_let_me"
-		}
-	]
+	"root": {
+		"intro": [
+			{
+				"budar": "well_nawar"
+			},
+			{
+				"nawar": "i_know_what"
+			},
+			{
+				"budar": "my_name_is_budar_if_you"
+			},
+			{
+				"nawar": "if_you_like_let_me"
+			}
+		]
+	}
 }

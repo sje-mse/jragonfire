@@ -1,24 +1,26 @@
 {
-	"prompts": [
-		{
-			"ego": "greet_julanar",
-			"julanar": "welcome_back"
-		},
-		{
-			"ego": "ask_about_julanar",
-			"julanar": "i_am_well"
-		},
-		{
-			"ego": "ask_about_apothecary",
-			"julanar": "business_has_been"
-		},
-		{
-			"ego": "ask_about_erasmus",
-			"julanar": "erasmus_is"
-		},
-		{
-			"ego": "say_goodbye",
-			"julanar": "come_again_soon"
-		}
-	]
+	"root": {
+		"prompts": [
+			{
+				"ego": "greet_julanar",
+				"julanar": "welcome_back"
+			},
+			{
+				"ego": "ask_about_julanar",
+				"julanar": "i_am_well"
+			},
+			{
+				"ego": "ask_about_apothecary",
+				"julanar": "business_has_been"
+			},
+			{
+				"ego": "ask_about_erasmus",
+				"julanar": "erasmus_is"
+			},
+			{
+				"ego": "say_goodbye",
+				"julanar": "come_again_soon"
+			}
+		]
+	}
 }

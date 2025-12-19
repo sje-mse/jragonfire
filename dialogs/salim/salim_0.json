@@ -1,34 +1,36 @@
 {
-	"prompts": [
-		{
-			"ego": "say_hi_to_salim",
-			"salim": "hi_its_so_good"
-		},
-		{
-			"ego": "ask_about_julanar",
-			"response": [
-				{
-					"salim": "i_left_tarna"
-				},
-				{
-					"salim": "so_i_camped"
-				},
-				{
-					"salim": "then_i_awoke"
-				}
-			]
-		},
-		{
-			"ego": "ask_about_the_apothecary",
-			"salim": "were_doing"
-		},
-		{
-			"ego": "ask_about_silmaria",
-			"salim": "this_is_such_a"
-		},
-		{
-			"ego": "say_goodbye",
-			"salim": "come_back_soon_you"
-		}
-	]
+	"root": {
+		"prompts": [
+			{
+				"ego": "say_hi_to_salim",
+				"salim": "hi_its_so_good"
+			},
+			{
+				"ego": "ask_about_julanar",
+				"response": [
+					{
+						"salim": "i_left_tarna"
+					},
+					{
+						"salim": "so_i_camped"
+					},
+					{
+						"salim": "then_i_awoke"
+					}
+				]
+			},
+			{
+				"ego": "ask_about_the_apothecary",
+				"salim": "were_doing"
+			},
+			{
+				"ego": "ask_about_silmaria",
+				"salim": "this_is_such_a"
+			},
+			{
+				"ego": "say_goodbye",
+				"salim": "come_back_soon_you"
+			}
+		]
+	}
 }

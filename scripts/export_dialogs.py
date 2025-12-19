@@ -53,12 +53,6 @@ def export_prompt(prompt, lines):
 		if key in lines and key != "ego":
 			export_line(key, value, lines)
 
-	# recurse
-	if "prompts" in prompt:
-		dialog_dict = { "prompts" : prompt["prompts"] }
-		dialog_dict["prompts"].append( { "ego" : SOMETHING_ELSE } )
-		export_dialog(prompt["ego"], dialog_dict, lines)
-
 def export_dialog(name, dialog, lines):
 	print("exporting dialog {}".format(name))
 	if not verify_dialog(dialog, lines):
