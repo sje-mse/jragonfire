@@ -12,14 +12,16 @@ from verify_dialogs import (
 )
 
 SOMETHING_ELSE = "Something else"
+TMP_PATH = "tmp.xml"
 
 def export_action(action_list):
 	for action in action_list:
-		print("TODO: export action {}".format(action))
+		pass
+		#print("TODO: export action {}".format(action))
 
 def export_line(speaker_key, line_key, lines):
 	line = lines[speaker_key][line_key]
-	print("{} : {}".format(speaker_key, line))
+	# print("{} : {}".format(speaker_key, line))
 
 def export_response(response, lines):
 	for speaker_key, line_key in response.items():
@@ -32,11 +34,12 @@ def export_cycle(cycle_list, lines):
 	print("TODO: cycle")
 	for response in cycle_list:
 		for speaker_key, line_key in response.items():
-			print("{} : {}".format(speaker_key, lines[speaker_key][line_key]))
+			pass
+			# print("{} : {}".format(speaker_key, lines[speaker_key][line_key]))
 
 def export_prompt(prompt, lines):
 	ego_line = lines["ego"][prompt["ego"]]
-	print("ego: {}".format(ego_line))
+	# print("ego: {}".format(ego_line))
 
 	if "cycle" in prompt:
 		export_cycle(prompt["cycle"], lines)
@@ -67,6 +70,33 @@ def export_dialog(name, dialog, lines):
 
 	return True
 
+def update_stack(line, stack):
+	if line.endswith("<Dialogs>"):
+		print("push")
+		stack.append(line)
+	elif line.endswith("</Dialogs>"):
+		stack.pop()
+		print("pop")
+
+def write_dialogs(ipath, exported):
+	stack = []
+	with open(ipath, 'r') as ifile:
+		with open(TMP_PATH, 'w') as ofile:
+			# copy pre-dialog section.
+			while line := ifile.readline():
+				ofile.write(line)
+				update_stack(line.strip(), stack)
+				if stack:
+					break
+
+			# write exported stuff.
+			ofile.write("	<!------- DIALOGS GO HERE-------->\n")
+
+			# copy post-dialog section.
+			while line := ifile.readline():
+				update_stack(line.strip(), stack)
+				if not stack:
+					ofile.write(line)
 
 if __name__ == "__main__":
 	lines = read_all_lines()
@@ -82,4 +112,10 @@ if __name__ == "__main__":
 			print("failed to port {}".format(key))
 			num_bad += 1
 	print("{} OK, {} FAILED".format(num_ok, num_bad))
+
+	if len(sys.argv) > 1:
+		xml_path = sys.argv[1]
+		write_dialogs(xml_path, {})
+	else:
+		print("usage: {} <xml path>".format(sys.argv[0]))
 
