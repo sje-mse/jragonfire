@@ -17,12 +17,17 @@ TMP_PATH = "tmp.xml"
 
 def export_action(action_list, ofile):
 	for action in action_list:
-		pass
-		#print("TODO: export action {}".format(action))
+		ofile.write('	doAction("{}")\n'.format(action))
 
 def export_line(speaker_key, line_key, lines, ofile):
 	line = lines[speaker_key][line_key]
-	# print("{} : {}".format(speaker_key, line))
+
+	char_name = 'c{}'.format(speaker_key.title())
+
+	# get cached id if it exists
+
+	# TODO
+	ofile.write('{}: {}\n'.format(char_name, line))
 
 def export_response(response, lines, ofile):
 	for speaker_key, line_key in response.items():
@@ -57,24 +62,34 @@ def export_prompt(prompt, lines, ofile):
 		if key in lines and key != "ego":
 			export_line(key, value, lines, ofile)
 
-def export_dialog(name, dialog, lines, ofile):
-	print("...exporting dialog {}".format(name))
-	if not verify_dialog(dialog, lines):
-		return False
+def export_dialog(id_count, name, dialog, lines, ofile):
+	ofile.write('			  <Dialog>\n')
+	ofile.write('			   <ID>{}</ID>\n'.format(id_count))
+	ofile.write('			   <Name>d{}</Name>\n'.format(name))
+	ofile.write('			   <ShowTextParser>False</ShowTextParser>\n')
+	ofile.write('			   <Script><![CDDATA[// Dialog script file\n')
 
 	if "intro" in dialog:
+		ofile.write('@S  // Dialog startup entry point\n')
 		for response in dialog["intro"]:
 			export_response(response, lines, ofile)
+		ofile.write('return\n')
 
+		# responses
+
+		# prompts
+
+	ofile.write(']]></Script>\n')
+
+
+	'''
 	for prompt in dialog.get("prompts", []):
 		export_prompt(prompt, lines, ofile)
+	'''
+
+	ofile.write('			  </Dialog>\n')
 
 	return True
-
-def export_folder(name, dialogs, lines, ofile):
-	print("exporting character {}...".format(name))
-	for key, dialog in dialogs.items():
-		export_dialog(key, dialog, lines, ofile)
 
 def update_stack(line, stack):
 	if line.endswith("<Dialogs>"):
@@ -83,6 +98,7 @@ def update_stack(line, stack):
 		stack.pop()
 
 def write_dialogs(ipath):
+	id_count = 0
 	lines = read_all_lines()
 	dialogs = read_all_dialogs()
 	stack = []
@@ -95,11 +111,30 @@ def write_dialogs(ipath):
 				if stack:
 					break
 
-			for char_key, char_dict in dialogs.items():
-				export_folder(char_key, char_dict, lines, ofile)
+			ofile.write('	  <DialogFolder Name="Main">\n')
+			ofile.write('		<SubFolders>\n')
 
-			# write exported stuff.
-			ofile.write("	<!------- DIALOGS GO HERE-------->\n")
+			for folder_name, char_dict in dialogs.items():
+				print("exporting folder {}...".format(folder_name))
+				ofile.write('		  <DialogFolder Name="{}">\n'.format(folder_name))
+				ofile.write('			<SubFolders />\n')
+				ofile.write('			<Dialogs>\n')
+
+				for key, dialog in char_dict.items():
+					if verify_dialog(dialog, lines):
+						print("...exporting dialog {}".format(key))
+						export_dialog(id_count, key, dialog, lines, ofile)
+						id_count += 1
+					else:
+						print("...skipping invalid dialog {}".format(key))
+
+				ofile.write('			</Dialogs>\n')
+				ofile.write('		  </DialogFolder>\n')
+
+
+			ofile.write('		</SubFolders>\n')
+			ofile.write('		<Dialogs />\n')
+			ofile.write('	  </DialogFolder>\n')
 
 			# copy post-dialog section.
 			while line := ifile.readline():
