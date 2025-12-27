@@ -1,6 +1,7 @@
 import json
 import os
 import sys
+from pathlib import Path
 
 DIALOG_PATH = os.path.join("..", "dialogs")
 LINE_PATH = os.path.join("..", "lines")
@@ -9,6 +10,7 @@ ACTIONS_KEY = "actions"
 TOP_LEVEL_KEYS = set(["intro", "prompts"])
 PROMPT_KEYS = set(["ego", "response", "cycle", "actions", "goto"])
 
+# @return dictionary for form { character_key : line_key : line }
 def read_all_lines():
 	lines = dict()
 	for p in os.listdir(LINE_PATH):
@@ -33,17 +35,18 @@ def is_dialog(data):
 def is_prompt(data):
 	return len(PROMPT_KEYS.intersection(set(data.keys()))) > 0
 
+# @return dictionary of form { character_key : dialog_key : dialog }
 def read_all_dialogs():
 	dialogs = dict()
 	for d in os.listdir(DIALOG_PATH):
+		dialogs[d] = dict()
 		cpath = os.path.join(DIALOG_PATH, d)
 		for p in os.listdir(cpath):
 			dpath = os.path.join(cpath, p)
-			print(dpath)
 			with open(dpath, 'r') as file:
 				contents = json.load(file)
 				for key, value in contents.items():
-					dialogs[p + "_" + key] = value
+					dialogs[d][Path(p).stem + "_" + key] = value
 	return dialogs
 
 def verify_line(speaker, key, lines):
@@ -119,12 +122,14 @@ if __name__ == "__main__":
 	dialogs = read_all_dialogs()
 	num_ok = 0
 	num_bad = 0
-	for key, dialog in dialogs.items():
-		valid = verify_dialog(dialog, lines)
-		if (valid):
-			num_ok += 1
-			print("{} OK!".format(key))
-		else:
-			num_bad += 1
-			print("{} INVALID!!!".format(key))
+	for char_key, char_dict in dialogs.items():
+		print("verifying dialogs for {}...".format(char_key))
+		for key, dialog in char_dict.items():
+			valid = verify_dialog(dialog, lines)
+			if (valid):
+				num_ok += 1
+				print("{} OK!".format(key))
+			else:
+				num_bad += 1
+				print("{} INVALID!!!".format(key))
 	print("{} OK, {} INVALID".format(num_ok, num_bad))
