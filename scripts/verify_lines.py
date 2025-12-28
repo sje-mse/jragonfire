@@ -2,6 +2,8 @@ import json
 import os
 import sys
 
+from env_paths import SPEECH_PATH
+
 LINE_PATH = os.path.join("..", "lines")
 
 def verify_lines(charpath, audiopath):
@@ -58,11 +60,7 @@ def verify_characters(audioroot):
 				print("...INVALID")
 
 if __name__ == "__main__":
-	if len(sys.argv) > 1:
-		audioroot = sys.argv[1]
-		if os.path.isdir(audioroot):
-			verify_characters(audioroot)
-		else:
-			print("invalid audio path provided: {}".format(audioroot))
+	if os.path.isdir(SPEECH_PATH):
+		verify_characters(SPEECH_PATH)
 	else:
-		print("usage: {} <audio root>".format(sys.argv[0]))
+		print("invalid audio path provided: {}".format(SPEECH_PATH))
