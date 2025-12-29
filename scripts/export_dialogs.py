@@ -78,7 +78,8 @@ def export_line(speaker_key, line_key, lines, cache, ofile):
 def export_response(response, lines, cache, ofile):
     for speaker_key, line_key in response.items():
         if speaker_key == ACTIONS_KEY:
-            export_action(line_key, ofile)
+            pass # TODO
+            # export_action(line_key, ofile)
         else:
             export_line(speaker_key, line_key, lines, cache, ofile)
 
@@ -88,7 +89,6 @@ def export_cycle(cycle_list, lines, cache, ofile):
         export_response(response, lines, cache, ofile)
 
 def export_prompt(prompt, lines, cache, ofile):
-    print(prompt)
     if "cycle" in prompt:
         export_cycle(prompt["cycle"], lines, cache, ofile)
     elif "response" in prompt:
@@ -96,8 +96,8 @@ def export_prompt(prompt, lines, cache, ofile):
             export_response(response, lines, cache, ofile)
 
     # actions
-    if ACTIONS_KEY in prompt:
-        export_action(prompt[ACTIONS_KEY], ofile)
+    # if ACTIONS_KEY in prompt:
+    #    export_action(prompt[ACTIONS_KEY], ofile)
 
     # single lines
     for key, value in prompt.items():

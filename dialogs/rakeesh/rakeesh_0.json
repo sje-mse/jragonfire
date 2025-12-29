@@ -31,7 +31,7 @@
 				"ego": "ask_about_erana",
 				"response": [
 					{
-						"ui": "you_tell_how_you_freed"
+						"narrator": "you_tell_how_you_freed"
 					},
 					{
 						"rakeesh": "i_sorrow"
