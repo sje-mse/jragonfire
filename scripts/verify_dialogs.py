@@ -10,6 +10,8 @@ ACTIONS_KEY = "actions"
 TOP_LEVEL_KEYS = set(["intro", "prompts"])
 PROMPT_KEYS = set(["ego", "response", "cycle", "actions", "goto"])
 
+SUBDIALOG_DELIMITER = "__"
+
 # @return dictionary for form { character_key : line_key : line }
 def read_all_lines():
 	lines = dict()
@@ -46,7 +48,7 @@ def read_all_dialogs():
 			with open(dpath, 'r') as file:
 				contents = json.load(file)
 				for key, value in contents.items():
-					dialogs[d][Path(p).stem + "_" + key] = value
+					dialogs[d][Path(p).stem + SUBDIALOG_DELIMITER + key] = value
 	return dialogs
 
 def verify_line(speaker, key, lines):

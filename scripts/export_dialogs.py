@@ -7,199 +7,227 @@ from pathlib import Path
 sys.path.append(".")
 
 from env_paths import (
-	AGS_PATH,
-	AGS_SPEECH_PATH,
-	AGS_XML_PATH,
-	BACKUP_AGS_XML_PATH,
-	SPEECH_PATH,
+    AGS_PATH,
+    AGS_SPEECH_PATH,
+    AGS_XML_PATH,
+    BACKUP_AGS_XML_PATH,
+    SPEECH_PATH,
 )
 
 from verify_dialogs import (
-	ACTIONS_KEY,
-	read_all_dialogs,
-	read_all_lines,
-	verify_dialog,
+    ACTIONS_KEY,
+    SUBDIALOG_DELIMITER,
+    read_all_dialogs,
+    read_all_lines,
+    verify_dialog,
 )
 
-SOMETHING_ELSE = "Something else"
+GO_TO_PREVIOUS = "go_to_previous"
+ENDERS = set(["say_goodbye", "say_farewell"])
 TMP_PATH = "tmp.xml"
+ROOT_SUFFIX = "_root"
 
 class LineCache:
-	def __init__(self):
-		self.count = 0
-		self.cache = dict()
+    def __init__(self):
+        self.count = 0
+        self.cache = dict()
 
-	def has(self, line_key):
-		return line_key in self.cache
+    def has(self, line_key):
+        return line_key in self.cache
 
-	def put(self, line_key):
-		self.count += 1
-		self.cache[line_key] = self.count
-		return self.count
+    def put(self, line_key):
+        self.count += 1
+        self.cache[line_key] = self.count
+        return self.count
 
-	# @return line number on hit, 0 on miss
-	def get(self, line_key):
-		return self.cache.get(line_key, 0)
+    # @return line number on hit, 0 on miss
+    def get(self, line_key):
+        return self.cache.get(line_key, 0)
 
 def encache(speaker_key, line_key, cache):
-	src_path = os.path.join(SPEECH_PATH, speaker_key, '{}.wav'.format(line_key))
-	if os.path.isfile(src_path):
-		line_id = cache[speaker_key].put(line_key)
-		dst_path = os.path.join(AGS_SPEECH_PATH, '{}.{}.wav'.format(speaker_key, line_id))
-		print('copying {} to {}...'.format(src_path, dst_path))
-		shutil.copy(src_path, dst_path)
-	else:
-		print("no line found for {}".format(src_path))
+    src_path = os.path.join(SPEECH_PATH, speaker_key, '{}.wav'.format(line_key))
+    if os.path.isfile(src_path):
+        line_id = cache[speaker_key].put(line_key)
+        dst_path = os.path.join(AGS_SPEECH_PATH, '{}.{}.wav'.format(speaker_key, line_id))
+        print('copying {} to {}...'.format(src_path, dst_path))
+        shutil.copy(src_path, dst_path)
+    else:
+        print("no line found for {}".format(src_path))
 
 def export_action(action_list, ofile):
-	for action in action_list:
-		ofile.write('	doAction("{}")\n'.format(action))
+    for action in action_list:
+        ofile.write('    doAction("{}")\n'.format(action))
 
 def export_line(speaker_key, line_key, lines, cache, ofile):
-	line = lines[speaker_key][line_key]
+    line = lines[speaker_key][line_key]
 
-	# get cached id if it exists
-	if speaker_key not in cache:
-		cache[speaker_key] = LineCache()
+    # get cached id if it exists
+    if speaker_key not in cache:
+        cache[speaker_key] = LineCache()
 
-	if not cache[speaker_key].has(line_key):
-		encache(speaker_key, line_key, cache)
+    if not cache[speaker_key].has(line_key):
+        encache(speaker_key, line_key, cache)
 
-	line_id = cache[speaker_key].get(line_key)
+    line_id = cache[speaker_key].get(line_key)
 
-	if line_id > 0:
-		ofile.write('{}: &{} {}\n'.format(speaker_key, line_id, line))
-	else:
-		ofile.write('{}: {}\n'.format(speaker_key, line))
+    if line_id > 0:
+        ofile.write('{}: &{} {}\n'.format(speaker_key, line_id, line))
+    else:
+        ofile.write('{}: {}\n'.format(speaker_key, line))
 
 def export_response(response, lines, cache, ofile):
-	for speaker_key, line_key in response.items():
-		if speaker_key == ACTIONS_KEY:
-			export_action(line_key, ofile)
-		else:
-			export_line(speaker_key, line_key, lines, cache, ofile)
+    for speaker_key, line_key in response.items():
+        if speaker_key == ACTIONS_KEY:
+            export_action(line_key, ofile)
+        else:
+            export_line(speaker_key, line_key, lines, cache, ofile)
 
 def export_cycle(cycle_list, lines, cache, ofile):
-	print("TODO: cycle")
-	for response in cycle_list:
-		for speaker_key, line_key in response.items():
-			pass
-			# print("{} : {}".format(speaker_key, lines[speaker_key][line_key]))
+    # TODO: Action Cycling.
+    for response in cycle_list:
+        export_response(response, lines, cache, ofile)
 
 def export_prompt(prompt, lines, cache, ofile):
-	ego_line = lines["ego"][prompt["ego"]]
-	# print("ego: {}".format(ego_line))
+    print(prompt)
+    if "cycle" in prompt:
+        export_cycle(prompt["cycle"], lines, cache, ofile)
+    elif "response" in prompt:
+        for response in prompt["response"]:
+            export_response(response, lines, cache, ofile)
 
-	if "cycle" in prompt:
-		export_cycle(prompt["cycle"], lines, cache, ofile)
-	elif "response" in prompt:
-		for response in prompt["response"]:
-			export_response(response, lines, cache, ofile)
+    # actions
+    if ACTIONS_KEY in prompt:
+        export_action(prompt[ACTIONS_KEY], ofile)
 
-	# actions
-	if ACTIONS_KEY in prompt:
-		export_action(prompt[ACTIONS_KEY], ofile)
+    # single lines
+    for key, value in prompt.items():
+        if key in lines and key != "ego":
+            export_line(key, value, lines, cache, ofile)
 
-	# single lines
-	for key, value in prompt.items():
-		if key in lines and key != "ego":
-			export_line(key, value, lines, cache, ofile)
+def export_option(option_id, line, ofile):
+    ofile.write('                  <DialogOption>\n')
+    ofile.write('                    <ID>{}</ID>\n'.format(option_id))
+    ofile.write('                    <Say>False</Say>\n')
+    ofile.write('                    <Show>True</Show>\n')
+    ofile.write('                    <Text xml:space="preserve">{}</Text>\n'.format(line))
+    ofile.write('                  </DialogOption>\n')
 
 def export_dialog(id_count, name, dialog, lines, cache, ofile):
-	ofile.write('			  <Dialog>\n')
-	ofile.write('			   <ID>{}</ID>\n'.format(id_count))
-	ofile.write('			   <Name>d{}</Name>\n'.format(name.title()))
-	ofile.write('			   <ShowTextParser>False</ShowTextParser>\n')
-	ofile.write('			   <Script><![CDATA[// Dialog script file\n')
+    ofile.write('              <Dialog>\n')
+    ofile.write('               <ID>{}</ID>\n'.format(id_count))
+    ofile.write('               <Name>d{}</Name>\n'.format(name.title()))
+    ofile.write('               <ShowTextParser>False</ShowTextParser>\n')
+    ofile.write('               <Script><![CDATA[// Dialog script file\n')
 
-	if "intro" in dialog:
-		ofile.write('@S  // Dialog startup entry point\n')
-		for response in dialog["intro"]:
-			export_response(response, lines, cache, ofile)
-		ofile.write('return\n')
+    if "intro" in dialog:
+        ofile.write('@S  // Dialog startup entry point\n')
+        for response in dialog["intro"]:
+            export_response(response, lines, cache, ofile)
+        ofile.write('return\n')
 
-		# responses
+    # prompt responses
+    is_root = name.endswith(ROOT_SUFFIX)
+    option_id = 0 
+    prompts = dialog.get("prompts", [])
+    for i, prompt in enumerate(prompts):
+        prompt = prompts[i]
+        option_id += 1
+        ofile.write('@{}\n'.format(option_id))
+        export_prompt(prompt, lines, cache, ofile)
+        if "goto" in prompt:
+            ofile.write('goto-dialog d{}{}{}\n'.format(name.split(SUBDIALOG_DELIMITER)[0].title(), SUBDIALOG_DELIMITER, prompt["goto"].title()))
+        elif is_root and i == (len(prompts) - 1):
+            ofile.write('stop\n')
+        else :
+            ofile.write('return\n')
 
-		# prompts
+    if not is_root and option_id > 0:
+        option_id += 1
+        ofile.write('@{}\n'.format(option_id))
+        ofile.write('goto-previous\n')
 
-	ofile.write(']]></Script>\n')
+    ofile.write(']]></Script>\n')
+    ofile.write('               <DialogOptions>\n')
 
+    # prompt options
+    option_id = 0 
+    for prompt in prompts:
+        option_id += 1
+        export_option(option_id, lines["ego"][prompt["ego"]], ofile)
 
-	'''
-	for prompt in dialog.get("prompts", []):
-		export_prompt(prompt, lines, cache, ofile)
-	'''
+    if not is_root and option_id > 0:
+        option_id += 1
+        export_option(option_id, lines["ego"][GO_TO_PREVIOUS], ofile)
 
-	ofile.write('			  </Dialog>\n')
-
-	return True
+    ofile.write('               </DialogOptions>\n')
+    ofile.write('              </Dialog>\n')
 
 def update_stack(line, stack):
-	if line.endswith("<Dialogs>"):
-		stack.append(line)
-	elif line.endswith("</Dialogs>"):
-		stack.pop()
+    if line.endswith("<Dialogs>"):
+        stack.append(line)
+    elif line.endswith("</Dialogs>"):
+        stack.pop()
 
 def write_dialogs(ipath):
-	id_count = 0
-	lines = read_all_lines()
-	dialogs = read_all_dialogs()
-	stack = []
-	cache = dict() # { character_name, LineCache }
+    id_count = 0
+    lines = read_all_lines()
+    dialogs = read_all_dialogs()
+    stack = []
+    cache = dict() # { character_name, LineCache }
 
-	with open(ipath, 'r') as ifile:
-		with open(TMP_PATH, 'w') as ofile:
-			# copy pre-dialog section.
-			while line := ifile.readline():
-				ofile.write(line)
-				update_stack(line.strip(), stack)
-				if stack:
-					break
+    with open(ipath, 'r') as ifile:
+        with open(TMP_PATH, 'w') as ofile:
+            # copy pre-dialog section.
+            while line := ifile.readline():
+                ofile.write(line)
+                update_stack(line.strip(), stack)
+                if stack:
+                    break
 
-			ofile.write('	  <DialogFolder Name="Main">\n')
-			ofile.write('		<SubFolders>\n')
+            ofile.write('      <DialogFolder Name="Main">\n')
+            ofile.write('        <SubFolders>\n')
 
-			for folder_name, char_dict in dialogs.items():
-				print("exporting folder {}...".format(folder_name))
-				ofile.write('		  <DialogFolder Name="{}">\n'.format(folder_name))
-				ofile.write('			<SubFolders />\n')
-				ofile.write('			<Dialogs>\n')
+            for folder_name, char_dict in dialogs.items():
+                print("exporting folder {}...".format(folder_name))
+                ofile.write('          <DialogFolder Name="{}">\n'.format(folder_name))
+                ofile.write('            <SubFolders />\n')
+                ofile.write('            <Dialogs>\n')
 
-				for key, dialog in char_dict.items():
-					if verify_dialog(dialog, lines):
-						print("...exporting dialog {}".format(key))
-						export_dialog(id_count, key, dialog, lines, cache, ofile)
-						id_count += 1
-					else:
-						print("...skipping invalid dialog {}".format(key))
+                for key, dialog in char_dict.items():
+                    if verify_dialog(dialog, lines):
+                        print("...exporting dialog {}".format(key))
+                        export_dialog(id_count, key, dialog, lines, cache, ofile)
+                        id_count += 1
+                    else:
+                        print("...skipping invalid dialog {}".format(key))
 
-				ofile.write('			</Dialogs>\n')
-				ofile.write('		  </DialogFolder>\n')
+                ofile.write('            </Dialogs>\n')
+                ofile.write('          </DialogFolder>\n')
 
 
-			ofile.write('		</SubFolders>\n')
-			ofile.write('		<Dialogs />\n')
-			ofile.write('	  </DialogFolder>\n')
+            ofile.write('        </SubFolders>\n')
+            ofile.write('        <Dialogs />\n')
+            ofile.write('      </DialogFolder>\n')
 
-			# copy post-dialog section.
-			while line := ifile.readline():
-				update_stack(line.strip(), stack)
-				if not stack:
-					ofile.write(line)
+            # copy post-dialog section.
+            while line := ifile.readline():
+                update_stack(line.strip(), stack)
+                if not stack:
+                    ofile.write(line)
 
 
 if __name__ == "__main__":
-	if len(sys.argv) > 1:
-		xml_path = sys.argv[1]
-	else:
-		xml_path = AGS_XML_PATH
+    if len(sys.argv) > 1:
+        xml_path = sys.argv[1]
+    else:
+        xml_path = AGS_XML_PATH
 
-	write_dialogs(xml_path)
+    write_dialogs(xml_path)
 
-	if len(sys.argv) == 1:
-		# copy and back up
-		print('backing up {} to {}'.format(AGS_XML_PATH, BACKUP_AGS_XML_PATH))
-		shutil.copy(AGS_XML_PATH, BACKUP_AGS_XML_PATH)
-		print('copying {} to {}'.format(TMP_PATH, AGS_XML_PATH))
-		shutil.copy(TMP_PATH, AGS_XML_PATH)
+    if len(sys.argv) == 1:
+        # copy and back up
+        print('backing up {} to {}'.format(AGS_XML_PATH, BACKUP_AGS_XML_PATH))
+        shutil.copy(AGS_XML_PATH, BACKUP_AGS_XML_PATH)
+        print('copying {} to {}'.format(TMP_PATH, AGS_XML_PATH))
+        shutil.copy(TMP_PATH, AGS_XML_PATH)
 
