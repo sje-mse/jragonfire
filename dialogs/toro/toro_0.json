@@ -1,10 +1,13 @@
 {
-	"root": {
+    "preamble": {
 		"intro": [
 			{
 				"toro": "good_see_hero_man_good"
 			}
 		],
+        "goto": "root"
+    },
+	"root": {
 		"prompts": [
 			{
 				"ego": "greet_toro",

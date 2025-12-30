@@ -1,5 +1,5 @@
 {
-	"root": {
+    "preamble": {
 		"intro": [
 			{
 				"logos": "greetings_prince"
@@ -20,6 +20,9 @@
 				"logos": "hero_of_the_lands"
 			}
 		],
+        "goto": "root"
+    },
+	"root": {
 		"prompts": [
 			{
 				"ego": "greet_logos",

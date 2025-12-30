@@ -1,5 +1,5 @@
 {
-	"root": {
+    "preamble": {
 		"intro": [
 			{
 				"sarra": "greetings_wanderer_from_afar"
@@ -8,6 +8,9 @@
 				"sarra": "i_am_sarra_a_katta"
 			}
 		],
+        "goto": "root"
+    },
+	"root": {
 		"prompts": [
 			{
 				"ego": "greet_the_merchant",

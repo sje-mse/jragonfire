@@ -1,5 +1,5 @@
 {
-	"root": {
+    "preamble": {
 		"intro": [
 			{
 				"rakeesh": "greetings_my_friend_good_to_see"
@@ -14,6 +14,9 @@
 				]
 			}
 		],
+        "goto": "root"
+    },
+	"root": {
 		"prompts": [
 			{
 				"ego": "greet_rakeesh",

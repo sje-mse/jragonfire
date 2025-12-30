@@ -1,5 +1,5 @@
 {
-	"root": {
+    "preamble": {
 		"intro": [
 			{
 				"marrak": "welcome_welcome_stranger"
@@ -8,6 +8,9 @@
 				"marrak": "may_i_aid_you_in_any_way"
 			}
 		],
+        "goto": "root"
+    },
+	"root": {
 		"prompts": [
 			{
 				"ego": "greet_marrak",

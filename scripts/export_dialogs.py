@@ -112,6 +112,9 @@ def export_option(option_id, line, ofile):
     ofile.write('                    <Text xml:space="preserve">{}</Text>\n'.format(line))
     ofile.write('                  </DialogOption>\n')
 
+def get_goto_cmd(dialog_name, target):
+    return 'goto-dialog d{}{}{}\n'.format(dialog_name.split(SUBDIALOG_DELIMITER)[0].title(), SUBDIALOG_DELIMITER, target.title())
+
 def export_dialog(id_count, name, dialog, lines, cache, ofile):
     ofile.write('              <Dialog>\n')
     ofile.write('               <ID>{}</ID>\n'.format(id_count))
@@ -123,7 +126,10 @@ def export_dialog(id_count, name, dialog, lines, cache, ofile):
         ofile.write('@S  // Dialog startup entry point\n')
         for response in dialog["intro"]:
             export_response(response, lines, cache, ofile)
-        ofile.write('return\n')
+        if "goto" in dialog:
+            ofile.write(get_goto_cmd(name, dialog["goto"]))
+        else:
+            ofile.write('return\n')
 
     # prompt responses
     is_root = name.endswith(ROOT_SUFFIX)
@@ -135,7 +141,7 @@ def export_dialog(id_count, name, dialog, lines, cache, ofile):
         ofile.write('@{}\n'.format(option_id))
         export_prompt(prompt, lines, cache, ofile)
         if "goto" in prompt:
-            ofile.write('goto-dialog d{}{}{}\n'.format(name.split(SUBDIALOG_DELIMITER)[0].title(), SUBDIALOG_DELIMITER, prompt["goto"].title()))
+            ofile.write(get_goto_cmd(name, prompt["goto"]))
         elif is_root and i == (len(prompts) - 1):
             ofile.write('stop\n')
         else :

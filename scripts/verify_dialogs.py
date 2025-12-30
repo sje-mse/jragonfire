@@ -7,7 +7,7 @@ DIALOG_PATH = os.path.join("..", "dialogs")
 LINE_PATH = os.path.join("..", "lines")
 
 ACTIONS_KEY = "actions"
-TOP_LEVEL_KEYS = set(["intro", "prompts"])
+TOP_LEVEL_KEYS = set(["intro", "prompts", "goto"])
 PROMPT_KEYS = set(["ego", "response", "cycle", "actions", "goto"])
 
 SUBDIALOG_DELIMITER = "__"

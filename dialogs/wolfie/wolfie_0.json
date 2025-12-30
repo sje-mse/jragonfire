@@ -1,10 +1,13 @@
 {
-	"root": {
+    "preamble": {
 		"intro": [
 			{
 				"wolfie": "greetings_greetings_greetings"
 			}
 		],
+        "goto": "root"
+    },
+	"root": {
 		"prompts": [
 			{
 				"ego": "greet_merchant",

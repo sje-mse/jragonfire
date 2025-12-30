@@ -1,10 +1,13 @@
 {
-	"root": {
+    "preamble": {
 		"intro": [
 			{
 				"shakra": "greetings_prince"
 			}
 		],
+        "goto": "root"
+    },
+	"root": {
 		"prompts": [
 			{
 				"ego": "greet_shakra",

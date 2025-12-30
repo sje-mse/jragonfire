@@ -1,5 +1,5 @@
 {
-	"root": {
+    "preamble": {
 		"intro": [
 			{
 				"sam": "greetings_and_welcome"
@@ -8,6 +8,9 @@
 				"sam": "oh_its_you"
 			}
 		],
+        "goto": "root"
+    },
+	"root": {
 		"prompts": [
 			{
 				"ego": "greet_the_banker",
