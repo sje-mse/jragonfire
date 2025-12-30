@@ -23,7 +23,6 @@ from verify_dialogs import (
 )
 
 GO_TO_PREVIOUS = "go_to_previous"
-ENDERS = set(["say_goodbye", "say_farewell"])
 TMP_PATH = "tmp.xml"
 ROOT_SUFFIX = "_root"
 
@@ -77,14 +76,11 @@ def export_line(speaker_key, line_key, lines, cache, ofile):
 
 def export_response(response, lines, cache, ofile):
     for speaker_key, line_key in response.items():
-        if speaker_key == ACTIONS_KEY:
-            pass # TODO
-            # export_action(line_key, ofile)
-        else:
+        if speaker_key in lines:
             export_line(speaker_key, line_key, lines, cache, ofile)
 
 def export_cycle(cycle_list, lines, cache, ofile):
-    # TODO: Action Cycling.
+    # TODO: Actual Cycling.
     for response in cycle_list:
         export_response(response, lines, cache, ofile)
 
@@ -95,14 +91,14 @@ def export_prompt(prompt, lines, cache, ofile):
         for response in prompt["response"]:
             export_response(response, lines, cache, ofile)
 
-    # actions
-    # if ACTIONS_KEY in prompt:
-    #    export_action(prompt[ACTIONS_KEY], ofile)
-
     # single lines
     for key, value in prompt.items():
         if key in lines and key != "ego":
             export_line(key, value, lines, cache, ofile)
+
+    # actions
+    # if ACTIONS_KEY in prompt:
+    #    export_action(prompt[ACTIONS_KEY], ofile)
 
 def export_option(option_id, line, ofile):
     ofile.write('                  <DialogOption>\n')

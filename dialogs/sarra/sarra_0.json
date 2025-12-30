@@ -23,7 +23,7 @@
 			},
 			{
 				"ego": "ask_about_merchandise",
-				"sarra": "i_am_a_seller_of_jewelry"
+				"sarra": "i_am_the_seller"
 			},
 			{
 				"ego": "ask_about_sarra",
@@ -31,7 +31,7 @@
 			},
 			{
 				"ego": "ask_about_silmaria",
-				"sarra": "i_am_most_well"
+				"sarra": "this_is_a_beautiful_city"
 			},
 			{
 				"ego": "ask_about_rumors",
