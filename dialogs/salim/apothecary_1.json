@@ -1,9 +1,10 @@
-{
-	"root": {
-		"intro": [
-			{
-				"salim": "good_to_see"
-			}
-		]
-	}
-}
+[
+    {
+        "intro": [
+            {
+                "salim": "good_to_see"
+            }
+        ],
+        "topic": "root"
+    }
+]

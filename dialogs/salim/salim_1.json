@@ -1,26 +1,27 @@
-{
-	"root": {
-		"prompts": [
-			{
-				"ego": "say_hi_to_salim",
-				"salim": "youre_always_welcome"
-			},
-			{
-				"ego": "ask_about_salim",
-				"salim": "im_groovy"
-			},
-			{
-				"ego": "ask_about_the_apothecary",
-				"salim": "were_selling_all_kinds"
-			},
-			{
-				"ego": "ask_about_silmaria",
-				"salim": "silmaria_is_like"
-			},
-			{
-				"ego": "say_goodbye",
-				"salim": "have_a_cosmic_time"
-			}
-		]
-	}
-}
+[
+    {
+        "prompts": [
+            {
+                "ego": "say_hi_to_salim",
+                "salim": "youre_always_welcome"
+            },
+            {
+                "ego": "ask_about_salim",
+                "salim": "im_groovy"
+            },
+            {
+                "ego": "ask_about_the_apothecary",
+                "salim": "were_selling_all_kinds"
+            },
+            {
+                "ego": "ask_about_silmaria",
+                "salim": "silmaria_is_like"
+            },
+            {
+                "ego": "say_goodbye",
+                "salim": "have_a_cosmic_time"
+            }
+        ],
+        "topic": "root"
+    }
+]

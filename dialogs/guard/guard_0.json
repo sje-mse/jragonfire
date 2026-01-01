@@ -1,9 +1,10 @@
-{
-	"root": {
-		"intro": [
-			{
-				"guard": "you_may_enter"
-			}
-		]
-	}
-}
+[
+    {
+        "intro": [
+            {
+                "guard": "you_may_enter"
+            }
+        ],
+        "topic": "root"
+    }
+]

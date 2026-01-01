@@ -1,65 +1,66 @@
-{
-	"root": {
-		"intro": [
-			{
-				"sarra": "greetings_prince_how_may_i_serve"
-			}
-		],
-		"prompts": [
-			{
-				"ego": "greet_sarra",
-				"sarra": "welcome_again_and_thrice"
-			},
-			{
-				"ego": "ask_about_sarra",
-				"cycle": [
-					{
-						"sarra": "i_am_pleased_as_always"
-					},
-					{
-						"sarra": "it_is_a_beautiful_day"
-					},
-					{
-						"sarra": "business_has_been_slow"
-					},
-					{
-						"sarra": "my_day_has_been_brightened"
-					},
-					{
-						"sarra": "it_is_more_damp"
-					},
-					{
-						"sarra": "i_have_sold_some_jewelry"
-					}
-				]
-			},
-			{
-				"ego": "ask_about_rumors",
-				"cycle": [
-					{
-						"sarra": "there_is_a_rumor"
-					},
-					{
-						"sarra": "the_gentle_healer"
-					},
-					{
-						"sarra": "many_people_have_left"
-					},
-					{
-						"sarra": "people_in_this_city"
-					},
-					{
-						"sarra": "i_have_heard_from_my_sister"
-					},
-					{
-						"sarra": "my_cousin_shema"
-					}
-				]
-			},
-			{
-				"ego": "ask_about_rumors",
-				"sarra": "may_your_journey"
-			}
-		]
-	}
-}
+[
+    {
+        "intro": [
+            {
+                "sarra": "greetings_prince_how_may_i_serve"
+            }
+        ],
+        "prompts": [
+            {
+                "ego": "greet_sarra",
+                "sarra": "welcome_again_and_thrice"
+            },
+            {
+                "ego": "ask_about_sarra",
+                "cycle": [
+                    {
+                        "sarra": "i_am_pleased_as_always"
+                    },
+                    {
+                        "sarra": "it_is_a_beautiful_day"
+                    },
+                    {
+                        "sarra": "business_has_been_slow"
+                    },
+                    {
+                        "sarra": "my_day_has_been_brightened"
+                    },
+                    {
+                        "sarra": "it_is_more_damp"
+                    },
+                    {
+                        "sarra": "i_have_sold_some_jewelry"
+                    }
+                ]
+            },
+            {
+                "ego": "ask_about_rumors",
+                "cycle": [
+                    {
+                        "sarra": "there_is_a_rumor"
+                    },
+                    {
+                        "sarra": "the_gentle_healer"
+                    },
+                    {
+                        "sarra": "many_people_have_left"
+                    },
+                    {
+                        "sarra": "people_in_this_city"
+                    },
+                    {
+                        "sarra": "i_have_heard_from_my_sister"
+                    },
+                    {
+                        "sarra": "my_cousin_shema"
+                    }
+                ]
+            },
+            {
+                "ego": "ask_about_rumors",
+                "sarra": "may_your_journey"
+            }
+        ],
+        "topic": "root"
+    }
+]

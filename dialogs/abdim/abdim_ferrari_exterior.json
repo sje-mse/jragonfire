@@ -1,26 +1,27 @@
-{
-	"root": {
-		"prompts": [
-			{
-				"ego": "greet_the_guard",
-				"abdim": "abdim_guard_abdim"
-			},
-			{
-				"ego": "ask_about_guard",
-				"abdim": "abdim_guard_ferrari"
-			},
-			{
-				"ego": "ask_about_ferraris_house",
-				"abdim": "no_thief_ever"
-			},
-			{
-				"ego": "ask_about_hat",
-				"abdim": "hat_fez"
-			},
-			{
-				"ego": "say_goodbye",
-				"abdim": "bye_bye"
-			}
-		]
-	}
-}
+[
+    {
+        "prompts": [
+            {
+                "ego": "greet_the_guard",
+                "abdim": "abdim_guard_abdim"
+            },
+            {
+                "ego": "ask_about_guard",
+                "abdim": "abdim_guard_ferrari"
+            },
+            {
+                "ego": "ask_about_ferraris_house",
+                "abdim": "no_thief_ever"
+            },
+            {
+                "ego": "ask_about_hat",
+                "abdim": "hat_fez"
+            },
+            {
+                "ego": "say_goodbye",
+                "abdim": "bye_bye"
+            }
+        ],
+        "topic": "root"
+    }
+]

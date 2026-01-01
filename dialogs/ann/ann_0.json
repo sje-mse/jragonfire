@@ -1,60 +1,61 @@
-{
-	"root": {
-		"intro": [
-			{
-				"ann": "hello_sailor"
-			}
-		],
-		"prompts": [
-			{
-				"ego": "greet_the_gnome",
-				"ann": "kalifornia"
-			},
-			{
-				"ego": "ask_about_ann",
-				"response": [
-					{
-						"ann": "want_to_get_to_know_me"
-					},
-					{
-						"ann": "i_came_all_the_way"
-					}
-				]
-			},
-			{
-				"ego": "ask_about_the_inn",
-				"response": [
-					{
-						"ann": "this_seemed_like"
-					},
-					{
-						"ann": "as_my_first"
-					}
-				]
-			},
-			{
-				"ego": "ask_about_silmaria",
-				"ann": "i_dont_know_much"
-			},
-			{
-				"ego": "introduce_yourself",
-				"response": [
-					{
-						"ann": "oh_so_youre_the_guy"
-					},
-					{
-						"ann": "your_rooms_paid_up"
-					}
-				]
-			},
-			{
-				"ego": "ask_about_your_room",
-				"ann": "yours_is_the_first"
-			},
-			{
-				"ego": "say_goodbye",
-				"ann": "ill_be_seeing_you"
-			}
-		]
-	}
-}
+[
+    {
+        "intro": [
+            {
+                "ann": "hello_sailor"
+            }
+        ],
+        "prompts": [
+            {
+                "ego": "greet_the_gnome",
+                "ann": "kalifornia"
+            },
+            {
+                "ego": "ask_about_ann",
+                "response": [
+                    {
+                        "ann": "want_to_get_to_know_me"
+                    },
+                    {
+                        "ann": "i_came_all_the_way"
+                    }
+                ]
+            },
+            {
+                "ego": "ask_about_the_inn",
+                "response": [
+                    {
+                        "ann": "this_seemed_like"
+                    },
+                    {
+                        "ann": "as_my_first"
+                    }
+                ]
+            },
+            {
+                "ego": "ask_about_silmaria",
+                "ann": "i_dont_know_much"
+            },
+            {
+                "ego": "introduce_yourself",
+                "response": [
+                    {
+                        "ann": "oh_so_youre_the_guy"
+                    },
+                    {
+                        "ann": "your_rooms_paid_up"
+                    }
+                ]
+            },
+            {
+                "ego": "ask_about_your_room",
+                "ann": "yours_is_the_first"
+            },
+            {
+                "ego": "say_goodbye",
+                "ann": "ill_be_seeing_you"
+            }
+        ],
+        "topic": "root"
+    }
+]

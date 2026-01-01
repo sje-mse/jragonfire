@@ -1,89 +1,91 @@
-{
-    "preamble": {
-		"intro": [
-			{
-				"sam": "greetings_and_welcome"
-			},
-			{
-				"sam": "oh_its_you"
-			}
-		],
-        "goto": "root"
+[
+    {
+        "intro": [
+            {
+                "sam": "greetings_and_welcome"
+            },
+            {
+                "sam": "oh_its_you"
+            }
+        ],
+        "topic": "preamble"
     },
-	"root": {
-		"prompts": [
-			{
-				"ego": "greet_the_banker",
-				"sam": "hi_there_have"
-			},
-			{
-				"ego": "ask_about_the_banker",
-				"sam": "im_sam"
-			},
-			{
-				"ego": "ask_about_the_bank",
-				"sam": "the_first_bank",
-				"goto": "about_the_bank"
-			},
-			{
-				"ego": "tell_about_your_friends",
-				"sam": "that_lion_guy"
-			},
-			{
-				"ego": "ask_about_silmaria",
-				"response": [
-					{
-						"sam": "silmaria_is_a_great"
-					},
-					{
-						"sam": "adventurers_think"
-					}
-				]
-			},
-			{
-				"ego": "tell_about_yourself",
-				"response": [
-					{
-						"sam": "i_thought_you"
-					},
-					{
-						"sam": "it_wasnt_long"
-					},
-					{
-						"sam": "came_to_silmaria"
-					}
-				]
-			},
-			{
-				"ego": "say_goodbye",
-				"sam": "our_banking_hours"
-			}
-		]
-	},
-	"about_the_bank": {
-		"prompts": [
-			{
-				"ego": "ask_about_the_rite_of_rulership",
-				"response": [
-					{
-						"sam": "the_rite"
-					},
-					{
-						"sam": "usually_people_have"
-					}
-				]
-			},
-			{
-				"ego": "ask_about_savings",
-				"response": [
-					{
-						"sam": "your_savings"
-					},
-					{
-						"sam": "thanks_to_your"
-					}
-				]
-			}
-		]
-	}
-}
+    {
+        "prompts": [
+            {
+                "ego": "greet_the_banker",
+                "sam": "hi_there_have"
+            },
+            {
+                "ego": "ask_about_the_banker",
+                "sam": "im_sam"
+            },
+            {
+                "ego": "ask_about_the_bank",
+                "sam": "the_first_bank",
+                "goto": "about_the_bank"
+            },
+            {
+                "ego": "tell_about_your_friends",
+                "sam": "that_lion_guy"
+            },
+            {
+                "ego": "ask_about_silmaria",
+                "response": [
+                    {
+                        "sam": "silmaria_is_a_great"
+                    },
+                    {
+                        "sam": "adventurers_think"
+                    }
+                ]
+            },
+            {
+                "ego": "tell_about_yourself",
+                "response": [
+                    {
+                        "sam": "i_thought_you"
+                    },
+                    {
+                        "sam": "it_wasnt_long"
+                    },
+                    {
+                        "sam": "came_to_silmaria"
+                    }
+                ]
+            },
+            {
+                "ego": "say_goodbye",
+                "sam": "our_banking_hours"
+            }
+        ],
+        "topic": "root"
+    },
+    {
+        "prompts": [
+            {
+                "ego": "ask_about_the_rite_of_rulership",
+                "response": [
+                    {
+                        "sam": "the_rite"
+                    },
+                    {
+                        "sam": "usually_people_have"
+                    }
+                ]
+            },
+            {
+                "ego": "ask_about_savings",
+                "response": [
+                    {
+                        "sam": "your_savings"
+                    },
+                    {
+                        "sam": "thanks_to_your"
+                    }
+                ]
+            }
+        ],
+        "topic": "about_the_bank"
+    }
+]

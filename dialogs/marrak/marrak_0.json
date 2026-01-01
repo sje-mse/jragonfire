@@ -1,176 +1,184 @@
-{
-    "preamble": {
-		"intro": [
-			{
-				"marrak": "welcome_welcome_stranger"
-			},
-			{
-				"marrak": "may_i_aid_you_in_any_way"
-			}
-		],
-        "goto": "root"
+[
+    {
+        "intro": [
+            {
+                "marrak": "welcome_welcome_stranger"
+            },
+            {
+                "marrak": "may_i_aid_you_in_any_way"
+            }
+        ],
+        "topic": "preamble"
     },
-	"root": {
-		"prompts": [
-			{
-				"ego": "greet_marrak",
-				"marrak": "i_am_well_and_fine_thank_you"
-			},
-			{
-				"ego": "ask_about_silmaria",
-				"response": [
-					{
-						"marrak": "this_city_can_be_confusing"
-					},
-					{
-						"marrak": "there_are_two_paths"
-					}
-				],
-				"goto": "about_silmaria"
-			},
-			{
-				"ego": "ask_about_the_food_stand",
-				"marrak": "ah_i_have_foods_of_all_types"
-			},
-			{
-				"ego": "ask_about_the_island",
-				"marrak": "the_island_of_marete"
-			},
-			{
-				"ego": "ask_about_marrak",
-				"marrak": "i_am_marrak_a_katta_from",
-				"goto": "about_marrak"
-			},
-			{
-				"ego": "tell_about_your_adventures",
-				"marrak": "so_you_are_a_friend_of_my_people"
-			},
-			{
-				"ego": "say_goodbye",
-				"marrak": "it_is_a_pleasure_to_meet_you"
-			}
-		]
-	},
-	"about_silmaria": {
-		"prompts": [
-			{
-				"ego": "ask_about_the_town_center",
-				"response": [
-					{
-						"marrak": "here_is_where_you_may"
-					},
-					{
-						"marrak": "you_might_also_save_your_money"
-					}
-				],
-				"goto": "about_town_center"
-			},
-			{
-				"ego": "ask_about_nob_hill",
-				"response": [
-					{
-						"marrak": "at_nob_hill_you_will_find"
-					},
-					{
-						"marrak": "many_of_the_wealthiest"
-					}
-				],
-				"goto": "about_nob_hill"
-			},
-			{
-				"ego": "ask_about_the_docks",
-				"marrak": "at_his_shop_beside_the_docks",
-				"goto": "about_the_docks"
-			},
-			{
-				"ego": "ask_about_the_west_gate",
-				"marrak": "at_the_west_end",
-				"goto": "about_west_gate"
-			}
-		]
-	},
-	"about_town_center": {
-		"prompts": [
-			{
-				"ego": "ask_about_the_bank",
-				"marrak": "the_bank_is_the_fine"
-			},
-			{
-				"ego": "ask_about_the_magic_shop",
-				"marrak": "do_not_be_dismayed_by_the_wizard"
-			},
-			{
-				"ego": "ask_about_the_apothecary",
-				"marrak": "the_apothecary_is_run"
-			}
-		]
-	},
-	"about_nob_hill": {
-		"prompts": [
-			{
-				"ego": "ask_about_the_spinning_hat",
-				"marrak": "i_suggest_you_go_up_to_nob_hill"
-			}
-		]
-	},
-	"about_the_docks": {
-		"prompts": [
-			{
-				"ego": "ask_about_the_weaponer",
-				"marrak": "pholus_is_a_centaur"
-			},
-			{
-				"ego": "ask_about_the_tavern",
-				"marrak": "the_dead_parrot_inn"
-			}
-		]
-	},
-	"about_west_gate": {
-		"prompts": [
-			{
-				"ego": "ask_about_the_gnome_inn",
-				"marrak": "ann_is_a_very_amusing_person"
-			}
-		]
-	},
-	"about_marrak": {
-		"prompts": [
-			{
-				"ego": "ask_about_marraks_family",
-				"marrak": "my_mate_and_beloved_is_sarra"
-			},
-			{
-				"ego": "ask_about_pleasures",
-				"marrak": "my_family_and_i_sell_joys"
-			},
-			{
-				"ego": "ask_about_kattas",
-				"marrak": "we_katta_are_a_desert_people"
-			},
-			{
-				"ego": "ask_about_rasier",
-				"response": [
-					{
-						"marrak": "several_years_ago_my_people"
-					},
-					{
-						"marrak": "i_have_heard_word_that_my_homeland"
-					}
-				],
-				"goto": "about_rasier"
-			}
-		]
-	},
-	"about_rasier": {
-		"prompts": [
-			{
-				"ego": "ask_about_the_hero",
-				"marrak": "it_has_been_said_that_a_mighty_hero"
-			},
-			{
-				"ego": "ask_about_the_woman",
-				"marrak": "the_new_ruler_of_rasier"
-			}
-		]
-	}
-}
+    {
+        "prompts": [
+            {
+                "ego": "greet_marrak",
+                "marrak": "i_am_well_and_fine_thank_you"
+            },
+            {
+                "ego": "ask_about_silmaria",
+                "response": [
+                    {
+                        "marrak": "this_city_can_be_confusing"
+                    },
+                    {
+                        "marrak": "there_are_two_paths"
+                    }
+                ],
+                "goto": "about_silmaria"
+            },
+            {
+                "ego": "ask_about_the_food_stand",
+                "marrak": "ah_i_have_foods_of_all_types"
+            },
+            {
+                "ego": "ask_about_the_island",
+                "marrak": "the_island_of_marete"
+            },
+            {
+                "ego": "ask_about_marrak",
+                "marrak": "i_am_marrak_a_katta_from",
+                "goto": "about_marrak"
+            },
+            {
+                "ego": "tell_about_your_adventures",
+                "marrak": "so_you_are_a_friend_of_my_people"
+            },
+            {
+                "ego": "say_goodbye",
+                "marrak": "it_is_a_pleasure_to_meet_you"
+            }
+        ],
+        "topic": "root"
+    },
+    {
+        "prompts": [
+            {
+                "ego": "ask_about_the_town_center",
+                "response": [
+                    {
+                        "marrak": "here_is_where_you_may"
+                    },
+                    {
+                        "marrak": "you_might_also_save_your_money"
+                    }
+                ],
+                "goto": "about_town_center"
+            },
+            {
+                "ego": "ask_about_nob_hill",
+                "response": [
+                    {
+                        "marrak": "at_nob_hill_you_will_find"
+                    },
+                    {
+                        "marrak": "many_of_the_wealthiest"
+                    }
+                ],
+                "goto": "about_nob_hill"
+            },
+            {
+                "ego": "ask_about_the_docks",
+                "marrak": "at_his_shop_beside_the_docks",
+                "goto": "about_the_docks"
+            },
+            {
+                "ego": "ask_about_the_west_gate",
+                "marrak": "at_the_west_end",
+                "goto": "about_west_gate"
+            }
+        ],
+        "topic": "about_silmaria"
+    },
+    {
+        "prompts": [
+            {
+                "ego": "ask_about_the_bank",
+                "marrak": "the_bank_is_the_fine"
+            },
+            {
+                "ego": "ask_about_the_magic_shop",
+                "marrak": "do_not_be_dismayed_by_the_wizard"
+            },
+            {
+                "ego": "ask_about_the_apothecary",
+                "marrak": "the_apothecary_is_run"
+            }
+        ],
+        "topic": "about_town_center"
+    },
+    {
+        "prompts": [
+            {
+                "ego": "ask_about_the_spinning_hat",
+                "marrak": "i_suggest_you_go_up_to_nob_hill"
+            }
+        ],
+        "topic": "about_nob_hill"
+    },
+    {
+        "prompts": [
+            {
+                "ego": "ask_about_the_weaponer",
+                "marrak": "pholus_is_a_centaur"
+            },
+            {
+                "ego": "ask_about_the_tavern",
+                "marrak": "the_dead_parrot_inn"
+            }
+        ],
+        "topic": "about_the_docks"
+    },
+    {
+        "prompts": [
+            {
+                "ego": "ask_about_the_gnome_inn",
+                "marrak": "ann_is_a_very_amusing_person"
+            }
+        ],
+        "topic": "about_west_gate"
+    },
+    {
+        "prompts": [
+            {
+                "ego": "ask_about_marraks_family",
+                "marrak": "my_mate_and_beloved_is_sarra"
+            },
+            {
+                "ego": "ask_about_pleasures",
+                "marrak": "my_family_and_i_sell_joys"
+            },
+            {
+                "ego": "ask_about_kattas",
+                "marrak": "we_katta_are_a_desert_people"
+            },
+            {
+                "ego": "ask_about_rasier",
+                "response": [
+                    {
+                        "marrak": "several_years_ago_my_people"
+                    },
+                    {
+                        "marrak": "i_have_heard_word_that_my_homeland"
+                    }
+                ],
+                "goto": "about_rasier"
+            }
+        ],
+        "topic": "about_marrak"
+    },
+    {
+        "prompts": [
+            {
+                "ego": "ask_about_the_hero",
+                "marrak": "it_has_been_said_that_a_mighty_hero"
+            },
+            {
+                "ego": "ask_about_the_woman",
+                "marrak": "the_new_ruler_of_rasier"
+            }
+        ],
+        "topic": "about_rasier"
+    }
+]

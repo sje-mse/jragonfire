@@ -1,116 +1,119 @@
-{
-    "preamble": {
-		"intro": [
-			{
-				"rakeesh": "greetings_my_friend_good_to_see"
-			},
-			{
-				"rakeesh": "you_left_behind"
-			},
-			{
-				"narrator": "rakeesh_hands_you_pin",
-				"actions": [
-					"inventory add katta_pin"
-				]
-			}
-		],
-        "goto": "root"
+[
+    {
+        "intro": [
+            {
+                "rakeesh": "greetings_my_friend_good_to_see"
+            },
+            {
+                "rakeesh": "you_left_behind"
+            },
+            {
+                "narrator": "rakeesh_hands_you_pin",
+                "actions": [
+                    "inventory add katta_pin"
+                ]
+            }
+        ],
+        "topic": "preamble"
     },
-	"root": {
-		"prompts": [
-			{
-				"ego": "greet_rakeesh",
-				"rakeesh": "i_am_pleased_to_see_you"
-			},
-			{
-				"ego": "ask_about_rakeesh",
-				"rakeesh": "i_was_summoned_here_by_my_son",
-				"goto": "about_rakeesh"
-			},
-			{
-				"ego": "ask_about_skills",
-				"response": [
-					{
-						"rakeesh": "there_is_an_invading_army"
-					},
-					{
-						"rakeesh": "however_the_mercenaries"
-					}
-				]
-			},
-			{
-				"ego": "ask_about_heroism",
-				"response": [
-					{
-						"rakeesh": "there_are_very_disturbing_signs"
-					},
-					{
-						"rakeesh": "fortunately_for_silmaria"
-					}
-				]
-			},
-			{
-				"ego": "ask_about_logos",
-				"rakeesh": "the_centaur_and_i",
-				"goto": "about_logos"
-			},
-			{
-				"ego": "ask_about_assassin",
-				"response": [
-					{
-						"rakeesh": "i_arrived_not_long_after"
-					},
-					{
-						"rakeesh": "shakra_says_that_magic_was_used"
-					},
-					{
-						"rakeesh": "the_poison_the_assassin_used"
-					}
-				]
-			},
-			{
-				"ego": "tell_about_your_adventures_in_mordavia",
-				"rakeesh": "it_is_for_the_best"
-			},
-			{
-				"ego": "say_goodbye",
-				"rakeesh": "enjoy_this_city"
-			}
-		]
-	},
-	"about_rakeesh": {
-		"prompts": [
-			{
-				"ego": "ask_about_shakra",
-				"rakeesh": "shakra_has_his_own_magic_shop"
-			},
-			{
-				"ego": "ask_about_tarna",
-				"rakeesh": "tarna_is_enjoying_the_peace"
-			},
-			{
-				"ego": "ask_about_kreesha",
-				"rakeesh": "kreesha_has_a_new_apprentice"
-			}
-		]
-	},
-	"about_logos": {
-		"prompts": [
-			{
-				"ego": "ask_about_king",
-				"response": [
-					{
-						"rakeesh": "king_justinian_was_a_good_ruler"
-					},
-					{
-						"rakeesh": "now_a_new_king"
-					}
-				]
-			},
-			{
-				"ego": "ask_about_rites_of_rulership",
-				"rakeesh": "the_rites_of_rulership_are_a_series"
-			}
-		]
-	}
-}
+    {
+        "prompts": [
+            {
+                "ego": "greet_rakeesh",
+                "rakeesh": "i_am_pleased_to_see_you"
+            },
+            {
+                "ego": "ask_about_rakeesh",
+                "rakeesh": "i_was_summoned_here_by_my_son",
+                "goto": "about_rakeesh"
+            },
+            {
+                "ego": "ask_about_skills",
+                "response": [
+                    {
+                        "rakeesh": "there_is_an_invading_army"
+                    },
+                    {
+                        "rakeesh": "however_the_mercenaries"
+                    }
+                ]
+            },
+            {
+                "ego": "ask_about_heroism",
+                "response": [
+                    {
+                        "rakeesh": "there_are_very_disturbing_signs"
+                    },
+                    {
+                        "rakeesh": "fortunately_for_silmaria"
+                    }
+                ]
+            },
+            {
+                "ego": "ask_about_logos",
+                "rakeesh": "the_centaur_and_i",
+                "goto": "about_logos"
+            },
+            {
+                "ego": "ask_about_assassin",
+                "response": [
+                    {
+                        "rakeesh": "i_arrived_not_long_after"
+                    },
+                    {
+                        "rakeesh": "shakra_says_that_magic_was_used"
+                    },
+                    {
+                        "rakeesh": "the_poison_the_assassin_used"
+                    }
+                ]
+            },
+            {
+                "ego": "tell_about_your_adventures_in_mordavia",
+                "rakeesh": "it_is_for_the_best"
+            },
+            {
+                "ego": "say_goodbye",
+                "rakeesh": "enjoy_this_city"
+            }
+        ],
+        "topic": "root"
+    },
+    {
+        "prompts": [
+            {
+                "ego": "ask_about_shakra",
+                "rakeesh": "shakra_has_his_own_magic_shop"
+            },
+            {
+                "ego": "ask_about_tarna",
+                "rakeesh": "tarna_is_enjoying_the_peace"
+            },
+            {
+                "ego": "ask_about_kreesha",
+                "rakeesh": "kreesha_has_a_new_apprentice"
+            }
+        ],
+        "topic": "about_rakeesh"
+    },
+    {
+        "prompts": [
+            {
+                "ego": "ask_about_king",
+                "response": [
+                    {
+                        "rakeesh": "king_justinian_was_a_good_ruler"
+                    },
+                    {
+                        "rakeesh": "now_a_new_king"
+                    }
+                ]
+            },
+            {
+                "ego": "ask_about_rites_of_rulership",
+                "rakeesh": "the_rites_of_rulership_are_a_series"
+            }
+        ],
+        "topic": "about_logos"
+    }
+]

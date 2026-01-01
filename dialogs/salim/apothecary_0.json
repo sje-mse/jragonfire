@@ -1,18 +1,19 @@
-{
-	"root": {
-		"intro": [
-			{
-				"salim": "oh_julanar_look"
-			},
-			{
-				"salim": "i_cant_tell_you"
-			},
-			{
-				"julanar": "welcome_to_our_apothecary"
-			},
-			{
-				"salim": "oh_thats_right_tree"
-			}
-		]
-	}
-}
+[
+    {
+        "intro": [
+            {
+                "salim": "oh_julanar_look"
+            },
+            {
+                "salim": "i_cant_tell_you"
+            },
+            {
+                "julanar": "welcome_to_our_apothecary"
+            },
+            {
+                "salim": "oh_thats_right_tree"
+            }
+        ],
+        "topic": "root"
+    }
+]

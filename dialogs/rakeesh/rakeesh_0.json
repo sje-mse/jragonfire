@@ -1,51 +1,52 @@
-{
-	"root": {
-		"prompts": [
-			{
-				"ego": "greet_rakeesh",
-				"rakeesh": "it_is_a_pleasure"
-			},
-			{
-				"ego": "ask_about_rakeesh",
-				"rakeesh": "i_am_well_and_fine"
-			},
-			{
-				"ego": "ask_about_logos",
-				"response": [
-					{
-						"rakeesh": "logos_and_i"
-					},
-					{
-						"logos": "i_had_journeyed"
-					},
-					{
-						"rakeesh": "when_he_contacted"
-					}
-				]
-			},
-			{
-				"ego": "ask_about_rite_of_rulership",
-				"rakeesh": "the_rites_of_rulership"
-			},
-			{
-				"ego": "ask_about_erana",
-				"response": [
-					{
-						"narrator": "you_tell_how_you_freed"
-					},
-					{
-						"rakeesh": "i_sorrow"
-					}
-				]
-			},
-			{
-				"ego": "ask_about_silmaria",
-				"rakeesh": "silmaria_is_a_lovely"
-			},
-			{
-				"ego": "say_goodbye",
-				"rakeesh": "i_will_see_you_soon"
-			}
-		]
-	}
-}
+[
+    {
+        "prompts": [
+            {
+                "ego": "greet_rakeesh",
+                "rakeesh": "it_is_a_pleasure"
+            },
+            {
+                "ego": "ask_about_rakeesh",
+                "rakeesh": "i_am_well_and_fine"
+            },
+            {
+                "ego": "ask_about_logos",
+                "response": [
+                    {
+                        "rakeesh": "logos_and_i"
+                    },
+                    {
+                        "logos": "i_had_journeyed"
+                    },
+                    {
+                        "rakeesh": "when_he_contacted"
+                    }
+                ]
+            },
+            {
+                "ego": "ask_about_rite_of_rulership",
+                "rakeesh": "the_rites_of_rulership"
+            },
+            {
+                "ego": "ask_about_erana",
+                "response": [
+                    {
+                        "narrator": "you_tell_how_you_freed"
+                    },
+                    {
+                        "rakeesh": "i_sorrow"
+                    }
+                ]
+            },
+            {
+                "ego": "ask_about_silmaria",
+                "rakeesh": "silmaria_is_a_lovely"
+            },
+            {
+                "ego": "say_goodbye",
+                "rakeesh": "i_will_see_you_soon"
+            }
+        ],
+        "topic": "root"
+    }
+]

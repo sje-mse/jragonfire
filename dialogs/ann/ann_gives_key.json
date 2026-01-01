@@ -1,9 +1,10 @@
-{
-	"root": {
-		"intro": [
-			{
-				"ann": "if_you_want_to"
-			}
-		]
-	}
-}
+[
+    {
+        "intro": [
+            {
+                "ann": "if_you_want_to"
+            }
+        ],
+        "topic": "root"
+    }
+]

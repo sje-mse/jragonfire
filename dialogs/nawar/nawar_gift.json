@@ -1,12 +1,13 @@
-{
-	"root": {
-		"intro": [
-			{
-				"nawar": "mmm_you_sure"
-			},
-			{
-				"budar": "thats_not_all_nawar"
-			}
-		]
-	}
-}
+[
+    {
+        "intro": [
+            {
+                "nawar": "mmm_you_sure"
+            },
+            {
+                "budar": "thats_not_all_nawar"
+            }
+        ],
+        "topic": "root"
+    }
+]

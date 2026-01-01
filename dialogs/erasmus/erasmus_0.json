@@ -1,27 +1,28 @@
-{
-	"root": {
-		"intro": [
-			{
-				"erasmus": "so_dear_boy"
-			},
-			{
-				"erasmus": "the_former_king"
-			},
-			{
-				"erasmus": "silmaria_needs_up"
-			},
-			{
-				"erasmus": "we_would_like_you"
-			},
-			{
-				"erasmus": "if_you_choose"
-			},
-			{
-				"erasmus": "you_will_enjoy"
-			},
-			{
-				"erasmus": "ive_arranged"
-			}
-		]
-	}
-}
+[
+    {
+        "intro": [
+            {
+                "erasmus": "so_dear_boy"
+            },
+            {
+                "erasmus": "the_former_king"
+            },
+            {
+                "erasmus": "silmaria_needs_up"
+            },
+            {
+                "erasmus": "we_would_like_you"
+            },
+            {
+                "erasmus": "if_you_choose"
+            },
+            {
+                "erasmus": "you_will_enjoy"
+            },
+            {
+                "erasmus": "ive_arranged"
+            }
+        ],
+        "topic": "root"
+    }
+]

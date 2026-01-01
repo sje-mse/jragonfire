@@ -1,65 +1,66 @@
-{
-	"root": {
-		"intro": [
-			{
-				"ferrari": "greetings_i_am_senor"
-			},
-			{
-				"ferrari": "youve_made_quite"
-			},
-			{
-				"ferrari": "i_am_the_owner"
-			}
-		],
-		"prompts": [
-			{
-				"ego": "greet_senor_ferrari",
-				"ferrari": "it_is_always_a_pleasure"
-			},
-			{
-				"ego": "ask_about_ferrari",
-				"ferrari": "i_was_forced"
-			},
-			{
-				"ego": "ask_about_inn",
-				"response": [
-					{
-						"ferrari": "the_dead_parrot_inn_is"
-					},
-					{
-						"ferrari": "if_you_are_lucky"
-					},
-					{
-						"ferrari": "all_in_all"
-					}
-				]
-			},
-			{
-				"ego": "ask_about_silmaria",
-				"response": [
-					{
-						"ferrari": "silmaria_reminds_me"
-					},
-					{
-						"ferrari": "how_fortunate"
-					}
-				]
-			},
-			{
-				"ego": "ask_about_ugarte",
-				"response": [
-					{
-						"ferrari": "ugarte_has_his_uses"
-					},
-					{
-						"ugarte": "i_am_a_businessman_and"
-					}
-				]
-			},
-			{
-				"ego": "say_goodbye",
-				"ferrari": "ha_ha_it_is_good_again"
-			}
-		]
-	}
-}
+[
+    {
+        "intro": [
+            {
+                "ferrari": "greetings_i_am_senor"
+            },
+            {
+                "ferrari": "youve_made_quite"
+            },
+            {
+                "ferrari": "i_am_the_owner"
+            }
+        ],
+        "prompts": [
+            {
+                "ego": "greet_senor_ferrari",
+                "ferrari": "it_is_always_a_pleasure"
+            },
+            {
+                "ego": "ask_about_ferrari",
+                "ferrari": "i_was_forced"
+            },
+            {
+                "ego": "ask_about_inn",
+                "response": [
+                    {
+                        "ferrari": "the_dead_parrot_inn_is"
+                    },
+                    {
+                        "ferrari": "if_you_are_lucky"
+                    },
+                    {
+                        "ferrari": "all_in_all"
+                    }
+                ]
+            },
+            {
+                "ego": "ask_about_silmaria",
+                "response": [
+                    {
+                        "ferrari": "silmaria_reminds_me"
+                    },
+                    {
+                        "ferrari": "how_fortunate"
+                    }
+                ]
+            },
+            {
+                "ego": "ask_about_ugarte",
+                "response": [
+                    {
+                        "ferrari": "ugarte_has_his_uses"
+                    },
+                    {
+                        "ugarte": "i_am_a_businessman_and"
+                    }
+                ]
+            },
+            {
+                "ego": "say_goodbye",
+                "ferrari": "ha_ha_it_is_good_again"
+            }
+        ],
+        "topic": "root"
+    }
+]

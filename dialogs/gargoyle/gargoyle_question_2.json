@@ -1,46 +1,47 @@
-{
-	"root": {
-		"intro": [
-			{
-				"gargoyle": "what_is_your_quest"
-			}
-		],
-		"prompts": [
-			{
-				"ego": "to_save_silmaria",
-				"gargoyle": "wrong",
-				"actions": [
-					"teleport erasmus_garden"
-				]
-			},
-			{
-				"ego": "to_save_money",
-				"gargoyle": "wrong",
-				"actions": [
-					"teleport erasmus_garden"
-				]
-			},
-			{
-				"ego": "to_rule_the_world",
-				"gargoyle": "wrong",
-				"actions": [
-					"teleport erasmus_garden"
-				]
-			},
-			{
-				"ego": "to_find_the_perfect",
-				"gargoyle": "wrong",
-				"actions": [
-					"teleport erasmus_garden"
-				]
-			},
-			{
-				"ego": "to_boldly_go",
-				"gargoyle": "wrong",
-				"actions": [
-					"teleport erasmus_garden"
-				]
-			}
-		]
-	}
-}
+[
+    {
+        "intro": [
+            {
+                "gargoyle": "what_is_your_quest"
+            }
+        ],
+        "prompts": [
+            {
+                "ego": "to_save_silmaria",
+                "gargoyle": "wrong",
+                "actions": [
+                    "teleport erasmus_garden"
+                ]
+            },
+            {
+                "ego": "to_save_money",
+                "gargoyle": "wrong",
+                "actions": [
+                    "teleport erasmus_garden"
+                ]
+            },
+            {
+                "ego": "to_rule_the_world",
+                "gargoyle": "wrong",
+                "actions": [
+                    "teleport erasmus_garden"
+                ]
+            },
+            {
+                "ego": "to_find_the_perfect",
+                "gargoyle": "wrong",
+                "actions": [
+                    "teleport erasmus_garden"
+                ]
+            },
+            {
+                "ego": "to_boldly_go",
+                "gargoyle": "wrong",
+                "actions": [
+                    "teleport erasmus_garden"
+                ]
+            }
+        ],
+        "topic": "root"
+    }
+]

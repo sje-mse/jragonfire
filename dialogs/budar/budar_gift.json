@@ -1,12 +1,13 @@
-{
-	"root": {
-		"intro": [
-			{
-				"budar": "i_like_a_man_who_knows_how"
-			},
-			{
-				"nawar": "budar_you_like"
-			}
-		]
-	}
-}
+[
+    {
+        "intro": [
+            {
+                "budar": "i_like_a_man_who_knows_how"
+            },
+            {
+                "nawar": "budar_you_like"
+            }
+        ],
+        "topic": "root"
+    }
+]

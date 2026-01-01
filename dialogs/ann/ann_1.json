@@ -1,23 +1,24 @@
-{
-	"root": {
-		"intro": [
-			{
-				"ann": "aloha_boy"
-			}
-		],
-		"prompts": [
-			{
-				"ego": "ask_about_ann",
-				"ann": "its_funny_honey"
-			},
-			{
-				"ego": "ask_about_inn",
-				"ann": "im_really_inn"
-			},
-			{
-				"ego": "say_goodbye",
-				"ann": "take_it_easy"
-			}
-		]
-	}
-}
+[
+    {
+        "intro": [
+            {
+                "ann": "aloha_boy"
+            }
+        ],
+        "prompts": [
+            {
+                "ego": "ask_about_ann",
+                "ann": "its_funny_honey"
+            },
+            {
+                "ego": "ask_about_inn",
+                "ann": "im_really_inn"
+            },
+            {
+                "ego": "say_goodbye",
+                "ann": "take_it_easy"
+            }
+        ],
+        "topic": "root"
+    }
+]

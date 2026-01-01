@@ -1,113 +1,116 @@
-{
-    "preamble": {
-		"intro": [
-			{
-				"wolfie": "greetings_greetings_greetings"
-			}
-		],
-        "goto": "root"
+[
+    {
+        "intro": [
+            {
+                "wolfie": "greetings_greetings_greetings"
+            }
+        ],
+        "topic": "preamble"
     },
-	"root": {
-		"prompts": [
-			{
-				"ego": "greet_merchant",
-				"wolfie": "it_is_most_genuinely"
-			},
-			{
-				"ego": "ask_about_amphorae",
-				"wolfie": "an_amphora_is_a_grecian_urn"
-			},
-			{
-				"ego": "whats_a_grecian_urn",
-				"wolfie": "are_we_speaking_union"
-			},
-			{
-				"ego": "ask_about_silmaria",
-				"response": [
-					{
-						"wolfie": "silmaria_is_a_very_fine_city"
-					},
-					{
-						"wolfie": "at_the_docks"
-					},
-					{
-						"wolfie": "i_am_not_much_up"
-					},
-					{
-						"wolfie": "i_have_even_made_a_visit"
-					},
-					{
-						"wolfie": "i_think_you_will_be_very_happy"
-					},
-					{
-						"wolfie": "all_in_all"
-					}
-				],
-				"goto": "about_silmaria"
-			},
-			{
-				"ego": "ask_about_wolfie",
-				"response": [
-					{
-						"wolfie": "you_wish_to_know_more"
-					},
-					{
-						"wolfie": "i_am_skilled"
-					}
-				],
-				"goto": "about_wolfie"
-			},
-			{
-				"ego": "tell_about_yourself",
-				"wolfie": "oh_my_goodness"
-			},
-			{
-				"ego": "say_goodbye",
-				"wolfie": "as_they_would_say"
-			}
-		]
-	},
-	"about_silmaria": {
-		"prompts": [
-			{
-				"ego": "ask_about_soldiers",
-				"wolfie": "it_is_said_that_the_countryside"
-			},
-			{
-				"ego": "ask_about_war",
-				"wolfie": "the_sea_people"
-			},
-			{
-				"ego": "ask_about_thieves",
-				"response": [
-					{
-						"wolfie": "this_was_once"
-					},
-					{
-						"wolfie": "i_have_heard_that_these_thieves"
-					}
-				]
-			},
-			{
-				"ego": "ask_about_the_assassin",
-				"wolfie": "the_king_of_silmaria"
-			}
-		]
-	},
-	"about_wolfie": {
-		"prompts": [
-			{
-				"ego": "ask_about_art",
-				"wolfie": "i_am_making_these"
-			},
-			{
-				"ego": "ask_about_canines",
-				"wolfie": "my_people_are_cunning"
-			},
-			{
-				"ego": "ask_about_punjabi",
-				"wolfie": "punjabi"
-			}
-		]
-	}
-}
+    {
+        "prompts": [
+            {
+                "ego": "greet_merchant",
+                "wolfie": "it_is_most_genuinely"
+            },
+            {
+                "ego": "ask_about_amphorae",
+                "wolfie": "an_amphora_is_a_grecian_urn"
+            },
+            {
+                "ego": "whats_a_grecian_urn",
+                "wolfie": "are_we_speaking_union"
+            },
+            {
+                "ego": "ask_about_silmaria",
+                "response": [
+                    {
+                        "wolfie": "silmaria_is_a_very_fine_city"
+                    },
+                    {
+                        "wolfie": "at_the_docks"
+                    },
+                    {
+                        "wolfie": "i_am_not_much_up"
+                    },
+                    {
+                        "wolfie": "i_have_even_made_a_visit"
+                    },
+                    {
+                        "wolfie": "i_think_you_will_be_very_happy"
+                    },
+                    {
+                        "wolfie": "all_in_all"
+                    }
+                ],
+                "goto": "about_silmaria"
+            },
+            {
+                "ego": "ask_about_wolfie",
+                "response": [
+                    {
+                        "wolfie": "you_wish_to_know_more"
+                    },
+                    {
+                        "wolfie": "i_am_skilled"
+                    }
+                ],
+                "goto": "about_wolfie"
+            },
+            {
+                "ego": "tell_about_yourself",
+                "wolfie": "oh_my_goodness"
+            },
+            {
+                "ego": "say_goodbye",
+                "wolfie": "as_they_would_say"
+            }
+        ],
+        "topic": "root"
+    },
+    {
+        "prompts": [
+            {
+                "ego": "ask_about_soldiers",
+                "wolfie": "it_is_said_that_the_countryside"
+            },
+            {
+                "ego": "ask_about_war",
+                "wolfie": "the_sea_people"
+            },
+            {
+                "ego": "ask_about_thieves",
+                "response": [
+                    {
+                        "wolfie": "this_was_once"
+                    },
+                    {
+                        "wolfie": "i_have_heard_that_these_thieves"
+                    }
+                ]
+            },
+            {
+                "ego": "ask_about_the_assassin",
+                "wolfie": "the_king_of_silmaria"
+            }
+        ],
+        "topic": "about_silmaria"
+    },
+    {
+        "prompts": [
+            {
+                "ego": "ask_about_art",
+                "wolfie": "i_am_making_these"
+            },
+            {
+                "ego": "ask_about_canines",
+                "wolfie": "my_people_are_cunning"
+            },
+            {
+                "ego": "ask_about_punjabi",
+                "wolfie": "punjabi"
+            }
+        ],
+        "topic": "about_wolfie"
+    }
+]

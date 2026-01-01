@@ -1,64 +1,65 @@
-{
-	"root": {
-		"intro": [
-			{
-				"erasmus": "greetings_my_friend"
-			}
-		],
-		"prompts": [
-			{
-				"ego": "ask_about_silmaria",
-				"response": [
-					{
-						"erasmus": "since_all_the_troubles"
-					},
-					{
-						"fenris": "hey_i_resent"
-					},
-					{
-						"fenris": "im_a_member"
-					}
-				]
-			},
-			{
-				"ego": "ask_about_the_rites_of_rulership",
-				"response": [
-					{
-						"erasmus": "the_rites_of_rulership"
-					},
-					{
-						"fenris": "he_who_quests"
-					}
-				]
-			},
-			{
-				"ego": "ask_for_a_joke",
-				"response": [
-					{
-						"erasmus": "would_you_like_to_hear"
-					},
-					{
-						"erasmus": "what_style"
-					},
-					{
-						"fenris": "i_didnt_know"
-					},
-					{
-						"erasmus": "of_course_she_can"
-					}
-				]
-			},
-			{
-				"ego": "say_goodbye",
-				"response": [
-					{
-						"erasmus": "leaving_so_soon"
-					},
-					{
-						"fenris": "gotta_go_hero"
-					}
-				]
-			}
-		]
-	}
-}
+[
+    {
+        "intro": [
+            {
+                "erasmus": "greetings_my_friend"
+            }
+        ],
+        "prompts": [
+            {
+                "ego": "ask_about_silmaria",
+                "response": [
+                    {
+                        "erasmus": "since_all_the_troubles"
+                    },
+                    {
+                        "fenris": "hey_i_resent"
+                    },
+                    {
+                        "fenris": "im_a_member"
+                    }
+                ]
+            },
+            {
+                "ego": "ask_about_the_rites_of_rulership",
+                "response": [
+                    {
+                        "erasmus": "the_rites_of_rulership"
+                    },
+                    {
+                        "fenris": "he_who_quests"
+                    }
+                ]
+            },
+            {
+                "ego": "ask_for_a_joke",
+                "response": [
+                    {
+                        "erasmus": "would_you_like_to_hear"
+                    },
+                    {
+                        "erasmus": "what_style"
+                    },
+                    {
+                        "fenris": "i_didnt_know"
+                    },
+                    {
+                        "erasmus": "of_course_she_can"
+                    }
+                ]
+            },
+            {
+                "ego": "say_goodbye",
+                "response": [
+                    {
+                        "erasmus": "leaving_so_soon"
+                    },
+                    {
+                        "fenris": "gotta_go_hero"
+                    }
+                ]
+            }
+        ],
+        "topic": "root"
+    }
+]

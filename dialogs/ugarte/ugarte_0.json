@@ -1,33 +1,34 @@
-{
-	"root": {
-		"prompts": [
-			{
-				"ego": "greet_ugarte",
-				"ugarte": "it_is_good"
-			},
-			{
-				"ego": "ask_about_ugarte",
-				"ugarte": "i_am_doing"
-			},
-			{
-				"ego": "ask_about_silmaria",
-				"ugarte": "silmaria_has_her"
-			},
-			{
-				"ego": "ask_about_rumors",
-				"response": [
-					{
-						"ugarte": "you_wish_to_know"
-					},
-					{
-						"ugarte": "there_is_talk_that_there"
-					}
-				]
-			},
-			{
-				"ego": "say_goodbye",
-				"ugarte": "farewell_my_friend"
-			}
-		]
-	}
-}
+[
+    {
+        "prompts": [
+            {
+                "ego": "greet_ugarte",
+                "ugarte": "it_is_good"
+            },
+            {
+                "ego": "ask_about_ugarte",
+                "ugarte": "i_am_doing"
+            },
+            {
+                "ego": "ask_about_silmaria",
+                "ugarte": "silmaria_has_her"
+            },
+            {
+                "ego": "ask_about_rumors",
+                "response": [
+                    {
+                        "ugarte": "you_wish_to_know"
+                    },
+                    {
+                        "ugarte": "there_is_talk_that_there"
+                    }
+                ]
+            },
+            {
+                "ego": "say_goodbye",
+                "ugarte": "farewell_my_friend"
+            }
+        ],
+        "topic": "root"
+    }
+]

@@ -1,78 +1,81 @@
-{
-    "preamble": {
-		"intro": [
-			{
-				"sarra": "greetings_wanderer_from_afar"
-			},
-			{
-				"sarra": "i_am_sarra_a_katta"
-			}
-		],
-        "goto": "root"
+[
+    {
+        "intro": [
+            {
+                "sarra": "greetings_wanderer_from_afar"
+            },
+            {
+                "sarra": "i_am_sarra_a_katta"
+            }
+        ],
+        "topic": "preamble"
     },
-	"root": {
-		"prompts": [
-			{
-				"ego": "greet_the_merchant",
-				"sarra": "welcome_again_and_thrice"
-			},
-			{
-				"ego": "ask_about_kattas",
-				"sarra": "we_are_the_children",
-				"goto": "about_kattas"
-			},
-			{
-				"ego": "ask_about_merchandise",
-				"sarra": "i_am_the_seller"
-			},
-			{
-				"ego": "ask_about_sarra",
-				"sarra": "i_am_most_well"
-			},
-			{
-				"ego": "ask_about_silmaria",
-				"sarra": "this_is_a_beautiful_city"
-			},
-			{
-				"ego": "ask_about_rumors",
-				"sarra": "there_is_word_said_that_a_hero",
-				"goto": "about_rumors"
-			},
-			{
-				"ego": "tell_about_your_adventures_in_shapeir",
-				"sarra": "so_you_are_the_prince"
-			},
-			{
-				"ego": "say_goodbye",
-				"sarra": "may_you_find_in_this_land"
-			}
-		]
-	},
-	"about_kattas": {
-		"prompts": [
-			{
-				"ego": "ask_about_marrak",
-				"sarra": "my_lifemate_marrak"
-			},
-			{
-				"ego": "ask_about_salla",
-				"response": [
-					{
-						"sarra": "salla_is_still_but_a_kitten"
-					},
-					{
-						"sarra": "however_she_is_shy"
-					}
-				]
-			}
-		]
-	},
-	"about_rumors": {
-		"prompts": [
-			{
-				"ego": "ask_about_invaders",
-				"sarra": "the_countryside_has_been_overwhelmed"
-			}
-		]
-	}
-}
+    {
+        "prompts": [
+            {
+                "ego": "greet_the_merchant",
+                "sarra": "welcome_again_and_thrice"
+            },
+            {
+                "ego": "ask_about_kattas",
+                "sarra": "we_are_the_children",
+                "goto": "about_kattas"
+            },
+            {
+                "ego": "ask_about_merchandise",
+                "sarra": "i_am_the_seller"
+            },
+            {
+                "ego": "ask_about_sarra",
+                "sarra": "i_am_most_well"
+            },
+            {
+                "ego": "ask_about_silmaria",
+                "sarra": "this_is_a_beautiful_city"
+            },
+            {
+                "ego": "ask_about_rumors",
+                "sarra": "there_is_word_said_that_a_hero",
+                "goto": "about_rumors"
+            },
+            {
+                "ego": "tell_about_your_adventures_in_shapeir",
+                "sarra": "so_you_are_the_prince"
+            },
+            {
+                "ego": "say_goodbye",
+                "sarra": "may_you_find_in_this_land"
+            }
+        ],
+        "topic": "root"
+    },
+    {
+        "prompts": [
+            {
+                "ego": "ask_about_marrak",
+                "sarra": "my_lifemate_marrak"
+            },
+            {
+                "ego": "ask_about_salla",
+                "response": [
+                    {
+                        "sarra": "salla_is_still_but_a_kitten"
+                    },
+                    {
+                        "sarra": "however_she_is_shy"
+                    }
+                ]
+            }
+        ],
+        "topic": "about_kattas"
+    },
+    {
+        "prompts": [
+            {
+                "ego": "ask_about_invaders",
+                "sarra": "the_countryside_has_been_overwhelmed"
+            }
+        ],
+        "topic": "about_rumors"
+    }
+]

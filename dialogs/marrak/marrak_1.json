@@ -1,65 +1,66 @@
-{
-	"root": {
-		"intro": [
-			{
-				"marrak": "welcome_may_i_entice"
-			}
-		],
-		"prompts": [
-			{
-				"ego": "greet_marrak",
-				"marrak": "what_can_i_sell_to_you_today"
-			},
-			{
-				"ego": "ask_about_marrak",
-				"cycle": [
-					{
-						"marrak": "i_remember_the_days"
-					},
-					{
-						"marrak": "it_is_a_pleasant_day_for_basking"
-					},
-					{
-						"marrak": "there_is_nothing_quite_like"
-					},
-					{
-						"marrak": "the_wind_is_brisk_today"
-					},
-					{
-						"marrak": "the_cold_wind"
-					},
-					{
-						"marrak": "i_am_very_well_this_day"
-					}
-				]
-			},
-			{
-				"ego": "ask_about_rumors",
-				"cycle": [
-					{
-						"marrak": "they_say_that_after_the_king_died"
-					},
-					{
-						"marrak": "a_few_years_back"
-					},
-					{
-						"marrak": "there_is_talk_that_the_woman"
-					},
-					{
-						"marrak": "many_of_the_people"
-					},
-					{
-						"marrak": "one_year_ago"
-					},
-					{
-						"marrak": "most_of_the_merchants"
-					}
-				]
-			},
-			{
-				"ego": "say_goodbye",
-				"marrak": "may_your_day_be_filled"
-			}
-		]
-	}
-}
+[
+    {
+        "intro": [
+            {
+                "marrak": "welcome_may_i_entice"
+            }
+        ],
+        "prompts": [
+            {
+                "ego": "greet_marrak",
+                "marrak": "what_can_i_sell_to_you_today"
+            },
+            {
+                "ego": "ask_about_marrak",
+                "cycle": [
+                    {
+                        "marrak": "i_remember_the_days"
+                    },
+                    {
+                        "marrak": "it_is_a_pleasant_day_for_basking"
+                    },
+                    {
+                        "marrak": "there_is_nothing_quite_like"
+                    },
+                    {
+                        "marrak": "the_wind_is_brisk_today"
+                    },
+                    {
+                        "marrak": "the_cold_wind"
+                    },
+                    {
+                        "marrak": "i_am_very_well_this_day"
+                    }
+                ]
+            },
+            {
+                "ego": "ask_about_rumors",
+                "cycle": [
+                    {
+                        "marrak": "they_say_that_after_the_king_died"
+                    },
+                    {
+                        "marrak": "a_few_years_back"
+                    },
+                    {
+                        "marrak": "there_is_talk_that_the_woman"
+                    },
+                    {
+                        "marrak": "many_of_the_people"
+                    },
+                    {
+                        "marrak": "one_year_ago"
+                    },
+                    {
+                        "marrak": "most_of_the_merchants"
+                    }
+                ]
+            },
+            {
+                "ego": "say_goodbye",
+                "marrak": "may_your_day_be_filled"
+            }
+        ],
+        "topic": "root"
+    }
+]

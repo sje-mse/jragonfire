@@ -16,7 +16,7 @@ from env_paths import (
 
 from verify_dialogs import (
     ACTIONS_KEY,
-    SUBDIALOG_DELIMITER,
+    TOPIC_DELIMITER,
     read_all_dialogs,
     read_all_lines,
     verify_dialog,
@@ -24,7 +24,8 @@ from verify_dialogs import (
 
 GO_TO_PREVIOUS = "go_to_previous"
 TMP_PATH = "tmp.xml"
-ROOT_SUFFIX = "_root"
+ROOT_SUFFIX = "{}root".format(TOPIC_DELIMITER)
+PREAMBLE_SUFFIX = "{}preamble".format(TOPIC_DELIMITER)
 
 class LineCache:
     def __init__(self):
@@ -109,7 +110,7 @@ def export_option(option_id, line, ofile):
     ofile.write('                  </DialogOption>\n')
 
 def get_goto_cmd(dialog_name, target):
-    return 'goto-dialog d{}{}{}\n'.format(dialog_name.split(SUBDIALOG_DELIMITER)[0].title(), SUBDIALOG_DELIMITER, target.title())
+    return 'goto-dialog d{}{}{}\n'.format(dialog_name.split(TOPIC_DELIMITER)[0].title(), TOPIC_DELIMITER, target.title())
 
 def export_dialog(id_count, name, dialog, lines, cache, ofile):
     ofile.write('              <Dialog>\n')
@@ -122,8 +123,8 @@ def export_dialog(id_count, name, dialog, lines, cache, ofile):
         ofile.write('@S  // Dialog startup entry point\n')
         for response in dialog["intro"]:
             export_response(response, lines, cache, ofile)
-        if "goto" in dialog:
-            ofile.write(get_goto_cmd(name, dialog["goto"]))
+        if name.endswith(PREAMBLE_SUFFIX):
+            ofile.write(get_goto_cmd(name, "root"))
         else:
             ofile.write('return\n')
 

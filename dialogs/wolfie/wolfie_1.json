@@ -1,65 +1,66 @@
-{
-	"root": {
-		"intro": [
-			{
-				"wolfie": "namaste_and_may"
-			}
-		],
-		"prompts": [
-			{
-				"ego": "greet_wolfie",
-				"wolfie": "welcome_very_much"
-			},
-			{
-				"ego": "ask_about_wolfie",
-				"cycle": [
-					{
-						"wolfie": "business_has_been_rather_slow"
-					},
-					{
-						"wolfie": "i_am_good_and_happy"
-					},
-					{
-						"wolfie": "things_are_very_sunny"
-					},
-					{
-						"wolfie": "i_am_thinking_that_i_am_getting_fleas"
-					},
-					{
-						"wolfie": "my_mouth_waters"
-					},
-					{
-						"wolfie": "very_good_i_am_feeling"
-					}
-				]
-			},
-			{
-				"ego": "ask_about_rumors",
-				"cycle": [
-					{
-						"wolfie": "let_me_be_thinking"
-					},
-					{
-						"wolfie": "i_have_heard_that_the_second"
-					},
-					{
-						"wolfie": "it_is_said_that_the_one"
-					},
-					{
-						"wolfie": "the_two_who_run"
-					},
-					{
-						"wolfie": "there_is_talk_that_you"
-					},
-					{
-						"wolfie": "there_are_many_people"
-					}
-				]
-			},
-			{
-				"ego": "say_goodbye",
-				"wolfie": "be_very_careful"
-			}
-		]
-	}
-}
+[
+    {
+        "intro": [
+            {
+                "wolfie": "namaste_and_may"
+            }
+        ],
+        "prompts": [
+            {
+                "ego": "greet_wolfie",
+                "wolfie": "welcome_very_much"
+            },
+            {
+                "ego": "ask_about_wolfie",
+                "cycle": [
+                    {
+                        "wolfie": "business_has_been_rather_slow"
+                    },
+                    {
+                        "wolfie": "i_am_good_and_happy"
+                    },
+                    {
+                        "wolfie": "things_are_very_sunny"
+                    },
+                    {
+                        "wolfie": "i_am_thinking_that_i_am_getting_fleas"
+                    },
+                    {
+                        "wolfie": "my_mouth_waters"
+                    },
+                    {
+                        "wolfie": "very_good_i_am_feeling"
+                    }
+                ]
+            },
+            {
+                "ego": "ask_about_rumors",
+                "cycle": [
+                    {
+                        "wolfie": "let_me_be_thinking"
+                    },
+                    {
+                        "wolfie": "i_have_heard_that_the_second"
+                    },
+                    {
+                        "wolfie": "it_is_said_that_the_one"
+                    },
+                    {
+                        "wolfie": "the_two_who_run"
+                    },
+                    {
+                        "wolfie": "there_is_talk_that_you"
+                    },
+                    {
+                        "wolfie": "there_are_many_people"
+                    }
+                ]
+            },
+            {
+                "ego": "say_goodbye",
+                "wolfie": "be_very_careful"
+            }
+        ],
+        "topic": "root"
+    }
+]

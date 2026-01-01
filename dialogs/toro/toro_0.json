@@ -1,51 +1,53 @@
-{
-    "preamble": {
-		"intro": [
-			{
-				"toro": "good_see_hero_man_good"
-			}
-		],
-        "goto": "root"
+[
+    {
+        "intro": [
+            {
+                "toro": "good_see_hero_man_good"
+            }
+        ],
+        "topic": "preamble"
     },
-	"root": {
-		"prompts": [
-			{
-				"ego": "greet_toro",
-				"toro": "good_see_hero_man_3"
-			},
-			{
-				"ego": "ask_about_toro",
-				"toro": "like_silmaria"
-			},
-			{
-				"ego": "ask_about_the_adventurers_guild",
-				"toro": "good_place_talk"
-			},
-			{
-				"ego": "ask_about_the_guild_master",
-				"toro": "toro_come_here"
-			},
-			{
-				"ego": "ask_about_silmaria",
-				"toro": "come_here_with_elsa",
-				"goto": "about_silmaria"
-			},
-			{
-				"ego": "say_goodbye",
-				"toro": "hope_see_hero"
-			}
-		]
-	},
-	"about_silmaria": {
-		"prompts": [
-			{
-				"ego": "ask_about_elsa",
-				"toro": "elsa_good"
-			},
-			{
-				"ego": "ask_about_the_man",
-				"toro": "man_got_money"
-			}
-		]
-	}
-}
+    {
+        "prompts": [
+            {
+                "ego": "greet_toro",
+                "toro": "good_see_hero_man_3"
+            },
+            {
+                "ego": "ask_about_toro",
+                "toro": "like_silmaria"
+            },
+            {
+                "ego": "ask_about_the_adventurers_guild",
+                "toro": "good_place_talk"
+            },
+            {
+                "ego": "ask_about_the_guild_master",
+                "toro": "toro_come_here"
+            },
+            {
+                "ego": "ask_about_silmaria",
+                "toro": "come_here_with_elsa",
+                "goto": "about_silmaria"
+            },
+            {
+                "ego": "say_goodbye",
+                "toro": "hope_see_hero"
+            }
+        ],
+        "topic": "root"
+    },
+    {
+        "prompts": [
+            {
+                "ego": "ask_about_elsa",
+                "toro": "elsa_good"
+            },
+            {
+                "ego": "ask_about_the_man",
+                "toro": "man_got_money"
+            }
+        ],
+        "topic": "about_silmaria"
+    }
+]
