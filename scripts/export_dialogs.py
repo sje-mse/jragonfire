@@ -26,6 +26,8 @@ GO_TO_PREVIOUS = "go_to_previous"
 TMP_PATH = "tmp.xml"
 ROOT_SUFFIX = "{}root".format(TOPIC_DELIMITER)
 PREAMBLE_SUFFIX = "{}preamble".format(TOPIC_DELIMITER)
+CYCLES_HEADER_PATH = os.path.join(AGS_PATH, "DialogCycles.ash")
+CYCLES_SCRIPT_PATH = os.path.join(AGS_PATH, "DialogCycles.asc")
 
 class LineCache:
     def __init__(self):
@@ -44,6 +46,18 @@ class LineCache:
     def get(self, line_key):
         return self.cache.get(line_key, 0)
 
+class Cycle:
+    def __init__(self, key, index):
+        self.key = key
+        self.index = index
+        self.line_pairs = list()
+
+class CycleCache:
+    def __init__(self):
+        self.max_cycles = 0
+        self.index = 0
+        self.cache = list() # [Cycle]
+
 def encache(speaker_key, line_key, cache):
     src_path = os.path.join(SPEECH_PATH, speaker_key, '{}.wav'.format(line_key))
     if os.path.isfile(src_path):
@@ -58,7 +72,7 @@ def export_action(action_list, ofile):
     for action in action_list:
         ofile.write('    doAction("{}")\n'.format(action))
 
-def export_line(speaker_key, line_key, lines, cache, ofile):
+def resolve_line(speaker_key, line_key, lines, cache):
     line = lines[speaker_key][line_key]
 
     # get cached id if it exists
@@ -71,35 +85,35 @@ def export_line(speaker_key, line_key, lines, cache, ofile):
     line_id = cache[speaker_key].get(line_key)
 
     if line_id > 0:
-        ofile.write('{}: &{} {}\n'.format(speaker_key, line_id, line))
+        return '&{} {}'.format(line_id, line)
     else:
-        ofile.write('{}: {}\n'.format(speaker_key, line))
+        return line
+
+def export_line(speaker_key, line_key, lines, cache, ofile):
+    line = resolve_line(speaker_key, line_key, lines, cache)
+    ofile.write('{}: {}\n'.format(speaker_key, line))
 
 def export_response(response, lines, cache, ofile):
     for speaker_key, line_key in response.items():
         if speaker_key in lines:
             export_line(speaker_key, line_key, lines, cache, ofile)
 
-def export_cycle(cycle_list, lines, cache, ofile):
-    # TODO: Actual Cycling.
+def count_cycles(dialog):
+    count = 0
+    for prompt in dialog.get("prompts", []):
+        if "cycle" in prompt:
+            count += 1
+    return count
+
+def export_cycle(dialog_name, ego_line, cycle_list, lines, cache, cycles, ofile):
+    cycle = Cycle('cycle{}{}{}{}'.format(TOPIC_DELIMITER, dialog_name, TOPIC_DELIMITER, ego_line), cycles.index)
     for response in cycle_list:
-        export_response(response, lines, cache, ofile)
-
-def export_prompt(prompt, lines, cache, ofile):
-    if "cycle" in prompt:
-        export_cycle(prompt["cycle"], lines, cache, ofile)
-    elif "response" in prompt:
-        for response in prompt["response"]:
-            export_response(response, lines, cache, ofile)
-
-    # single lines
-    for key, value in prompt.items():
-        if key in lines and key != "ego":
-            export_line(key, value, lines, cache, ofile)
-
-    # actions
-    # if ACTIONS_KEY in prompt:
-    #    export_action(prompt[ACTIONS_KEY], ofile)
+        for speaker_key, line_key in response.items():
+            if speaker_key in lines:
+                cycle.line_pairs.append((speaker_key, resolve_line(speaker_key, line_key, lines, cache)))
+    cycles.cache.append(cycle)
+    cycles.index += 1
+    ofile.write("    {}();\n".format(cycle.key))
 
 def export_option(option_id, line, ofile):
     ofile.write('                  <DialogOption>\n')
@@ -112,21 +126,31 @@ def export_option(option_id, line, ofile):
 def get_goto_cmd(dialog_name, target):
     return 'goto-dialog d{}{}{}\n'.format(dialog_name.split(TOPIC_DELIMITER)[0].title(), TOPIC_DELIMITER, target.title())
 
-def export_dialog(id_count, name, dialog, lines, cache, ofile):
+def export_dialog(id_count, name, dialog, lines, cache, cycles, ofile):
     ofile.write('              <Dialog>\n')
     ofile.write('               <ID>{}</ID>\n'.format(id_count))
     ofile.write('               <Name>d{}</Name>\n'.format(name.title()))
     ofile.write('               <ShowTextParser>False</ShowTextParser>\n')
     ofile.write('               <Script><![CDATA[// Dialog script file\n')
 
+    num_cycles = count_cycles(dialog)
+    cycles.max_cycles = max(num_cycles, cycles.max_cycles)
+    cycles.index = 0
+
+    # startup
+    ofile.write('@S  // Dialog startup entry point\n')
+
+    if num_cycles > 0:
+        ofile.write('    reset_dialog_cycle_counters();\n')
+
     if "intro" in dialog:
-        ofile.write('@S  // Dialog startup entry point\n')
         for response in dialog["intro"]:
             export_response(response, lines, cache, ofile)
-        if name.endswith(PREAMBLE_SUFFIX):
-            ofile.write(get_goto_cmd(name, "root"))
-        else:
-            ofile.write('return\n')
+
+    if name.endswith(PREAMBLE_SUFFIX):
+        ofile.write(get_goto_cmd(name, "root"))
+    else:
+        ofile.write('return\n')
 
     # prompt responses
     is_root = name.endswith(ROOT_SUFFIX)
@@ -136,7 +160,20 @@ def export_dialog(id_count, name, dialog, lines, cache, ofile):
         prompt = prompts[i]
         option_id += 1
         ofile.write('@{}\n'.format(option_id))
-        export_prompt(prompt, lines, cache, ofile)
+
+        if "response" in prompt:
+            for response in prompt["response"]:
+                export_response(response, lines, cache, ofile)
+        elif "cycle" in prompt:
+            export_cycle(name, prompt["ego"], prompt["cycle"], lines, cache, cycles, ofile)
+
+        # single lines
+        for key, value in prompt.items():
+            if key in lines and key != "ego":
+                export_line(key, value, lines, cache, ofile)
+
+        # TODO: Actions
+
         if "goto" in prompt:
             ofile.write(get_goto_cmd(name, prompt["goto"]))
         elif is_root and i == (len(prompts) - 1):
@@ -175,8 +212,10 @@ def write_dialogs(ipath):
     id_count = 0
     lines = read_all_lines()
     dialogs = read_all_dialogs()
+
     stack = []
     cache = dict() # { character_name, LineCache }
+    cycles = CycleCache()
 
     with open(ipath, 'r') as ifile:
         with open(TMP_PATH, 'w') as ofile:
@@ -199,14 +238,13 @@ def write_dialogs(ipath):
                 for key, dialog in char_dict.items():
                     if verify_dialog(dialog, lines):
                         print("...exporting dialog {}".format(key))
-                        export_dialog(id_count, key, dialog, lines, cache, ofile)
+                        export_dialog(id_count, key, dialog, lines, cache, cycles, ofile)
                         id_count += 1
                     else:
                         print("...skipping invalid dialog {}".format(key))
 
                 ofile.write('            </Dialogs>\n')
                 ofile.write('          </DialogFolder>\n')
-
 
             ofile.write('        </SubFolders>\n')
             ofile.write('        <Dialogs />\n')
@@ -218,6 +256,46 @@ def write_dialogs(ipath):
                 if not stack:
                     ofile.write(line)
 
+    # write cycles
+    with open(CYCLES_HEADER_PATH, 'w') as ofile:
+        ofile.write('// Header file for Dialog Cycles\n')
+        ofile.write('\n')
+        ofile.write('import function reset_dialog_cycle_counters();\n')
+
+        for cycle in cycles.cache:
+            ofile.write('import function {}();\n'.format(cycle.key))
+
+    with open(CYCLES_SCRIPT_PATH, 'w') as ofile:
+        for i in range(cycles.max_cycles):
+            ofile.write("int cycle_counter_{};\n".format(i))
+
+        ofile.write('\n')
+        ofile.write('function reset_dialog_cycle_counters()\n')
+        ofile.write('{\n')
+        for i in range(cycles.max_cycles):
+            ofile.write("    cycle_counter_{} = 0;\n".format(i))
+        ofile.write('}\n\n')
+
+        for cycle in cycles.cache:
+            ofile.write('function {}()\n'.format(cycle.key))
+            ofile.write('{\n')
+            ofile.write('    if (cycle_counter_{} >= {}) {{\n'.format(cycle.index, len(cycle.line_pairs)))
+            ofile.write('        cycle_counter_{} = 0;\n'.format(cycle.index))
+            ofile.write('    }\n')
+            ofile.write('    switch(cycle_counter_{}) {{\n'.format(cycle.index))
+            line_index = 0;
+            for speaker_key, line in cycle.line_pairs:
+                ofile.write('    case {}:\n'.format(line_index))
+                ofile.write('        c{}.Say("{}");\n'.format(speaker_key.title(), line))
+                ofile.write('        break;\n')
+                line_index += 1
+
+            ofile.write('    default:\n')
+            ofile.write('        Display("I am error.");\n')
+            ofile.write('        break;\n')
+            ofile.write('    }\n')
+            ofile.write('    cycle_counter_{} += 1;\n'.format(cycle.index))
+            ofile.write('}\n\n')
 
 if __name__ == "__main__":
     if len(sys.argv) > 1:
