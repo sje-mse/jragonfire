@@ -25,24 +25,21 @@ def to_msg_id(b13):
 6. store 32-bit number back as four bytes;
 7. invert bits in all bytes of the tail.
 """
-def decode(file, msg_len):
+def decode(msg):
 	deffed = list()
-	tail = 4 & msg_len
-	for i in range(0, msg_len, 4):
-		step2 = file.read(4)
-		step3 = int(step2[0]) << 24
-		step3 |= int(step2[1]) << 16
-		step3 |= int(step2[2]) << 8
-		step3 |= int(step2[3]) << 0
+	tail = len(msg) % 4
+	for i in range(0, len(msg) - tail, 4):
+		step2 = msg[i:i+4]
+		step3 = to_int(step2)
 
-		step4 = step3 ^ 0xf1acc1d;
-		step5 = (step4 >> 17) | (step4 << 15) & 0xffffffff
+		step4 = (step3 ^ 0xf1acc1d) & 0xffffffff
 
-		deffed.append(chr(0xff & (step5 >> 24)))
-		deffed.append(chr(0xff & (step5 >> 16)))
-		deffed.append(chr(0xff & (step5 >> 8)))
+		step5 = ((step4 << 15) | (step4 >> 17)) & 0xffffffff
+
 		deffed.append(chr(0xff & (step5 >> 0)))
-		print(i)
+		deffed.append(chr(0xff & (step5 >> 8)))
+		deffed.append(chr(0xff & (step5 >> 16)))
+		deffed.append(chr(0xff & (step5 >> 24)))
 
 	print(deffed)
 
@@ -50,7 +47,6 @@ def decode(file, msg_len):
 	for i in range(msg_len - tail, msg_len):
 		deffed.append(~file.read(1))
 	'''
-	file.read(tail)
 	return "{}".format(deffed)
 
 def extract_blocks(fpath):
@@ -102,7 +98,9 @@ def extract_blocks(fpath):
 			print("{}".format(msg))
 			"""
 
-			file.read(msg_len)
+			msg = file.read(msg_len)
+			if flags & 0x04:
+				decode(msg)
 
 			footer = file.read(4)
 			print("{}\n".format(to_int(footer)))
