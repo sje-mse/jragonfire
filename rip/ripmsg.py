@@ -1,6 +1,45 @@
 import sys
 import json
 
+base36 = {
+	"0" : 0,
+	"1" : 1,
+	"2" : 2,
+	"3" : 3,
+	"4" : 4,
+	"5" : 5,
+	"6" : 6,
+	"7" : 7,
+	"8" : 8,
+	"9" : 9,
+	"A" : 10,
+	"B" : 11,
+	"C" : 12,
+	"D" : 13,
+	"E" : 14,
+	"F" : 15,
+	"G" : 16,
+	"H" : 17,
+	"I" : 18,
+	"J" : 19,
+	"K" : 20,
+	"L" : 21,
+	"M" : 22,
+	"N" : 23,
+	"O" : 24,
+	"P" : 25,
+	"Q" : 26,
+	"R" : 27,
+	"S" : 28,
+	"T" : 29,
+	"U" : 30,
+	"V" : 31,
+	"W" : 32,
+	"X" : 33,
+	"Y" : 34,
+	"Z" : 35
+}
+
 def to_int(four_bytes):
 	value = int(four_bytes[0]) << 0
 	value |= int(four_bytes[1]) << 8
@@ -15,6 +54,15 @@ def to_short(two_bytes):
 
 def to_msg_id(b13):
 	return "".join([chr(b) for b in b13])
+
+def to_msg_id_tuple(b13):
+	return (
+		(base36[b13[4]] * 36) + base36[b13[5]],
+		(base36[b13[6]] * 36) + base36[b13[7]],
+		(base36[b13[9]] * 36) + base36[b13[10]],
+		base36[b13[11]]
+	)
+
 
 """
 1. split data into 4-byte chunks and tail 0-3 bytes long;
@@ -77,15 +125,15 @@ def extract_blocks(fpath):
 			print("id: {}".format(block_id))
 			print("char: {}".format(block_meta[0]))
 
-			if msg_lbl_present > 0:
+			if msg_lbl_present != 0:
 				msg_id = to_msg_id(file.read(13))
-				print("msg id: {}".format(msg_id))
+				print("msg id: {}".format(to_msg_id_tuple(msg_id)))
 
 			if (num_options > 0):
 				print("{} options:".format(num_options))
 				for option_num in range(num_options):
 					option_id = to_msg_id(file.read(13))
-					print("---{}: {}".format(option_num, option_id))
+					print("---{}: {}".format(option_num, to_msg_id_tuple(option_id)))
 
 			if (msg_len > 0):
 				msg = file.read(msg_len)
@@ -94,7 +142,6 @@ def extract_blocks(fpath):
 				else:
 					decoded = "".join(msg)
 				print("msg: {}".format(decoded))
-			# print("options: {}".format(num_options))
 			print("flags: {}".format(flags))
 			print("msg_num: {}".format(msg_num))
 			print("msg_len: {}".format(msg_len))
