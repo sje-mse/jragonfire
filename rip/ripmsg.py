@@ -81,9 +81,11 @@ def extract_blocks(fpath):
 				msg_id = to_msg_id(file.read(13))
 				print("msg id: {}".format(msg_id))
 
-			for option_num in range(num_options):
-				option_id = to_msg_id(file.read(13))
-				print("option_id: {}".format(option_id))
+			if (num_options > 0):
+				print("{} options:".format(num_options))
+				for option_num in range(num_options):
+					option_id = to_msg_id(file.read(13))
+					print("---{}: {}".format(option_num, option_id))
 
 			if (msg_len > 0):
 				msg = file.read(msg_len)
