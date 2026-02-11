@@ -148,6 +148,8 @@ class MsgPrompt:
         self.guid = guid
         self.ego = ""
         self.msgs = list()
+        self.goto = tuple()
+        self.is_cycle = False
 
     def __str__(self):
         return "--ego: {}\n{}".format(self.ego, "\n".join([str(s) for s in self.msgs]))
@@ -214,27 +216,34 @@ def extract_blocks(fpath):
 
 def get_series(guid, blocks):
     result = list()
+    is_cycle = False
     while guid in blocks:
         block = blocks[guid]
-        if block.is_cycle():
-            print("cycle!")
         line = MsgLine(block.guid, block.character_id, block.msg)
         guid = (guid[0], guid[1], guid[2], guid[3], guid[4] + 1)
         result.append(line)
-    return result
+        if block.is_cycle():
+            is_cycle = True
+    return result, is_cycle
 
 def get_prompt(guid, blocks):
     block = blocks[guid]
     prompt = MsgPrompt(guid)
-    if len(block.options) > 0:
+    if block.has_options():
+        o_guid = block.options[0]
         prompt.ego = block.msg
-        prompt.msgs = get_series(block.options[0], blocks)
+        prompt.msgs, prompt.is_cycle = get_series(o_guid, blocks)
+        ob = blocks[o_guid]
+        if ob.has_options():
+            prompt.goto = o_guid
+    '''
     if len(block.options) > 1:
         for option in block.options[1:]:
             print(">>>>>><<<<<<<<")
             for line in get_series(option, blocks):
                 print("{}".format(line))
             print(">>>>>><<<<<<<<")
+    '''
     return prompt
 
 def get_trees(blocks):
@@ -246,18 +255,14 @@ def get_trees(blocks):
                 continue
 
             tree = MsgTree(guid, block.character_id)
-            print("Tree {}".format(tree.guid))
             if (block.msg):
                 tree.msgs.append(block.msg)
-                print('{}: {}'.format(tree.character_id, block.msg))
 
             for option_id in block.options:
                 o_block = blocks[option_id]
                 prompt = get_prompt(option_id, blocks)
                 tree.prompts.append(prompt)
-                print("{}\n".format(prompt))
             trees[tree.guid] = tree
-            print("========\n")
     return trees
 
 def print_blocks(blocks):
@@ -267,12 +272,24 @@ def print_blocks(blocks):
             print("{}: {}".format(block.character_id, block.msg))
         for o in block.options:
             ob = blocks[o]
-            print("----{}: {}".format(ob.character_id, ob.msg))
+            print("----{}: {}: {}".format(o, ob.character_id, ob.msg))
         if block.msg_guid:
             mb = blocks[block.msg_guid]
-            print("\n{}: {}: {}".format(block.msg_guid, mb.character_id, mb.msg))
+            print("<<<<{}: {}: {}".format(block.msg_guid, mb.character_id, mb.msg))
         print("{}==========\n".format(block.uk))
 
+def print_trees(trees):
+    for guid, tree in trees.items():
+        print("\n=========================")
+        print("{} ({})".format(guid, tree.character_id))
+        for msg in tree.msgs:
+            print("{}: {}".format(tree.character_id, msg))
+        for prompt in tree.prompts:
+            print(prompt)
+            if len(prompt.goto):
+                print(">>>> goto: {}".format(prompt.goto))
+            print("\n")
+        print("=========================")
 
 if __name__ == "__main__":
     fpath = "200.QGM"
@@ -281,5 +298,5 @@ if __name__ == "__main__":
     print("Extracting messages from {}...".format(fpath))
     blocks = extract_blocks(fpath)
     trees = get_trees(blocks)
-
-    print_blocks(blocks)
+    # print_blocks(blocks)
+    print_trees(trees)
