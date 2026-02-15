@@ -14,3 +14,6 @@ AGS_XML_PATH = os.path.join(AGS_PATH, 'Game.agf')
 
 # backup path for when we do some kind of bulk operation on the AGS project.
 BACKUP_AGS_XML_PATH = os.path.join(AGS_PATH, 'Game.agf.bak2')
+
+# location of ripped game spks
+MSG_PATH = os.path.join("..", "rip", "cdn", "QGM")

@@ -1,6 +1,11 @@
 import sys
+import os
 import json
 import re
+
+sys.path.append(".")
+
+from env_paths import MSG_PATH
 
 from36 = {
     "0" : 0, "1" : 1, "2" : 2, "3" : 3,
@@ -21,6 +26,60 @@ to36 = [
     "I", "J", "K", "L", "M", "N",
     "O", "P", "Q", "R", "S", "T",
     "U", "V", "W", "X", "Y", "Z"]
+
+CHARACTER_IDS = {
+    0: "ego",
+    1: "ego",
+    2: "ego",
+    4: "sign",
+    5: "bank sign",
+    20: "elsa",
+    25: "magnum",
+    30: "kokeeno",
+    31: "bruno",
+    32: "gort",
+    33: "minos",
+    34: "katrina",
+    35: "erana",
+    36: "sarra",
+    37: "marrak",
+    39: "wolfie",
+    40: "pholus",
+    41: "logos",
+    42: "abdum",
+    43: "abdull",
+    44: "abduel",
+    45: "abdim",
+    46: "ferrari",
+    47: "ugarte",
+    48: "budar",
+    49: "nawar",
+    50: "fa",
+    51: "arestes",
+    52: "ann",
+    53: "salim",
+    54: "julanar",
+    55: "rakeesh",
+    56: "shakra",
+    57: "sam",
+    58: "toro",
+    59: "andre",
+    60: "pretorius",
+    61: "mobius",
+    62: "erasmus",
+    63: "fenris",
+    64: "sibyl",
+    65: "guardian",
+    66: "queen",
+    67: "cerberus",
+    69: "guard",
+    70: "townsperson1",
+    71: "townsperson2",
+    72: "townsperson3",
+    73: "townsperson4",
+    101: "parrot",
+    103: "gargoyle",
+}
 
 def to_int(four_bytes):
     value = int(four_bytes[0]) << 0
@@ -198,7 +257,7 @@ def extract_blocks(fpath):
                 if block.flags & 0x04:
                     block.msg = decode(msg)
                 else:
-                    block.msg = "".join(msg)
+                    block.msg = str(msg)
 
             block.uk.append(to_int(file.read(4)))
             blocks[block.guid] = block
@@ -275,8 +334,7 @@ def get_singles(dialogs, blocks):
             dialog["topic"] = key
             dialogs[key] = dialog
 
-def get_lines(blocks):
-    result = dict()
+def get_lines(lines, blocks):
     for guid, block in blocks.items():
         # only count lines from npcs
         if block.character_id <= 2:
@@ -286,9 +344,9 @@ def get_lines(blocks):
         data["audiofile"] = to_id_filename("A", block.guid)
         data["lipsyncfile"] = to_id_filename("S", block.guid)
         data["guid"] = block.guid
+        data["character"] = CHARACTER_IDS.get(block.character_id, "I AM ERROR {}".format(block.character_id))
         key = to_topic(block, block.msg)
-        result[key] = data
-    return result
+        lines[key] = data
 
 def print_blocks(blocks):
     for guid, block in blocks.items():
@@ -306,7 +364,7 @@ def print_blocks(blocks):
 def print_response(response, lines):
     for key in response:
         if key in lines:
-            print("----{} : {}".format(key, lines[key]["msg"]))
+            print("----{} : {}".format(lines[key]["character"], lines[key]["msg"]))
         else:
             print("----{} NOT FOUND".format(key))
 
@@ -322,9 +380,6 @@ def print_prompt(prompt, lines):
     print("\n")
 
 def print_dialogs(dialogs, lines):
-    for key, line in lines.items():
-        print("{} : {}".format(key, line["msg"]))
-
     for topic, dialog in dialogs.items():
         print("\n=========================")
         print("topic: {}".format(topic))
@@ -338,19 +393,25 @@ def print_dialogs(dialogs, lines):
                 print_prompt(prompt, lines)
 
 if __name__ == "__main__":
-    fpath = "200.QGM"
-    if len(sys.argv) > 1:
-        fpath = sys.argv[1]
-    print("Extracting messages from {}...".format(fpath))
-    blocks = extract_blocks(fpath)
-
-    lines = get_lines(blocks)
 
     dialogs = dict()
-    get_dialogs(dialogs, blocks)
-    get_singles(dialogs, blocks)
+    lines = dict()
+
+    for p in os.listdir(MSG_PATH):
+        if not p.endswith("QGM"):
+            continue
+
+        fpath = os.path.join(MSG_PATH, p)
+        print("Extracting messages from {}...".format(fpath))
+        blocks = extract_blocks(fpath)
+        get_lines(lines, blocks)
+        get_dialogs(dialogs, blocks)
+        get_singles(dialogs, blocks)
 
     print_dialogs(dialogs, lines)
+
+    # for key, line in lines.items():
+    #    print("{} : {}: {}".format(key, line["character"], line["msg"]))
 
     with open("dialogs.json", "w") as file:
         json.dump(dialogs, file, indent=4, sort_keys=True)
