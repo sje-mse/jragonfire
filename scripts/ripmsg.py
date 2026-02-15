@@ -89,7 +89,7 @@ def msg_to_key(msg):
 
 def to_topic(block, msg):
     key = msg_to_key(msg)
-    return "{}_{}_{}".format(block.guid[0], block.num, key)
+    return "{}_{}_{}_{}".format(block.character_id, block.guid[0], block.index, key)
 
 """
 1. split data into 4-byte chunks and tail 0-3 bytes long;
@@ -132,6 +132,7 @@ class MsgBlock:
         self.options = list()
         self.msg = ""
         self.parent_guid = tuple()
+        self.index = 0
 
     def has_options(self):
         return len(self.options) > 0
@@ -150,44 +151,6 @@ class MsgBlock:
 
     def follows(self):
         return self.guid[-1] > 1
-
-class MsgTree:
-    def __init__(self, guid, character_id):
-        self.character_id = character_id
-        self.guid = guid
-        self.intro = MsgResponse()
-        self.prompts = list()
-        self.parent_guid = tuple()
-        self.parent_msg = ""
-        self.topic = "root"
-        self.intro = list()
-
-class MsgResponse:
-    def __init__(self):
-        self.is_cycle = False
-        self.lines = list() # MsgLines
-
-    def __str__(self):
-        return "\n".join([str(l) for l in self.lines])
-
-class MsgPrompt:
-    def __init__(self, guid):
-        self.guid = guid
-        self.ego = ""
-        self.response = MsgResponse()
-        self.goto = tuple()
-
-    def __str__(self):
-        return "--ego: {} {}\n{}".format(self.ego, "(cycle)" if self.response.is_cycle else "", self.response)
-
-class MsgLine:
-    def __init__(self, guid, character_id, msg):
-        self.guid = guid
-        self.character_id = character_id
-        self.msg = msg
-
-    def __str__(self):
-        return "----{}: {} {}".format(self.character_id, self.guid, self.msg)
 
 def extract_blocks(fpath):
     blocks = dict()
@@ -218,6 +181,7 @@ def extract_blocks(fpath):
             parent_lbl_present = to_short(file.read(2))
             block.uk.append(to_short(file.read(2)))
             block.filename = to_id_filename("A", block.guid)
+            block.index = block_num
 
             if parent_lbl_present != 0:
                 parent_id_str = to_id_str(file.read(13))
@@ -241,26 +205,30 @@ def extract_blocks(fpath):
     return blocks
 
 def get_response(guid, blocks):
-    result = MsgResponse()
+    is_cycle = False
+    result = list()
     while guid in blocks:
         block = blocks[guid]
-        line = MsgLine(block.guid, block.character_id, block.msg)
-        guid = (guid[0], guid[1], guid[2], guid[3], guid[4] + 1)
-        result.lines.append(line)
+        result.append(to_topic(block, block.msg))
         if block.is_cycle():
-            result.is_cycle = True
-    return result
+            is_cycle = True
+        guid = (guid[0], guid[1], guid[2], guid[3], guid[4] + 1)
+    return result, is_cycle
 
 def get_prompt(guid, blocks):
     block = blocks[guid]
-    prompt = MsgPrompt(guid)
-    prompt.ego = block.msg
+    prompt = dict()
+    prompt["ego"] = block.msg
     if block.has_options():
         o_guid = block.options[0]
-        prompt.response = get_response(o_guid, blocks)
+        response, is_cycle = get_response(o_guid, blocks)
+        if is_cycle:
+            prompt["cycle"] = response
+        else:
+            prompt["response"] = response
         ob = blocks[o_guid]
         if ob.has_options():
-            prompt.goto = o_guid
+            prompt["goto"] = to_topic(ob, block.msg)
     '''
     if len(block.options) > 1:
         for option in block.options[1:]:
@@ -271,47 +239,60 @@ def get_prompt(guid, blocks):
     '''
     return prompt
 
-def get_trees(blocks):
-    trees = dict()
+def get_dialogs(dialogs, blocks):
     for guid, block in blocks.items():
         if (block.has_options()):
             # only care about trees with ego options.
             if (blocks[block.options[0]].character_id > 2):
                 continue
 
-            # get "intro" message(s)
-            tree = MsgTree(guid, block.character_id)
-            if (block.msg):
-                tree.intro = get_response(guid, blocks)
+            dialog = dict()
 
             # resolve options and responses
+            dialog["prompts"] = list()
             for option_id in block.options:
                 prompt = get_prompt(option_id, blocks)
-                tree.prompts.append(prompt)
+                dialog["prompts"].append(prompt)
 
             # figure out the parent, if any
             if block.has_parent():
-                tree.parent_guid = block.parent_guid
                 parent = blocks[block.parent_guid]
-                tree.parent_msg = parent.msg
-                tree.topic = to_topic(block, parent.msg)
+                dialog["topic"] = to_topic(block, parent.msg)
             else:
-                tree.topic = to_topic(block, "root")
+                dialog["topic"] = to_topic(block, "root")
+                # get "intro" message(s) only if not a subdialog
+                if block.msg:
+                    dialog["intro"], _ = get_response(guid, blocks)
 
-            trees[tree.topic] = tree
-    return trees
+            dialogs[dialog["topic"]] = dialog
 
-def get_free_responses(blocks):
-    preambles = dict()
+def get_singles(dialogs, blocks):
     for guid, block in blocks.items():
         if not block.follows() and block.character_id > 2 and not block.has_parent() and not block.has_options():
+            dialog = dict()
             key = to_topic(block, block.msg)
-            preambles[key] = get_response(guid, blocks)
-    return preambles
+            dialog["intro"], _ = get_response(guid, blocks)
+            dialog["topic"] = key
+            dialogs[key] = dialog
+
+def get_lines(blocks):
+    result = dict()
+    for guid, block in blocks.items():
+        # only count lines from npcs
+        if block.character_id <= 2:
+            continue
+        data = dict()
+        data["msg"] = block.msg
+        data["audiofile"] = to_id_filename("A", block.guid)
+        data["lipsyncfile"] = to_id_filename("S", block.guid)
+        data["guid"] = block.guid
+        key = to_topic(block, block.msg)
+        result[key] = data
+    return result
 
 def print_blocks(blocks):
     for guid, block in blocks.items():
-        print("{} ({}) ========".format(block.juid(), guid))
+        print("{} ({}) {} ========".format(block.juid(), guid, block.filename))
         if block.msg:
             print("{}: {}".format(block.character_id, block.msg))
         for o in block.options:
@@ -322,24 +303,39 @@ def print_blocks(blocks):
             print("<<<<{}: {}: {}".format(block.parent_guid, mb.character_id, mb.msg))
         print("{}==========\n".format(block.uk))
 
-def print_trees(trees):
-    for topic, tree in trees.items():
-        print("\n=========================")
-        print("{} ({}): {}".format(tree.guid, tree.character_id, tree.topic))
-        print(tree.intro)
-        for prompt in tree.prompts:
-            print(prompt)
-            if len(prompt.goto):
-                print(">>>> goto: {}".format(prompt.goto))
-            print("\n")
-        if len(tree.parent_guid):
-            print("parent: {} {}".format(tree.parent_guid, tree.parent_msg))
+def print_response(response, lines):
+    for key in response:
+        if key in lines:
+            print("----{} : {}".format(key, lines[key]["msg"]))
+        else:
+            print("----{} NOT FOUND".format(key))
 
-def print_preambles(preambles):
-    for key, preamble in preambles.items():
-        print("\n========")
-        print(key)
-        print(preamble)
+def print_prompt(prompt, lines):
+    print("--ego: {}".format(prompt["ego"]))
+    if "cycle" in prompt:
+        print("cycle:")
+        print_response(prompt["cycle"], lines)
+    elif "response" in prompt:
+        print_response(prompt["response"], lines)
+    if "goto" in prompt:
+        print("goto: {}".format(prompt["goto"]))
+    print("\n")
+
+def print_dialogs(dialogs, lines):
+    for key, line in lines.items():
+        print("{} : {}".format(key, line["msg"]))
+
+    for topic, dialog in dialogs.items():
+        print("\n=========================")
+        print("topic: {}".format(topic))
+        if "intro" in dialog:
+            print("intro:")
+            print_response(dialog["intro"], lines)
+
+        if "prompts" in dialog:
+            print("prompts:")
+            for prompt in dialog["prompts"]:
+                print_prompt(prompt, lines)
 
 if __name__ == "__main__":
     fpath = "200.QGM"
@@ -347,8 +343,14 @@ if __name__ == "__main__":
         fpath = sys.argv[1]
     print("Extracting messages from {}...".format(fpath))
     blocks = extract_blocks(fpath)
-    trees = get_trees(blocks)
-    preambles = get_free_responses(blocks)
-    print_blocks(blocks)
-    print_trees(trees)
-    print_preambles(preambles)
+
+    lines = get_lines(blocks)
+
+    dialogs = dict()
+    get_dialogs(dialogs, blocks)
+    get_singles(dialogs, blocks)
+
+    print_dialogs(dialogs, lines)
+
+    with open("dialogs.json", "w") as file:
+        json.dump(dialogs, file, indent=4, sort_keys=True)
