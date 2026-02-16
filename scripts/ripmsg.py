@@ -6,7 +6,14 @@ import re
 sys.path.append(".")
 
 from env_paths import MSG_PATH
+from riputils import (
+    CHARACTER_IDS,
+    NPC_ROOMS,
+    ROOM_IDS,
+)
 
+# Lookup table to help decode audio/lipsync filenames,
+# which are composed of base 36 strings.
 from36 = {
     "0" : 0, "1" : 1, "2" : 2, "3" : 3,
     "4" : 4, "5" : 5, "6" : 6, "7" : 7,
@@ -19,6 +26,7 @@ from36 = {
     "W" : 32, "X" : 33, "Y" : 34, "Z" : 35
 }
 
+# Lookup table to help re-encode audio/lipsync filenames.
 to36 = [
     "0", "1", "2", "3", "4", "5",
     "6", "7", "8", "9", "A", "B",
@@ -27,74 +35,15 @@ to36 = [
     "O", "P", "Q", "R", "S", "T",
     "U", "V", "W", "X", "Y", "Z"]
 
-CHARACTER_IDS = {
-    0: "ego",
-    1: "ego",
-    2: "ego",
-    4: "sign",
-    5: "bank sign",
-    20: "elsa",
-    25: "magnum",
-    30: "kokeeno",
-    31: "bruno",
-    32: "gort",
-    33: "minos",
-    34: "katrina",
-    35: "erana",
-    36: "sarra",
-    37: "marrak",
-    39: "wolfie",
-    40: "pholus",
-    41: "logos",
-    42: "abdum",
-    43: "abdull",
-    44: "abduel",
-    45: "abdim",
-    46: "ferrari",
-    47: "ugarte",
-    48: "budar",
-    49: "nawar",
-    50: "fa",
-    51: "arestes",
-    52: "ann",
-    53: "salim",
-    54: "julanar",
-    55: "rakeesh",
-    56: "shakra",
-    57: "sam",
-    58: "toro",
-    59: "andre",
-    60: "pretorius",
-    61: "mobius",
-    62: "erasmus",
-    63: "fenris",
-    64: "sibyl",
-    65: "guardian",
-    66: "queen",
-    67: "cerberus",
-    69: "guard",
-    70: "townsperson1",
-    71: "townsperson2",
-    72: "townsperson3",
-    73: "townsperson4",
-    101: "parrot",
-    103: "gargoyle",
-}
 
 def to_int(four_bytes):
-    value = int(four_bytes[0]) << 0
-    value |= int(four_bytes[1]) << 8
-    value |= int(four_bytes[2]) << 16
-    value |= int(four_bytes[3]) << 24
-    return value
+    return int.from_bytes(four_bytes, 'little')
 
 def to_short(two_bytes):
-    value = int(two_bytes[0]) << 0
-    value |= int(two_bytes[1]) << 8
-    return value
+    return int.from_bytes(two_bytes, 'little')
 
 def to_byte(one_byte):
-    return int(one_byte[0])
+    return int.from_bytes(one_byte, 'little')
 
 def to_id_str(b13):
     return "".join([chr(b) for b in b13[:12]])
@@ -146,9 +95,14 @@ def msg_to_key(msg):
     parts = [w for w in plain.lower().split(" ") if w]
     return "_".join(parts[:4])
 
-def to_topic(block, msg):
-    key = msg_to_key(msg)
+def to_line_id(block):
+    key = msg_to_key(block.msg)
     return "{}_{}_{}_{}".format(block.character_id, block.guid[0], block.index, key)
+
+def to_dialog_id(block, msg):
+    key = msg_to_key(msg)
+    return "{}_{}_{}".format(block.guid[0], block.index, key)
+
 
 """
 1. split data into 4-byte chunks and tail 0-3 bytes long;
@@ -268,7 +222,7 @@ def get_response(guid, blocks):
     result = list()
     while guid in blocks:
         block = blocks[guid]
-        result.append(to_topic(block, block.msg))
+        result.append(to_line_id(block))
         if block.is_cycle():
             is_cycle = True
         guid = (guid[0], guid[1], guid[2], guid[3], guid[4] + 1)
@@ -287,7 +241,7 @@ def get_prompt(guid, blocks):
             prompt["response"] = response
         ob = blocks[o_guid]
         if ob.has_options():
-            prompt["goto"] = to_topic(ob, block.msg)
+            prompt["goto"] = to_dialog_id(ob, block.msg)
     '''
     if len(block.options) > 1:
         for option in block.options[1:]:
@@ -316,36 +270,41 @@ def get_dialogs(dialogs, blocks):
             # figure out the parent, if any
             if block.has_parent():
                 parent = blocks[block.parent_guid]
-                dialog["topic"] = to_topic(block, parent.msg)
+                dialog["topic"] = to_dialog_id(block, parent.msg)
             else:
-                dialog["topic"] = to_topic(block, "root")
+                dialog["topic"] = to_dialog_id(block, "root")
                 # get "intro" message(s) only if not a subdialog
                 if block.msg:
                     dialog["intro"], _ = get_response(guid, blocks)
 
             dialogs[dialog["topic"]] = dialog
 
-def get_singles(dialogs, blocks):
+def get_singles(singles, blocks):
     for guid, block in blocks.items():
         if not block.follows() and block.character_id > 2 and not block.has_parent() and not block.has_options():
             dialog = dict()
-            key = to_topic(block, block.msg)
+            key = to_dialog_id(block, block.msg)
             dialog["intro"], _ = get_response(guid, blocks)
             dialog["topic"] = key
-            dialogs[key] = dialog
+            singles[key] = dialog
 
-def get_lines(lines, blocks):
+def get_lines(lines, blocks, char_rooms):
     for guid, block in blocks.items():
         # only count lines from npcs
-        if block.character_id <= 2:
+        if block.character_id < 20:
             continue
+
+        if not block.msg:
+            continue
+
+        char_rooms.add(block.room())
         data = dict()
         data["msg"] = block.msg
         data["audiofile"] = to_id_filename("A", block.guid)
         data["lipsyncfile"] = to_id_filename("S", block.guid)
         data["guid"] = block.guid
         data["character"] = CHARACTER_IDS.get(block.character_id, "I AM ERROR {}".format(block.character_id))
-        key = to_topic(block, block.msg)
+        key = to_line_id(block)
         lines[key] = data
 
 def print_blocks(blocks):
@@ -394,24 +353,38 @@ def print_dialogs(dialogs, lines):
 
 if __name__ == "__main__":
 
+    singles = dict()
     dialogs = dict()
     lines = dict()
 
-    for p in os.listdir(MSG_PATH):
-        if not p.endswith("QGM"):
-            continue
-
-        fpath = os.path.join(MSG_PATH, p)
+    char_rooms = set()
+    for room_num in NPC_ROOMS:
+        fpath = os.path.join(MSG_PATH, "{}.QGM".format(room_num))
         print("Extracting messages from {}...".format(fpath))
         blocks = extract_blocks(fpath)
-        get_lines(lines, blocks)
+        get_lines(lines, blocks, char_rooms)
         get_dialogs(dialogs, blocks)
-        get_singles(dialogs, blocks)
-
-    print_dialogs(dialogs, lines)
-
-    # for key, line in lines.items():
-    #    print("{} : {}: {}".format(key, line["character"], line["msg"]))
+        get_singles(singles, blocks)
 
     with open("dialogs.json", "w") as file:
         json.dump(dialogs, file, indent=4, sort_keys=True)
+
+
+    
+    '''
+    for topic, dialog in dialogs:
+        for key in dialog.get("intro", list()):
+            if key in lines:
+
+            if lines[
+        if "intro" in dialog:
+            for response in
+        for prompt in prompts:
+            responses = dialog.get("cycle", dialog.get("response", list()))
+            for key in response:
+                if lines.
+    '''
+
+
+    for key, line in lines.items():
+       print("{} : {}: {}".format(key, line["character"], line["msg"]))
