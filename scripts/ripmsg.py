@@ -304,6 +304,7 @@ def get_lines(lines, blocks, char_rooms):
         data["lipsyncfile"] = to_id_filename("S", block.guid)
         data["guid"] = block.guid
         data["character"] = CHARACTER_IDS.get(block.character_id, "I AM ERROR {}".format(block.character_id))
+        data["character_id"] = block.character_id
         key = to_line_id(block)
         lines[key] = data
 
@@ -351,8 +352,24 @@ def print_dialogs(dialogs, lines):
             for prompt in dialog["prompts"]:
                 print_prompt(prompt, lines)
 
-if __name__ == "__main__":
+def is_npc_line(key, lines):
+    if key not in lines:
+        return False
+    return lines[key]["character_id"] > 5
 
+def is_npc_dialog(dialog, lines):
+    for key in dialog.get("intro", list()):
+        if is_npc_line(key, lines):
+            return True
+
+    for prompt in dialog["prompts"]:
+        for key in prompt.get("cycle", prompt.get("response", list())):
+            if is_npc_line(key, lines):
+                return True
+    return False
+
+
+if __name__ == "__main__":
     singles = dict()
     dialogs = dict()
     lines = dict()
@@ -366,25 +383,13 @@ if __name__ == "__main__":
         get_dialogs(dialogs, blocks)
         get_singles(singles, blocks)
 
+    npc_dialogs = dict()
+    for topic, dialog in dialogs.items():
+        if is_npc_dialog(dialog, lines):
+            npc_dialogs[topic] = dialog
+
     with open("dialogs.json", "w") as file:
-        json.dump(dialogs, file, indent=4, sort_keys=True)
-
-
+        json.dump(npc_dialogs, file, indent=4, sort_keys=True)
     
-    '''
-    for topic, dialog in dialogs:
-        for key in dialog.get("intro", list()):
-            if key in lines:
-
-            if lines[
-        if "intro" in dialog:
-            for response in
-        for prompt in prompts:
-            responses = dialog.get("cycle", dialog.get("response", list()))
-            for key in response:
-                if lines.
-    '''
-
-
     for key, line in lines.items():
        print("{} : {}: {}".format(key, line["character"], line["msg"]))
