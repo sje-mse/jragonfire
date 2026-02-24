@@ -14,6 +14,7 @@ from verify_dialogs import (
 	verify_dialog,
 	verify_line
 )
+from wavify import cvtwav
 
 INTERACT_KEY = "interact"
 LOOK_KEY = "look"

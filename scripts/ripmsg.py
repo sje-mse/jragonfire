@@ -3,14 +3,20 @@ import os
 import json
 import re
 
+from ffmpeg import FFmpeg
+
 sys.path.append(".")
 
-from env_paths import MSG_PATH
+from env_paths import (
+    MSG_PATH,
+    AGS_SPEECH_PATH,
+)
 from riputils import (
     CHARACTER_IDS,
     NPC_ROOMS,
     ROOM_IDS,
 )
+from wavify import cvtaud
 
 # Lookup table to help decode audio/lipsync filenames,
 # which are composed of base 36 strings.
@@ -288,23 +294,24 @@ def get_singles(singles, blocks):
             dialog["topic"] = key
             singles[key] = dialog
 
-def get_lines(lines, blocks, char_rooms):
+def get_lines(lines, blocks, counts, char_rooms):
     for guid, block in blocks.items():
-        # only count lines from npcs
-        if block.character_id < 20:
-            continue
-
         if not block.msg:
             continue
 
-        char_rooms.add(block.room())
         data = dict()
-        data["msg"] = block.msg
-        data["audiofile"] = to_id_filename("A", block.guid)
-        data["lipsyncfile"] = to_id_filename("S", block.guid)
-        data["guid"] = block.guid
+        data["msg"] = block.msg.strip('"')
+        if block.character_id > 5:
+            data["audiofile"] = to_id_filename("A", block.guid)
+            # data["lipsyncfile"] = to_id_filename("S", block.guid)
         data["character"] = CHARACTER_IDS.get(block.character_id, "I AM ERROR {}".format(block.character_id))
         data["character_id"] = block.character_id
+        # line number, for audio file exporting
+        count = counts.get(block.character_id, 0)
+        count += 1
+        data["num"] = count
+        counts[block.character_id] = count
+        char_rooms.add(block.room())
         key = to_line_id(block)
         lines[key] = data
 
@@ -368,28 +375,80 @@ def is_npc_dialog(dialog, lines):
                 return True
     return False
 
+def collate_dialogs(dialogs):
+    # collate into { room_name : root_id : [ sorted dialogs beginning with root ] }
+    collated = dict()
+
+def write_lines_json(lines):
+    collated = dict()
+    for key, line in lines.items():
+        char_id = line["character_id"]
+        if char_id < 10:
+            continue
+        char_name = CHARACTER_IDS[char_id]
+        if char_name not in collated:
+            collated[char_name] = dict()
+        # collated[char_name][key] = line
+        count_key = "{}_{}".format(line["num"], msg_to_key(line["msg"]))
+        collated[char_name][count_key] = line["msg"]
+
+        # print("{} {}: {}".format(char_name, line["num"], line["msg"]))
+    for char_name, cdict in collated.items():
+        path = os.path.join("..", "lines", "{}.json".format(char_name))
+        with open(path, "w") as file:
+            json.dump(cdict, file, indent=4, sort_keys=True)
+
+def export_speech(lines):
+    for key, line in lines.items():
+        char_id = line["character_id"]
+        if char_id < 10:
+            continue
+        char_name = CHARACTER_IDS[char_id]
+        src = os.path.join("..", "rip", "cda", "aud", line["audiofile"])
+        if not os.path.isfile(src):
+            print("skipping unfound audio file {}".format(src))
+            continue
+        dst = os.path.join(AGS_SPEECH_PATH, "{}.{}.wav".format(char_name, line["num"]))
+        print("exporting {} to {}...".format(src, dst))
+        cvtaud(src, dst)
 
 if __name__ == "__main__":
     singles = dict()
     dialogs = dict()
     lines = dict()
+    counts = dict()
 
     char_rooms = set()
     for room_num in NPC_ROOMS:
         fpath = os.path.join(MSG_PATH, "{}.QGM".format(room_num))
         print("Extracting messages from {}...".format(fpath))
         blocks = extract_blocks(fpath)
-        get_lines(lines, blocks, char_rooms)
+        get_lines(lines, blocks, counts, char_rooms)
         get_dialogs(dialogs, blocks)
         get_singles(singles, blocks)
 
     npc_dialogs = dict()
+    non_dialogs = dict()
     for topic, dialog in dialogs.items():
         if is_npc_dialog(dialog, lines):
             npc_dialogs[topic] = dialog
+        else:
+            non_dialogs[topic] = dialog
+
+    print("{} npc dialog trees detected".format(len(npc_dialogs.keys())))
+    print("{} singles detected".format(len(singles.keys())))
+    print("{} interaction trees detected".format(len(non_dialogs.keys())))
 
     with open("dialogs.json", "w") as file:
         json.dump(npc_dialogs, file, indent=4, sort_keys=True)
-    
-    for key, line in lines.items():
-       print("{} : {}: {}".format(key, line["character"], line["msg"]))
+
+    with open("singles.json", "w") as file:
+        json.dump(singles, file, indent=4, sort_keys=True)
+
+    with open("lines.json", "w") as file:
+        json.dump(lines, file, indent=4, sort_keys = True)
+
+    write_lines_json(lines)
+
+    if len(sys.argv) > 1 and sys.argv[1] == "speech":
+        export_speech(lines)
