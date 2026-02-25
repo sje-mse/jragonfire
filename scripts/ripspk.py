@@ -1,3 +1,5 @@
+# based heavily on https://github.com/zhmu/qfg5-reenigne/blob/main/src/qfg5resource/qfg5spk.rs
+
 import sys
 import os
 from pathlib import Path
