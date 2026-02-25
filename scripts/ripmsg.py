@@ -405,7 +405,7 @@ def export_speech(lines):
         if char_id < 10:
             continue
         char_name = CHARACTER_IDS[char_id]
-        src = os.path.join("..", "rip", "cda", "aud", line["audiofile"])
+        src = os.path.join("..", "rip", "CDA", "aud", line["audiofile"])
         if not os.path.isfile(src):
             print("skipping unfound audio file {}".format(src))
             continue
@@ -458,4 +458,4 @@ if __name__ == "__main__":
     if len(sys.argv) > 1 and sys.argv[1] == "speech":
         export_speech(lines)
 
-    print_blocks(blocks)
+    # print_blocks(blocks)

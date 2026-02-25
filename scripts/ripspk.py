@@ -1,18 +1,17 @@
 import sys
 import os
+from pathlib import Path
 
 sys.path.append(".")
 
-from env_paths import (SPK_PATH, ZIP_PATH)
+from env_paths import SPK_PATH
 
 SPK_FILENAMES = ['CDA', 'CDN', 'HDN', 'HDNW']
 
 EOCD_SIZE = 22 # from zip spec, observed empirically
-LOCAL_HEADER_SIZE = 66 # observed empirically
 
-def zipify(fn):
-    srcpath = os.path.join(SPK_PATH, "{}.SPK".format(fn))
-    dstpath = os.path.join(ZIP_PATH, "{}.zip",format(fn))
+def unpack(spk_name):
+    srcpath = os.path.join(SPK_PATH, "{}.SPK".format(spk_name))
 
     with open(srcpath, 'rb') as f:
         spk_len = f.seek(0, 2)
@@ -55,12 +54,32 @@ def zipify(fn):
             local_header_offset = int.from_bytes(f.read(4), 'little')
             filename = f.read(n).decode('utf-8')
             f.read(m + k) # skip
-            records.append((filename, local_file_start + local_header_offset + LOCAL_HEADER_SIZE, uncomp_size))
+            records.append((filename, local_file_start + local_header_offset, uncomp_size))
 
         for filename, offset, size in records:
-            print("{} {} {}".format(filename, offset, size))
+            f.seek(offset, 0)
+            magic = f.read(4)
+            f.read(14) # skip
+            comp_size = int.from_bytes(f.read(4), 'little')
+            uncomp_size = int.from_bytes(f.read(4), 'little')
+            n = int.from_bytes(f.read(2), 'little')
+            m = int.from_bytes(f.read(2), 'little')
+            fn = f.read(n).decode('utf-8')
+            f.read(m) # skip
+            content = f.read(size)
+            if filename != fn:
+                print("skipping {}: filename mismatch {}".format(filename, fn))
+                continue
+            if size != comp_size:
+                print("skpping {}: size mismatch {} {} {}".format(filename, size, comp_size, uncomp_size))
+                continue
+            opath = os.path.join('..', 'rip', spk_name, filename)
+            Path(opath).parent.mkdir(exist_ok=True, parents=True)
+            print("unpacking {} ({} bytes)...".format(opath, size))
+            with open(opath, 'wb') as ofile:
+                ofile.write(content)
 
 if __name__ == "__main__":
-    print(os.listdir(SPK_PATH))
-    zipify('CDN')
+    for spk in SPK_FILENAMES:
+        unpack(spk)
 

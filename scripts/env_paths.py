@@ -18,7 +18,5 @@ BACKUP_AGS_XML_PATH = os.path.join(AGS_PATH, 'Game.agf.bak2')
 # path to the raw data files to rip
 SPK_PATH = os.path.join('c:\\', 'Program Files (x86)', 'GOG Galaxy', 'Games', 'Quest for Glory 5', 'DATA')
 
-ZIP_PATH = os.path.join('..', 'rip', 'spk')
-
 # location of ripped game spks
-MSG_PATH = os.path.join("..", "rip", "cdn", "QGM")
+MSG_PATH = os.path.join("..", "rip", "CDN", "QGM")
