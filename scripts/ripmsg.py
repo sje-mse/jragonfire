@@ -262,7 +262,7 @@ def get_dialogs(dialogs, blocks):
     for guid, block in blocks.items():
         if (block.has_options()):
             # only care about trees with ego options.
-            if (blocks[block.options[0]].character_id > 2):
+            if blocks[block.options[0]].character_id > 2:
                 continue
 
             dialog = dict()
@@ -276,6 +276,8 @@ def get_dialogs(dialogs, blocks):
             # figure out the parent, if any
             if block.has_parent():
                 parent = blocks[block.parent_guid]
+                if not parent.msg:
+                    continue
                 dialog["topic"] = to_dialog_id(block, parent.msg)
             else:
                 dialog["topic"] = to_dialog_id(block, "root")
@@ -294,14 +296,14 @@ def get_singles(singles, blocks):
             dialog["topic"] = key
             singles[key] = dialog
 
-def get_lines(lines, blocks, counts, char_rooms):
+def get_lines(lines, blocks, counts):
     for guid, block in blocks.items():
         if not block.msg:
             continue
 
         data = dict()
         data["msg"] = block.msg.strip('"')
-        if block.character_id > 5:
+        if block.character_id > 10:
             data["audiofile"] = to_id_filename("A", block.guid)
             # data["lipsyncfile"] = to_id_filename("S", block.guid)
         data["character"] = CHARACTER_IDS.get(block.character_id, "I AM ERROR {}".format(block.character_id))
@@ -311,7 +313,6 @@ def get_lines(lines, blocks, counts, char_rooms):
         count += 1
         data["num"] = count
         counts[block.character_id] = count
-        char_rooms.add(block.room())
         key = to_line_id(block)
         lines[key] = data
 
@@ -418,37 +419,43 @@ if __name__ == "__main__":
     lines = dict()
     counts = dict()
 
-    char_rooms = set()
-    for room_num in NPC_ROOMS:
+    for room_num in ROOM_IDS.keys():
         fpath = os.path.join(MSG_PATH, "{}.QGM".format(room_num))
         print("Extracting messages from {}...".format(fpath))
         blocks = extract_blocks(fpath)
-        get_lines(lines, blocks, counts, char_rooms)
+        get_lines(lines, blocks, counts)
         get_dialogs(dialogs, blocks)
         get_singles(singles, blocks)
 
     npc_dialogs = dict()
-    non_dialogs = dict()
+    interactions = dict()
     for topic, dialog in dialogs.items():
         if is_npc_dialog(dialog, lines):
             npc_dialogs[topic] = dialog
         else:
-            non_dialogs[topic] = dialog
+            interactions[topic] = dialog
 
     print("{} npc dialog trees detected".format(len(npc_dialogs.keys())))
     print("{} singles detected".format(len(singles.keys())))
-    print("{} interaction trees detected".format(len(non_dialogs.keys())))
+    print("{} interaction trees detected".format(len(interactions.keys())))
 
     with open("dialogs.json", "w") as file:
         json.dump(npc_dialogs, file, indent=4, sort_keys=True)
 
+    with open("interactions.json", "w") as file:
+        json.dump(interactions, file, indent=4, sort_keys=True)
+
+    '''
     with open("singles.json", "w") as file:
         json.dump(singles, file, indent=4, sort_keys=True)
 
     with open("lines.json", "w") as file:
         json.dump(lines, file, indent=4, sort_keys = True)
+    '''
 
-    write_lines_json(lines)
+    # write_lines_json(lines)
 
     if len(sys.argv) > 1 and sys.argv[1] == "speech":
         export_speech(lines)
+
+    print_blocks(blocks)
