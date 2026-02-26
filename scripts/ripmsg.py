@@ -113,10 +113,10 @@ def to_dialog_id(block, msg):
 """
 1. split data into 4-byte chunks and tail 0-3 bytes long;
 2. for each 4-byte chunk repeat steps 3-6:
-3. read those bytes as 32-bit little-endian number;
-4. exclusive-or the value with constant 0xf1acc1d;
-5. rotate value cyclically left by 15 bits;
-6. store 32-bit number back as four bytes;
+3. read those bytes as 32-bit little-endian number
+4. exclusive-or the value with constant 0xf1acc1d
+5. rotate value cyclically right by 15 bits
+6. store 32-bit number back as four bytes
 7. invert bits in all bytes of the tail.
 """
 def decode(msg):
@@ -228,7 +228,8 @@ def get_response(guid, blocks):
     result = list()
     while guid in blocks:
         block = blocks[guid]
-        result.append(to_line_id(block))
+        if block.msg:
+            result.append(to_line_id(block))
         if block.is_cycle():
             is_cycle = True
         guid = (guid[0], guid[1], guid[2], guid[3], guid[4] + 1)
@@ -237,25 +238,38 @@ def get_response(guid, blocks):
 def get_prompt(guid, blocks):
     block = blocks[guid]
     prompt = dict()
-    prompt["ego"] = block.msg
+
+    if block.msg:
+        prompt["ego"] = block.msg
+    else:
+        prompt["ego"] = "TODO"
+
     if block.has_options():
         o_guid = block.options[0]
         response, is_cycle = get_response(o_guid, blocks)
-        if is_cycle:
-            prompt["cycle"] = response
+        if response:
+            if is_cycle:
+                prompt["cycle"] = response
+            else:
+                prompt["response"] = response
         else:
-            prompt["response"] = response
+            prompt["action"] = "TODO"
         ob = blocks[o_guid]
         if ob.has_options():
             prompt["goto"] = to_dialog_id(ob, block.msg)
-    '''
+
     if len(block.options) > 1:
-        for option in block.options[1:]:
-            print(">>>>>><<<<<<<<")
-            for line in get_series(option, blocks):
-                print("{}".format(line))
-            print(">>>>>><<<<<<<<")
-    '''
+        xtra = 1
+        for o_guid in block.options[1:]:
+            response, is_cycle = get_response(o_guid, blocks)
+            if response:
+                if is_cycle:
+                    prompt["xtra_cycle_{}".format(xtra)] = response
+                else:
+                    prompt["xtra_response_{}".format(xtra)] = response
+            else:
+                prompt["xtra_action_{}".format(xtra)] = "TODO"
+            xtra += 1
     return prompt
 
 def get_dialogs(dialogs, blocks):
@@ -266,6 +280,7 @@ def get_dialogs(dialogs, blocks):
                 continue
 
             dialog = dict()
+            dialog["room"] = ROOM_IDS[block.room()]
 
             # resolve options and responses
             dialog["prompts"] = list()
@@ -294,6 +309,7 @@ def get_singles(singles, blocks):
             key = to_dialog_id(block, block.msg)
             dialog["intro"], _ = get_response(guid, blocks)
             dialog["topic"] = key
+            dialog["room"] = ROOM_IDS[block.room()]
             singles[key] = dialog
 
 def get_lines(lines, blocks, counts):
@@ -377,8 +393,15 @@ def is_npc_dialog(dialog, lines):
     return False
 
 def collate_dialogs(dialogs):
-    # collate into { room_name : root_id : [ sorted dialogs beginning with root ] }
+    # collate into: {
+    # room_name: {
+    #    npc_trees: [ sorted dialogs ]
+    #    npc_singles: [ singles ]
+    #    game_trees: [ sorted interaction trees ]
+    #    game_singles: [ remaining game text ]
+    # }
     collated = dict()
+    return collated
 
 def write_lines_json(lines):
     collated = dict()
@@ -427,31 +450,29 @@ if __name__ == "__main__":
         get_dialogs(dialogs, blocks)
         get_singles(singles, blocks)
 
-    npc_dialogs = dict()
-    interactions = dict()
+    npc_trees = dict()
+    narrator_trees = dict()
     for topic, dialog in dialogs.items():
         if is_npc_dialog(dialog, lines):
-            npc_dialogs[topic] = dialog
+            npc_trees[topic] = dialog
         else:
-            interactions[topic] = dialog
+            narrator_trees[topic] = dialog
 
-    print("{} npc dialog trees detected".format(len(npc_dialogs.keys())))
+    print("{} npc dialog trees detected".format(len(npc_trees.keys())))
     print("{} singles detected".format(len(singles.keys())))
-    print("{} interaction trees detected".format(len(interactions.keys())))
+    print("{} interaction trees detected".format(len(narrator_trees.keys())))
 
     with open("dialogs.json", "w") as file:
-        json.dump(npc_dialogs, file, indent=4, sort_keys=True)
+        json.dump(npc_trees, file, indent=4, sort_keys=True)
 
     with open("interactions.json", "w") as file:
-        json.dump(interactions, file, indent=4, sort_keys=True)
+        json.dump(narrator_trees, file, indent=4, sort_keys=True)
 
-    '''
     with open("singles.json", "w") as file:
         json.dump(singles, file, indent=4, sort_keys=True)
 
     with open("lines.json", "w") as file:
         json.dump(lines, file, indent=4, sort_keys = True)
-    '''
 
     # write_lines_json(lines)
 

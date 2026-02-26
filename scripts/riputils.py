@@ -90,11 +90,11 @@ ROOM_IDS = {
     325: "magic_shop",
     340: "bank",
     345: "bank",
-    350: "arena_ready",
-    352: "arena",
-    355: "arena",
-    356: "arena",
-    360: "house_interior",
+    350: "arena_antechamber",
+    352: "arena_antechamber",
+    355: "arena_grounds",
+    356: "arena_grounds",
+    360: "break_in_house_interior",
     370: "ferrari_interior",
     375: "ferrari_interior",
     380: "adv_guild",
@@ -166,6 +166,7 @@ ROOM_IDS = {
     791: "undersea_dock",
     792: "undersea",
     795: "undersea",
+    900: "map",
 }
 
 NPC_ROOMS = [200, 201, 202, 203, 210, 211, 212, 220, 230, 235, 240, 241, 250, 270, 280, 290, 300, 310, 315, 320, 340, 350, 355, 370, 380, 400, 415, 420, 460, 480, 520, 525, 530, 540, 550, 570, 730, 731, 770, 780, 900]
