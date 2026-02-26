@@ -3,6 +3,7 @@ import os
 import json
 import re
 
+from pathlib import Path
 from ffmpeg import FFmpeg
 
 sys.path.append(".")
@@ -392,16 +393,15 @@ def is_npc_dialog(dialog, lines):
                 return True
     return False
 
-def collate_dialogs(dialogs):
-    # collate into: {
-    # room_name: {
-    #    npc_trees: [ sorted dialogs ]
-    #    npc_singles: [ singles ]
-    #    game_trees: [ sorted interaction trees ]
-    #    game_singles: [ remaining game text ]
-    # }
-    collated = dict()
-    return collated
+def collate_dialogs(collated, dialogs, folder):
+    for dialog in dialogs.values():
+        room = dialog["room"]
+        if room not in collated:
+            collated[room] = dict()
+        rdict = collated[room]
+        if folder not in rdict:
+            rdict[folder] = list()
+        rdict[folder].append(dialog)
 
 def write_lines_json(lines):
     collated = dict()
@@ -421,6 +421,14 @@ def write_lines_json(lines):
         path = os.path.join("..", "lines", "{}.json".format(char_name))
         with open(path, "w") as file:
             json.dump(cdict, file, indent=4, sort_keys=True)
+
+def write_dialogs_json(collated):
+    for room, rdict in collated.items():
+        for category, dlist in rdict.items():
+            path = os.path.join("..", "dialogs", room, "{}.json".format(category))
+            Path(path).parent.mkdir(exist_ok=True, parents=True)
+            with open(path, "w") as file:
+                json.dump(dlist, file, indent=4, sort_keys = True)
 
 def export_speech(lines):
     for key, line in lines.items():
@@ -462,6 +470,13 @@ if __name__ == "__main__":
     print("{} singles detected".format(len(singles.keys())))
     print("{} interaction trees detected".format(len(narrator_trees.keys())))
 
+    collated = dict()
+    collate_dialogs(collated, npc_trees, "npc_trees")
+    collate_dialogs(collated, singles, "npc_singles")
+    collate_dialogs(collated, narrator_trees, "action_trees")
+    write_dialogs_json(collated)
+
+    '''
     with open("dialogs.json", "w") as file:
         json.dump(npc_trees, file, indent=4, sort_keys=True)
 
@@ -473,10 +488,10 @@ if __name__ == "__main__":
 
     with open("lines.json", "w") as file:
         json.dump(lines, file, indent=4, sort_keys = True)
-
+    '''
     # write_lines_json(lines)
+    # print_blocks(blocks)
 
     if len(sys.argv) > 1 and sys.argv[1] == "speech":
         export_speech(lines)
 
-    # print_blocks(blocks)
