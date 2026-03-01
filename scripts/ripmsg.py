@@ -12,6 +12,7 @@ from env_paths import (
     MSG_PATH,
     AGS_SPEECH_PATH,
 )
+from export_dialogs import write_ags_dialogs
 from riputils import (
     CHARACTER_IDS,
     NPC_ROOMS,
@@ -104,11 +105,11 @@ def msg_to_key(msg):
 
 def to_line_id(block):
     key = msg_to_key(block.msg)
-    return "{}_{}_{}_{}".format(block.character_id, block.guid[0], block.index, key)
+    return "{}_{}_{}__{}".format(block.character_id, block.guid[0], block.index, key)
 
 def to_dialog_id(block, msg):
     key = msg_to_key(msg)
-    return "{}_{}_{}".format(block.guid[0], block.index, key)
+    return "{}_{}__{}".format(block.guid[0], block.index, key)
 
 
 """
@@ -241,7 +242,7 @@ def get_prompt(guid, blocks):
     prompt = dict()
 
     if block.msg:
-        prompt["ego"] = block.msg
+        prompt["ego"] = clean_msg(block.msg)
     else:
         prompt["ego"] = "TODO"
 
@@ -313,13 +314,21 @@ def get_singles(singles, blocks):
             dialog["room"] = ROOM_IDS[block.room()]
             singles[key] = dialog
 
+def clean_msg(msg):
+    s = msg.strip()
+    if s.startswith('"') and s.endswith('"'):
+        s = s[1:len(s)-1]
+    s = s.replace('  ', ' ')
+    s = s.replace('\r\n', '\\n')
+    return s
+
 def get_lines(lines, blocks, counts):
     for guid, block in blocks.items():
         if not block.msg:
             continue
 
         data = dict()
-        data["msg"] = block.msg.strip('"')
+        data["msg"] = clean_msg(block.msg)
         if block.character_id > 10:
             data["audiofile"] = to_id_filename("A", block.guid)
             # data["lipsyncfile"] = to_id_filename("S", block.guid)
@@ -451,6 +460,7 @@ if __name__ == "__main__":
     counts = dict()
 
     for room_num in ROOM_IDS.keys():
+    # for room_num in [250, 255, 257]:
         fpath = os.path.join(MSG_PATH, "{}.QGM".format(room_num))
         print("Extracting messages from {}...".format(fpath))
         blocks = extract_blocks(fpath)
@@ -476,7 +486,6 @@ if __name__ == "__main__":
     collate_dialogs(collated, narrator_trees, "action_trees")
     write_dialogs_json(collated)
 
-    '''
     with open("dialogs.json", "w") as file:
         json.dump(npc_trees, file, indent=4, sort_keys=True)
 
@@ -488,10 +497,12 @@ if __name__ == "__main__":
 
     with open("lines.json", "w") as file:
         json.dump(lines, file, indent=4, sort_keys = True)
-    '''
     # write_lines_json(lines)
     # print_blocks(blocks)
 
     if len(sys.argv) > 1 and sys.argv[1] == "speech":
         export_speech(lines)
+
+    if len(sys.argv) > 1 and sys.argv[1] == "dialogs":
+        write_ags_dialogs(collated, lines)
 
