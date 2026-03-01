@@ -72,11 +72,10 @@ def msg_to_key(msg):
 
 def export_cycle(dialog_name, ego_line, cycle_list, lines, cycles, ofile):
     cycle = Cycle('cycle{}{}{}{}'.format(TOPIC_DELIMITER, dialog_name, TOPIC_DELIMITER, msg_to_key(ego_line)), cycles.index)
-    for response in cycle_list:
-        for line_key in response:
-            if line_key in lines:
-                speaker = lines[line_key]["character"]
-                cycle.line_pairs.append((speaker, resolve_line(line_key, lines)))
+    for line_key in cycle_list:
+        if line_key in lines:
+            speaker = lines[line_key]["character"]
+            cycle.line_pairs.append((speaker, resolve_line(line_key, lines)))
     cycles.cache.append(cycle)
     cycles.index += 1
     ofile.write("    {}();\n".format(cycle.key))
