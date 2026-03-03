@@ -112,6 +112,27 @@ def to_dialog_id(block, msg):
     return "{}_{}__{}".format(block.guid[0], block.index, key)
 
 
+def get_response_hint(response):
+    for line_key in response:
+        return '{}__root'.format(line_key.split('__')[1])
+    return "root"
+
+def get_dialog_hint(dialog):
+    if "intro" in dialog:
+        return get_response_hint(dialog["intro"])
+
+    for prompt in dialog["prompts"]:
+        if "response" in prompt:
+            return get_response_hint(prompt["response"])
+        else:
+            return "{}__root".format(msg_to_key(prompt["ego"]))
+
+    return "root"
+
+def to_root_dialog_id(block, dialog):
+    return "{}_{}__{}".format(block.guid[0], block.index, get_dialog_hint(dialog))
+
+
 """
 1. split data into 4-byte chunks and tail 0-3 bytes long;
 2. for each 4-byte chunk repeat steps 3-6:
@@ -297,10 +318,11 @@ def get_dialogs(dialogs, blocks):
                     continue
                 dialog["topic"] = to_dialog_id(block, parent.msg)
             else:
-                dialog["topic"] = to_dialog_id(block, "root")
                 # get "intro" message(s) only if not a subdialog
                 if block.msg:
                     dialog["intro"], _ = get_response(guid, blocks)
+                # only safe to use because we never goto a root dialog!!!
+                dialog["topic"] = to_root_dialog_id(block, dialog)
 
             dialogs[dialog["topic"]] = dialog
 
@@ -453,7 +475,7 @@ def export_speech(lines):
         print("exporting {} to {}...".format(src, dst))
         cvtaud(src, dst)
 
-if __name__ == "__main__":
+def rip_msgs():
     singles = dict()
     dialogs = dict()
     lines = dict()
@@ -467,6 +489,15 @@ if __name__ == "__main__":
         get_lines(lines, blocks, counts)
         get_dialogs(dialogs, blocks)
         get_singles(singles, blocks)
+
+    return dialogs, singles, lines
+
+if __name__ == "__main__":
+    argset = set(sys.argv[1:])
+    export_speech = "speech" in argset
+    export_dialogs = "dialogs" in argset
+
+    dialogs, singles, lines = rip_msgs()
 
     npc_trees = dict()
     narrator_trees = dict()
@@ -500,9 +531,9 @@ if __name__ == "__main__":
     # write_lines_json(lines)
     # print_blocks(blocks)
 
-    if len(sys.argv) > 1 and sys.argv[1] == "speech":
+    if export_speech:
         export_speech(lines)
 
-    if len(sys.argv) > 1 and sys.argv[1] == "dialogs":
+    if export_dialogs:
         write_ags_dialogs(collated, lines)
 

@@ -194,7 +194,8 @@ def write_dialogs(ipath, dialogs, lines):
             ofile.write('      <DialogFolder Name="Main">\n')
             ofile.write('        <SubFolders>\n')
 
-            for room_name, room_dict in dialogs.items():
+            for room_name in sorted(dialogs.keys()):
+                room_dict = dialogs[room_name]
                 print("exporting room {}...".format(room_name))
                 ofile.write('          <DialogFolder Name="{}">\n'.format(room_name))
                 ofile.write('            <SubFolders>\n')
