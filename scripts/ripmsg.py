@@ -353,7 +353,7 @@ def get_lines(lines, blocks, counts):
         data["msg"] = clean_msg(block.msg)
         if block.character_id > 10:
             data["audiofile"] = to_id_filename("A", block.guid)
-            # data["lipsyncfile"] = to_id_filename("S", block.guid)
+            data["lipsyncfile"] = to_id_filename("S", block.guid)
         data["character"] = CHARACTER_IDS.get(block.character_id, "I AM ERROR {}".format(block.character_id))
         data["character_id"] = block.character_id
         # line number, for audio file exporting
@@ -492,10 +492,27 @@ def rip_msgs():
 
     return dialogs, singles, lines
 
+def gather_lips(lines):
+    lips = set()
+    for guid, line in lines.items():
+        if "lipsyncfile" not in line:
+            continue
+        src = os.path.join("..", "rip", "CDA", "snc", line["lipsyncfile"])
+        if not os.path.isfile(src):
+            print("{} 404".format(src))
+            continue
+        with open(src, "rb") as file:
+            file.read(2)
+            fn = to_short(file.read(2))
+            lips.add(fn)
+    return lips
+
+
 if __name__ == "__main__":
     argset = set(sys.argv[1:])
     export_speech = "speech" in argset
     export_dialogs = "dialogs" in argset
+    lips = "lips" in argset
 
     dialogs, singles, lines = rip_msgs()
 
@@ -536,4 +553,8 @@ if __name__ == "__main__":
 
     if export_dialogs:
         write_ags_dialogs(collated, lines)
+
+    if lips:
+
+        print(gather_lips(lines))
 
