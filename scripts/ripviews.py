@@ -25,7 +25,7 @@ def read_palette(f):
         palette.append(b)
     return palette
 
-def read_mode_3(f, h, n):
+def read_mode_2(f, h, n):
     arr = []
     lines = 0
     while lines < h * n:
@@ -47,6 +47,14 @@ def read_mode_0(f, h, w, n):
         arr.append(read_byte(f))
     return arr
 
+def read_mode_1(f, h, w, n):
+    dep = []
+    arr = []
+    while (len(arr) < w * h * n):
+        arr.append(read_byte(f))
+        dep.append(read_byte(f))
+    return arr
+
 def read_collection(f, palette, mode):
     x = read_int(f)
     y = read_int(f)
@@ -65,12 +73,14 @@ def read_collection(f, palette, mode):
     for i in range(n):
         read_int(f)
 
-    if (mode >= 2):
-        arr = read_mode_3(f, h, n)
-    elif (mode == 0):
+    if mode == 0:
         arr = read_mode_0(f, h, w, n)
+    elif mode == 1:
+        arr = read_mode_1(f, h, w, n)
+    elif mode <= 4:
+        arr = read_mode_2(f, h, n)
     else:
-        print("...mode {} not yet implemented".format(mode))
+        print("unknown mode {} detected, corruption suspected. aborting.".format(mode))
         return []
     
     imgs = []
