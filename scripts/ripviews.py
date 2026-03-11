@@ -10,11 +10,20 @@ def read_int(f):
 def read_short(f):
     return int.from_bytes(f.read(2), 'little')
 
-def read_pallet(f):
-    pallet = []
+def read_byte(f):
+    return int.from_bytes(f.read(1), 'little')
+
+def read_palette(f):
+    palette = []
     for i in range(256):
-        pallet.append(int.from_bytes(f.read(2), 'little'))
-    return pallet
+        rgb555 = read_short(f)
+        b = (0x1F & (rgb555 >> 0)) << 3
+        g = (0x1F & (rgb555 >> 5)) << 3
+        r = (0x1F & (rgb555 >> 10)) << 3
+        palette.append(r)
+        palette.append(g)
+        palette.append(b)
+    return palette
 
 def read_mode_3(f, h, n):
     arr = []
@@ -25,9 +34,9 @@ def read_mode_3(f, h, n):
             lines += 1
         elif (code < 0):
             for _ in range(abs(code)):
-                arr.append(int.from_bytes(f.read(1)))
+                arr.append(read_byte(f))
         else:
-            b = int.from_bytes(f.read(1))
+            b = read_byte(f)
             for _ in range(code):
                 arr.append(b)
     return arr
@@ -35,10 +44,10 @@ def read_mode_3(f, h, n):
 def read_mode_0(f, h, w, n):
     arr = []
     while (len(arr) < w * h * n):
-        arr.append(int.from_bytes(f.read(1)))
+        arr.append(read_byte(f))
     return arr
 
-def read_collection(f, pallet, mode):
+def read_collection(f, palette, mode):
     x = read_int(f)
     y = read_int(f)
     w = read_int(f)
@@ -48,7 +57,7 @@ def read_collection(f, pallet, mode):
     flags = read_int(f)
 
     print("...{} {}x{} frames detected with delay {}".format(n, w, h, delay))
-    if (n > 4192 or w == 0 or h == 0 or n == 0):
+    if (n > 256 or w == 0 or h == 0 or n == 0):
         print("...corruption suspected. aborting.")
         return []
 
@@ -66,22 +75,20 @@ def read_collection(f, pallet, mode):
     
     imgs = []
     for k in range(n):
-        img = np.zeros((h, w, 3), dtype=np.uint8)
+        img = Image.new('P', (w, h))
+        img.putpalette(palette, 'RGB')
         for i in range(w):
             for j in range(h):
                 index = (k * h * w) + (j * w) + i
                 if index >= len(arr):
                     print("invalid index attempted: {} > {}".format(index, len(arr)))
                     return imgs
-                rgb555 = pallet[arr[index]]
-                img[j, i, 0] = (0b0000000000011111 & rgb555) << 3
-                img[j, i, 1] = (0b0000000000011111 & (rgb555 >> 5)) << 3
-                img[j, i, 2] = (0b0000000000011111 & (rgb555 >> 10)) << 3
+                img.putpixel((i, j), arr[index])
         imgs.append(img)
     return imgs
 
 def process_file(filename):
-    outdir = os.path.join('..', 'rip', 'sprites', os.path.basename(filename).split('.')[0])
+    outdir = os.path.join('..', 'rip', 'views', os.path.basename(filename).split('.')[0])
     if (not os.path.isdir(outdir)):
         os.mkdir(outdir)
 
@@ -89,22 +96,23 @@ def process_file(filename):
         mode = read_int(f)
         num_collections = read_int(f)
         print("{}: {} collections encoded with mode {}".format(filename, num_collections, mode))
-        pallet = read_pallet(f)
+        palette = read_palette(f)
 
         # offsets
         for _ in range(num_collections):
             read_int(f)
 
         for c in range(num_collections):
-            imgs = read_collection(f, pallet, mode)
+            imgs = read_collection(f, palette, mode)
             i = 0
             for img in imgs:
-                outfile = os.path.join(outdir, "frame_{}_{}.bmp".format(i, c))
-                cv.imwrite(outfile, img)
+                outpath = os.path.join(outdir, "{}v{}.png".format(c, i))
+                img.save(outpath)
                 i += 1
 
 if __name__ == "__main__":
-    for headnum in range(5, 73):
+    # for headnum in range(5, 73):
+    for headnum in range(20, 22):
         filename = "{}.GRA".format(100000 + headnum)
         path = os.path.join('..', 'rip', 'CDN', 'GRA', "{}.GRA".format(100000 + headnum))
         if os.path.isfile(path):
