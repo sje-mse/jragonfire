@@ -21,6 +21,30 @@ from riputils import (
 )
 from wavify import cvtaud
 
+###############################################################################
+## Rip Msgs
+##
+## A Script whose purpose is to dig into the QGM files (previously unpacked
+## using ripspk.py) and:
+## 1. decode all msg blocks
+## 2. collate all lines by speaker
+## 3. associate msg blocks into dialog/interaction trees and singles.
+## 4. export all decoded dialogs, interactions, and singles in AGS.
+## 5. export all speech performance files into AGS.
+##
+## USAGE:
+##
+## python ripmsgs.py [--speech] [--dialogs]
+##
+## arguments:
+##
+## --speech: copies audio files to AGS
+## --dialogs: exports dialog information to AGS.
+##
+## if run without arguments, the data is extracted without exporting to AGS.
+##
+###############################################################################
+
 # Lookup table to help decode audio/lipsync filenames,
 # which are composed of base 36 strings.
 from36 = {
@@ -57,6 +81,7 @@ def to_byte(one_byte):
 def to_id_str(b13):
     return "".join([chr(b) for b in b13[:12]])
 
+# Uses the room number and the base-36 id to create a more legible guid.
 def to_id_tuple(room, b):
     return (
         room,
@@ -66,6 +91,7 @@ def to_id_tuple(room, b):
         from36[b[11]]
     )
 
+# converts the number "num" into a base-36 string of length "l"
 def to_b36_str(num, l):
     hundreds = 36 * 36
     tens = 36
@@ -89,6 +115,9 @@ def to_b36_str(num, l):
 
     return "".join(result)
 
+# converts the guid tuple "t" to the filename of representing either:
+# char1 == "A" - audio
+# char1 == "S" - lipsync
 def to_id_filename(char1, t):
     result = [char1]
     result.append(to_b36_str(t[0], 3))
@@ -99,25 +128,30 @@ def to_id_filename(char1, t):
     result.append(to_b36_str(t[4], 1))
     return "".join(result)
 
+# creates a reasonably human-readable key from a block's message content.
 def msg_to_key(msg):
     plain = re.sub(r'[^a-zA-Z0-9 ]', '', msg)
     parts = [w for w in plain.lower().split(" ") if w]
     return "_".join(parts[:4])
 
+# creates a reasonably human-readable and unique line id.
 def to_line_id(block):
     key = msg_to_key(block.msg)
     return "{}_{}_{}__{}".format(block.character_id, block.guid[0], block.index, key)
 
+# creates a reasonably human-readable and unique dialog id.
 def to_dialog_id(block, msg):
     key = msg_to_key(msg)
     return "{}_{}__{}".format(block.guid[0], block.index, key)
 
-
+# create a reasonably human-readable nickname for a response.
 def get_response_hint(response):
     for line_key in response:
         return '{}__root'.format(line_key.split('__')[1])
     return "root"
 
+# create a reasonably human-readable key for a dialog.
+# helps create a key for this dialog in AGS.
 def get_dialog_hint(dialog):
     if "intro" in dialog:
         return get_response_hint(dialog["intro"])
@@ -132,19 +166,21 @@ def get_dialog_hint(dialog):
 
     return "root"
 
+# create a reasonably human-readable id for a root dialog in AGS.
 def to_root_dialog_id(block, dialog):
     return "{}_{}__{}".format(block.guid[0], block.index, get_dialog_hint(dialog))
 
 
-"""
-1. split data into 4-byte chunks and tail 0-3 bytes long;
-2. for each 4-byte chunk repeat steps 3-6:
-3. read those bytes as 32-bit little-endian number
-4. exclusive-or the value with constant 0xf1acc1d
-5. rotate value cyclically right by 15 bits
-6. store 32-bit number back as four bytes
-7. invert bits in all bytes of the tail.
-"""
+# msg content is obfuscated within the QGM files.
+# this function decodes it using the following algorithm:
+#
+# 1. split data into 4-byte chunks and tail 0-3 bytes long;
+# 2. for each 4-byte chunk repeat steps 3-6:
+# 3. read those bytes as 32-bit little-endian number
+# 4. exclusive-or the value with constant 0xf1acc1d
+# 5. rotate value cyclically right by 15 bits
+# 6. store 32-bit number back as four bytes
+# 7. invert bits in all bytes of the tail.
 def decode(msg):
     deffed = list()
     tailstart = len(msg) - (len(msg) % 4)
@@ -166,6 +202,7 @@ def decode(msg):
 
     return "".join(deffed)
 
+# A utility class to assist in parsing msg block data.
 class MsgBlock:
     def __init__(self):
         self.character_id = 0
@@ -197,6 +234,7 @@ class MsgBlock:
     def follows(self):
         return self.guid[-1] > 1
 
+# Extract a dictionary of the form { block guid : MsgBlock } from the file at "fpath".
 def extract_blocks(fpath):
     blocks = dict()
     with open(fpath, 'rb') as file:
@@ -249,6 +287,11 @@ def extract_blocks(fpath):
             blocks[block.guid] = block
     return blocks
 
+# given a "guid" to start with, gather a list of line_ids that constitute
+# an entire response.
+# returns the list of line ids,
+#         whether or not the response is a cycle,
+#         and a set of all block guids that were gathered.
 def get_response(guid, blocks):
     all_guids = set()
     is_cycle = False
@@ -263,6 +306,7 @@ def get_response(guid, blocks):
         guid = (guid[0], guid[1], guid[2], guid[3], guid[4] + 1)
     return result, is_cycle, all_guids
 
+# return a dictionary representing the prompt data encoded in a block "option" guid.
 def get_prompt(guid, blocks):
     block = blocks[guid]
     prompt = dict()
@@ -300,6 +344,7 @@ def get_prompt(guid, blocks):
             xtra += 1
     return prompt
 
+# associate MsgBlocks into json-ready dialog dictionaries, keyed by unique AGS-friendly keys.
 def get_dialogs(dialogs, blocks):
     for guid, block in blocks.items():
         if (block.has_options()):
@@ -335,6 +380,8 @@ def get_dialogs(dialogs, blocks):
 
             dialogs[dialog["topic"]] = dialog
 
+# get the single "responses" (may be multi-line) that are
+# not associated directly with dialog or interaction trees.
 def get_singles(singles, blocks):
     handled = set()
     for guid, block in blocks.items():
@@ -351,6 +398,7 @@ def get_singles(singles, blocks):
             dialog["room"] = ROOM_IDS[block.room()]
             singles[key] = dialog
 
+# remove quotation marks and illegal characters from block msgs.
 def clean_msg(msg):
     s = msg.strip()
     if s.startswith('"') and s.endswith('"'):
@@ -359,6 +407,7 @@ def clean_msg(msg):
     s = s.replace('\r\n', '\\n')
     return s
 
+# extract useful json-ready line information dicts from MsgBlock.
 def get_lines(lines, blocks, counts):
     for guid, block in blocks.items():
         if not block.msg:
@@ -379,6 +428,7 @@ def get_lines(lines, blocks, counts):
         key = to_line_id(block)
         lines[key] = data
 
+# Debug method: print block data.
 def print_blocks(blocks):
     for guid, block in blocks.items():
         print("{} ({}) {} ========".format(block.juid(), guid, block.filename))
@@ -392,6 +442,7 @@ def print_blocks(blocks):
             print("<<<<{}: {}: {}".format(block.parent_guid, mb.character_id, mb.msg))
         print("{}==========\n".format(block.uk))
 
+# Debug method: print response data.
 def print_response(response, lines):
     for key in response:
         if key in lines:
@@ -399,6 +450,7 @@ def print_response(response, lines):
         else:
             print("----{} NOT FOUND".format(key))
 
+# Debug method: print prompt data.
 def print_prompt(prompt, lines):
     print("--ego: {}".format(prompt["ego"]))
     if "cycle" in prompt:
@@ -410,6 +462,7 @@ def print_prompt(prompt, lines):
         print("goto: {}".format(prompt["goto"]))
     print("\n")
 
+# Debug method: print dialogs.
 def print_dialogs(dialogs, lines):
     for topic, dialog in dialogs.items():
         print("\n=========================")
@@ -426,11 +479,14 @@ def print_dialogs(dialogs, lines):
             for prompt in dialog["prompts"]:
                 print_prompt(prompt, lines)
 
+# determine if the line with key "key" is spoken by an NPC or not.
 def is_npc_line(key, lines):
     if key not in lines:
         return False
     return lines[key]["character_id"] > 5
 
+# determine if a dialog tree is an NPC dialog or something else,
+# (eg an interaction tree.)
 def is_npc_dialog(dialog, lines):
     for key in dialog.get("intro", dialog.get("cycle", list())):
         if is_npc_line(key, lines):
@@ -442,6 +498,7 @@ def is_npc_dialog(dialog, lines):
                 return True
     return False
 
+# collate dialogs by room and folder, for AGS
 def collate_dialogs(collated, dialogs, folder):
     for dialog in dialogs.values():
         room = dialog["room"]
@@ -452,6 +509,7 @@ def collate_dialogs(collated, dialogs, folder):
             rdict[folder] = list()
         rdict[folder].append(dialog)
 
+# collate and dump line data to json.
 def write_lines_json(lines):
     collated = dict()
     for key, line in lines.items():
@@ -471,6 +529,7 @@ def write_lines_json(lines):
         with open(path, "w") as file:
             json.dump(cdict, file, indent=4, sort_keys=True)
 
+# dump collated dialogs to json.
 def write_dialogs_json(collated):
     for room, rdict in collated.items():
         for category, dlist in rdict.items():
@@ -479,6 +538,8 @@ def write_dialogs_json(collated):
             with open(path, "w") as file:
                 json.dump(dlist, file, indent=4, sort_keys = True)
 
+# use the line dictionary to locate audio files, convert to AGS-friendly wav format,
+# and copy them to the expected file location.
 def export_audio(lines):
     for key, line in lines.items():
         char_id = line["character_id"]
@@ -493,6 +554,8 @@ def export_audio(lines):
         print("exporting {} to {}...".format(src, dst))
         cvtaud(src, dst)
 
+# rip all messages from all QGM files.
+# return dialogs, singles, and lines dictionaries.
 def rip_msgs():
     singles = dict()
     dialogs = dict()
@@ -510,6 +573,7 @@ def rip_msgs():
         # print_blocks(blocks)
     return dialogs, singles, lines
 
+# locate Lipsync files. TODO: Probably not to be used.
 def gather_lips(lines):
     lips = set()
     for guid, line in lines.items():
@@ -528,9 +592,9 @@ def gather_lips(lines):
 
 if __name__ == "__main__":
     argset = set(sys.argv[1:])
-    export_speech = "speech" in argset
-    export_dialogs = "dialogs" in argset
-    lips = "lips" in argset
+    export_speech = "--speech" in argset
+    export_dialogs = "--dialogs" in argset
+    lips = "--lips" in argset
 
     dialogs, singles, lines = rip_msgs()
 
