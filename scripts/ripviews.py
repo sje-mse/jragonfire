@@ -6,6 +6,22 @@ from riputils import NPC_HEADS
 
 LEN_RPAL = 72
 
+###############################################################################
+## RIP VIEWS
+##
+## Extract animated sprite information from .GRA files (previously unpacked
+## from spk files using ripspk.py) and dump them to PNG,
+## preparing for the possibility of exporting them to AGS.
+##
+## USAGE:
+##
+## python ripviews.py [--remap]
+##
+## if argument "--remap" is provided, makes an attempt to remap original color
+## data to the sprite portion of the universal palette.
+##
+###############################################################################
+
 def read_int(f):
     return int.from_bytes(f.read(4), 'little')
 
@@ -15,6 +31,8 @@ def read_short(f):
 def read_byte(f):
     return int.from_bytes(f.read(1), 'little')
 
+# convert palette information from RGB555 to the flat 256 * 3 entry table
+# expected by the PIL library.
 def read_palette(f):
     palette = []
     for i in range(256):
@@ -27,6 +45,7 @@ def read_palette(f):
         palette.append(b)
     return palette
 
+# RLE
 def read_mode_2(f, h, n):
     arr = []
     lines = 0
@@ -43,12 +62,14 @@ def read_mode_2(f, h, n):
                 arr.append(b)
     return arr
 
+# raw pixel data
 def read_mode_0(f, h, w, n):
     arr = []
     while (len(arr) < w * h * n):
         arr.append(read_byte(f))
     return arr
 
+# pixel data interlaced with depth data.
 def read_mode_1(f, h, w, n):
     dep = []
     arr = []
@@ -57,6 +78,10 @@ def read_mode_1(f, h, w, n):
         dep.append(read_byte(f))
     return arr
 
+# given the indexed image encoded in arr,
+# return a PIL image.
+# optionally, use the mapping provided in "pmap"
+# to replace the indexes in "arr" with their mapped index in "rpal".
 def create_img(num, w, h, arr, palette, rpal, pmap):
     img = Image.new('P', (w, h))
     if pmap:
@@ -147,6 +172,8 @@ def get_rpal():
         rpal[i] = 0
     return rpal
 
+# attempt to create a mapping from indexes from the extracted palette "pal"
+# to the sprite palette "rpal". Uses a fairly naive algorithm.
 def get_pmap(pal, rpal):
     if not rpal:
         return dict()
@@ -166,7 +193,7 @@ def get_pmap(pal, rpal):
 
 if __name__ == "__main__":
     rpal = []
-    if "remap" in sys.argv:
+    if "--remap" in sys.argv:
         rpal = get_rpal()
 
     for headnum in range(5, 73):
