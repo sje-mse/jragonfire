@@ -12,6 +12,7 @@ from env_paths import (
     MSG_PATH,
     AGS_SPEECH_PATH,
 )
+
 from export_dialogs import write_ags_dialogs
 from riputils import (
     CHARACTER_IDS,
@@ -120,6 +121,8 @@ def get_response_hint(response):
 def get_dialog_hint(dialog):
     if "intro" in dialog:
         return get_response_hint(dialog["intro"])
+    elif "cycle" in dialog:
+        return get_response_hint(dialog["cycle"])
 
     for prompt in dialog["prompts"]:
         if "response" in prompt:
@@ -247,16 +250,18 @@ def extract_blocks(fpath):
     return blocks
 
 def get_response(guid, blocks):
+    all_guids = set()
     is_cycle = False
     result = list()
     while guid in blocks:
+        all_guids.add(guid)
         block = blocks[guid]
         if block.msg:
             result.append(to_line_id(block))
         if block.is_cycle():
             is_cycle = True
         guid = (guid[0], guid[1], guid[2], guid[3], guid[4] + 1)
-    return result, is_cycle
+    return result, is_cycle, all_guids
 
 def get_prompt(guid, blocks):
     block = blocks[guid]
@@ -269,7 +274,7 @@ def get_prompt(guid, blocks):
 
     if block.has_options():
         o_guid = block.options[0]
-        response, is_cycle = get_response(o_guid, blocks)
+        response, is_cycle, _ = get_response(o_guid, blocks)
         if response:
             if is_cycle:
                 prompt["cycle"] = response
@@ -284,7 +289,7 @@ def get_prompt(guid, blocks):
     if len(block.options) > 1:
         xtra = 1
         for o_guid in block.options[1:]:
-            response, is_cycle = get_response(o_guid, blocks)
+            response, is_cycle, _ = get_response(o_guid, blocks)
             if response:
                 if is_cycle:
                     prompt["xtra_cycle_{}".format(xtra)] = response
@@ -320,18 +325,28 @@ def get_dialogs(dialogs, blocks):
             else:
                 # get "intro" message(s) only if not a subdialog
                 if block.msg:
-                    dialog["intro"], _ = get_response(guid, blocks)
+                    intro, is_cycle, _ = get_response(guid, blocks)
+                    if is_cycle:
+                        dialog["cycle"] = intro
+                    else:
+                        dialog["intro"] = intro
                 # only safe to use because we never goto a root dialog!!!
                 dialog["topic"] = to_root_dialog_id(block, dialog)
 
             dialogs[dialog["topic"]] = dialog
 
 def get_singles(singles, blocks):
+    handled = set()
     for guid, block in blocks.items():
-        if not block.follows() and block.character_id > 2 and not block.has_parent() and not block.has_options():
+        if not guid in handled and not block.follows() and not block.has_parent() and not block.has_options():
             dialog = dict()
             key = to_dialog_id(block, block.msg)
-            dialog["intro"], _ = get_response(guid, blocks)
+            intro, is_cycle, guids = get_response(guid, blocks)
+            handled.update(guids)
+            if is_cycle:
+                dialog["cycle"] = intro
+            else:
+                dialog["intro"] = intro
             dialog["topic"] = key
             dialog["room"] = ROOM_IDS[block.room()]
             singles[key] = dialog
@@ -402,6 +417,9 @@ def print_dialogs(dialogs, lines):
         if "intro" in dialog:
             print("intro:")
             print_response(dialog["intro"], lines)
+        elif "cycle" in dialog:
+            print("intro(cycle):")
+            print_response(dialog["cycle"], lines)
 
         if "prompts" in dialog:
             print("prompts:")
@@ -414,11 +432,11 @@ def is_npc_line(key, lines):
     return lines[key]["character_id"] > 5
 
 def is_npc_dialog(dialog, lines):
-    for key in dialog.get("intro", list()):
+    for key in dialog.get("intro", dialog.get("cycle", list())):
         if is_npc_line(key, lines):
             return True
 
-    for prompt in dialog["prompts"]:
+    for prompt in dialog.get("prompts", list()):
         for key in prompt.get("cycle", prompt.get("response", list())):
             if is_npc_line(key, lines):
                 return True
@@ -461,7 +479,7 @@ def write_dialogs_json(collated):
             with open(path, "w") as file:
                 json.dump(dlist, file, indent=4, sort_keys = True)
 
-def export_speech(lines):
+def export_audio(lines):
     for key, line in lines.items():
         char_id = line["character_id"]
         if char_id < 10:
@@ -482,14 +500,14 @@ def rip_msgs():
     counts = dict()
 
     for room_num in ROOM_IDS.keys():
-    # for room_num in [250, 255, 257]:
+    # for room_num in [385]:
         fpath = os.path.join(MSG_PATH, "{}.QGM".format(room_num))
         print("Extracting messages from {}...".format(fpath))
         blocks = extract_blocks(fpath)
         get_lines(lines, blocks, counts)
         get_dialogs(dialogs, blocks)
         get_singles(singles, blocks)
-
+        print_blocks(blocks)
     return dialogs, singles, lines
 
 def gather_lips(lines):
@@ -524,14 +542,24 @@ if __name__ == "__main__":
         else:
             narrator_trees[topic] = dialog
 
+    npc_singles = dict()
+    narrator_singles = dict()
+    for topic, single in singles.items():
+        if is_npc_dialog(single, lines):
+            npc_singles[topic] = single
+        else:
+            narrator_singles[topic] = single
+
     print("{} npc dialog trees detected".format(len(npc_trees.keys())))
-    print("{} singles detected".format(len(singles.keys())))
+    print("{} npc singles detected".format(len(npc_singles.keys())))
     print("{} interaction trees detected".format(len(narrator_trees.keys())))
+    print("{} interaction singles detected".format(len(narrator_singles.keys())))
 
     collated = dict()
     collate_dialogs(collated, npc_trees, "npc_trees")
-    collate_dialogs(collated, singles, "npc_singles")
+    collate_dialogs(collated, npc_singles, "npc_singles")
     collate_dialogs(collated, narrator_trees, "action_trees")
+    collate_dialogs(collated, narrator_singles, "action_singles")
     write_dialogs_json(collated)
 
     with open("dialogs.json", "w") as file:
@@ -540,21 +568,22 @@ if __name__ == "__main__":
     with open("interactions.json", "w") as file:
         json.dump(narrator_trees, file, indent=4, sort_keys=True)
 
-    with open("singles.json", "w") as file:
-        json.dump(singles, file, indent=4, sort_keys=True)
+    with open("interaction_singles.json", "w") as file:
+        json.dump(narrator_singles, file, indent=4, sort_keys=True)
+
+    with open("npc_singles.json", "w") as file:
+        json.dump(npc_singles, file, indent=4, sort_keys=True)
 
     with open("lines.json", "w") as file:
         json.dump(lines, file, indent=4, sort_keys = True)
-    # write_lines_json(lines)
-    # print_blocks(blocks)
+    write_lines_json(lines)
 
     if export_speech:
-        export_speech(lines)
+        export_audio(lines)
 
     if export_dialogs:
         write_ags_dialogs(collated, lines)
 
     if lips:
-
         print(gather_lips(lines))
 

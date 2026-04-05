@@ -111,6 +111,8 @@ def export_dialog(id_count, dialog, lines, cycles, ofile):
 
     if "intro" in dialog:
         export_response(dialog["intro"], lines, ofile)
+    elif "cycle" in dialog:
+        export_cycle(name, "intro", dialog["cycle"], lines, cycles, ofile)
 
     if name.endswith(PREAMBLE_SUFFIX):
         ofile.write(get_goto_cmd(name, "root"))
@@ -183,7 +185,7 @@ def write_dialogs(ipath, dialogs, lines):
     cycles = CycleCache()
 
     with open(ipath, 'r') as ifile:
-        with open(TMP_PATH, 'w') as ofile:
+        with open(TMP_PATH, 'w', encoding="utf-8") as ofile:
             # copy pre-dialog section.
             while line := ifile.readline():
                 ofile.write(line)
@@ -226,7 +228,7 @@ def write_dialogs(ipath, dialogs, lines):
                     ofile.write(line)
 
     # write cycles
-    with open(CYCLES_HEADER_PATH, 'w') as ofile:
+    with open(CYCLES_HEADER_PATH, 'w', encoding="utf-8") as ofile:
         ofile.write('// Header file for Dialog Cycles\n')
         ofile.write('\n')
         ofile.write('import function reset_dialog_cycle_counters();\n')
@@ -234,7 +236,7 @@ def write_dialogs(ipath, dialogs, lines):
         for cycle in cycles.cache:
             ofile.write('import function {}();\n'.format(cycle.key))
 
-    with open(CYCLES_SCRIPT_PATH, 'w') as ofile:
+    with open(CYCLES_SCRIPT_PATH, 'w', encoding="utf-8") as ofile:
         for i in range(cycles.max_cycles):
             ofile.write("int cycle_counter_{};\n".format(i))
 
