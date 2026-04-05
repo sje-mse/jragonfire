@@ -178,6 +178,11 @@ def write_ags_dialogs(dialogs, lines):
     print('copying {} to {}'.format(TMP_PATH, AGS_XML_PATH))
     shutil.copy(TMP_PATH, AGS_XML_PATH)
 
+def escape_string(s):
+    s = s.replace('"', '\\"')
+    s = s.replace("'", "\\'")
+    return s
+
 def write_dialogs(ipath, dialogs, lines):
     id_count = 0
 
@@ -185,7 +190,7 @@ def write_dialogs(ipath, dialogs, lines):
     cycles = CycleCache()
 
     with open(ipath, 'r') as ifile:
-        with open(TMP_PATH, 'w', encoding="utf-8") as ofile:
+        with open(TMP_PATH, 'w') as ofile:
             # copy pre-dialog section.
             while line := ifile.readline():
                 ofile.write(line)
@@ -228,7 +233,7 @@ def write_dialogs(ipath, dialogs, lines):
                     ofile.write(line)
 
     # write cycles
-    with open(CYCLES_HEADER_PATH, 'w', encoding="utf-8") as ofile:
+    with open(CYCLES_HEADER_PATH, 'w') as ofile:
         ofile.write('// Header file for Dialog Cycles\n')
         ofile.write('\n')
         ofile.write('import function reset_dialog_cycle_counters();\n')
@@ -236,7 +241,7 @@ def write_dialogs(ipath, dialogs, lines):
         for cycle in cycles.cache:
             ofile.write('import function {}();\n'.format(cycle.key))
 
-    with open(CYCLES_SCRIPT_PATH, 'w', encoding="utf-8") as ofile:
+    with open(CYCLES_SCRIPT_PATH, 'w') as ofile:
         for i in range(cycles.max_cycles):
             ofile.write("int cycle_counter_{};\n".format(i))
 
@@ -257,7 +262,10 @@ def write_dialogs(ipath, dialogs, lines):
             line_index = 0;
             for speaker_key, line in cycle.line_pairs:
                 ofile.write('    case {}:\n'.format(line_index))
-                ofile.write('        c{}.Say("{}");\n'.format(speaker_key.title(), line))
+                if speaker_key == "narrator":
+                    ofile.write('        Display("{}");\n'.format(escape_string(line)))
+                else:
+                    ofile.write('        c{}.Say("{}");\n'.format(speaker_key.title(), escape_string(line)))
                 ofile.write('        break;\n')
                 line_index += 1
 

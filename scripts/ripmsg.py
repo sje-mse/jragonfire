@@ -355,7 +355,7 @@ def clean_msg(msg):
     s = msg.strip()
     if s.startswith('"') and s.endswith('"'):
         s = s[1:len(s)-1]
-    s = s.replace('  ', ' ')
+    s = s.replace("\x92", "'")
     s = s.replace('\r\n', '\\n')
     return s
 
@@ -507,7 +507,7 @@ def rip_msgs():
         get_lines(lines, blocks, counts)
         get_dialogs(dialogs, blocks)
         get_singles(singles, blocks)
-        print_blocks(blocks)
+        # print_blocks(blocks)
     return dialogs, singles, lines
 
 def gather_lips(lines):
