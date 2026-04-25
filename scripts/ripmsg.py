@@ -14,7 +14,7 @@ from env_paths import (
 )
 
 from export_dialogs import write_ags_dialogs
-from riputils import (
+from legend import (
     CHARACTER_IDS,
     NPC_ROOMS,
     ROOM_IDS,
