@@ -39,7 +39,7 @@ def read_panorama(path):
         w = read_int(f)
         h = read_int(f)
         f.read(24)
-        return read_rle(f, h), w, h 
+        return read_rle(f, h), w, h
 
 # given the indexed image encoded in arr
 # return a PIL image.
@@ -57,6 +57,11 @@ def create_img(w, h, arr, palette):
             pixel = arr[index]
             img.putpixel((h - 1 - y, x), pixel)
     return img
+
+def process_img(img):
+    down = img.resize((img.width // 2, img.height // 2))
+    quant = down.quantize(colors=128)
+    return quant
 
 def rip_panoramas():
     outdir = os.path.join('..', 'rip', 'panoramas')
@@ -77,6 +82,8 @@ def rip_panoramas():
         palette = read_palette(palette_path)
         panorama, w, h = read_panorama(panorama_path)
         img = create_img(w, h, panorama, palette)
+        # proc = process_img(img)
+        # proc.save(os.path.join(outdir, "{}.png".format(filestem)))
         print("{}: {}x{}...".format(filestem, h, w))
         img.save(os.path.join(outdir, "{}.png".format(filestem)))
 

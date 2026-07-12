@@ -22,6 +22,7 @@ ROOT_SUFFIX = "{}root".format(TOPIC_DELIMITER)
 PREAMBLE_SUFFIX = "{}preamble".format(TOPIC_DELIMITER)
 CYCLES_HEADER_PATH = os.path.join(AGS_PATH, "DialogCycles.ash")
 CYCLES_SCRIPT_PATH = os.path.join(AGS_PATH, "DialogCycles.asc")
+OPTIONS_HEADER_PATH = os.path.join(AGS_PATH, "DialogOptions.ash")
 
 class Cycle:
     def __init__(self, key, index):
@@ -91,7 +92,7 @@ def export_option(option_id, line, ofile):
 def get_goto_cmd(dialog_name, target):
     return 'goto-dialog d{}\n'.format(target)
 
-def export_dialog(id_count, dialog, lines, cycles, ofile):
+def export_dialog(id_count, dialog, lines, cycles, options, ofile):
     name = dialog["topic"]
     ofile.write('              <Dialog>\n')
     ofile.write('               <ID>{}</ID>\n'.format(id_count))
@@ -128,8 +129,13 @@ def export_dialog(id_count, dialog, lines, cycles, ofile):
         option_id += 1
         ofile.write('@{}\n'.format(option_id))
 
+        # create a unique integer key for this dialog option
+        option_key = "DO__{}__{}__{}".format(name, option_id, msg_to_key(prompt["ego"])).upper()
+        options.append((option_key, len(options) + 1))
+
         if "response" in prompt:
             export_response(prompt["response"], lines, ofile)
+            ofile.write("    on_dialog_option({});\n".format(option_key))
         elif "cycle" in prompt:
             export_cycle(name, prompt["ego"], prompt["cycle"], lines, cycles, ofile)
 
@@ -188,6 +194,7 @@ def write_dialogs(ipath, dialogs, lines):
 
     stack = []
     cycles = CycleCache()
+    options = [] # (key, value) for option constants
 
     with open(ipath, 'r') as ifile:
         with open(TMP_PATH, 'w') as ofile:
@@ -214,7 +221,7 @@ def write_dialogs(ipath, dialogs, lines):
                     ofile.write('                <Dialogs>\n')
 
                     for dialog in dialog_list:
-                        export_dialog(id_count, dialog, lines, cycles, ofile)
+                        export_dialog(id_count, dialog, lines, cycles, options, ofile)
                         id_count += 1
                     ofile.write('                </Dialogs>\n')
                     ofile.write('              </DialogFolder>\n')
@@ -275,6 +282,16 @@ def write_dialogs(ipath, dialogs, lines):
             ofile.write('    }\n')
             ofile.write('    cycle_counter_{} += 1;\n'.format(cycle.index))
             ofile.write('}\n\n')
+
+    # write option codes
+    with open(OPTIONS_HEADER_PATH, 'w') as ofile:
+        ofile.write('// Header file for Dialog Option Codes\n')
+        ofile.write('\n')
+        ofile.write('import function on_dialog_option(int key);\n')
+
+        for option_key, option_value in options:
+            ofile.write("#define {} {}\n".format(option_key, option_value))
+
 
 if __name__ == "__main__":
     print("No direct usage. Use from ripmsg.")

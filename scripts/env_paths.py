@@ -4,7 +4,7 @@ import os
 SPEECH_PATH = os.path.expanduser('~/OneDrive/qfg5/speech')
 
 # the root location of the AGS project
-AGS_PATH = os.path.expanduser('~/OneDrive/qfg5/qfg5vga')
+AGS_PATH = os.path.expanduser('~/Oak/qfg5vga')
 
 # the target location for exported recorded speech files.
 AGS_SPEECH_PATH = os.path.join(AGS_PATH, 'Speech')
