@@ -23,6 +23,7 @@ PREAMBLE_SUFFIX = "{}preamble".format(TOPIC_DELIMITER)
 CYCLES_HEADER_PATH = os.path.join(AGS_PATH, "DialogCycles.ash")
 CYCLES_SCRIPT_PATH = os.path.join(AGS_PATH, "DialogCycles.asc")
 OPTIONS_HEADER_PATH = os.path.join(AGS_PATH, "DialogOptions.ash")
+OPTIONS_SCRIPT_PATH = os.path.join(AGS_PATH, "DialogOptions.asc")
 
 class Cycle:
 	def __init__(self, key):
@@ -79,10 +80,11 @@ def get_goto_cmd(dialog_name, target):
 
 # id_count: unique integer id
 # dialog: dictionary, created by ripmsg
-# line: dictionary of all lines in the game
-# cycles: list of Cycles for this room.
+# line: dictionary of all lines in the game. created by ripmsg.
+# cycles: list of Cycles for this room. Populated by this function.
+# options: set of trees that should have option functions. Populated by this function.
 # ofile: output file
-def export_dialog(id_count, dialog, lines, cycles, ofile):
+def export_dialog(id_count, dialog, lines, cycles, options, ofile):
 	name = dialog["topic"]
 	ofile.write('			  <Dialog>\n')
 	ofile.write('			   <ID>{}</ID>\n'.format(id_count))
@@ -108,16 +110,19 @@ def export_dialog(id_count, dialog, lines, cycles, ofile):
 	option_id = 0
 	prompts = dialog.get("prompts", [])
 	for i, prompt in enumerate(prompts):
+		option_func = "on_{}_option".format(name)
+		options.add(option_func)
+
 		prompt = prompts[i]
 		option_id += 1
 		ofile.write('@{}\n'.format(option_id))
 
 		if "response" in prompt:
 			export_response(prompt["response"], lines, ofile)
-			# TODO: dialog option script
-			# ofile.write("	on_dialog_option({});\n".format(option_key))
+			ofile.write("	{}({});\n".format(option_func, option_id))
 		elif "cycle" in prompt:
 			export_cycle(name, prompt["ego"], prompt["cycle"], lines, cycles, ofile)
+			ofile.write("	{}({});\n".format(option_func, option_id))
 
 		# TODO: Actions
 
@@ -172,8 +177,9 @@ def escape_string(s):
 def write_dialogs(ipath, dialogs, lines):
 	id_count = 0
 
-	stack = []
-	cycles = {} # { room_name :  [Cycles] }
+	stack = list()
+	cycles = dict() # { room_name :  [Cycles] }
+	options = set()
 
 	with open(ipath, 'r') as ifile:
 		with open(TMP_PATH, 'w') as ofile:
@@ -203,7 +209,7 @@ def write_dialogs(ipath, dialogs, lines):
 					ofile.write('				<Dialogs>\n')
 
 					for dialog in dialog_list:
-						export_dialog(id_count, dialog, lines, cycle_list, ofile)
+						export_dialog(id_count, dialog, lines, cycle_list, options, ofile)
 						id_count += 1
 					ofile.write('				</Dialogs>\n')
 					ofile.write('			  </DialogFolder>\n')
@@ -270,16 +276,18 @@ def write_dialogs(ipath, dialogs, lines):
 				ofile.write('	cycle_counter_{} += 1;\n'.format(index))
 				ofile.write('}\n\n')
 
-	'''
-	# write option codes
+	# write option functions
+	funcs = sorted(options)
 	with open(OPTIONS_HEADER_PATH, 'w') as ofile:
 		ofile.write('// Header file for Dialog Option Codes\n')
 		ofile.write('\n')
-		ofile.write('import function on_dialog_option(int key);\n')
-
-		for option_key, option_value in options:
-			ofile.write("#define {} {}\n".format(option_key, option_value))
-	'''
+		for func in funcs:
+			ofile.write('import function {}(int option);\n'.format(func))
+	
+	with open(OPTIONS_SCRIPT_PATH, 'w') as ofile:
+		for func in funcs:
+			ofile.write('function {}(int option)\n'.format(func))
+			ofile.write('{}\n')
 
 
 if __name__ == "__main__":
