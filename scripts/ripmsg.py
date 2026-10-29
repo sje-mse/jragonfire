@@ -13,7 +13,10 @@ from env_paths import (
     AGS_SPEECH_PATH,
 )
 
-from export_dialogs import write_ags_dialogs
+from export_dialogs import (
+    write_ags_dialogs,
+    write_ags_options
+)
 from legend import (
     CHARACTER_IDS,
     NPC_ROOMS,
@@ -594,6 +597,7 @@ if __name__ == "__main__":
     argset = set(sys.argv[1:])
     export_speech = "--speech" in argset
     export_dialogs = "--dialogs" in argset
+    export_options = "--options" in argset
     lips = "--lips" in argset
 
     dialogs, singles, lines = rip_msgs()
@@ -647,6 +651,9 @@ if __name__ == "__main__":
 
     if export_dialogs:
         write_ags_dialogs(collated, lines)
+
+    if export_options:
+        write_ags_options(collated)
 
     if lips:
         print(gather_lips(lines))

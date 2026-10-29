@@ -78,13 +78,15 @@ def export_option(option_id, line, ofile):
 def get_goto_cmd(dialog_name, target):
 	return 'goto-dialog d{}\n'.format(target)
 
+def get_option_func(name):
+	return "on_{}_option".format(name)
+
 # id_count: unique integer id
 # dialog: dictionary, created by ripmsg
 # line: dictionary of all lines in the game. created by ripmsg.
 # cycles: list of Cycles for this room. Populated by this function.
-# options: set of trees that should have option functions. Populated by this function.
 # ofile: output file
-def export_dialog(id_count, dialog, lines, cycles, options, ofile):
+def export_dialog(id_count, dialog, lines, cycles, ofile):
 	name = dialog["topic"]
 	ofile.write('			  <Dialog>\n')
 	ofile.write('			   <ID>{}</ID>\n'.format(id_count))
@@ -100,18 +102,21 @@ def export_dialog(id_count, dialog, lines, cycles, options, ofile):
 	elif "cycle" in dialog:
 		export_cycle(name, "intro", dialog["cycle"], lines, cycles, ofile)
 
+	prompts = dialog.get("prompts", [])
+
 	if name.endswith(PREAMBLE_SUFFIX):
 		ofile.write(get_goto_cmd(name, "root"))
 	else:
+		if not prompts:
+			ofile.write("	on_dialog_exit(this);\n")
 		ofile.write('return\n')
 
 	# prompt responses
 	is_root = name.endswith(ROOT_SUFFIX)
 	option_id = 0
-	prompts = dialog.get("prompts", [])
 	for i, prompt in enumerate(prompts):
-		option_func = "on_{}_option".format(name)
-		options.add(option_func)
+		option_func = "on_dialog_option";
+		#option_func = get_option_func(name)
 
 		prompt = prompts[i]
 		option_id += 1
@@ -119,16 +124,15 @@ def export_dialog(id_count, dialog, lines, cycles, options, ofile):
 
 		if "response" in prompt:
 			export_response(prompt["response"], lines, ofile)
-			ofile.write("	{}({});\n".format(option_func, option_id))
+			ofile.write("	{}(this, {});\n".format(option_func, option_id))
 		elif "cycle" in prompt:
 			export_cycle(name, prompt["ego"], prompt["cycle"], lines, cycles, ofile)
-			ofile.write("	{}({});\n".format(option_func, option_id))
-
-		# TODO: Actions
+			ofile.write("	{}(this, {});\n".format(option_func, option_id))
 
 		if "goto" in prompt:
 			ofile.write(get_goto_cmd(name, prompt["goto"]))
 		elif is_root and i == (len(prompts) - 1):
+			ofile.write("	on_dialog_exit(this);\n")
 			ofile.write('stop\n')
 		else :
 			ofile.write('return\n')
@@ -179,7 +183,6 @@ def write_dialogs(ipath, dialogs, lines):
 
 	stack = list()
 	cycles = dict() # { room_name :  [Cycles] }
-	options = set()
 
 	with open(ipath, 'r') as ifile:
 		with open(TMP_PATH, 'w') as ofile:
@@ -209,7 +212,7 @@ def write_dialogs(ipath, dialogs, lines):
 					ofile.write('				<Dialogs>\n')
 
 					for dialog in dialog_list:
-						export_dialog(id_count, dialog, lines, cycle_list, options, ofile)
+						export_dialog(id_count, dialog, lines, cycle_list, ofile)
 						id_count += 1
 					ofile.write('				</Dialogs>\n')
 					ofile.write('			  </DialogFolder>\n')
@@ -275,6 +278,14 @@ def write_dialogs(ipath, dialogs, lines):
 				ofile.write('	}\n')
 				ofile.write('	cycle_counter_{} += 1;\n'.format(index))
 				ofile.write('}\n\n')
+
+def write_ags_options(dialogs):
+	options = set()
+	for room_name, room_dict in dialogs.items():
+		for category, dialog_list in room_dict.items():
+			for dialog in dialog_list:
+				if "prompts" in dialog:
+					options.add(get_option_func(dialog["topic"]))
 
 	# write option functions
 	funcs = sorted(options)

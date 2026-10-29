@@ -173,6 +173,7 @@ if __name__ == "__main__":
     if "--remap" in sys.argv:
         rpal = get_rpal()
 
+    '''
     folder = os.path.join('..', 'rip', 'CDN', 'GRA')
     for fname in os.listdir(folder):
         path = os.path.join(folder, fname)
@@ -180,8 +181,8 @@ if __name__ == "__main__":
             process_file(path, rpal)
         else:
             print("404 {}".format(path))
-
     '''
+
     for headnum in range(1000):
         filename = "{}.GRA".format(100000 + headnum)
         path = os.path.join('..', 'rip', 'CDN', 'GRA', "{}.GRA".format(100000 + headnum))
@@ -189,4 +190,3 @@ if __name__ == "__main__":
             process_file(path, rpal)
         else:
             print("404 {}".format(path))
-    '''
