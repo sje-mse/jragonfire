@@ -78,9 +78,6 @@ def export_option(option_id, line, ofile):
 def get_goto_cmd(dialog_name, target):
 	return 'goto-dialog d{}\n'.format(target)
 
-def get_option_func(name):
-	return "on_{}_option".format(name)
-
 # id_count: unique integer id
 # dialog: dictionary, created by ripmsg
 # line: dictionary of all lines in the game. created by ripmsg.
@@ -116,7 +113,6 @@ def export_dialog(id_count, dialog, lines, cycles, ofile):
 	option_id = 0
 	for i, prompt in enumerate(prompts):
 		option_func = "on_dialog_option";
-		#option_func = get_option_func(name)
 
 		prompt = prompts[i]
 		option_id += 1
@@ -278,27 +274,6 @@ def write_dialogs(ipath, dialogs, lines):
 				ofile.write('	}\n')
 				ofile.write('	cycle_counter_{} += 1;\n'.format(index))
 				ofile.write('}\n\n')
-
-def write_ags_options(dialogs):
-	options = set()
-	for room_name, room_dict in dialogs.items():
-		for category, dialog_list in room_dict.items():
-			for dialog in dialog_list:
-				if "prompts" in dialog:
-					options.add(get_option_func(dialog["topic"]))
-
-	# write option functions
-	funcs = sorted(options)
-	with open(OPTIONS_HEADER_PATH, 'w') as ofile:
-		ofile.write('// Header file for Dialog Option Codes\n')
-		ofile.write('\n')
-		for func in funcs:
-			ofile.write('import function {}(int option);\n'.format(func))
-	
-	with open(OPTIONS_SCRIPT_PATH, 'w') as ofile:
-		for func in funcs:
-			ofile.write('function {}(int option)\n'.format(func))
-			ofile.write('{}\n')
 
 
 if __name__ == "__main__":
